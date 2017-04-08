@@ -14,6 +14,6 @@ class Examples extends CI_Controller
     }
 
     public function index(){
-        echo "Hello Wolrd";
+        echo "Hello World";
     }
 }
