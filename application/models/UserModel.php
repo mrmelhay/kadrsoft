@@ -33,7 +33,6 @@ class UserModel extends CI_Model{
                 'kollej_id' => $userdata->kollej_id,
                 'group_id' => $userdata->group_id,
                 'user_roll_id' => $userdata->user_roll_id,
-                'lastip'=>$userdata->lastip,
                 'email' => $userdata->email,
                 'logged_in' => TRUE
             );
