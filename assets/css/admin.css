@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,100,600);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);*/
+/*@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,100,600);*/
 
 h1, h2, h3, h4, h5, h6{margin:0px; padding:0px;}
 body { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 13px; background-color:#262a33;}
@@ -176,7 +176,7 @@ img {border: 0!important;}
 .dark_theme .left_nav_active{background:#213347;}
 .dark_theme .left_nav_active a{color:#f2f2f2;}
 .dark_theme .left_nav_active ul li a{color:#6E778C;}
-.dark_theme .left_nav_sub_active b{color:#;}
+.dark_theme .left_nav_sub_active b{color:#6E778C;}
 
 .light_theme .brand{background-color:#F6F6F6; color:#908c8d;}
 .light_theme .header_top_bar{ background-color:#FFF;color:#6e778c;}
@@ -1103,6 +1103,8 @@ h3.timeline-title {
 .mail_sidebar_menu ul li a{text-decoration:none; display:block; color:#62727d; padding:10px;}
 .mail_sidebar_menu ul li a:hover{ color:#B7C7D2;}
 .mail_sidebar_menu ul li a i{ text-align:center; font-size:26px;}
+
+/*noinspection ALL*/
 .mail_sidebar_menu ul li a span{ margin:-4px 0px 0px -7px; position:absolute; font-size:15;}
 .mail_body{ width:100%;}
 .mail_body{float:left; margin-left:-30px;}
@@ -1606,6 +1608,8 @@ input {
     top: 0;
     width: 0;
 }
+
+/*noinspection ALL*/
 .paper {
     background: -moz-linear-gradient(center top , #DFE8EC 0%, #FFFFFF 8%) repeat scroll 0 0 / 100% 30px rgba(0, 0, 0, 0);
     font-size: 14px;
@@ -1814,6 +1818,8 @@ input {
     margin-bottom: 20px;
     width: 400px;
 }
+
+/*noinspection ALL*/
 .faa-wrench.animated, .faa-wrench.animated-hover:hover {
     animation: 2.5s ease 0s normal none infinite wrench;
 }
@@ -2453,7 +2459,8 @@ select {
 }
 select {
     -moz-appearance: none;
-    background: url("../images/select.png") no-repeat scroll right center / 24px 20px #FFFFFF !important;
+    /*MrMelHay Edit*/
+    /*background: url("../images/select.png") no-repeat scroll right center / 24px 20px #FFFFFF !important;*/
     border: 1px solid #E1E6EF !important;
     border-radius: 2px !important;
     box-shadow: none !important;
