@@ -6,7 +6,7 @@
  * Time: 15:32
  */
 
-class Dashboard extends CI_Controller{
+class Dashboard extends MY_Controller{
 
 
     public function __constuct(){
@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller{
     }
 
     public function index(){
-        $this->load->view("dashboar/dashboar");
+
+        $this->pagination();
     }
 }
