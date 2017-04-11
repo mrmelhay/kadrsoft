@@ -1,133 +1,38 @@
-<div class="wrapper">
-     <div class="login_page">
-        <div class="login_content">
-            <div class="panel-heading border login_heading">sign in now</div>
-            <form role="form" class="form-horizontal">
-                <div class="form-group">
-
-                    <div class="col-sm-10">
-                        <input type="email" placeholder="Email" id="inputEmail3" class="form-control">
-                    </div>
+<div class="login_page">
+    <div class="login_content">
+          <?php if (validation_errors()) {  ?>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?php echo validation_errors(); ?>
+            </div>
+        <?php } ?>
+        <?php  if ($this->session->flashdata('message') != null) {  ?>
+            <div class="alert alert-danger alert-styled-left alert-bordered">
+                <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Закрыть</span></button>
+                <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
+            </div>
+        <?php } ?>
+        <form role="form" class="form-horizontal" method="post" action="<?php echo base_url('users/check')?>">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" placeholder="Логин:" id="username" name="username" class="form-control"/>
                 </div>
-                <div class="form-group">
-
-                    <div class="col-sm-10">
-                        <input type="password" placeholder="Password" id="inputPassword3" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="password" placeholder="Пароль:" id="possword" name="password" class="form-control"/>
                 </div>
-                <div class="form-group">
-                    <div class=" col-sm-10">
-                        <div class="checkbox checkbox_margin">
-                            <label class="lable_margin">
-                                <input type="checkbox"><p class="pull-left"> Remember me</p></label>
-                            <a href="index.html">
-                                <button class="btn btn-default pull-right" type="submit">Sign in</button>
-                            </a></div>
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class=" col-sm-10">
+                    <div class="checkbox checkbox_margin">
+                            <button class="btn btn-default pull-right" type="submit">Кириш</button>
+                        </div>
                 </div>
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
-<!--\\\\\\\ wrapper end\\\\\\-->
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Compose New Task</h4>
-            </div>
-            <div class="modal-body"> content </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Compose New Task</h4>
-            </div>
-            <div class="modal-body"> sgxdfgxfg </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- sidebar chats -->
-<nav class="atm-spmenu atm-spmenu-vertical atm-spmenu-right side-chat">
-    <div class="header">
-        <input type="text" class="form-control chat-search" placeholder=" Search">
-    </div>
-    <div href="#" class="sub-header">
-        <div class="icon"><i class="fa fa-user"></i></div> <p>Online (4)</p>
-    </div>
-    <div class="content">
-        <p class="title">Family</p>
-        <ul class="nav nav-pills nav-stacked contacts">
-            <li class="online"><a href="#"><i class="fa fa-circle-o"></i> Steven Smith</a></li>
-            <li class="online"><a href="#"><i class="fa fa-circle-o"></i> John Doe</a></li>
-            <li class="online"><a href="#"><i class="fa fa-circle-o"></i> Michael Smith</a></li>
-            <li class="busy"><a href="#"><i class="fa fa-circle-o"></i> Chris Rogers</a></li>
-        </ul>
-
-        <p class="title">Friends</p>
-        <ul class="nav nav-pills nav-stacked contacts">
-            <li class="online"><a href="#"><i class="fa fa-circle-o"></i> Vernon Philander</a></li>
-            <li class="outside"><a href="#"><i class="fa fa-circle-o"></i> Kyle Abbott</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Dean Elgar</a></li>
-        </ul>
-
-        <p class="title">Work</p>
-        <ul class="nav nav-pills nav-stacked contacts">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Dale Steyn</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Morne Morkel</a></li>
-        </ul>
-
-    </div>
-    <div id="chat-box">
-        <div class="header">
-            <span>Richard Avedon</span>
-            <a class="close"><i class="fa fa-times"></i></a>    </div>
-        <div class="messages nano nscroller has-scrollbar">
-            <div class="content" tabindex="0" style="right: -17px;">
-                <ul class="conversation">
-                    <li class="odd">
-                        <p>Hi John, how are you?</p>
-                    </li>
-                    <li class="text-right">
-                        <p>Hello I am also fine</p>
-                    </li>
-                    <li class="odd">
-                        <p>Tell me what about you?</p>
-                    </li>
-                    <li class="text-right">
-                        <p>Sorry, I'm late... see you</p>
-                    </li>
-                    <li class="odd unread">
-                        <p>OK, call me later...</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="pane" style="display: none;"><div class="slider" style="height: 20px; top: 0px;"></div></div></div>
-        <div class="chat-input">
-            <div class="input-group">
-                <input type="text" placeholder="Enter a message..." class="form-control">
-        <span class="input-group-btn">
-        <button class="btn btn-danger" type="button">Send</button>
-        </span>      </div>
-        </div>
-    </div>
-</nav>
-<!-- /sidebar chats -->
 
 
 

@@ -1,4 +1,5 @@
 <?php
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
  * User: Admin
@@ -12,4 +13,6 @@ class MY_Model extends CI_Model
     {
         parent::__construct();
     }
+
+
 }

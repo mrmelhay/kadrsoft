@@ -10,6 +10,8 @@ class MY_Controller extends CI_Controller{
 
     public function __constuct(){
         parent::__construct();
+        $this->load->library('form_validation');
+        $this->load->model('UserModel');
     }
 
     
