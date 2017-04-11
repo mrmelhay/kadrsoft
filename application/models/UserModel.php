@@ -10,7 +10,7 @@ class UserModel extends CI_Model{
 
     public $rules=array(
         'username'=>array('field'=>'username','label'=>'Логин','rules'=>'required|max_length[50]'),
-        'passowrd'=>array('field'=>'password','label'=>'Парол','rules'=>'required|max_length[32]|md5')
+        'passowrd'=>array('field'=>'password','label'=>'Парол','rules'=>'required|max_length[32]')
     );
 
     public function login($login,$password)
@@ -20,6 +20,7 @@ class UserModel extends CI_Model{
         $this->db->from('users');
         $this->db->where('username', $login);
         $this->db->where('password', $password);
+//        $this->db->where('active', '1');
         $query = $this->db->get();
         $row_count = $query->num_rows();
         if ($row_count > 0) {
@@ -28,15 +29,18 @@ class UserModel extends CI_Model{
             $newdata = array(
                 'user_id' => $userdata->user_id,
                 'username' => $userdata->username,
+                'nname' => $userdata->firstname.' '.$userdata->lastname.' '.$userdata->middlename,
                 'kollej_id' => $userdata->kollej_id,
                 'group_id' => $userdata->group_id,
                 'user_roll_id' => $userdata->user_roll_id,
                 'email' => $userdata->email,
                 'logged_in' => TRUE
             );
+
             $this->session->set_userdata($newdata);
             $this->setLoginTime($userdata->user_id);
         }
+
         return $item_found;
     }
 
