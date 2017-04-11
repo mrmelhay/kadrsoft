@@ -8,10 +8,9 @@
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 266px;">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: 266px;">
                         <ul>
-                            <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i
-                                        class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
+                            <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
                                         class="plus"><i class="fa fa-plus"></i></span> </a>
-                                <ul class="opened" style="display:block">
+                                <ul class="" style="display:none">
                                     <li><a href="index.html"> <span>&nbsp;</span> <i
                                                 class="fa fa-circle theme_color"></i> <b
                                                 class="theme_color">Муассаса хақида</b> </a></li>
@@ -117,7 +116,7 @@
                             <li><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span class="plus"><i
                                             class="fa fa-plus"></i></span></a>
                                 <ul>
-                                    <li><a href="timeline.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Timeline</b>
+                                    <li><a href="<?php echo base_url('/preferences/organ')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Муассасалар</b>
                                         </a></li>
                                     <li><a href="profile.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Profile</b>
                                         </a></li>

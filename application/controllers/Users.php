@@ -8,15 +8,10 @@
  */
 class Users extends MY_Controller
 {
-
-    private $data = array();
     private $view;
-
     public function __constuct()
     {
         parent::__construct();
-//
-
     }
 
     public function index()
@@ -41,8 +36,6 @@ class Users extends MY_Controller
 
     public function check()
     {
-
-
         $this->load->model('UserModel');
         $rules = $this->UserModel->rules;
         $this->form_validation->set_rules($rules);

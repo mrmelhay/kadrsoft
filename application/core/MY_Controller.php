@@ -8,10 +8,13 @@
 
 class MY_Controller extends CI_Controller{
 
-    public function __constuct(){
+    public $data=array();
+
+    public function __construct(){
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('UserModel');
+        $this->data['username']=$this->session->all_userdata();
     }
 
     
