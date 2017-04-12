@@ -5,7 +5,7 @@
                 <div class="search_bar"><i class="fa fa-search"></i>
                     <input name="" type="text" class="search" placeholder="Излаш...">
                 </div>
-                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 266px;">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 550px;">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: 266px;">
                         <ul>
                             <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
@@ -16,14 +16,6 @@
                                                 class="theme_color">Муассаса хақида</b> </a></li>
                                     <li><a href="settings.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни киритиш</b>
                                         </a></li>
-<!--                                    <li><a href="layouts.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Layouts</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="themes.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Themes</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="widgets.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Widgets</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="animations.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Animations</b>-->
-<!--                                        </a></li>-->
                                 </ul>
                             </li>
                             <li><a href="javascript:void(0);"> <i class="fa fa-edit"></i> Ходимлар <span class="plus"><i
@@ -41,13 +33,13 @@
                             <li><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span class="plus"><i
                                             class="fa fa-plus"></i></span></a>
                                 <ul>
-                                    <li><a href="components.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Components</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар рўйхати</b>
                                         </a></li>
-                                    <li><a href="validation.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Validation</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР рўйхати</b>
                                         </a></li>
-                                    <li><a href="multi-upload.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
-                                            <b>Multi-upload</b> </a></li>
-                                    <li><a href="other-forms.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Others</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
+                                            <b>Малака ошириш</b> </a></li>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Others</b>
                                         </a></li>
                                 </ul>
                             </li>
@@ -118,15 +110,14 @@
                                 <ul>
                                     <li><a href="<?php echo base_url('/preferences/organ')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Муассасалар</b>
                                         </a></li>
-                                    <li><a href="profile.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Profile</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Давлатлар</b>
                                         </a></li>
-                                    <li><a href="contactlist.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Contact
-                                                List</b> </a></li>
-                                    <li><a href="maps.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b> </a></li>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>Maps</b> </a></li>
-                                    <li><a href="gallery.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Gallery</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Gallery</b>
                                         </a></li>
-                                    <li><a href="help.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>Help</b> </a></li>
                                 </ul>
                             </li>

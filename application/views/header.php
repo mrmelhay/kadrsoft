@@ -10,7 +10,7 @@
     <link href="<?php echo base_url('/assets/css/admin.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_table.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('/assests/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
 </head>
 <body class="light_theme  fixed_header left_nav_fixed atm-spmenu-push">
 
