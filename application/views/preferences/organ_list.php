@@ -34,9 +34,8 @@
                     <th>Талабалар сони</th>
                     <th>Раҳбар номи</th>
                     <th>Тел. рақами</th>
-                    <th>Ўзгартириш</th>
-                    <th>Ўчириш</th>
-                </tr>
+                    <th>Амаллар</th>
+         </tr>
                 </thead>
                 <tbody>
                 <tr class="">
@@ -46,7 +45,6 @@
                     <td class="center">super user</td>
                     <td class="center">super user</td>
                     <td class="center">super user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
                     <td><a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
 
