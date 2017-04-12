@@ -193,10 +193,10 @@ jQuery(window).load(function() {
    // Popover
    jQuery('.popovers').popover();
    
-   // Form Toggles
-   $('.toggle').toggles({on: true});
+   // Form Toggles blocked by MrMelhay next two rows
+  // $('.toggle').toggles({on: true});
    
-   $('.toggle-chat1').toggles({on: false});
+ //  $('.toggle-chat1').toggles({on: false});
 
 	function calculateHeight(){ 
 		var contentHeight = parseInt($('.contentpanel').height(), 10);
