@@ -15,4 +15,14 @@ class MY_Model extends CI_Model
     }
 
 
+    public function getTableList(){
+
+    }
+
+    public function delete($table,$field){
+        $this->db->delete($table,$field);
+
+    }
+
+
 }
