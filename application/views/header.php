@@ -20,7 +20,7 @@ if ($this->session->userdata('logged_in')!=false){
 <div class="header_bar">
     <div class="brand">
         <div class="logo" style="display:block"><span class="theme_color">ULTIMO</span> Admin</div>
-        <div class="small_logo" style="display:none"><img src="<?php echo base_url()?>/assets/images/s-logo.png" width="50" height="47" alt="s-logo" /> <img src="images/r-logo.png" width="122" height="20" alt="r-logo" /></div>
+        <div class="small_logo" style="display:none"><img src="<?php echo base_url()?>/assets/images/s-logo.png" width="50" height="47" alt="s-logo" /> <img src="<?php echo base_url()?>/assets/images/r-logo.png" width="122" height="20" alt="r-logo" /></div>
     </div>
       <div class="header_top_bar">
             <a href="javascript:void(0);" class="menutoggle"> <i class="fa fa-bars"></i> </a>
@@ -65,10 +65,10 @@ if ($this->session->userdata('logged_in')!=false){
                                 <li>
                                     <p class="number">You have 4 mails</p>
                                 </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
 
                             </ul>
                         </li>

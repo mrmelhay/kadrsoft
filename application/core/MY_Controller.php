@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller{
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('UserModel');
+        $this->load->model('PreferencesModel');
         $this->data['username']=$this->session->all_userdata();
     }
 

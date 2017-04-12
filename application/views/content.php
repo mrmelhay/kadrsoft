@@ -112,7 +112,7 @@
                                         </a></li>
                                     <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Давлатлар</b>
                                         </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/region')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b> </a></li>
                                     <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>Maps</b> </a></li>
                                     <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Gallery</b>
