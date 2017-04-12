@@ -24,27 +24,8 @@ if ($this->session->userdata('logged_in')!=false){
     </div>
       <div class="header_top_bar">
             <a href="javascript:void(0);" class="menutoggle"> <i class="fa fa-bars"></i> </a>
-        <div class="top_left">
-            <div class="top_left_menu">
-                <ul>
-                    <li> <a href="javascript:void(0);"><i class="fa fa-repeat"></i></a> </li>
-                    <li class="dropdown"> <a data-toggle="dropdown" href="javascript:void(0);"> <i class="fa fa-th-large"></i> </a>
-                        <ul class="drop_down_task dropdown-menu" style="margin-top:39px">
-                            <div class="top_left_pointer"></div>
-                            <li><div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember">
-                                        Remember me </label>
-                                </div></li>
-                            <li> <a href="help.html"><i class="fa fa-question-circle"></i> Help</a> </li>
-                            <li> <a href="settings.html"><i class="fa fa-cog"></i> Setting </a></li>
-                            <li> <a href="login.html"><i class="fa fa-power-off"></i> Logout</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <a href="javascript:void(0);" class="add_user" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus-square"></i> <span> New Task</span> </a>
+
+
         <div class="top_right_bar">
             <div class="top_right">
                 <div class="top_right_menu">
