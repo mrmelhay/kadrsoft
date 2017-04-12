@@ -11,16 +11,16 @@
             <div class="clearfix">
                 <div class="btn-group">
                     <button id="editable-sample_new" class="btn btn-primary">
-                        Add New <i class="fa fa-plus"></i>
+                        Янги қўшиш <i class="fa fa-plus"></i>
                     </button>
                 </div>
                 <div class="btn-group pull-right">
-                    <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i class="fa fa-angle-down"></i>
                     </button>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="#">Print</a></li>
-                        <li><a href="#">Save as PDF</a></li>
-                        <li><a href="#">Export to Excel</a></li>
+                        <li><a href="#">Чоп этиш</a></li>
+                        <li><a href="#">PDF га сақлаш</a></li>
+                        <li><a href="#">Excel га сақлаш</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,12 +28,14 @@
             <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Full Name</th>
-                    <th>Points</th>
-                    <th>Notes</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Муассаса номи</th>
+                    <th>Жойлашган ҳудуди</th>
+                    <th>Жами ходимлар сони</th>
+                    <th>Талабалар сони</th>
+                    <th>Раҳбар номи</th>
+                    <th>Тел. рақами</th>
+                    <th>Ўзгартириш</th>
+                    <th>Ўчириш</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,97 +44,12 @@
                     <td>Stephan Myburgh</td>
                     <td>12345</td>
                     <td class="center">super user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>Tom Cooper</td>
-                    <td>216</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td> Shakib Al Hasan</td>
-                    <td>432</td>
+                    <td class="center">super user</td>
                     <td class="center">super user</td>
                     <td><a class="edit" href="javascript:;">Edit</a></td>
                     <td><a class="delete" href="javascript:;">Delete</a></td>
                 </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>WebPro</td>
-                    <td>856</td>
-                    <td class="center">elite user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td> WebPro</td>
-                    <td>675</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>Alex Hales</td>
-                    <td>423</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>John Doe</td>
-                    <td>John Doe </td>
-                    <td>1234</td>
-                    <td class="center">super user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>Alex Hales</td>
-                    <td>642</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td> Aaron Finch</td>
-                    <td>157</td>
-                    <td class="center">super user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>Virat Kohli</td>
-                    <td>468</td>
-                    <td class="center">elite user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td> WebPro</td>
-                    <td>953</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Admin</td>
-                    <td>Glenn Maxwell</td>
-                    <td>546</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
