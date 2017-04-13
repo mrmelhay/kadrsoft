@@ -22,12 +22,18 @@ class Preferences extends MY_Controller{
    }
 
     public function region(){
-        $this->data['title']='Муассасалар рўйхати';
+        $this->data['title']='Ҳудудлар рўйхати';
         $this->data['regions']=$this->PreferencesModel->getRegions();
         $this->data['content'] = $this->load->view('/preferences/region_list',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
 
+    public function banks(){
+        $this->data['title']='Банклар рўйхати';
+        $this->data['banks']=$this->PreferencesModel->getBanks();
+        $this->data['content'] = $this->load->view('/preferences/bank_list',$this->data,true);
+        $this->view_lib->admin_layout($this->data);
+    }
 
 
 

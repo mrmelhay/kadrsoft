@@ -33,5 +33,13 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
 
+    public function getBanks(){
+        $this->db->select('*');
+        $this->db->from('spr_bank');
+//        $this->db->join('spr_tuman', 'spr_viloyat.viloyat_id = spr_tuman.viloyat_id', 'left');
+        $query=$this->db->get();
+        return $query->result_array();
+    }
+
 
 }
