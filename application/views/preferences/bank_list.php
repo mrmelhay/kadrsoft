@@ -35,7 +35,7 @@
                         <th>Банк филиали номи</th>
                         <th>Банк манзили</th>
                         <th>Банк СТИР рақами</th>
-                        <th>Амаллар</th>
+                        <th class="sorting_asc_disabled">Амаллар</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,18 @@
                             <td><?php echo $bank['bank_filial_name'];?></td>
                             <td><?php echo $bank['bank_addres']?></td>
                             <td><?php echo $bank['stir']?></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
+                            <td>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span class="caret"></span> </button>
+                                    <ul class="dropdown-menu">
+                                        <li> <a href="#"><span class="fa fa-edit"> </span>  Таҳрирлаш</a> </li>
+                                        <li> <a href="#"><span class="fa fa-trash-o"> </span>  Ўчириш</a> </li>
+                                    </ul>
+                                </div>
+
+
+                                </td>
                         </tr>
                     <?php }?>
 

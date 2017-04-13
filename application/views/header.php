@@ -13,14 +13,14 @@
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
 
 </head>
-<body class="light_theme  fixed_header left_nav_fixed atm-spmenu-push">
+<body class="dark_theme  fixed_header left_nav_fixed atm-spmenu-push">
 
 <?php
 if ($this->session->userdata('logged_in')!=false){
 ?>
 <div class="header_bar">
     <div class="brand">
-        <div class="logo" style="display:block"><span class="theme_color">ULTIMO</span> Admin</div>
+        <div class="logo" style="display:block"><span class="theme_color">КОЛЛЕЖ</span> Ҳодимлари</div>
         <div class="small_logo" style="display:none"><img src="<?php echo base_url()?>/assets/images/s-logo.png" width="50" height="47" alt="s-logo" /> <img src="<?php echo base_url()?>/assets/images/r-logo.png" width="122" height="20" alt="r-logo" /></div>
     </div>
       <div class="header_top_bar">

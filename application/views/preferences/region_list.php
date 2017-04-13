@@ -32,10 +32,6 @@
                         <th>ТР</th>
                         <th style="width: 250px;">Муассаса номи</th>
                         <th>Жойлашган ҳудуди</th>
-<!--                        <th>Жами ходимлар сони</th>-->
-<!--                        <th>Талабалар сони</th>-->
-<!--                        <th>Раҳбар номи</th>-->
-<!--                        <th>Тел. рақами</th>-->
                         <th>Амаллар</th>
                     </tr>
                     </thead>
@@ -49,7 +45,15 @@
                             <td><? echo $counter?></td>
                             <td><?php echo $region['viloyat']?></td>
                             <td><?php echo $region['tuman']?></td>
-                             <td><a class="delete" href="javascript:;">Delete</a></td>
+                             <td>
+                                 <div class="btn-group">
+                                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span class="caret"></span> </button>
+                                     <ul class="dropdown-menu">
+                                         <li> <a href="#"><span class="fa fa-edit"> </span>  Таҳрирлаш</a> </li>
+                                         <li> <a href="#"><span class="fa fa-trash-o"> </span>  Ўчириш</a> </li>
+                                     </ul>
+                                 </div>
+                             </td>
                         </tr>
                     <?php }?>
 
