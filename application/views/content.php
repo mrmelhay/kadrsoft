@@ -5,7 +5,7 @@
                 <div class="search_bar"><i class="fa fa-search"></i>
                     <input name="" type="text" class="search" placeholder="Излаш...">
                 </div>
-                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 500px">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
                             <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
