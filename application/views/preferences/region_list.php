@@ -4,7 +4,7 @@
     <div class="block-web">
         <div class="header">
             <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a> <a class="refresh" href="#"><i class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
-            <h3 class="content-header">Муассасалар рўйхати</h3>
+            <h3 class="content-header">Вилоят ва туманлар рўйхати</h3>
         </div>
         <div class="porlets-content">
             <div class="adv-table editable-table ">

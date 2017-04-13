@@ -4,7 +4,7 @@
     <div class="block-web">
         <div class="header">
             <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a> <a class="refresh" href="#"><i class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
-            <h3 class="content-header">Банклар рўйхати</h3>
+            <h3 class="content-header">Давлатлар рўйхати</h3>
         </div>
         <div class="porlets-content">
             <div class="adv-table editable-table ">
@@ -31,27 +31,25 @@
                     <thead>
                     <tr>
                         <th>ТР</th>
-                        <th>Банк рақами</th>
-                        <th>Банк филиали номи</th>
-                        <th>Банк манзили</th>
-                        <th>Банк СТИР рақами</th>
+                        <th>Давлат номи</th>
+                        <th>ISO коди</th>
+                        <th>Домен номи</th>
                         <th>Амаллар</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                     $counter=0;
-                    foreach($banks as $bank){
+                    foreach($country as $davlat){
                         $counter++;
                         ?>
                         <tr class="">
                             <td><? echo $counter?></td>
-                            <td><?php echo $bank['bank_mfo']?></td>
-<!--                            <td>--><?php //echo $bank['bank_name']?><!--</td>-->
-                            <td><?php echo $bank['bank_filial_name'];?></td>
-                            <td><?php echo $bank['bank_addres']?></td>
-                            <td><?php echo $bank['stir']?></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
+                            <td><?php echo $davlat['gov_uzc']?></td>
+                            <!--                            <td>--><?php //echo $bank['bank_name']?><!--</td>-->
+                            <td><?php echo $davlat['iso'];?></td>
+                            <td><?php echo $davlat['url']?></td>
+                           <td><a class="delete" href="javascript:;">Delete</a></td>
                         </tr>
                     <?php }?>
 

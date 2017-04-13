@@ -5,8 +5,8 @@
                 <div class="search_bar"><i class="fa fa-search"></i>
                     <input name="" type="text" class="search" placeholder="Излаш...">
                 </div>
-                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 550px;">
-                    <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: 266px;">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 500px">
+                    <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
                             <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
                                         class="plus"><i class="fa fa-plus"></i></span> </a>
@@ -105,22 +105,23 @@
 <!--                                                Table</b> </a></li>-->
 <!--                                </ul>-->
 <!--                            </li>-->
-                            <li><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span class="plus"><i
-                                            class="fa fa-plus"></i></span></a>
-                                <ul>
-                                    <li><a href="<?php echo base_url('/preferences/organ')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Муассасалар</b>
-                                        </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Давлатлар</b>
-                                        </a></li>
-                                    <li><a href="<?php echo base_url('/preferences/region')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b> </a></li>
-                                    <li><a href="<?php echo base_url('/preferences/banks')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
-                                            <b>Банклар</b> </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Gallery</b>
-                                        </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
-                                            <b>Help</b> </a></li>
-                                </ul>
-                            </li>
+    <li><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span class="plus"><i
+                    class="fa fa-plus"></i></span></a>
+        <ul>
+            <li><a href="<?php echo base_url('/preferences/organ')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Муассасалар</b></a></li>
+            <li><a href="<?php echo base_url('/preferences/davlat')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Давлатлар</b></a></li>
+            <li><a href="<?php echo base_url('/preferences/region')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b></a></li>
+            <li><a href="<?php echo base_url('/preferences/otm')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>ОТМ лар</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/banks')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Банклар</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/partiya')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Партиялар</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/mutaxassislik')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a></li>
+<!--            <li> <hr>  </li>-->
+            <li><a href="<?php echo base_url('/preferences/millat')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/shartnoma')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Шартнома турлари</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/tillar')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Тиллар</b> </a></li>
+            <li><a href="<?php echo base_url('/preferences/uq_soha')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
+        </ul>
+    </li>
                             <li><a href="javascript:void(0);"> <i class="fa fa-info"></i> Ёрдам </a>
 
                             </li>

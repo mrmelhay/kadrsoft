@@ -4,7 +4,7 @@
     <div class="block-web">
         <div class="header">
             <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a> <a class="refresh" href="#"><i class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
-            <h3 class="content-header">Банклар рўйхати</h3>
+            <h3 class="content-header">Мавжуд мутахассисликлар рўйхати</h3>
         </div>
         <div class="porlets-content">
             <div class="adv-table editable-table ">
@@ -31,26 +31,22 @@
                     <thead>
                     <tr>
                         <th>ТР</th>
-                        <th>Банк рақами</th>
-                        <th>Банк филиали номи</th>
-                        <th>Банк манзили</th>
-                        <th>Банк СТИР рақами</th>
+                        <th>Мутахассислик коди</th>
+                        <th>Мутахассислик номи</th>
+
                         <th>Амаллар</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                     $counter=0;
-                    foreach($banks as $bank){
+                    foreach($directions as $direction){
                         $counter++;
                         ?>
                         <tr class="">
                             <td><? echo $counter?></td>
-                            <td><?php echo $bank['bank_mfo']?></td>
-<!--                            <td>--><?php //echo $bank['bank_name']?><!--</td>-->
-                            <td><?php echo $bank['bank_filial_name'];?></td>
-                            <td><?php echo $bank['bank_addres']?></td>
-                            <td><?php echo $bank['stir']?></td>
+                            <td><?php echo $direction['mutax_kodi']?></td>
+                            <td><?php echo $direction['mutax_kodi_name'];?></td>
                             <td><a class="delete" href="javascript:;">Delete</a></td>
                         </tr>
                     <?php }?>

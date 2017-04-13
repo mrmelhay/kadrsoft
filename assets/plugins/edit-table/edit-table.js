@@ -57,10 +57,10 @@ var EditableTable = function () {
                 "sDom": "<'row'<'col-lg-6'l><'col-lg-6'f>r>t<'row'<'col-lg-6'i><'col-lg-6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
-                    "sLengthMenu": "_MENU_ records per page",
+                     "sLengthMenu": "_MENU_ та маълумотни кўрсат",
                     "oPaginate": {
-                        "sPrevious": "Prev",
-                        "sNext": "Next"
+                        "sPrevious": "Аввалги",
+                        "sNext": "Навбатдаги"
                     }
                 },
                 "aoColumnDefs": [{
@@ -85,51 +85,51 @@ var EditableTable = function () {
                 nEditing = nRow;
             });
 
-            $('#editable-sample a.delete').live('click', function (e) {
-                e.preventDefault();
-
-                if (confirm("Are you sure to delete this row ?") == false) {
-                    return;
-                }
-
-                var nRow = $(this).parents('tr')[0];
-                oTable.fnDeleteRow(nRow);
-                alert("Deleted! Do not forget to do some ajax to sync with backend :)");
-            });
-
-            $('#editable-sample a.cancel').live('click', function (e) {
-                e.preventDefault();
-                if ($(this).attr("data-mode") == "new") {
-                    var nRow = $(this).parents('tr')[0];
-                    oTable.fnDeleteRow(nRow);
-                } else {
-                    restoreRow(oTable, nEditing);
-                    nEditing = null;
-                }
-            });
-
-            $('#editable-sample a.edit').live('click', function (e) {
-                e.preventDefault();
-
-                /* Get the row as a parent of the link that was clicked on */
-                var nRow = $(this).parents('tr')[0];
-
-                if (nEditing !== null && nEditing != nRow) {
-                    /* Currently editing - but not this row - restore the old before continuing to edit mode */
-                    restoreRow(oTable, nEditing);
-                    editRow(oTable, nRow);
-                    nEditing = nRow;
-                } else if (nEditing == nRow && this.innerHTML == "Save") {
-                    /* Editing this row and want to save it */
-                    saveRow(oTable, nEditing);
-                    nEditing = null;
-                    alert("Updated! Do not forget to do some ajax to sync with backend :)");
-                } else {
-                    /* No edit in progress - let's start one */
-                    editRow(oTable, nRow);
-                    nEditing = nRow;
-                }
-            });
+            // $('#editable-sample a.delete').live('click', function (e) {
+            //     e.preventDefault();
+            //
+            //     if (confirm("Are you sure to delete this row ?") == false) {
+            //         return;
+            //     }
+            //
+            //     var nRow = $(this).parents('tr')[0];
+            //     oTable.fnDeleteRow(nRow);
+            //     alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+            // });
+            //
+            // $('#editable-sample a.cancel').live('click', function (e) {
+            //     e.preventDefault();
+            //     if ($(this).attr("data-mode") == "new") {
+            //         var nRow = $(this).parents('tr')[0];
+            //         oTable.fnDeleteRow(nRow);
+            //     } else {
+            //         restoreRow(oTable, nEditing);
+            //         nEditing = null;
+            //     }
+            // });
+            //
+            // $('#editable-sample a.edit').live('click', function (e) {
+            //     e.preventDefault();
+            //
+            //     /* Get the row as a parent of the link that was clicked on */
+            //     var nRow = $(this).parents('tr')[0];
+            //
+            //     if (nEditing !== null && nEditing != nRow) {
+            //         /* Currently editing - but not this row - restore the old before continuing to edit mode */
+            //         restoreRow(oTable, nEditing);
+            //         editRow(oTable, nRow);
+            //         nEditing = nRow;
+            //     } else if (nEditing == nRow && this.innerHTML == "Save") {
+            //         /* Editing this row and want to save it */
+            //         saveRow(oTable, nEditing);
+            //         nEditing = null;
+            //         alert("Updated! Do not forget to do some ajax to sync with backend :)");
+            //     } else {
+            //         /* No edit in progress - let's start one */
+            //         editRow(oTable, nRow);
+            //         nEditing = nRow;
+            //     }
+            // });
         }
 
     };
