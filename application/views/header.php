@@ -20,7 +20,7 @@ if ($this->session->userdata('logged_in')!=false){
 ?>
 <div class="header_bar">
     <div class="brand">
-        <div class="logo" style="display:block"><span class="theme_color">КОЛЛЕЖ</span> Ҳодимлари</div>
+        <div class="logo" style="display:block"><span class="theme_color">КОЛЛЕЖ</span> Кадр</div>
         <div class="small_logo" style="display:none"><img src="<?php echo base_url()?>/assets/images/s-logo.png" width="50" height="47" alt="s-logo" /> <img src="<?php echo base_url()?>/assets/images/r-logo.png" width="122" height="20" alt="r-logo" /></div>
     </div>
       <div class="header_top_bar">
