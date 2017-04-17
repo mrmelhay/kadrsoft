@@ -1,5 +1,6 @@
 <div class="pull-left breadcrumb_admin clear_both">
     </div>
+
 <div class="container clear_both padding_fix">
     <div class="block-web">
     <div class="header">
@@ -7,6 +8,19 @@
         <h3 class="content-header" >Муассасалар рўйхати</h3>
     </div>
     <div class="porlets-content">
+        <?php  if ($this->session->flashdata('message') != null) {  ?>
+            <div class="alert alert-info alert-styled-left alert-bordered">
+                <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Закрыть</span></button>
+                <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
+            </div>
+        <?php } ?>
+
+        <?php if (validation_errors()) {  ?>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?php echo validation_errors(); ?>
+            </div>
+        <?php } ?>
         <div class="adv-table editable-table ">
             <div class="clearfix">
                 <div class="btn-group">
@@ -58,7 +72,7 @@
                             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span class="caret"></span> </button>
                             <ul class="dropdown-menu">
                                 <li> <a href="#"><span class="fa fa-edit"> </span>  Таҳрирлаш</a> </li>
-                                <li> <a href="#"><span class="fa fa-trash-o"> </span>  Ўчириш</a> </li>
+                                <li> <a href="<?php echo base_url('preferences/del_organ/'.$kollej['kollej_id'])?>"><span class="fa fa-trash-o"> </span>  Ўчириш</a> </li>
                             </ul>
                         </div>
                     </td>
@@ -73,135 +87,119 @@
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form action="<?php echo base_url('/preferences/create_organ')?>" class="form-horizontal" method="post">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
             </div>
             <div class="modal-body">
-                <section class="panel">
-                    <div class="block-web">
                         <div class="porlets-content">
-                            <form action="" class="form-horizontal row-border">
+
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Муассаса</label>
+                                    <label class="col-sm-3">Муассаса номи</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'alias': 'date'">
+                                        <input type="text" class="form-control" name="kollej_name" id="kollej_name"/>
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">alias:date</p>
+                               </div>
+                                <div class="form-group lable-padd">
+                                    <label class="col-sm-3">Вилоят</label>
+                                    <div class="col-sm-6">
+                                        <select name="viloyat_id" id="viloyat_id" class="form-control">
+                                            <option value="">Танланг...</option>
+                                        <?php $this->PreferencesModel->getViloyatDropList(); ?>
+                                        </select>
+
                                     </div>
                                 </div>
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Phone</label>
+                                    <label class="col-sm-3">Туман</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'(999) 999-9999'">
+                                        <select name="tuman_id" id="tuman_id" class="form-control">
+                                        </select>
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">(999) 999-9999</p>
-                                    </div>
+
                                 </div>
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Phone + Ext</label>
+                                    <label class="col-sm-3">Манзил</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'(999) 999-9999 x999
-                            99'">
+                                        <input type="text" class="form-control" name="kollej_adres" id="kollej_adres"/>
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">(999) 999-9999 x99999</p>
-                                    </div>
+
                                 </div>
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Int' Phone</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'+33 999 999 999'">
+                                    <label class="col-sm-3">Ходимлар сони</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="empl_count1" name="empl_count1"/>
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">+33 999 999 999</p>
+                                    <label class="col-sm-3">Пeдагогик ходимлар сони</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="empl_count2" name="empl_count2"/>
                                     </div>
+
                                 </div>
+<!--                                <div class="form-group lable-padd">-->
+<!--                                    <label class="col-sm-3">Падагогик ходимлар сони</label>-->
+<!--                                    <div class="col-sm-6">-->
+<!--                                        <input type="text" class="form-control" id="empl_count2" name="empl_count2"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">TaxID</label>
+                                    <label class="col-sm-3">Талабалар сони</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'99-9999999'">
-                                    </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">99-9999999</p>
+                                        <input type="text" class="form-control" id="students_count" name="students_count"/>
                                     </div>
                                 </div>
+
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">SSN</label>
+                                    <label class="col-sm-3">Телефон</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'999-99-9999'">
+                                        <input type="text" class="form-control mask" data-inputmask="'mask':'(999) 99-999-9999'" name="phone" id="phone">
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">999-99-9999</p>
-                                    </div>
+
                                 </div>
+
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Product Key</label>
+                                    <label class="col-sm-3">Электрон почта</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'a*-999-a999'">
+                                        <input type="email" class="form-control"  name="email" id="email" required/>
                                     </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">a*-999-a999</p>
-                                    </div>
+
                                 </div>
+
                                 <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Purchase Order</label>
+                                    <label class="col-sm-3">Веб сайт</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'PO: aaa-999-***'">
-                                    </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">PO: aaa-999-***</p>
+                                        <input type="text" class="form-control" name="website" id="website"/>
                                     </div>
                                 </div>
-                                <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Percent</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'99%'">
-                                    </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">99%</p>
-                                    </div>
-                                </div>
-                                <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Currency</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" style="text-align: right;" class="form-control mask" data-inputmask="'mask':'999,999,999.99 $', 'numericInput' : true">
-                                    </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">right alignment</p>
-                                    </div>
-                                </div>
-                                <div class="form-group lable-padd">
-                                    <label class="col-sm-3">Currency 2</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control mask" data-inputmask="'mask':'$ 999,999,999.99', 'greedy' : false, 'rightAlignNumerics' : false">
-                                    </div>
-                                    <div class="col-sm-3 left-align">
-                                        <p class="help-block">left alignment</p>
-                                    </div>
-                                </div>
-                            </form>
+
                         </div>
-                    </div>
-                </section>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Чиқиш</button>
+                <button type="submit"  class="btn btn-primary">Сақлаш</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
 <script>
-//    $(document).ready(function() {
-//        $(document).on('click', "#editable-sample_new1", function () {
-//
-//        });
-//    });
+    $(document).ready(function() {
+        $(document).on('change', "#viloyat_id", function () {
+            var page = $('select[name="viloyat_id"]').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/preferences/ajax_data_tuman')?>",
+                data: {viloyat_id: page},
+                success: function(data) {
+                    $('#tuman_id').html(data);
+                }
+            });
+        });
+    });
 
     $('#myModal').on('shown.bs.modal', function (event) {
         var button = $(event.relatedTarget);
