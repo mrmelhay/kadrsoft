@@ -74,9 +74,6 @@ class Preferences extends MY_Controller{
         $this->data['content'] = $this->load->view('/preferences/langs_list',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
-
-
-
     public function uq_soha(){
         $this->data['title']='Ўқитиш соҳалари рўйхати';
         $this->data['stdtype']=$this->PreferencesModel->getStudyType();
@@ -90,6 +87,11 @@ class Preferences extends MY_Controller{
         $this->data['content'] = $this->load->view('/preferences/directions_list',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
+
+
+
+
+
 
 
 }

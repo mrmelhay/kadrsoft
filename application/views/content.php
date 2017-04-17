@@ -122,6 +122,17 @@
             <li><a href="<?php echo base_url('/preferences/uq_soha')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
         </ul>
     </li>
+                            <li><a href="javascript:void(0);"> <i class="fa fa-user"></i> Фойдаланувчилар <span class="plus"><i
+                                                class="fa fa-plus"></i></span> </a>
+                                <ul>
+                                    <li><a href="<?php echo base_url('/users/users')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Фойдаланувчилар</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_reg')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Рўйхатга олиш</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_rolls')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Роллар</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_access')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Рухсат бериш</b></a></li>
+
+                                </ul>
+
+                            </li>
                             <li><a href="javascript:void(0);"> <i class="fa fa-info"></i> Ёрдам </a>
 
                             </li>

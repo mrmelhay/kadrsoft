@@ -61,6 +61,6 @@
                 </table>
             </div>
 
-        </div><!--/porlets-content-->
+        </div>
     </div>
 </div>

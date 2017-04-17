@@ -85,8 +85,6 @@ class PreferencesModel extends MY_Model{
         return array('tillar'=>$query1->result_array(),'tillar_turi'=>$query2->result_array());
     }
 
-
-
     public function getStudyType(){
         $this->db->select('*');
         $this->db->from('spr_uqit_soha');

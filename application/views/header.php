@@ -11,7 +11,8 @@
     <link href="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_table.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
-
+    <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js') ?>"></script>
+    <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 </head>
 <body class="dark_theme  fixed_header left_nav_fixed atm-spmenu-push">
 
@@ -25,8 +26,6 @@ if ($this->session->userdata('logged_in')!=false){
     </div>
       <div class="header_top_bar">
             <a href="javascript:void(0);" class="menutoggle"> <i class="fa fa-bars"></i> </a>
-
-
         <div class="top_right_bar">
             <div class="top_right">
                 <div class="top_right_menu">
