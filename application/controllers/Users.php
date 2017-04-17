@@ -36,7 +36,6 @@ class Users extends MY_Controller
 
     public function check()
     {
-        $this->load->model('UserModel');
         $rules = $this->UserModel->rules;
         $this->form_validation->set_rules($rules);
         if ($this->form_validation->run() == TRUE) {

@@ -11,6 +11,7 @@
     <link href="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_table.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('/assets/css/select2.css');?>" rel="stylesheet">
     <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js') ?>"></script>
     <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 </head>

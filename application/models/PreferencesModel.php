@@ -9,12 +9,26 @@
 class PreferencesModel extends MY_Model{
 
 
+    public $organrules=array(
+        'kollej_name'=>array('field'=>'kollej_name','label'=>'Муассаса номи','rules'=>'required|max_length[50]'),
+        'viloyat_id'=>array('field'=>'viloyat_id','label'=>'Вилоят','rules'=>'required|max_length[32]'),
+        'tuman_id'=>array('field'=>'tuman_id','label'=>'Туман','rules'=>'required|max_length[32]'),
+        'kollej_adres'=>array('field'=>'kollej_adres','label'=>'Манзил','rules'=>'required|max_length[32]'),
+        'empl_count1'=>array('field'=>'empl_count1','label'=>'Ходимлар сони','rules'=>'required|max_length[32]'),
+        'empl_count2'=>array('field'=>'empl_count2','label'=>'Пeдагогик ходимлар сони','rules'=>'required|max_length[32]'),
+        'students_count'=>array('field'=>'students_count','label'=>'Талабалар сони','rules'=>'required|max_length[32]'),
+        'phone'=>array('field'=>'phone','label'=>'Телефон','rules'=>'required|max_length[32]'),
+        'email'=>array('field'=>'email','label'=>'Электрон почта','rules'=>'required|max_length[32]'),
+        'website'=>array('field'=>'website','label'=>'Веб сайт','rules'=>'required|max_length[32]'),
+    );
+
+
     public function __construct(){
         parent::__construct();
     }
 
     public function getKollej(){
-        $this->db->select('*');
+        $this->db->select('spr_kollej.*,spr_viloyat.*,spr_tuman.*,d_kadr_items_bind.is_director,d_kadr.*');
         $this->db->from('spr_kollej');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = spr_kollej.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = spr_kollej.tuman_id', 'left');
@@ -99,4 +113,46 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
 
+    public function getViloyatDropList($selected = false){
+        if ($this->viloyatList){
+            foreach ($this->viloyatList as $key => $row) {
+                $sel = ($row['viloyat_id']== $selected) ? " selected=\"selected\"" : "";
+                print "<option value=\"" . $row['viloyat_id'] . "\">";
+                                print $row['viloyat'] . "</option>\n";
+            }
+        }
+    }
+
+    public function getTumanDropList($viloyat,$selected = false){
+        $userdata=array();
+        $this->viloyat_id=$viloyat;
+        $this->loadTuman();
+        if ($this->tumanList){
+            foreach ($this->tumanList as $key => $row) {
+                $sel = ($row['tuman_id']== $selected) ? " selected=\"selected\"" : "";
+                print "<option value=\"" . $row['tuman_id'] . "\">";
+                print $row['tuman'] . "</option>\n";
+            }
+        }
+    }
+
+
+    public function save_organ($data){
+        $this->db->insert('spr_kollej',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_organ($data){
+
+        $this->db->delete('spr_kollej',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
