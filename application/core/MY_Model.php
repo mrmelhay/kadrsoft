@@ -12,6 +12,7 @@ class MY_Model extends CI_Model
     public $viloyatList=array();
     public $tumanList=array();
     public $viloyat_id=0;
+    public $kollej_id=0;
 
     public function __construct()
     {
@@ -42,7 +43,6 @@ class MY_Model extends CI_Model
         foreach($query->result_array() as $rows){
             $this->tumanList[$rows['tuman_id']]=$rows;
         }
-
         return $this->tumanList;
     }
 

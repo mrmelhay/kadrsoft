@@ -10,7 +10,7 @@ class PreferencesModel extends MY_Model{
 
 
     public $organrules=array(
-        'kollej_name'=>array('field'=>'kollej_name','label'=>'Муассаса номи','rules'=>'required|max_length[50]'),
+        'kollej_name'=>array('field'=>'kollej_name','label'=>'Муассаса номи','rules'=>'required|max_length[150]'),
         'viloyat_id'=>array('field'=>'viloyat_id','label'=>'Вилоят','rules'=>'required|max_length[32]'),
         'tuman_id'=>array('field'=>'tuman_id','label'=>'Туман','rules'=>'required|max_length[32]'),
         'kollej_adres'=>array('field'=>'kollej_adres','label'=>'Манзил','rules'=>'required|max_length[32]'),
@@ -28,12 +28,16 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getKollej(){
-        $this->db->select('spr_kollej.*,spr_viloyat.*,spr_tuman.*,d_kadr_items_bind.is_director,d_kadr.*');
+        $kollej="";
+        if (isset($this->kollej_id) && $this->kollej_id>0) {$kollej=$this->db->where('spr_kollej.kollej_id',$this->kollej_id);}
+        $this->db->select('spr_kollej.*,
+                           spr_viloyat.viloyat,spr_tuman.tuman,d_kadr_items_bind.is_director,d_kadr.name_f,d_kadr.name_i,d_kadr.name_o');
         $this->db->from('spr_kollej');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = spr_kollej.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = spr_kollej.tuman_id', 'left');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kollej_id = spr_kollej.kollej_id', 'left');
         $this->db->join('d_kadr', 'd_kadr.kadrid = d_kadr_items_bind.kadrid', 'left');
+        $kollej;
         $this->db->order_by('spr_kollej.kollej_id','ASC');
         $query=$this->db->get();
         return $query->result_array();
@@ -117,8 +121,8 @@ class PreferencesModel extends MY_Model{
         if ($this->viloyatList){
             foreach ($this->viloyatList as $key => $row) {
                 $sel = ($row['viloyat_id']== $selected) ? " selected=\"selected\"" : "";
-                print "<option value=\"" . $row['viloyat_id'] . "\">";
-                                print $row['viloyat'] . "</option>\n";
+                print '<option value="' . $row['viloyat_id'] . '"'.$sel.'">';
+                                print $row['viloyat'] . '</option>';
             }
         }
     }
@@ -130,8 +134,8 @@ class PreferencesModel extends MY_Model{
         if ($this->tumanList){
             foreach ($this->tumanList as $key => $row) {
                 $sel = ($row['tuman_id']== $selected) ? " selected=\"selected\"" : "";
-                print "<option value=\"" . $row['tuman_id'] . "\">";
-                print $row['tuman'] . "</option>\n";
+                print '<option value="' . $row['tuman_id'] . '"'.$sel.'">';
+                print $row['tuman'] . '</option>';
             }
         }
     }
@@ -139,6 +143,16 @@ class PreferencesModel extends MY_Model{
 
     public function save_organ($data){
         $this->db->insert('spr_kollej',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_organ($data){
+        $this->db->where('spr_kollej.kollej_id',$data['kollej_id']);
+        $this->db->update('spr_kollej',$data);
         if ($this->db->affected_rows()){
             return true;
         }else{
