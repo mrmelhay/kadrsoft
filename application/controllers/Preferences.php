@@ -123,7 +123,7 @@ class Preferences extends MY_Controller
             $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
         } else{
             $this->data['kollej'] = array();
-            $this->load->view('/preferences/ajax_organ_form',$this->data);
+            $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
         }
 
     }
