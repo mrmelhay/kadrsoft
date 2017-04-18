@@ -53,7 +53,7 @@
                             <td><?php echo $bank['stir']?></td>
                             <td>
 
-                                <div class="btn-group">
+                                <div class="btn-group btn-group-xs">
                                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span class="caret"></span> </button>
                                     <ul class="dropdown-menu">
                                         <li> <a href="#"><span class="fa fa-edit"> </span>  Таҳрирлаш</a> </li>

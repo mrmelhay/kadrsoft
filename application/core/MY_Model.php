@@ -13,6 +13,7 @@ class MY_Model extends CI_Model
     public $tumanList=array();
     public $viloyat_id=0;
     public $kollej_id=0;
+    public $davlat_id=0;
 
     public function __construct()
     {

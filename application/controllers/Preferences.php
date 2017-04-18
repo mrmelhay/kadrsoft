@@ -43,7 +43,7 @@ class Preferences extends MY_Controller
     public function davlat()
     {
         $this->data['title'] = 'Давлатлар рўйхати';
-        $this->data['country'] = $this->PreferencesModel->getCountry();
+        $this->data['davlats'] = $this->PreferencesModel->getCountry();
         $this->data['content'] = $this->load->view('/preferences/davlat_list', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
@@ -123,7 +123,7 @@ class Preferences extends MY_Controller
             $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
         } else{
             $this->data['kollej'] = array();
-            $this->load->view('/preferences/ajax_organ_form',$this->data);
+            $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
         }
 
     }
@@ -212,5 +212,71 @@ class Preferences extends MY_Controller
         }
     }
 
+    /**************************** davlatlar ***************/
+
+    public function ajax_data_davlat(){
+        if ($this->input->get('davlat_id') != "") {
+            $did = $_GET['davlat_id'];
+            $this->PreferencesModel->davlat_id=$did;
+            $this->data['davlat'] = $this->PreferencesModel->getCountry();
+            $this->load->view('/preferences/ajax_davlat_form',$this->data);
+        } else{
+            $this->data['davlat_id'] = array();
+            $this->load->view('/preferences/ajax_davlat_form',$this->data);
+        }
+
+    }
+
+    public function create_davlat()
+    {
+        if ($this->input->post('davlat',false)!=''){
+            $davlat=$_POST['davlat'];
+                $data = array(
+                    'cis' => $this->input->post('cis', false),
+                    'gov_ru' => $this->input->post('gov_ru', false),
+                    'gov_uzc' => $this->input->post('gov_uzc', false),
+                    'iso' => $this->input->post('iso', false),
+                    'url' => $this->input->post('url', false),
+                    'davlat_id'=>$davlat,
+                );
+                if ($this->PreferencesModel->update_davlat($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                    redirect(base_url('preferences/davlat'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                    redirect(base_url('preferences/davlat'));
+                }
+        } else {
+
+                $data = array(
+                    'cis' => $this->input->post('cis', false),
+                    'gov_ru' => $this->input->post('gov_ru', false),
+                    'gov_uzc' => $this->input->post('gov_uzc', false),
+                    'iso' => $this->input->post('iso', false),
+                    'url' => $this->input->post('url', false),
+                );
+                if ($this->PreferencesModel->save_davlat($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                    redirect(base_url('preferences/davlat'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                    redirect(base_url('preferences/davlat'));
+                }
+        }
+    }
+
+    public function del_davlat($davlat_id)
+    {
+        $data = array('davlat_id' => $davlat_id);
+        if ($this->PreferencesModel->delete_davlat($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/davlat'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/davlat'));
+        }
+    }
+
+    /*****************end davlat *****/
 
 }

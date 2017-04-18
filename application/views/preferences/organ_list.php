@@ -139,15 +139,6 @@
         var button = $(event.relatedTarget);
         var modal = $(this);
 
-//        if (kollej_id>0){
-//            $.get('<?php //echo base_url('preferences/ajax_data_organ')?>//',function(data){
-//                $(".modal-body").html(data);
-//            });
-        //        }else{
-//            $("#create").show();
-//            var title = button.data("title");
-//            modal.find('.modal-title').text(title);
-//        }
 
         var kollej_id = button.data('kollej_id');
         var title = button.data("title");

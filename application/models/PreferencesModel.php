@@ -62,8 +62,11 @@ class PreferencesModel extends MY_Model{
 
 
     public function getCountry(){
-        $this->db->select('*');
+        $davlat="";
+       if (isset($this->davlat_id) && $this->davlat_id>0) {$davlat=$this->db->where('spr_davlat.davlat_id',$this->davlat_id);}
+       $this->db->select('*');
         $this->db->from('spr_davlat');
+        $davlat;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -163,6 +166,35 @@ class PreferencesModel extends MY_Model{
     public function delete_organ($data){
 
         $this->db->delete('spr_kollej',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function save_davlat($data){
+        $this->db->insert('spr_davlat',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_davlat($data){
+        $this->db->where('spr_davlat.davlat_id',$data['davlat_id']);
+        $this->db->update('spr_davlat',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_davlat($data){
+
+        $this->db->delete('spr_davlat',$data);
         if ($this->db->affected_rows()){
             return true;
         }else{
