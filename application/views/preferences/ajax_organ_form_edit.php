@@ -1,5 +1,5 @@
 <?php
-if($kollej) {
+if(count($kollej)==0) {
 
 ?>
 
