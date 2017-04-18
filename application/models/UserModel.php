@@ -62,4 +62,5 @@ class UserModel extends CI_Model{
         $this->db->join('user_groups','user_groups.group_id=users.group_id','left');
         $this->db->join('user_rolles','user_rolles.rolle_id=users.user_roll_id','left');
     }
+
 }
