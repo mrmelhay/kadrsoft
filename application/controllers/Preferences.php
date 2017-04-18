@@ -20,7 +20,6 @@ class Preferences extends MY_Controller
     {
         $this->data['title'] = 'Муассасалар рўйхати';
         $this->data['kollejs'] = $this->PreferencesModel->getKollej();
-
         $this->data['content'] = $this->load->view('/preferences/organ_list', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
@@ -116,37 +115,86 @@ class Preferences extends MY_Controller
         }
     }
 
+    public function ajax_data_organ(){
+        if ($this->input->get('kollej_id') != "") {
+            $did = $_GET['kollej_id'];
+            $this->PreferencesModel->kollej_id=$did;
+            $this->data['kollej'] = $this->PreferencesModel->getKollej();
+            $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
+        } else{
+            $this->load->view('/preferences/ajax_organ_form',$this->data);
+        }
+
+    }
+
 
     public function create_organ()
     {
-        $rules = $this->PreferencesModel->organrules;
-        $this->form_validation->set_rules($rules);
+        if ($this->input->post('kollej',false)!=''){
+            $kollej=$_POST['kollej'];
+            $rules = $this->PreferencesModel->organrules;
+            $this->form_validation->set_rules($rules);
 
-        if ($this->form_validation->run() == TRUE) {
-            $data = array(
-                'kollej_name' => $this->input->post('kollej_name', false),
-                'viloyat_id' => $this->input->post('viloyat_id', false),
-                'tuman_id' => $this->input->post('tuman_id', false),
-                'kollej_adres' => $this->input->post('kollej_adres', false),
-                'empl_count1' => $this->input->post('empl_count1', false),
-                'empl_count2' => $this->input->post('empl_count2', false),
-                'students_count' => $this->input->post('students_count', false),
-                'phone' => $this->input->post('phone', false),
-                'email' => $this->input->post('email', false),
-                'website' => $this->input->post('website', false),
-            );
-            if ($this->PreferencesModel->save_organ($data)) {
-                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
-                redirect(base_url('preferences/organ'));
+            if ($this->form_validation->run() == TRUE) {
+                $data = array(
+                    'kollej_name' => $this->input->post('kollej_name', false),
+                    'viloyat_id' => $this->input->post('viloyat_id', false),
+                    'tuman_id' => $this->input->post('tuman_id', false),
+                    'kollej_adres' => $this->input->post('kollej_adres', false),
+                    'empl_count1' => $this->input->post('empl_count1', false),
+                    'empl_count2' => $this->input->post('empl_count2', false),
+                    'students_count' => $this->input->post('students_count', false),
+                    'phone' => $this->input->post('phone', false),
+                    'email' => $this->input->post('email', false),
+                    'website' => $this->input->post('website', false),
+                    'kollej_id'=>$kollej,
+                );
+                if ($this->PreferencesModel->update_organ($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                    redirect(base_url('preferences/organ'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                    redirect(base_url('preferences/organ'));
+                }
             } else {
-                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
-                redirect(base_url('preferences/organ'));
+                $this->data['title'] = 'Муассасалар рўйхати';
+                $this->data['kollejs'] = $this->PreferencesModel->getKollej();
+                $this->data['content'] = $this->load->view('/preferences/organ_list', $this->data, true);
+                $this->view_lib->admin_layout($this->data);
             }
-        } else {
-            $this->data['title'] = 'Муассасалар рўйхати';
-            $this->data['kollejs'] = $this->PreferencesModel->getKollej();
-            $this->data['content'] = $this->load->view('/preferences/organ_list', $this->data, true);
-            $this->view_lib->admin_layout($this->data);
+
+        }else {
+            $rules = $this->PreferencesModel->organrules;
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() == TRUE) {
+                $data = array(
+                    'kollej_name' => $this->input->post('kollej_name', false),
+                    'viloyat_id' => $this->input->post('viloyat_id', false),
+                    'tuman_id' => $this->input->post('tuman_id', false),
+                    'kollej_adres' => $this->input->post('kollej_adres', false),
+                    'empl_count1' => $this->input->post('empl_count1', false),
+                    'empl_count2' => $this->input->post('empl_count2', false),
+                    'students_count' => $this->input->post('students_count', false),
+                    'phone' => $this->input->post('phone', false),
+                    'email' => $this->input->post('email', false),
+                    'website' => $this->input->post('website', false),
+                );
+                if ($this->PreferencesModel->save_organ($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                    redirect(base_url('preferences/organ'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                    redirect(base_url('preferences/organ'));
+                }
+            } else {
+                $this->data['title'] = 'Муассасалар рўйхати';
+                $this->data['kollejs'] = $this->PreferencesModel->getKollej();
+                $this->data['content'] = $this->load->view('/preferences/organ_list', $this->data, true);
+                $this->view_lib->admin_layout($this->data);
+            }
+
+
         }
     }
 
