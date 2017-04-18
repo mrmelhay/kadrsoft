@@ -9,6 +9,7 @@
 class Users extends MY_Controller
 {
     private $view;
+
     public function __construct()
     {
         parent::__construct();
@@ -54,8 +55,6 @@ class Users extends MY_Controller
             $this->data['content'] = $this->load->view('/user/login', $this->data, true);
             $this->view_lib->user_layout($this->data);
         }
-
-
     }
 
 
@@ -66,30 +65,33 @@ class Users extends MY_Controller
         redirect(base_url('users'));
     }
 
-    public function users(){
+    public function users()
+    {
         $this->data['title'] = 'Фойдаланувчилар рўйхати';
         $this->data['content'] = $this->load->view('/user/users_list', $this->data, true);
         $this->view_lib->user_layout($this->data);
     }
 
-    public function user_reg(){
+    public function user_reg()
+    {
         $this->data['title'] = 'Рўйхатга олиш';
         $this->data['content'] = $this->load->view('/user/user_reg', $this->data, true);
         $this->view_lib->user_layout($this->data);
     }
 
-    public function user_rolls(){
+    public function user_rolls()
+    {
         $this->data['title'] = 'Фойдаланувчилар роллари';
         $this->data['content'] = $this->load->view('/user/user_rolls', $this->data, true);
         $this->view_lib->user_layout($this->data);
     }
 
-    public function user_access(){
+    public function user_access()
+    {
         $this->data['title'] = 'Фойдаланувчилалрга рухсатлар';
         $this->data['content'] = $this->load->view('/user/user_access', $this->data, true);
         $this->view_lib->user_layout($this->data);
     }
-
 
 
 }

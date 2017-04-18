@@ -20,7 +20,7 @@ class UserModel extends CI_Model{
         $this->db->from('users');
         $this->db->where('username', $login);
         $this->db->where('password', $password);
-//        $this->db->where('active', '1');
+        $this->db->where('active', '1');
         $query = $this->db->get();
         $row_count = $query->num_rows();
         if ($row_count > 0) {
@@ -53,5 +53,13 @@ class UserModel extends CI_Model{
 
     public function logout(){
         $this->session->sess_destroy();
+    }
+
+    public function getUserList(){
+        $this->db->select('users.*,spr_kollej.kollej_name,user_groups');
+        $this->db->from('users');
+        $this->db->join('spr_kollej','sp_kollej.kollej_id=users.kollej_id','left');
+        $this->db->join('user_groups','user_groups.group_id=users.group_id','left');
+        $this->db->join('user_rolles','user_rolles.rolle_id=users.user_roll_id','left');
     }
 }

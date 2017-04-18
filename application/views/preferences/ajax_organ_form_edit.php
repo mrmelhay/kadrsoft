@@ -1,8 +1,6 @@
 <?php
 if(count($kollej)==0) {
-
 ?>
-
     <div class="porlets-content">
     <input type="hidden" name="kollej" value="0" />
     <div class="form-group lable-padd">

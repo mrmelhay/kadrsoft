@@ -15,7 +15,7 @@
     <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js') ?>"></script>
     <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 </head>
-<body class="dark_theme  fixed_header left_nav_fixed atm-spmenu-push">
+<body class="light_theme  fixed_header left_nav_fixed">
 
 <?php
 if ($this->session->userdata('logged_in')!=false){
