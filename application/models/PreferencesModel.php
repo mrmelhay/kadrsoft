@@ -144,6 +144,20 @@ class PreferencesModel extends MY_Model{
     }
 
 
+    public function getKollejDropList($selected = false){
+//        $userdata=array();
+//        $this->viloyat_id=$viloyat;
+
+        if ($this->kollejList){
+            foreach ($this->kollejList as $key => $row) {
+                $sel = ($row['kollej_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['kollej_id'] . '"'.$sel.'">';
+                print $row['kollej_name'] . '</option>';
+            }
+        }
+    }
+
+
     public function save_organ($data){
         $this->db->insert('spr_kollej',$data);
         if ($this->db->affected_rows()){

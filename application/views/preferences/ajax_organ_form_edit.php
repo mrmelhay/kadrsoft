@@ -45,13 +45,7 @@ if(count($kollej)==0) {
         </div>
 
     </div>
-    <!--                                <div class="form-group lable-padd">-->
-    <!--                                    <label class="col-sm-3">Падагогик ходимлар сони</label>-->
-    <!--                                    <div class="col-sm-6">-->
-    <!--                                        <input type="text" class="form-control" id="empl_count2" name="empl_count2"/>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <div class="form-group lable-padd">
+      <div class="form-group lable-padd">
         <label class="col-sm-3">Талабалар сони</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" id="students_count" name="students_count" />
