@@ -67,7 +67,9 @@
                         ?>
                         <tr class="">
                             <td><? echo $counter ?></td>
-                            <td><?php echo $kollej['kollej_name'] ?></td>
+                            <td><a href="#" data-title="<?php echo $title;?>"
+                                   data-kollej_id=<?php echo $kollej['kollej_id']; ?> data-toggle="modal"
+                                   data-target="#myModal"><?php echo $kollej['kollej_name'] ?>"</a></td>
                             <td><?php echo $kollej['viloyat'] . ' ' . $kollej['tuman'] . ' ' . $kollej['kollej_adres']; ?></td>
                             <td><?php echo $kollej['empl_count1'] ?></td>
                             <td class="center"><?php echo $kollej['students_count'] ?></td>
