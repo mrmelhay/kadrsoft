@@ -16,6 +16,16 @@ class MY_Model extends CI_Model{
     public $kollej_id=0;
     public $userid=0;
     public $groupList;
+    public $otm_id=0;
+    public $bank_id=0;
+    public $partiya_id=0;
+    public $mutax_kodi_id=0;
+    public $millati_id=0;
+    public $shartnoma_type_id=0;
+    public $tillar_id=0;
+    public $uqit_soha_id=0;
+    public $tuman_id=0;
+
 
     public function __construct()
     {

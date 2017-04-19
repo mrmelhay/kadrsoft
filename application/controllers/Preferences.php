@@ -51,8 +51,8 @@ class Preferences extends MY_Controller
 
     public function otm()
     {
-        $this->data['title'] = 'Давлатлар рўйхати';
-        $this->data['univers'] = $this->PreferencesModel->getUniver();
+        $this->data['title'] = 'Олий таълим муассасалари рўйхати';
+        $this->data['otms'] = $this->PreferencesModel->getUniver();
         $this->data['content'] = $this->load->view('/preferences/univer_list', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
@@ -278,5 +278,72 @@ class Preferences extends MY_Controller
     }
 
     /*****************end davlat *****/
+
+
+    /**************************** OTM ***************/
+
+    public function ajax_data_otm(){
+        if ($this->input->get('otm_id') != "") {
+            $did = $_GET['otm_id'];
+            $this->PreferencesModel->otm_id=$did;
+            $this->data['otm'] = $this->PreferencesModel->getUniver();
+            $this->load->view('/preferences/ajax_otm_form',$this->data);
+        } else{
+            $this->data['otm_id'] = array();
+            $this->load->view('/preferences/ajax_otm_form',$this->data);
+        }
+
+    }
+
+    public function create_otm()
+    {
+        if ($this->input->post('otm',false)!=''){
+            $otm=$_POST['otm'];
+            $data = array(
+                'otm_name' => $this->input->post('otm_name', false),
+                'otm_lname' => $this->input->post('otm_lname', false),
+                'otm_web' => $this->input->post('otm_web', false),
+                'otm_email' => $this->input->post('otm_email', false),
+                'otm_id'=>$otm,
+            );
+            if ($this->PreferencesModel->update_otm($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/otm'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/otm'));
+            }
+        } else {
+
+            $data = array(
+                'otm_name' => $this->input->post('otm_name', false),
+                'otm_lname' => $this->input->post('otm_lname', false),
+                'otm_web' => $this->input->post('otm_web', false),
+                'otm_email' => $this->input->post('otm_email', false)
+            );
+            if ($this->PreferencesModel->save_otm($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/otm'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/otm'));
+            }
+        }
+    }
+
+    public function del_otm($otm_id)
+    {
+        $data = array('otm_id' => $otm_id);
+        if ($this->PreferencesModel->delete_otm($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/otm'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/otm'));
+        }
+    }
+
+    /*****************end OTM *****/
+
 
 }

@@ -72,8 +72,11 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getUniver(){
+        $otm="";
+        if (isset($this->otm_id) && $this->otm_id>0) {$otm=$this->db->where('spr_otm.otm_id', $this->otm_id);}
         $this->db->select('*');
         $this->db->from('spr_otm');
+        $otm;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -186,7 +189,7 @@ class PreferencesModel extends MY_Model{
             return false;
         }
     }
-
+/****************** DAVLATLAR **************************/
     public function save_davlat($data){
         $this->db->insert('spr_davlat',$data);
         if ($this->db->affected_rows()){
@@ -215,4 +218,36 @@ class PreferencesModel extends MY_Model{
             return false;
         }
     }
+/****************** eof DAVLATLAR **************************/
+
+    /****************** OTM **************************/
+    public function save_otm($data){
+        $this->db->insert('spr_otm',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_otm($data){
+        $this->db->where('spr_otm.otm_id',$data['otm_id']);
+        $this->db->update('spr_otm',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_otm($data){
+
+        $this->db->delete('spr_otm',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof OTM **************************/
 }
