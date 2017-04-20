@@ -9326,7 +9326,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(та маълумот топилди. Жами _MAX_ та маълумот мавжуд)",
 		
 		
 			/**

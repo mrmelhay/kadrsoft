@@ -52,9 +52,11 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getBanks(){
+        $bank="";
+        if (isset($this->bank_id) && $this->bank_id>0) {$bank=$this->db->where('spr_bank.bank_id',$this->bank_id);}
         $this->db->select('*');
         $this->db->from('spr_bank');
-//        $this->db->join('spr_tuman', 'spr_viloyat.viloyat_id = spr_tuman.viloyat_id', 'left');
+        $bank;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -82,8 +84,11 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getPartiya(){
+        $partiya="";
+        if (isset($this->partiya_id) && $this->partiya_id>0) {$partiya=$this->db->where('spr_partiya.partiya_id', $this->partiya_id);}
         $this->db->select('*');
         $this->db->from('spr_partiya');
+        $partiya;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -117,8 +122,11 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getDirections(){
+        $direction="";
+        if (isset($this->mutax_kodi_id) && $this->mutax_kodi_id>0) {$direction=$this->db->where('spr_mutaxasislik.mutax_kodi_id', $this->mutax_kodi_id);}
         $this->db->select('*');
-        $this->db->from('spr_mutax_kodi');
+        $this->db->from('spr_mutaxasislik');
+        $direction;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -250,4 +258,102 @@ class PreferencesModel extends MY_Model{
         }
     }
     /****************** eof OTM **************************/
+
+
+    /****************** bank **************************/
+    public function save_bank($data){
+        $this->db->insert('spr_bank',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_bank($data){
+        $this->db->where('spr_bank.bank_id',$data['bank_id']);
+        $this->db->update('spr_bank',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_bank($data){
+
+        $this->db->delete('spr_bank',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof bank **************************/
+
+
+    /****************** partiya **************************/
+    public function save_partiya($data){
+        $this->db->insert('spr_partiya',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_partiya($data){
+        $this->db->where('spr_partiya.partiya_id',$data['partiya_id']);
+        $this->db->update('spr_partiya',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_partiya($data){
+
+        $this->db->delete('spr_partiya',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof partiya **************************/
+
+
+    /****************** Directions **************************/
+    public function save_direction($data){
+        $this->db->insert('spr_mutaxasislik',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_direction($data){
+        $this->db->where('spr_mutaxasislik.mutax_kodi_id',$data['mutax_kodi_id']);
+        $this->db->update('spr_mutaxasislik',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_direction($data){
+
+        $this->db->delete('spr_mutaxasislik',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof direction **************************/
+
 }
+

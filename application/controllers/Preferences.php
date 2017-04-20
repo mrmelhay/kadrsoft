@@ -345,5 +345,193 @@ class Preferences extends MY_Controller
 
     /*****************end OTM *****/
 
+    /**************************** bank ***************/
 
+    public function ajax_data_bank(){
+        if ($this->input->get('bank_id') != "") {
+            $did = $_GET['bank_id'];
+            $this->PreferencesModel->bank_id=$did;
+            $this->data['bank'] = $this->PreferencesModel->getBanks();
+            $this->load->view('/preferences/ajax_bank_form',$this->data);
+        } else{
+            $this->data['bank_id'] = array();
+            $this->load->view('/preferences/ajax_bank_form',$this->data);
+        }
+
+    }
+
+    public function create_bank()
+    {
+        if ($this->input->post('bank',false)!=''){
+            $bank=$_POST['bank'];
+            $data = array(
+                'bank_name' => $this->input->post('bank_name', false),
+                'bank_filial_name' => $this->input->post('bank_filial_name', false),
+                'bank_addres' => $this->input->post('bank_addres', false),
+                'bank_mfo' => $this->input->post('bank_mfo', false),
+                'bank_stir' => $this->input->post('bank_stir', false),
+                'bank_id'=>$bank,
+            );
+            if ($this->PreferencesModel->update_bank($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/banks'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/banks'));
+            }
+        } else {
+
+            $data = array(
+                'bank_name' => $this->input->post('bank_name', false),
+                'bank_filial_name' => $this->input->post('bank_filial_name', false),
+                'bank_addres' => $this->input->post('bank_addres', false),
+                'bank_mfo' => $this->input->post('bank_mfo', false),
+                'bank_stir' => $this->input->post('bank_stir', false)
+            );
+            if ($this->PreferencesModel->save_bank($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/banks'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/banks'));
+            }
+        }
+    }
+
+    public function del_bank($bank_id)
+    {
+        $data = array('bank_id' => $bank_id);
+        if ($this->PreferencesModel->delete_bank($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/banks'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/banks'));
+        }
+    }
+
+    /*****************end bank *****/
+
+    /**************************** partiya ***************/
+
+    public function ajax_data_partiya(){
+        if ($this->input->get('partiya_id') != "") {
+            $did = $_GET['partiya_id'];
+            $this->PreferencesModel->partiya_id=$did;
+            $this->data['partiya'] = $this->PreferencesModel->getPartiya();
+            $this->load->view('/preferences/ajax_partiya_form',$this->data);
+        } else{
+            $this->data['partiya_id'] = array();
+            $this->load->view('/preferences/ajax_partiya_form',$this->data);
+        }
+
+    }
+
+    public function create_partiya()
+    {
+        if ($this->input->post('partiya',false)!=''){
+            $partiya=$_POST['partiya'];
+            $data = array(
+                'partiya_name' => $this->input->post('partiya_name', false),
+                'partiya_web' => $this->input->post('partiya_web', false),
+                'partiya_id'=>$partiya,
+            );
+            if ($this->PreferencesModel->update_partiya($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/partiya'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/partiya'));
+            }
+        } else {
+
+            $data = array(
+                'partiya_name' => $this->input->post('partiya_name', false),
+                'partiya_web' => $this->input->post('partiya_web', false),
+            );
+            if ($this->PreferencesModel->save_partiya($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/partiya'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/partiya'));
+            }
+        }
+    }
+
+    public function del_partiya($partiya_id)
+    {
+        $data = array('partiya_id' => $partiya_id);
+        if ($this->PreferencesModel->delete_partiya($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/partiya'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/partiya'));
+        }
+    }
+
+    /*****************end partiya *****/
+
+
+    /**************************** direction ***************/
+
+    public function ajax_data_direction(){
+        if ($this->input->get('mutax_kodi_id') != "") {
+            $did = $_GET['mutax_kodi_id'];
+            $this->PreferencesModel->mutax_kodi_id=$did;
+            $this->data['direction'] = $this->PreferencesModel->getDirections();
+            $this->load->view('/preferences/ajax_direction_form',$this->data);
+        } else{
+            $this->data['mutax_kodi_id'] = array();
+            $this->load->view('/preferences/ajax_direction_form',$this->data);
+        }
+
+    }
+
+    public function create_direction()
+    {
+        if ($this->input->post('direction',false)!=''){
+            $direction=$_POST['direction'];
+            $data = array(
+                'mutax_kodi' => $this->input->post('mutax_kodi', false),
+                'mutax_kodi_name' => $this->input->post('mutax_kodi_name', false),
+                'mutax_kodi_id'=>$direction,
+            );
+            if ($this->PreferencesModel->update_direction($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/mutaxassislik'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/mutaxassislik'));
+            }
+        } else {
+
+            $data = array(
+                'mutax_kodi' => $this->input->post('mutax_kodi', false),
+                'mutax_kodi_name' => $this->input->post('mutax_kodi_name', false),
+            );
+            if ($this->PreferencesModel->save_direction($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/mutaxassislik'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/mutaxassislik'));
+            }
+        }
+    }
+
+    public function del_direction($direction_id)
+    {
+        $data = array('mutax_kodi_id' => $direction_id);
+        if ($this->PreferencesModel->delete_direction($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/mutaxassislik'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/mutaxassislik'));
+        }
+    }
+
+    /*****************end direction *****/
 }

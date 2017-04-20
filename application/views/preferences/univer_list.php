@@ -64,7 +64,7 @@
                             <td><a href="#" data-title="<?php echo $title;?>"
                                    data-otm_id=<?php echo $univer['otm_id']; ?> data-toggle="modal"
                                    data-target="#myModal"><?php echo $univer['otm_name']?></td>
-                            <!--                            <td>--><?php //echo $bank['bank_name']?><!--</td>-->
+
                             <td><?php echo $univer['otm_lname'];?></td>
                             <td><a href="<?php echo $univer['otm_web']?>" target="_blank"><?php echo $univer['otm_web']?></a></td>
                             <td><?php echo $univer['otm_email']?></td>
