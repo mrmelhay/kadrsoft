@@ -121,8 +121,11 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getStudyType(){
+        $uqit_soha="";
+        if (isset($this->uqit_soha_id) && $this->uqit_soha_id>0) {$uqit_soha=$this->db->where('spr_uqit_soha.uqit_soha_id', $this->uqit_soha_id);}
         $this->db->select('*');
         $this->db->from('spr_uqit_soha');
+        $uqit_soha;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -148,7 +151,7 @@ class PreferencesModel extends MY_Model{
     }
 
     public function getTumanDropList($viloyat,$selected = false){
-        $userdata=array();
+      //  $userdata=array();
         $this->viloyat_id=$viloyat;
         $this->loadTuman();
         if ($this->tumanList){
@@ -423,7 +426,103 @@ class PreferencesModel extends MY_Model{
             return false;
         }
     }
-    /****************** eof direction **************************/
+    /****************** eof Nations **************************/
+
+
+    /****************** StudyType **************************/
+    public function save_stdtype($data){
+        $this->db->insert('spr_uqit_soha',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_stdtype($data){
+        $this->db->where('spr_uqit_soha.uqit_soha_id',$data['uqit_soha_id']);
+        $this->db->update('spr_uqit_soha',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_stdtype($data){
+
+        $this->db->delete('spr_uqit_soha',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof StudyType **************************/
+
+
+
+    /****************** Tillar **************************/
+    public function save_tillar($data){
+        $this->db->insert('spr_tillar',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_tillar($data){
+        $this->db->where('spr_tillar.tillar_id',$data['tillar_id']);
+        $this->db->update('spr_tillar',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_tillar($data){
+
+        $this->db->delete('spr_tillar',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof Tillar **************************/
+
+    /****************** Tillar TURI **************************/
+    public function save_tillar_turi($data){
+        $this->db->insert('spr_tillar_turi',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_tillar_turi($data){
+        $this->db->where('spr_tillar_turi.tillar_turi_id',$data['tillar_turi_id']);
+        $this->db->update('spr_tillar_turi',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_tillar_turi($data){
+
+        $this->db->delete('spr_tillar_turi',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof Tillar Turi **************************/
 
 
 }

@@ -656,5 +656,185 @@ class Preferences extends MY_Controller
 
     /*****************end shartnoma_type *****/
 
+    /**************************** uqit_soha ***************/
+
+    public function ajax_data_stdtype(){
+        if ($this->input->get('uqit_soha_id') != "") {
+            $did = $_GET['uqit_soha_id'];
+            $this->PreferencesModel->uqit_soha_id=$did;
+            $this->data['uqit_soha'] = $this->PreferencesModel->getStudyType();
+            $this->load->view('/preferences/ajax_stdtype_form',$this->data);
+        } else{
+            $this->data['uqit_soha_id'] = array();
+            $this->load->view('/preferences/ajax_stdtype_form',$this->data);
+        }
+
+    }
+
+    public function create_stdtype()
+    {
+        if ($this->input->post('uqit_soha',false)!=''){
+            $uqit_soha=$_POST['uqit_soha'];
+            $data = array(
+                'uqit_soha_name' => $this->input->post('uqit_soha_name', false),
+               'uqit_soha_id'=>$uqit_soha,
+            );
+            if ($this->PreferencesModel->update_stdtype($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/uq_soha'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/uq_soha'));
+            }
+        } else {
+
+            $data = array(
+                'uqit_soha_name' => $this->input->post('uqit_soha_name', false),
+
+            );
+            if ($this->PreferencesModel->save_stdtype($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/uq_soha'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/uq_soha'));
+            }
+        }
+    }
+
+    public function del_stdtype($uqit_soha_id)
+    {
+        $data = array('uqit_soha_id' => $uqit_soha_id);
+        if ($this->PreferencesModel->delete_stdtype($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/uq_soha'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/uq_soha'));
+        }
+    }
+
+    /*****************end uqit_soha *****/
+
+    /**************************** tillar ***************/
+
+    public function ajax_data_tillar(){
+        if ($this->input->get('tillar_id') != "") {
+            $did = $_GET['tillar_id'];
+            $this->PreferencesModel->tillar_id=$did;
+            $this->data['tillar'] = $this->PreferencesModel->getLanguages();
+            $this->load->view('/preferences/ajax_tillar_form',$this->data);
+        } else{
+            $this->data['tillar_id'] = array();
+            $this->load->view('/preferences/ajax_tillar_form',$this->data);
+        }
+
+    }
+
+    public function create_tillar()
+    {
+        if ($this->input->post('tillar',false)!=''){
+            $tillar=$_POST['tillar'];
+            $data = array(
+                'tillar_nomi' => $this->input->post('tillar_nomi', false),
+              'tillar_id'=>$tillar,
+            );
+            if ($this->PreferencesModel->update_tillar($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/tillar'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/tillar'));
+            }
+        } else {
+
+            $data = array(
+                'tillar_nomi' => $this->input->post('tillar_nomi', false),
+
+            );
+            if ($this->PreferencesModel->save_tillar($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/tillar'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/tillar'));
+            }
+        }
+    }
+
+    public function del_tillar($tillar_id)
+    {
+        $data = array('tillar_id' => $tillar_id);
+        if ($this->PreferencesModel->delete_tillar($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/tillar'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/tillar'));
+        }
+    }
+
+    /*****************end tillar *****/
+
+
+    /**************************** tillar_turi ***************/
+
+    public function ajax_data_tillar_turi(){
+        if ($this->input->get('tillar_turi_id') != "") {
+            $did = $_GET['tillar_turi_id'];
+            $this->PreferencesModel->tillar_turi_id=$did;
+            $this->data['tillar_turi'] = $this->PreferencesModel->getLanguages();
+            $this->load->view('/preferences/ajax_tillar_turi_form',$this->data);
+        } else{
+            $this->data['tillar_turi_id'] = array();
+            $this->load->view('/preferences/ajax_tillar_turi_form',$this->data);
+        }
+
+    }
+
+    public function create_tillar_turi()
+    {
+        if ($this->input->post('tillar_turi',false)!=''){
+            $tillar_turi=$_POST['tillar_turi'];
+            $data = array(
+                'tillar_turi_nomi' => $this->input->post('tillar_turi_nomi', false),
+                'tillar_turi_id'=>$tillar_turi,
+            );
+            if ($this->PreferencesModel->update_tillar_turi($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/tillar'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/tillar'));
+            }
+        } else {
+
+            $data = array(
+                'tillar_turi_nomi' => $this->input->post('tillar_turi_nomi', false),
+
+            );
+            if ($this->PreferencesModel->save_tillar_turi($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/tillar'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/tillar'));
+            }
+        }
+    }
+
+    public function del_tillar_turi($tillar_turi_id)
+    {
+        $data = array('tillar_turi_id' => $tillar_turi_id);
+        if ($this->PreferencesModel->delete_tillar_turi($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/tillar'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/tillar'));
+        }
+    }
+
+    /*****************end tillar_turi *****/
 
 }
