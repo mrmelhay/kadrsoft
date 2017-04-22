@@ -93,8 +93,11 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
     public function getNation(){
+        $nation="";
+        if (isset($this->millat_id) && $this->millat_id>0) {$nation=$this->db->where('spr_millat.millat_id', $this->millat_id);}
         $this->db->select('*');
-        $this->db->from('spr_millati');
+        $this->db->from('spr_millat');
+        $nation;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -354,6 +357,40 @@ class PreferencesModel extends MY_Model{
         }
     }
     /****************** eof direction **************************/
+
+
+    /****************** Nations **************************/
+    public function save_nation($data){
+        $this->db->insert('spr_millat',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_nation($data){
+        $this->db->where('spr_millat.millat_id',$data['millat_id']);
+        $this->db->update('spr_millat',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_nation($data){
+
+        $this->db->delete('spr_millat',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof direction **************************/
+
+
 
 }
 

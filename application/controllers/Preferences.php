@@ -534,4 +534,66 @@ class Preferences extends MY_Controller
     }
 
     /*****************end direction *****/
+
+    /**************************** nation ***************/
+
+    public function ajax_data_nation(){
+        if ($this->input->get('millat_id') != "") {
+            $did = $_GET['millat_id'];
+            $this->PreferencesModel->millat_id=$did;
+            $this->data['nation'] = $this->PreferencesModel->getNation();
+            $this->load->view('/preferences/ajax_nation_form',$this->data);
+        } else{
+            $this->data['millat_id'] = array();
+            $this->load->view('/preferences/ajax_nation_form',$this->data);
+        }
+
+    }
+
+    public function create_nation()
+    {
+        if ($this->input->post('nation',false)!=''){
+            $nation=$_POST['nation'];
+            $data = array(
+                'millat_name' => $this->input->post('millat_name', false),
+                 'millat_id'=>$nation
+            );
+            if ($this->PreferencesModel->update_nation($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/millat'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/millat'));
+            }
+        } else {
+
+            $data = array(
+                'millat_name' => $this->input->post('millat_name', false)
+
+            );
+            if ($this->PreferencesModel->save_nation($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/millat'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/millat'));
+            }
+        }
+    }
+
+    public function del_nation($millat_id)
+    {
+        $data = array('millat_id' => $millat_id);
+        if ($this->PreferencesModel->delete_nation($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/millat'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/millat'));
+        }
+    }
+
+    /*****************end nation *****/
+
+
 }
