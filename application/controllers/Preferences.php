@@ -596,4 +596,65 @@ class Preferences extends MY_Controller
     /*****************end nation *****/
 
 
+    /**************************** shartnoma_type ***************/
+
+    public function ajax_data_shartnoma_type(){
+        if ($this->input->get('shartnoma_type_id') != "") {
+            $did = $_GET['shartnoma_type_id'];
+            $this->PreferencesModel->shartnoma_type_id=$did;
+            $this->data['sprcontract'] = $this->PreferencesModel->getContract();
+            $this->load->view('/preferences/ajax_shartnoma_form',$this->data);
+        } else{
+            $this->data['shartnoma_type_id'] = array();
+            $this->load->view('/preferences/ajax_shartnoma_form',$this->data);
+        }
+
+    }
+
+    public function create_sprcontract()
+    {
+        if ($this->input->post('spcontract',false)!=''){
+            $sprcontract=$_POST['spcontract'];
+            $data = array(
+                'shartnoma_type_name' => $this->input->post('shartnoma_type_name', false),
+                'shartnoma_type_id'=>$sprcontract
+            );
+            if ($this->PreferencesModel->update_sprcontract($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                redirect(base_url('preferences/shartnoma'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                redirect(base_url('preferences/shartnoma'));
+            }
+        } else {
+
+            $data = array(
+                'shartnoma_type_name' => $this->input->post('shartnoma_type_name', false),
+               
+            );
+            if ($this->PreferencesModel->save_sprcontract($data)) {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                redirect(base_url('preferences/shartnoma'));
+            } else {
+                $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                redirect(base_url('preferences/shartnoma'));
+            }
+        }
+    }
+
+    public function del_sprcontract($shartnoma_type_id)
+    {
+        $data = array('shartnoma_type_id' => $shartnoma_type_id);
+        if ($this->PreferencesModel->delete_sprcontract($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/shartnoma'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/shartnoma'));
+        }
+    }
+
+    /*****************end shartnoma_type *****/
+
+
 }

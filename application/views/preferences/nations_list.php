@@ -60,13 +60,11 @@
                         ?>
                         <tr class="">
                             <td><? echo $counter?></td>
-                            <td><a href="#" data-title="<?php echo $title;?>"
-                                   data-millat_id=<?php echo $nation['millat_id']; ?> data-toggle="modal"
-                                   data-target="#myModal"><?php echo $nation['millat_name']?></td>
+                            <td><?php echo $nation['millat_name']?></td>
 
                             <td>
                                 <div class="btn-group btn-group-xs">
-                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span class="caret"></span> </button>
+                                    <button class="btn btn-primary dropdown-toggle fa fa-list-ul " data-toggle="dropdown">  </button>
                                     <ul class="dropdown-menu">
                                         <li><a href="#" data-title="<?php echo $title;?>"
                                                data-millat_id=<?php echo $nation['millat_id']; ?> data-toggle="modal"

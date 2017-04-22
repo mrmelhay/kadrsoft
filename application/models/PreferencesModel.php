@@ -102,8 +102,11 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
     public function getContract(){
+        $sprcontract="";
+        if (isset($this->shartnoma_type_id) && $this->shartnoma_type_id>0) {$sprcontract=$this->db->where('spr_shartnoma_type.shartnoma_type_id', $this->shartnoma_type_id);}
         $this->db->select('*');
         $this->db->from('spr_shartnoma_type');
+        $sprcontract;
         $query=$this->db->get();
         return $query->result_array();
     }
@@ -390,6 +393,37 @@ class PreferencesModel extends MY_Model{
     }
     /****************** eof direction **************************/
 
+
+    /****************** Nations **************************/
+    public function save_sprcontract($data){
+        $this->db->insert('spr_shartnoma_type',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update_sprcontract($data){
+        $this->db->where('spr_shartnoma_type.shartnoma_type_id',$data['shartnoma_type_id']);
+        $this->db->update('spr_shartnoma_type',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete_sprcontract($data){
+
+        $this->db->delete('spr_shartnoma_type',$data);
+        if ($this->db->affected_rows()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /****************** eof direction **************************/
 
 
 }
