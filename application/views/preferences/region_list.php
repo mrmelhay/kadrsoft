@@ -30,8 +30,8 @@
                     <thead>
                     <tr>
                         <th>ТР</th>
-                        <th style="width: 250px;">Муассаса номи</th>
-                        <th>Жойлашган ҳудуди</th>
+                        <th style="width: 250px;">Вилоят номи</th>
+                        <th>Туман номи</th>
                         <th>Амаллар</th>
                     </tr>
                     </thead>
