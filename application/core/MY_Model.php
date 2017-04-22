@@ -35,9 +35,7 @@ class MY_Model extends CI_Model{
 
     }
 
-
     public function loadViloyat(){
-
         $this->db->select('*');
         $this->db->from('spr_viloyat');
         $this->db->order_by('spr_viloyat.viloyat_id','ASC');
@@ -97,15 +95,6 @@ class MY_Model extends CI_Model{
         return $this->rollsList;
     }
 
-
-    public function getTableList(){
-
-    }
-
-    public function delete($table,$field){
-        $this->db->delete($table,$field);
-
-    }
 
 
 }

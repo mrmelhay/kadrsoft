@@ -8,18 +8,22 @@
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
-                            <li class="left_nav_active theme_border"><a href="javascript:void(0);"><i class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span> <span
-                                        class="plus"><i class="fa fa-plus"></i></span> </a>
-                                <ul class="" style="display:none">
+                            <li class="<?php  if ($this->uri->segment(2)=='dashboard') {?>left_nav_active theme_border <?php }?>">
+                                <a href="javascript:void(0);"><i
+                                            class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span>
+                                    <span  class="plus"><i class="fa fa-plus"></i></span>
+                                </a>
+                                <ul <?php  if ($this->uri->segment(2)=='dashboard') {?> class="opened" style="display:block;" <?php }?>>
                                     <li><a href="index.html"> <span>&nbsp;</span> <i
-                                                class="fa fa-circle theme_color"></i> <b
-                                                class="theme_color">Муассаса хақида</b> </a></li>
-                                    <li><a href="settings.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни киритиш</b>
+                                                    class="fa fa-circle theme_color"></i> <b
+                                                    class="theme_color">Муассаса хақида</b> </a></li>
+                                    <li><a href="settings.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни
+                                                киритиш</b>
                                         </a></li>
                                 </ul>
                             </li>
                             <li><a href="javascript:void(0);"> <i class="fa fa-edit"></i> Ходимлар <span class="plus"><i
-                                            class="fa fa-plus"></i></span></a>
+                                                class="fa fa-plus"></i></span></a>
                                 <ul>
                                     <li><a href="typography.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар</b>
                                         </a></li>
@@ -30,12 +34,15 @@
 
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span class="plus"><i
-                                            class="fa fa-plus"></i></span></a>
+                            <li><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span
+                                            class="plus"><i
+                                                class="fa fa-plus"></i></span></a>
                                 <ul>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар рўйхати</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар
+                                                рўйхати</b>
                                         </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР рўйхати</b>
+                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
+                                                рўйхати</b>
                                         </a></li>
                                     <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>Малака ошириш</b> </a></li>
@@ -43,98 +50,119 @@
                                         </a></li>
                                 </ul>
                             </li>
-<!--                            <li><a href="javascript:void(0);"> <i class="fa fa-users icon"></i> APPS <span class="plus"><i-->
-<!--                                            class="fa fa-plus"></i></span> </a>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="todo.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>To-Do</b> </a></li>-->
-<!--                                    <li><a href="task.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>Task</b> </a></li>-->
-<!--                                    <li><a href="notes.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>Notes</b> </a></li>-->
-<!--                                    <li><a href="media.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Media-->
-<!--                                                Manager</b> </a></li>-->
-<!--                                    <li><a href="calendar.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Calendar</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="ticket.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ticket-->
-<!--                                                Support</b> </a></li>-->
-<!--                                    <li><a href="invoice.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Invoice</b>-->
-<!--                                        </a></li>-->
-<!--                                </ul>-->
-<!--                            </li>-->
-<!--                            <li><a href="javascript:void(0);"> <i class="fa fa-envelope"></i> EMAIL <span-->
-<!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="inbox.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>Inbox</b> </a></li>-->
-<!--                                    <li><a href="compose.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Compose</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="readmail.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Read-->
-<!--                                                Mail</b> </a></li>-->
-<!--                                </ul>-->
-<!--                            </li>-->
-<!--                            <li><a href="javascript:void(0);"> <i class="fa fa-folder-open-o"></i> PAGES <span-->
-<!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="login.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>Login</b> </a></li>-->
-<!--                                    <li><a href="registration.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>Registration</b> </a></li>-->
-<!--                                    <li><a href="lockscreen.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Lock-->
-<!--                                                Screen</b> </a></li>-->
-<!--                                    <li><a href="blankpage.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Blank-->
-<!--                                                Page</b> </a></li>-->
-<!--                                    <li><a href="404error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>404-->
-<!--                                                Error</b> </a></li>-->
-<!--                                    <li><a href="500error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>500-->
-<!--                                                Error</b> </a></li>-->
-<!--                                    <li><a href="search.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Search</b>-->
-<!--                                        </a></li>-->
-<!--                                    <li><a href="about.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-<!--                                            <b>About</b> </a></li>-->
-<!--                                    <li><a href="contact.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Contact</b>-->
-<!--                                        </a></li>-->
-<!--                                </ul>-->
-<!--                            </li>-->
-<!--                            <li><a href="javascript:void(0);"> <i class="fa fa-th"></i> TABLES <span class="plus"><i-->
-<!--                                            class="fa fa-plus"></i></span> </a>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="statictable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Static-->
-<!--                                                Table</b> </a></li>-->
-<!--                                    <li><a href="datatable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Data-->
-<!--                                                Table</b> </a></li>-->
-<!--                                </ul>-->
-<!--                            </li>-->
-    <li><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span class="plus"><i
-                    class="fa fa-plus"></i></span></a>
-        <ul>
-            <li><a href="<?php echo base_url('/preferences/organ')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Муассасалар</b></a></li>
-            <li><a href="<?php echo base_url('/preferences/davlat')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Давлатлар</b></a></li>
-            <li><a href="<?php echo base_url('/preferences/region')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Худудлар</b></a></li>
-            <li><a href="<?php echo base_url('/preferences/otm')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>ОТМ лар</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/banks')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Банклар</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/partiya')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Партиялар</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/mutaxassislik')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a></li>
-<!--            <li> <hr>  </li>-->
-            <li><a href="<?php echo base_url('/preferences/millat')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/shartnoma')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Шартнома турлари</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/tillar')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Тиллар</b> </a></li>
-            <li><a href="<?php echo base_url('/preferences/uq_soha')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
-        </ul>
-    </li>
-                            <li><a href="javascript:void(0);"> <i class="fa fa-user"></i> Фойдаланувчилар <span class="plus"><i
+                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-users icon"></i> APPS <span class="plus"><i-->
+                            <!--                                            class="fa fa-plus"></i></span> </a>-->
+                            <!--                                <ul>-->
+                            <!--                                    <li><a href="todo.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>To-Do</b> </a></li>-->
+                            <!--                                    <li><a href="task.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>Task</b> </a></li>-->
+                            <!--                                    <li><a href="notes.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>Notes</b> </a></li>-->
+                            <!--                                    <li><a href="media.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Media-->
+                            <!--                                                Manager</b> </a></li>-->
+                            <!--                                    <li><a href="calendar.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Calendar</b>-->
+                            <!--                                        </a></li>-->
+                            <!--                                    <li><a href="ticket.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ticket-->
+                            <!--                                                Support</b> </a></li>-->
+                            <!--                                    <li><a href="invoice.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Invoice</b>-->
+                            <!--                                        </a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </li>-->
+                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-envelope"></i> EMAIL <span-->
+                            <!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
+                            <!--                                <ul>-->
+                            <!--                                    <li><a href="inbox.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>Inbox</b> </a></li>-->
+                            <!--                                    <li><a href="compose.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Compose</b>-->
+                            <!--                                        </a></li>-->
+                            <!--                                    <li><a href="readmail.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Read-->
+                            <!--                                                Mail</b> </a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </li>-->
+                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-folder-open-o"></i> PAGES <span-->
+                            <!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
+                            <!--                                <ul>-->
+                            <!--                                    <li><a href="login.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>Login</b> </a></li>-->
+                            <!--                                    <li><a href="registration.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>Registration</b> </a></li>-->
+                            <!--                                    <li><a href="lockscreen.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Lock-->
+                            <!--                                                Screen</b> </a></li>-->
+                            <!--                                    <li><a href="blankpage.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Blank-->
+                            <!--                                                Page</b> </a></li>-->
+                            <!--                                    <li><a href="404error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>404-->
+                            <!--                                                Error</b> </a></li>-->
+                            <!--                                    <li><a href="500error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>500-->
+                            <!--                                                Error</b> </a></li>-->
+                            <!--                                    <li><a href="search.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Search</b>-->
+                            <!--                                        </a></li>-->
+                            <!--                                    <li><a href="about.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
+                            <!--                                            <b>About</b> </a></li>-->
+                            <!--                                    <li><a href="contact.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Contact</b>-->
+                            <!--                                        </a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </li>-->
+                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-th"></i> TABLES <span class="plus"><i-->
+                            <!--                                            class="fa fa-plus"></i></span> </a>-->
+                            <!--                                <ul>-->
+                            <!--                                    <li><a href="statictable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Static-->
+                            <!--                                                Table</b> </a></li>-->
+                            <!--                                    <li><a href="datatable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Data-->
+                            <!--                                                Table</b> </a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </li>-->
+                            <li <?php
+                                $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik');
+                                if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
+                                            class="plus"><i
+                                                class="fa fa-plus"></i></span></a>
+                                <ul <?php
+
+                                    if (in_array($this->uri->segment(2),$action)) {?>class="opened" style="display:block;" <?php }?>>
+                                    <li><a href="<?php echo base_url('/preferences/organ') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Муассасалар</b></a></li>
+                                    <li><a href="<?php echo base_url('/preferences/davlat') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Давлатлар</b></a></li>
+                                    <li><a href="<?php echo base_url('/preferences/region') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Худудлар</b></a></li>
+                                    <li><a href="<?php echo base_url('/preferences/otm') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>ОТМ лар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/banks') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>Банклар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/partiya') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>Партиялар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/mutaxassislik') ?>">
+                                            <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a>
+                                    </li>
+                                    <!--            <li> <hr>  </li>-->
+                                    <li><a href="<?php echo base_url('/preferences/millat') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/shartnoma') ?>"> <span>&nbsp;</span>
+                                            <i class="fa fa-circle"></i><b>Шартнома турлари</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/tillar') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>Тиллар</b> </a></li>
+                                    <li><a href="<?php echo base_url('/preferences/uq_soha') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);"> <i class="fa fa-user"></i> Фойдаланувчилар <span
+                                            class="plus"><i
                                                 class="fa fa-plus"></i></span> </a>
                                 <ul>
-                                    <li><a href="<?php echo base_url('/users/users')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Фойдаланувчилар</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_reg')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Рўйхатга олиш</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_rolls')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Роллар</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_access')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Рухсат бериш</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/users') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Фойдаланувчилар</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_group') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Гурухлар</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_rolls') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Роллар</b></a></li>
+                                    <li><a href="<?php echo base_url('/users/user_access') ?>"> <span>&nbsp;</span> <i
+                                                    class="fa fa-circle"></i> <b>Рухсат бериш</b></a></li>
 
                                 </ul>
 
                             </li>
                             <li><a href="javascript:void(0);"> <i class="fa fa-info"></i> Ёрдам </a>
-
                             </li>
                         </ul>
                     </div>

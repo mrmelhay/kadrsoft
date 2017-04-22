@@ -73,7 +73,7 @@ class Users extends MY_Controller
         $this->view_lib->user_layout($this->data);
     }
 
-    public function user_reg()
+    public function user_group()
     {
         $this->data['title'] = 'Рўйхатга олиш';
         $this->data['content'] = $this->load->view('/user/user_reg', $this->data, true);
