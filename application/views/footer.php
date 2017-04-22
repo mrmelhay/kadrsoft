@@ -143,5 +143,3 @@ switch ($this->uri->segment(2)) {
 
 
 ?>
-</body>
-</html>

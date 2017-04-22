@@ -31,7 +31,7 @@ if(count(@$otm)==0) {
         </div>
 
     </div>
-   </div>
+
 
     <?php
 } else

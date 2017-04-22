@@ -40,7 +40,7 @@ if(count(@$bank)==0) {
 
     </div>
 
-    </div>
+
 
     <?php
 } else

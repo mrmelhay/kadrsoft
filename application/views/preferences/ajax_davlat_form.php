@@ -43,10 +43,6 @@ if(count(@$davlat)==0) {
         </div>
 
 
-
-    </div>
-
-
     <?php
 
 
