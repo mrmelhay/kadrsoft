@@ -113,7 +113,7 @@
                             <!--                                </ul>-->
                             <!--                            </li>-->
                             <li <?php
-                                $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik');
+                                $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik','millat','shartnoma','tillar','uq_soha');
                                 if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
@@ -135,7 +135,7 @@
                                     <li><a href="<?php echo base_url('/preferences/mutaxassislik') ?>">
                                             <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a>
                                     </li>
-                                    <!--            <li> <hr>  </li>-->
+                                                <li>  </li>
                                     <li><a href="<?php echo base_url('/preferences/millat') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
                                     <li><a href="<?php echo base_url('/preferences/shartnoma') ?>"> <span>&nbsp;</span>
