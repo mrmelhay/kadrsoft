@@ -1,3 +1,9 @@
+<?php
+$action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik','millat','shartnoma','tillar','uq_soha');
+$action2=array('dashboard','organ_info');
+$action3=array('employees','archives','stir');
+$action4=array('employees','stir_list','malaka_osh');
+?>
 <div class="wrapper">
     <?php if ($this->session->userdata('logged_in') != false) { ?>
         <div class="inner">
@@ -8,46 +14,46 @@
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
-                            <li class="<?php  if ($this->uri->segment(2)=='dashboard') {?>left_nav_active theme_border <?php }?>">
+                            <li <?php if (in_array($this->uri->segment(2),$action2)) { ?>class="left_nav_active theme_border <?php }?>">
                                 <a href="javascript:void(0);"><i
                                             class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span>
                                     <span  class="plus"><i class="fa fa-plus"></i></span>
                                 </a>
-                                <ul <?php  if ($this->uri->segment(2)=='dashboard') {?> class="opened" style="display:block;" <?php }?>>
-                                    <li><a href="index.html"> <span>&nbsp;</span> <i
+                                <ul <?php  if (in_array($this->uri->segment(2),$action2)) { ?> class="opened" style="display:block;" <?php }?>>
+                                    <li><a href="<?php echo base_url("/dashboard/organ_info")?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle theme_color"></i> <b
                                                     class="theme_color">Муассаса хақида</b> </a></li>
-                                    <li><a href="settings.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни
+                                    <li><a href="<?php echo base_url("/dashboard/organ_info")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни
                                                 киритиш</b>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0);"> <i class="fa fa-edit"></i> Ходимлар <span class="plus"><i
+                            <li <?php if (in_array($this->uri->segment(2),$action3)) { ?>class="left_nav_active theme_border <?php }?>"><a href="javascript:void(0);"> <i class="fa fa-edit"></i> Ходимлар <span class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
-                                <ul>
-                                    <li><a href="typography.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар</b>
+                                <ul <?php  if (in_array($this->uri->segment(2),$action3)) { ?> class="opened" style="display:block;" <?php }?>>
+                                    <li><a href="<?php echo base_url('/employee/employees')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар</b>
                                         </a></li>
-                                    <li><a href="buttons.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b>
+                                    <li><a href="<?php echo base_url('/employee/archives')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b>
                                         </a></li>
-                                    <li><a href="icons.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
+                                    <li><a href="<?php echo base_url('/employee/stir')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>ШИР ва СТИР</b> </a></li>
 
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span
+                            <li <?php if (in_array($this->uri->segment(2),$action4)) { ?>class="left_nav_active theme_border <?php }?>"><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
-                                <ul>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар
+                                <ul <?php  if (in_array($this->uri->segment(2),$action4)) { ?> class="opened" style="display:block;" <?php }?>>
+                                    <li><a href="<?php echo base_url("/reports/employees")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар
                                                 рўйхати</b>
                                         </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
+                                    <li><a href="<?php echo base_url("/reports/stir_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
                                                 рўйхати</b>
                                         </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
+                                    <li><a href="<?php echo base_url("/reports/malaka_osh")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>Малака ошириш</b> </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Others</b>
-                                        </a></li>
+<!--                                    <li><a href="--><?php //echo base_url("/reports/employees")?><!--"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Others</b>-->
+<!--                                        </a></li>-->
                                 </ul>
                             </li>
                             <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-users icon"></i> APPS <span class="plus"><i-->
@@ -113,7 +119,7 @@
                             <!--                                </ul>-->
                             <!--                            </li>-->
                             <li <?php
-                                $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik','millat','shartnoma','tillar','uq_soha');
+
                                 if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
