@@ -27,7 +27,7 @@
                                 <ul>
                                     <li><a href="typography.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар</b>
                                         </a></li>
-                                    <li><a href="#"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b>
+                                    <li><a href="buttons.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b>
                                         </a></li>
                                     <li><a href="icons.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
                                             <b>ШИР ва СТИР</b> </a></li>

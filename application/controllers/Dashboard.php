@@ -23,4 +23,16 @@ class Dashboard extends MY_Controller{
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
+
+    public function organ_info(){
+        $this->data['title']='Асосий сахифа';
+
+        if($this->session->userdata('logged_in')!=TRUE){
+            redirect(base_url('users'));
+        }
+
+        $this->data['content'] = $this->load->view('dashboard',$this->data,true);
+        $this->view_lib->admin_layout($this->data);
+    }
+
 }
