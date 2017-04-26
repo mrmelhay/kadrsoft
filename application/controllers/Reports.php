@@ -7,7 +7,7 @@ class Reports extends MY_Controller{
         parent::__construct();
     }
 
-    public function employees(){
+    public function employee_list(){
         $this->data['title'] = 'Муассасалар рўйхати';
         $this->data['content'] = $this->load->view('/reports/employee_list', $this->data, true);
         $this->view_lib->admin_layout($this->data);
