@@ -111,11 +111,19 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
     public function getLanguages(){
+        $langs="";
+        if (isset($this->tillar_id) && $this->tillar_id>0)
+        {$langs=$this->db->where('spr_tillar.tillar_id', $this->tillar_id);}
         $this->db->select('*');
         $this->db->from('spr_tillar');
+        $langs;
         $query1=$this->db->get();
+        $langs="";
+        if (isset($this->tillar_turi_id) && $this->tillar_turi_id>0)
+        {$langs=$this->db->where('spr_tillar_turi.tillar_turi_id', $this->tillar_turi_id);}
         $this->db->select('*');
         $this->db->from('spr_tillar_turi');
+        $langs;
         $query2=$this->db->get();
         return array('tillar'=>$query1->result_array(),'tillar_turi'=>$query2->result_array());
     }

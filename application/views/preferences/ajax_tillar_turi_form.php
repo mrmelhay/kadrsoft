@@ -1,5 +1,5 @@
 <?php
-if(count(@$tillar_turi)==0) {
+if(count(@$langs['tillar_turi'])==0) {
     ?>
     <div class="porlets-content">
         <div class="form-group lable-padd">
@@ -15,7 +15,7 @@ if(count(@$tillar_turi)==0) {
 } else
 {
 
-    foreach($tillar_turi as $tillarr) {?>
+    foreach($langs['tillar_turi'] as $tillarr) {?>
         <div class="porlets-content">
             <input type="hidden" name="tillar_turi" value="<?php echo $tillarr['tillar_turi_id'];?>" />
             <div class="form-group lable-padd">

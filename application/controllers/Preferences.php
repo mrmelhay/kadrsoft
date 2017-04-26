@@ -722,7 +722,7 @@ class Preferences extends MY_Controller
         if ($this->input->get('tillar_id') != "") {
             $did = $_GET['tillar_id'];
             $this->PreferencesModel->tillar_id=$did;
-            $this->data['tillar'] = $this->PreferencesModel->getLanguages();
+            $this->data['langs'] = $this->PreferencesModel->getLanguages();
             $this->load->view('/preferences/ajax_tillar_form',$this->data);
         } else{
             $this->data['tillar_id'] = array();
@@ -783,7 +783,7 @@ class Preferences extends MY_Controller
         if ($this->input->get('tillar_turi_id') != "") {
             $did = $_GET['tillar_turi_id'];
             $this->PreferencesModel->tillar_turi_id=$did;
-            $this->data['tillar_turi'] = $this->PreferencesModel->getLanguages();
+            $this->data['langs'] = $this->PreferencesModel->getLanguages();
             $this->load->view('/preferences/ajax_tillar_turi_form',$this->data);
         } else{
             $this->data['tillar_turi_id'] = array();
@@ -836,5 +836,8 @@ class Preferences extends MY_Controller
     }
 
     /*****************end tillar_turi *****/
+
+
+
 
 }

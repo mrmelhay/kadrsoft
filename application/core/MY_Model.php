@@ -23,6 +23,7 @@ class MY_Model extends CI_Model{
     public $millati_id=0;
     public $shartnoma_type_id=0;
     public $tillar_id=0;
+    public $tillar_turi_id=0;
     public $uqit_soha_id=0;
     public $tuman_id=0;
 
