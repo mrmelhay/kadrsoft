@@ -28,10 +28,9 @@
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <button id="new_organ" type="button" class="btn btn-primary" data-title="<?php echo $title; ?>"
-                                data-toggle="modal" data-target="#myModal">
-                            Янги қўшиш <i class="fa fa-plus"></i>
-                        </button>
+                        <a type="button" class="btn btn-primary"  href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
+                            <i class="fa fa-plus"></i>
+                        </a>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i

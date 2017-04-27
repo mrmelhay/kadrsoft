@@ -14,6 +14,10 @@
     <link href="<?php echo base_url('/assets/css/select2.css');?>" rel="stylesheet">
     <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js') ?>"></script>
     <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
+    <link href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/bootstrap-datepicker/compiled/timepicker.css'); ?>" rel="stylesheet" type="text/css" />
+
+
 </head>
 <body class="blue_thm  fixed_header left_nav_fixed">
 
