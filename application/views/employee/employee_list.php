@@ -1,6 +1,5 @@
 <div class="pull-left breadcrumb_admin clear_both">
 </div>
-
 <div class="container clear_both padding_fix">
     <div class="block-web">
         <div class="header">
@@ -57,38 +56,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    $counter = 0;
-                    foreach ($kollejs as $kollej) {
-                        $counter++;
-                        ?>
-                        <tr class="">
-                            <td><? echo $counter ?></td>
-                            <td><a href="#" data-title="<?php echo $title;?>"
-                                   data-kollej_id=<?php echo $kollej['kollej_id']; ?> data-toggle="modal"
-                                   data-target="#myModal"><?php echo $kollej['kollej_name'] ?>"</a></td>
-                            <td><?php echo $kollej['viloyat'] . ' ' . $kollej['tuman'] . ' ' . $kollej['kollej_adres']; ?></td>
-                            <td><?php echo $kollej['empl_count1'] ?></td>
-                            <td class="center"><?php echo $kollej['students_count'] ?></td>
-                            <td class="center"><?php echo ($kollej['is_director'] == 1) ? $kollej['name_f'] . ' ' . $kollej['name_i'] . ' ' . $kollej['name_o'] : ''; ?></td>
-                            <td class="center"><?php echo $kollej['phone'] ?></td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span
-                                            class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" data-title="<?php echo $title;?>"
-                                               data-kollej_id=<?php echo $kollej['kollej_id']; ?> data-toggle="modal"
-                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo base_url('preferences/del_organ/' . $kollej['kollej_id']) ?>"><span
-                                                    class="fa fa-trash-o"> </span> Ўчириш</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php } ?>
+<!--                    --><?php
+//                    $counter = 0;
+//                    foreach ($kollejs as $kollej) {
+//                        $counter++;
+//                        ?>
+<!--                        <tr class="">-->
+<!--                            <td>--><?// echo $counter ?><!--</td>-->
+<!--                            <td><a href="#" data-title="--><?php //echo $title;?><!--"-->
+<!--                                   data-kollej_id=--><?php //echo $kollej['kollej_id']; ?><!-- data-toggle="modal"-->
+<!--                                   data-target="#myModal">--><?php //echo $kollej['kollej_name'] ?><!--"</a></td>-->
+<!--                            <td>--><?php //echo $kollej['viloyat'] . ' ' . $kollej['tuman'] . ' ' . $kollej['kollej_adres']; ?><!--</td>-->
+<!--                            <td>--><?php //echo $kollej['empl_count1'] ?><!--</td>-->
+<!--                            <td class="center">--><?php //echo $kollej['students_count'] ?><!--</td>-->
+<!--                            <td class="center">--><?php //echo ($kollej['is_director'] == 1) ? $kollej['name_f'] . ' ' . $kollej['name_i'] . ' ' . $kollej['name_o'] : ''; ?><!--</td>-->
+<!--                            <td class="center">--><?php //echo $kollej['phone'] ?><!--</td>-->
+<!--                            <td>-->
+<!--                                <div class="btn-group">-->
+<!--                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span-->
+<!--                                            class="caret"></span></button>-->
+<!--                                    <ul class="dropdown-menu">-->
+<!--                                        <li><a href="#" data-title="--><?php //echo $title;?><!--"-->
+<!--                                               data-kollej_id=--><?php //echo $kollej['kollej_id']; ?><!-- data-toggle="modal"-->
+<!--                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a href="--><?php //echo base_url('preferences/del_organ/' . $kollej['kollej_id']) ?><!--"><span-->
+<!--                                                    class="fa fa-trash-o"> </span> Ўчириш</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                    --><?php //} ?>
 
                     </tbody>
                 </table>
