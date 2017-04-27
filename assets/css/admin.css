@@ -12,6 +12,9 @@ body {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 13px;
     /*background-color: #262a33;*/
+    background-repeat: repeat;
+    /*background: url(../images/bg.png) no-repeat center center;*/
+    background-image: url(../images/bg.png);
 }
 
 .container {
@@ -582,6 +585,8 @@ img {
 .left_nav_slidebar ul li a {
     text-decoration: none;
     padding: 10px 0 10px 12px;
+    color: #ffffff;
+    font-weight: bolder;
     font-size: 13px;
     display: block;
 }
@@ -1115,6 +1120,7 @@ img {
     position: fixed;
     top: 60px;
     z-index: 99;
+    background-color: rgba(0,39,52,0.71);
 }
 
 .left_nav_fixed .brand {

@@ -12,6 +12,7 @@
                 <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
             </div>
         <?php } ?>
+        <div class="panel-heading border login_heading"><span class="theme_color">КОЛЛЕЖ</span> Кадр</div>
         <form role="form" class="form-horizontal" method="post" action="<?php echo base_url('users/check')?>">
             <div class="form-group">
                 <div class="col-sm-10">

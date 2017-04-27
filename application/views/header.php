@@ -15,7 +15,7 @@
     <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js') ?>"></script>
     <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 </head>
-<body class="light_theme  fixed_header left_nav_fixed">
+<body class="blue_thm  fixed_header left_nav_fixed">
 
 <?php
 if ($this->session->userdata('logged_in')!=false){
@@ -73,17 +73,7 @@ if ($this->session->userdata('logged_in')!=false){
 
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> notification <span class="badge badge color_2">6</span> </a>
-                            <div class="notification_drop_down dropdown-menu">
-                                <div class="top_pointer"></div>
-                                <div class="box"> <a href="inbox.html"> <span class="block primery_6"> <i class="fa fa-envelope-o"></i> </span> <span class="block_text">Mailbox</span> </a> </div>
-                                <div class="box"> <a href="calendar.html"> <span class="block primery_2"> <i class="fa fa-calendar-o"></i> </span> <span class="block_text">Calendar</span> </a> </div>
-                                <div class="box"> <a href="maps.html"> <span class="block primery_4"> <i class="fa fa-map-marker"></i> </span> <span class="block_text">Map</span> </a> </div>
-                                <div class="box"> <a href="todo.html"> <span class="block primery_3"> <i class="fa fa-plane"></i> </span> <span class="block_text">To-Do</span> </a> </div>
-                                <div class="box"> <a href="task.html"> <span class="block primery_5"> <i class="fa fa-picture-o"></i> </span> <span class="block_text">Tasks</span> </a> </div>
-                                <div class="box"> <a href="timeline.html"> <span class="block primery_1"> <i class="fa fa-clock-o"></i> </span> <span class="block_text">Timeline</span> </a> </div>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>
