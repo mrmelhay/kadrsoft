@@ -37,6 +37,7 @@ class PreferencesModel extends MY_Model{
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = spr_kollej.tuman_id', 'left');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kollej_id = spr_kollej.kollej_id', 'left');
         $this->db->join('d_kadr', 'd_kadr.kadrid = d_kadr_items_bind.kadrid', 'left');
+        $this->db->where('d_kadr_items_bind.is_director',1);
         $kollej;
         $this->db->order_by('spr_kollej.kollej_id','ASC');
         $query=$this->db->get();
@@ -101,6 +102,7 @@ class PreferencesModel extends MY_Model{
         $query=$this->db->get();
         return $query->result_array();
     }
+
     public function getContract(){
         $sprcontract="";
         if (isset($this->shartnoma_type_id) && $this->shartnoma_type_id>0) {$sprcontract=$this->db->where('spr_shartnoma_type.shartnoma_type_id', $this->shartnoma_type_id);}
@@ -181,6 +183,80 @@ class PreferencesModel extends MY_Model{
                 $sel = ($row['kollej_id']== $selected) ? " selected=\"selected\"" : "";
                 print '<option value="' . $row['kollej_id'] . '"'.$sel.'">';
                 print $row['kollej_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getLavozimDropList($selected = false){
+        if ($this->lavozimList){
+            foreach ($this->lavozimList as $key => $row) {
+                $sel = ($row['lavozim_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['lavozim_id'] . '"'.$sel.'">';
+                print $row['lavozim_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getMalumotDropList($selected = false){
+        if ($this->malumotList){
+            foreach ($this->malumotList as $key => $row) {
+                $sel = ($row['malumot_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['malumot_id'] . '"'.$sel.'">';
+                print $row['malumot_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getMutaxasislikDropList($selected = false){
+        if ($this->mutaxassislikList){
+            foreach ($this->mutaxassislikList as $key => $row) {
+                $sel = ($row['mutax_kodi_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['mutax_kodi_id'] . '"'.$sel.'">';
+                print $row['mutax_kodi'].' - '.$row['mutax_kodi_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getMutaxasislikTurDropList($selected = false){
+
+        if ($this->mutaxassislikturList){
+            foreach ($this->mutaxassislikturList as $key => $row) {
+                $sel = ($row['mutax_turi_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['mutax_turi_id'] . '"'.$sel.'">';
+                print $row['mutax_turi_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getMillatiDropList($selected = false){
+        $this->loadMillati();
+        if ($this->millatiList){
+            foreach ($this->millatiList as $key => $row) {
+                $sel = ($row['millat_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['millat_id'] . '"'.$sel.'">';
+                print $row['millat_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getDavlatDropList($selected = false){
+        $this->loadDavlat();
+        if ($this->davlatList){
+            foreach ($this->davlatList as $key => $row) {
+                $sel = ($row['davlat_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['davlat_id'] . '"'.$sel.'">';
+                print $row['gov_uzc'] . '</option>';
+            }
+        }
+    }
+
+    public function getParpiaDropList($selected = false){
+
+        if ($this->partiyaList){
+            foreach ($this->partiyaList as $key => $row) {
+                $sel = ($row['partiya_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['partiya_id'] . '"'.$sel.'">';
+                print $row['partiya_name'] . '</option>';
             }
         }
     }

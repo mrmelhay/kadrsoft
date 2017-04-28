@@ -15,8 +15,9 @@ class MY_Controller extends CI_Controller{
         $this->load->library('form_validation');
         $this->load->model('UserModel');
         $this->load->model('PreferencesModel');
-
+        $this->load->model('EmployeeModel');
         $this->data['username']=$this->session->all_userdata();
+        $this->load->library('Fileupload');
     }
 
     

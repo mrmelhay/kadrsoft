@@ -12,6 +12,14 @@ class MY_Model extends CI_Model{
     public $tumanList=array();
     public $kollejList=array();
     public $rollsList=array();
+    public $lavozimList=array();
+    public $malumotList=array();
+    public $mutaxassislikList=array();
+    public $mutaxassislikturList=array();
+    public $millatiList=array();
+    public $davlatList=array();
+    public $partiyaList=array();
+
     public $viloyat_id=0;
     public $kollej_id=0;
     public $userid=0;
@@ -33,7 +41,11 @@ class MY_Model extends CI_Model{
         parent::__construct();
         $this->loadViloyat();
         $this->loadKollej();
-
+        $this->loadLavozim();
+        $this->loadMalumoti();
+        $this->loadMutaxassislik();
+        $this->loadMutaxassisliktur();
+        $this->loadPartiya();
     }
 
     public function loadViloyat(){
@@ -95,6 +107,85 @@ class MY_Model extends CI_Model{
         }
         return $this->rollsList;
     }
+
+    public function loadLavozim(){
+        $this->db->select('*');
+        $this->db->from('spr_lavozim');
+//        $this->db->where('viloyat_id',$this->viloyat_id);
+        $this->db->order_by('spr_lavozim.lavozim_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->lavozimList[$rows['lavozim_id']]=$rows;
+        }
+        return $this->lavozimList;
+    }
+
+    public function loadMalumoti(){
+        $this->db->select('*');
+        $this->db->from('spr_malumot');
+        $this->db->order_by('spr_malumot.malumot_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->malumotList[$rows['malumot_id']]=$rows;
+        }
+        return $this->malumotList;
+    }
+
+    public function loadMutaxassislik(){
+        $this->db->select('*');
+        $this->db->from('spr_mutaxasislik');
+        $this->db->order_by('spr_mutaxasislik.mutax_kodi_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->mutaxassislikList[$rows['mutax_kodi_id']]=$rows;
+        }
+        return $this->mutaxassislikList;
+    }
+
+    public function loadMutaxassisliktur(){
+        $this->db->select('*');
+        $this->db->from('spr_mutax_turi');
+        $this->db->order_by('spr_mutax_turi.mutax_turi_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->mutaxassislikturList[$rows['mutax_turi_id']]=$rows;
+        }
+        return $this->mutaxassislikturList;
+    }
+
+    public function loadMillati(){
+        $this->db->select('*');
+        $this->db->from('spr_millat');
+        $this->db->order_by('spr_millat.millat_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->millatiList[$rows['millat_id']]=$rows;
+        }
+        return $this->millatiList;
+    }
+
+    public function loadDavlat(){
+        $this->db->select('*');
+        $this->db->from('spr_davlat');
+        $this->db->order_by('spr_davlat.davlat_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->davlatList[$rows['davlat_id']]=$rows;
+        }
+        return $this->davlatList;
+    }
+
+    public function loadPartiya(){
+        $this->db->select('*');
+        $this->db->from('spr_partiya');
+        $this->db->order_by('spr_partiya.partiya_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->partiyaList[$rows['partiya_id']]=$rows;
+        }
+        return $this->partiyaList;
+    }
+
 
 
 

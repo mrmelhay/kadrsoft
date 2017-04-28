@@ -5,7 +5,7 @@
         <div class="header">
             <div class="actions"><a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a> <a class="refresh"
                                                                                                         href="#"><i
-                        class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a>
+                            class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a>
             </div>
             <h3 class="content-header">Ходимлар рўйхати</h3>
         </div>
@@ -13,7 +13,7 @@
             <?php if ($this->session->flashdata('message') != null) { ?>
                 <div class="alert alert-info alert-styled-left alert-bordered">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span><span
-                            class="sr-only">Ёпиш</span></button>
+                                class="sr-only">Ёпиш</span></button>
                     <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
                 </div>
             <?php } ?>
@@ -27,13 +27,14 @@
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a type="button" class="btn btn-primary"  href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
+                        <a type="button" class="btn btn-primary"
+                           href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i
-                                class="fa fa-angle-down"></i>
+                                    class="fa fa-angle-down"></i>
                         </button>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="#">Чоп этиш</a></li>
@@ -56,38 +57,44 @@
                     </tr>
                     </thead>
                     <tbody>
-<!--                    --><?php
-//                    $counter = 0;
-//                    foreach ($kollejs as $kollej) {
-//                        $counter++;
-//                        ?>
-<!--                        <tr class="">-->
-<!--                            <td>--><?// echo $counter ?><!--</td>-->
-<!--                            <td><a href="#" data-title="--><?php //echo $title;?><!--"-->
-<!--                                   data-kollej_id=--><?php //echo $kollej['kollej_id']; ?><!-- data-toggle="modal"-->
-<!--                                   data-target="#myModal">--><?php //echo $kollej['kollej_name'] ?><!--"</a></td>-->
-<!--                            <td>--><?php //echo $kollej['viloyat'] . ' ' . $kollej['tuman'] . ' ' . $kollej['kollej_adres']; ?><!--</td>-->
-<!--                            <td>--><?php //echo $kollej['empl_count1'] ?><!--</td>-->
-<!--                            <td class="center">--><?php //echo $kollej['students_count'] ?><!--</td>-->
-<!--                            <td class="center">--><?php //echo ($kollej['is_director'] == 1) ? $kollej['name_f'] . ' ' . $kollej['name_i'] . ' ' . $kollej['name_o'] : ''; ?><!--</td>-->
-<!--                            <td class="center">--><?php //echo $kollej['phone'] ?><!--</td>-->
-<!--                            <td>-->
-<!--                                <div class="btn-group">-->
-<!--                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span-->
-<!--                                            class="caret"></span></button>-->
-<!--                                    <ul class="dropdown-menu">-->
-<!--                                        <li><a href="#" data-title="--><?php //echo $title;?><!--"-->
-<!--                                               data-kollej_id=--><?php //echo $kollej['kollej_id']; ?><!-- data-toggle="modal"-->
-<!--                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>-->
-<!--                                        </li>-->
-<!--                                        <li>-->
-<!--                                            <a href="--><?php //echo base_url('preferences/del_organ/' . $kollej['kollej_id']) ?><!--"><span-->
-<!--                                                    class="fa fa-trash-o"> </span> Ўчириш</a></li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                    --><?php //} ?>
+                    <?php
+                    $counter = 0;
+                    foreach ($employees as $empl) {
+                        $counter++;
+                        ?>
+                        <tr class="">
+                            <td><? echo $counter ?></td>
+                            <td><a href="#" data-title="<?php echo $title; ?>"
+                                   data-kollej_id=
+                                   <?php echo $empl['kollej_id']; ?> data-toggle="modal"
+                                   data-target="#myModal">
+                                    <?php echo $empl['name_f'] . ' ' . $empl['name_i'] . ' ' . $empl['name_o'] ?></a>
+                            </td>
+                            <td>
+                                <?php echo $empl['lavozim_name'] ?></td>
+                            <td>
+                                <?php echo $empl['malumot_name'] ?></td>
+                            <td class="center"><?php echo $empl['phone_mobile'] ?></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span
+                                                class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" data-title="
+                    <?php echo $title; ?>"
+                                               data-kollej_id=
+                                               <?php echo $empl['kollej_id']; ?> data-toggle="modal"
+                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>
+                                        </li>
+                                        <li>
+                                            <a href="
+                    <?php echo base_url('preferences/del_organ/' . $empl['kollej_id']) ?>"><span
+                                                        class="fa fa-trash-o"> </span> Ўчириш</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
 
                     </tbody>
                 </table>
@@ -103,7 +110,7 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                                aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
