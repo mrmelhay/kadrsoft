@@ -20,7 +20,7 @@ $action4=array('employee_list','stir_list','malaka_osh');
                                     <span  class="plus"><i class="fa fa-plus"></i></span>
                                 </a>
                                 <ul <?php  if (in_array($this->uri->segment(2),$action2)) { ?> class="opened" style="display:block;" <?php }?>>
-                                    <li><a href="<?php echo base_url("/dashboard/organ_info")?>"> <span>&nbsp;</span> <i
+                                    <li><a href="<?php echo base_url("/organ/organ_list")?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle theme_color"></i> <b
                                                     class="theme_color">Муассаса хақида</b> </a></li>
                                     <li><a href="<?php echo base_url("/dashboard/organ_info")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни

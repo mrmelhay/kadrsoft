@@ -149,14 +149,14 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Умумий стажи</label>
                         <div class="col-md-6">
-                            <input type="text" name="umumiy_staj" id="umumiy_staj" class="form-control" required placeholder="Умумий стаж"  parsley-trigger="change">
+                            <input type="text" name="umumiy_staj" id="umumiy_staj" class="form-control" required placeholder="Умумий стаж"  parsley-trigger="change" maxlength="2">
                         </div>
                     </div><!--/form-group-->
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Педагогик стажи</label>
                         <div class="col-md-6">
-                            <input type="text" name="ped_staj" id="ped_staj" class="form-control" required placeholder="Педагогик стаж"  parsley-trigger="change">
+                            <input type="text" name="ped_staj" id="ped_staj" class="form-control" required placeholder="Педагогик стаж"  parsley-trigger="change" maxlength="2">
                         </div>
                     </div><!--/form-group-->
 
@@ -172,14 +172,14 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">СТИР</label>
                         <div class="col-md-6">
-                            <input type="text" name="inn" id="inn" class="form-control" required placeholder="СТИР рақами"  parsley-trigger="change">
+                            <input type="text" name="inn" id="inn" class="form-control" required placeholder="СТИР рақами"  parsley-trigger="change" maxlength="9">
                         </div>
                     </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">ЖБПДР</label>
                         <div class="col-md-6">
-                            <input type="text" name="inps" id="inps" class="form-control" required placeholder="ЖБПДР"  parsley-trigger="change">
+                            <input type="text" name="inps" id="inps" class="form-control" required placeholder="ЖБПДР"  parsley-trigger="change" maxlength="14">
                         </div>
                     </div>
 

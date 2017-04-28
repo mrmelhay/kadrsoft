@@ -190,23 +190,27 @@ switch ($this->uri->segment(2)) {
         <script src="<?php echo base_url('/assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
         <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js'); ?>"></script>
         <script src="<?php echo base_url('/assets/js/bootstrap.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/common-script.js');?>"></script>
-        <script src="<?php echo base_url('assets/js/jquery.slimscroll.min.js'); ?>"></script>
         <script  src="<?php echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?>" type="text/javascript" ></script>
-<!--        <script src="--><?php //echo base_url('assets/plugins/checkbox/zepto.js'); ?><!--"></script>-->
-<!--        <script src="--><?php //echo base_url('assets/plugins/checkbox/icheck.js'); ?><!--"></script>-->
-<!--        <script src="--><?php //echo base_url('assets/js/icheck-init.js'); ?><!--"></script>-->
-<!--        <script src="--><?php //echo base_url('assets/js/jquery.slimscroll.min.js'); ?><!--"></script>-->
-<!--        <script src="--><?php //echo base_url('assets/js/icheck.js'); ?><!--"></script>-->
-<!--        <script type="text/javascript" src="--><?php //echo base_url('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js'); ?><!--"></script>-->
-<!--        <script type="text/javascript" src="--><?php //echo base_url('assets/js/form-components.js'); ?><!--"></script>-->
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/demo-mask.js');?>"></script>
-<!--        <script type="text/javascript"  src="--><?php //echo base_url('assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js');?><!--"></script>-->
-<!--        <script type="text/javascript"  src="--><?php //echo base_url('assets/plugins/dropzone/dropzone.min.js');?><!--"></script>-->
         <?php
         break;
 
+
+    case 'organ_list':
+        ?>
+        <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
+        <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/demo-mask.js');?>"></script>
+        <script type="text/javascript"  src="<?php echo base_url('assets/plugins/x-editable/form-x-editable.js');?>"></script>
+        <script type="text/javascript"  src="<?php echo base_url('assets/plugins/x-editable/form-x-editable-demo.js');?>"></script>
+        <script type="text/javascript"  src="<?php echo base_url('assets/plugins/mockjax/jquery.mockjax.min.js');?>"></script>
+        <script  src="<?php echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?>" type="text/javascript" ></script>
+
+
+
+
+        <?php
+        break;
 
 }
 

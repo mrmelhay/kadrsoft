@@ -22,13 +22,13 @@ class Employee extends MY_Controller{
 
     public function archives(){
         $this->data['title'] = 'Ходимлар рўйхати';
-        $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
+        $this->data['content'] = $this->load->view('/employee/employee_arch', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
 
     public function stir(){
         $this->data['title'] = 'Ходимлар рўйхати';
-        $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
+        $this->data['content'] = $this->load->view('/employee/employee_stir', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
 
