@@ -3,6 +3,7 @@ $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik',
 $action2=array('dashboard','organ_info');
 $action3=array('employees','archives','stir');
 $action4=array('employee_list','stir_list','malaka_osh');
+$action5=array('organ_list');
 ?>
 <div class="wrapper">
     <?php if ($this->session->userdata('logged_in') != false) { ?>
@@ -19,7 +20,7 @@ $action4=array('employee_list','stir_list','malaka_osh');
                                             class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span>
                                     <span  class="plus"><i class="fa fa-plus"></i></span>
                                 </a>
-                                <ul <?php  if (in_array($this->uri->segment(2),$action2)) { ?> class="opened" style="display:block;" <?php }?>>
+                                <ul <?php  if (in_array($this->uri->segment(2),$action5)) { ?> class="opened" style="display:block;" <?php }?>>
                                     <li><a href="<?php echo base_url("/organ/organ_list")?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle theme_color"></i> <b
                                                     class="theme_color">Муассаса хақида</b> </a></li>
