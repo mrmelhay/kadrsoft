@@ -3,9 +3,9 @@
 <div class="container clear_both padding_fix">
     <div class="block-web">
         <div class="header">
-            <div class="actions"><a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a> <a class="refresh"
-                                                                                                        href="#"><i
-                            class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a>
+            <div class="actions"><a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                <a class="refresh" href="#">
+                    <i class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a>
             </div>
             <h3 class="content-header">Ходимлар рўйхати</h3>
         </div>

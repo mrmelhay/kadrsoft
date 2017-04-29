@@ -252,8 +252,9 @@
             </div>
             </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Чиқиш</button>
-                    <button type="submit" class="btn btn-primary">Сақлаш</button>
+                    <a type="button" class="btn btn-primary"
+                       href="<?php echo base_url('/employee/employees') ?>"> <i class="fa fa-power-off"></i> Чиқиш </a>
+                    <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Сақлаш </button>
                 </div>
             </form>
         </div>
