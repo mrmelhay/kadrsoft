@@ -26,7 +26,7 @@
                 </div>
             <?php } ?>
 
-            <?php if (validation_errors()) { ?>
+            <?php if (validation_errors()) {  ?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <?php echo validation_errors(); ?>
