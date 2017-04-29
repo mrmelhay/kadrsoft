@@ -108,6 +108,7 @@
         <div class="modal-content">
             <form action="<?php echo base_url('/preferences/create_organ') ?>" class="form-horizontal" method="post">
 
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
