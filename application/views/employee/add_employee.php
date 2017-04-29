@@ -186,14 +186,14 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Умумий стажи</label>
                         <div class="col-md-6">
-                            <input type="text" name="umumiy_staj" id="umumiy_staj" class="form-control"  placeholder="Умумий стаж"  parsley-trigger="change" maxlength="2">
+                            <input type="text" name="umumiy_staj" id="umumiy_staj" class="form-control"  placeholder="Умумий стаж"  value="<?php echo $employee->umumiy_staj; ?>" parsley-trigger="change" maxlength="2">
                         </div>
                     </div><!--/form-group-->
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Педагогик стажи</label>
                         <div class="col-md-6">
-                            <input type="text" name="ped_staj" id="ped_staj" class="form-control"  placeholder="Педагогик стаж"  parsley-trigger="change" maxlength="2">
+                            <input type="text" name="ped_staj" id="ped_staj" class="form-control"  placeholder="Педагогик стаж" value="<?php echo $employee->ped_staj; ?>" parsley-trigger="change" maxlength="2">
                         </div>
                     </div>
 
@@ -210,35 +210,35 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">СТИР</label>
                         <div class="col-md-6">
-                            <input type="text" name="inn" id="inn" class="form-control"  placeholder="СТИР рақами"  parsley-trigger="change" maxlength="9">
+                            <input type="text" name="inn" id="inn" class="form-control"  placeholder="СТИР рақами"  value="<?php echo $employee->inn; ?>"  parsley-trigger="change" maxlength="9">
                         </div>
                     </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">ЖБПДР</label>
                         <div class="col-md-6">
-                            <input type="text" name="inps" id="inps" class="form-control"  placeholder="ЖБПДР"  parsley-trigger="change" maxlength="14">
+                            <input type="text" name="inps" id="inps" class="form-control"  placeholder="ЖБПДР" value="<?php echo $employee->inps; ?>"  parsley-trigger="change" maxlength="14">
                         </div>
                     </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Эл.почтаси</label>
                         <div class="col-md-6">
-                            <input type="email" name="email" id="email" class="form-control"  placeholder="Электрон почта"  parsley-trigger="change">
+                            <input type="email" name="email" id="email" class="form-control"  placeholder="Электрон почта"  value="<?php echo $employee->email; ?>"  parsley-trigger="change">
                         </div>
                     </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Телефон</label>
                         <div class="col-md-6">
-                            <input type="text" name="phone_work" id="phone_work" class="form-control mask" data-inputmask="'mask':'(999)99-999-9999'"  placeholder="Иш телефон рақами"  parsley-trigger="change">
+                            <input type="text" name="phone_work" id="phone_work" value="<?php echo $employee->phone_work; ?>" class="form-control mask" data-inputmask="'mask':'(999)99-999-9999'"  placeholder="Иш телефон рақами"  parsley-trigger="change">
                         </div>
                     </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Мобил телефон</label>
                         <div class="col-md-6">
-                            <input type="text" name="phone_mobile" id="phone_mobile" class="form-control mask" data-inputmask="'mask':'(999)99-999-9999'"  placeholder="Уй телефон рақами"  parsley-trigger="change">
+                            <input type="text" name="phone_mobile" id="phone_mobile" value="<?php echo $employee->phone_mobile; ?>" class="form-control mask" data-inputmask="'mask':'(999)99-999-9999'"  placeholder="Уй телефон рақами"  parsley-trigger="change">
                         </div>
                     </div>
 

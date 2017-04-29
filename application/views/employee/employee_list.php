@@ -13,15 +13,15 @@
             <?php if ($this->session->flashdata('message') != null) { ?>
                 <div class="alert alert-info alert-styled-left alert-bordered">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span><span
-                                class="sr-only">Ёпиш</span></button>
+                                class="sr-only">Закрыть</span></button>
                     <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
                 </div>
             <?php } ?>
 
-            <?php if (validation_errors()) { ?>
+            <?php if ($this->session->flashdata('exception') != null) {  ?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?php echo validation_errors(); ?>
+                    <?php echo $this->session->flashdata('exception'); ?>
                 </div>
             <?php } ?>
             <div class="adv-table editable-table ">
@@ -64,10 +64,9 @@
                         ?>
                         <tr class="">
                             <td><? echo $counter ?></td>
-                            <td><a href="#" data-title="<?php echo $title; ?>"
-                                   data-kollej_id=
-                                   <?php echo $empl['kollej_id']; ?> data-toggle="modal"
-                                   data-target="#myModal">
+                            <td><a href="<?php echo base_url("/employee/edit_employee/".$empl['kadrid'])?>" data-title="<?php echo $title; ?>"
+                                   data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
+                                   >
                                     <?php echo $empl['name_f'] . ' ' . $empl['name_i'] . ' ' . $empl['name_o'] ?></a>
                             </td>
                             <td>

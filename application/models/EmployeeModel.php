@@ -18,7 +18,7 @@ class EmployeeModel extends MY_Model
     public function getEmployeeList(){
         $kollej="";
         if (isset($this->kollej_id) && $this->kollej_id>0) {$kollej=$this->db->where('spr_kollej.kollej_id',$this->kollej_id);}
-        $this->db->select('*');
+        $this->db->select('d_kadr.*,spr_kollej.kollej_id,spr_lavozim.*,spr_malumot.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
@@ -37,16 +37,17 @@ class EmployeeModel extends MY_Model
     public function createOrUpdate($data = [])
     {
         $result= $this->db->select("*")
-            ->from('d_kadr_items_bind')
+            ->from('d_kadr')
             ->where('kadrid',$data['kadrid'])
             ->get();
+        $query=$result->row_array();
         $row= $result->num_rows();
 
         if ($row) {
-            $this->db->update('d_kadr', $data);
             $this->db->where('kadrid',$data['kadrid']);
+            $this->db->update('d_kadr', $data);
             if ($this->db->affected_rows()) {
-                return true;
+                return $query['kadrid'];
             } else {
                 return false;
             }
@@ -63,19 +64,17 @@ class EmployeeModel extends MY_Model
     }
 
     public function createOrUpdateItemsBind($data = []){
-
-
        $result= $this->db->select("*")
             ->from('d_kadr_items_bind')
              ->where('kadrid',$data['kadrid'])
             ->get();
+           $query=$result->row_array();
            $row= $result->num_rows();
            if ($row){
                $this->db->update('d_kadr_items_bind', $data);
-            $this->db->where('kadrid',$data['kadrid']);
+               $this->db->where('kadrid',$data['kadrid']);
            }else{
             $this->db->insert('d_kadr_items_bind', $data);
-            echo "Insert";
         }
 
         if ($this->db->affected_rows()) {
@@ -85,6 +84,19 @@ class EmployeeModel extends MY_Model
         }
     }
 
+    public function read_by_data($user_id = null)
+    {
+        return $this->db->select("*")
+                        ->from("d_kadr")
+                        ->where('kadrid',$user_id)
+                        ->get()
+                        ->row_array();
+    }
+
+    public function read_by_isDirector($kadrid = null)
+    {
+        $this->lavozimList[''];
+    }
 
 
 
