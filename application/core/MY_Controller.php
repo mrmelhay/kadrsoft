@@ -12,6 +12,10 @@ class MY_Controller extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
+
+        if($this->session->userdata('logged_in')!=TRUE){
+            redirect(base_url('users'));
+        }
         $this->load->library('form_validation');
         $this->load->model('UserModel');
         $this->load->model('PreferencesModel');

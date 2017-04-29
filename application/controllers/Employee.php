@@ -34,9 +34,10 @@ class Employee extends MY_Controller{
     }
 
     public function add_employee(){
+
         $this->data['title'] = 'Янги ходимни қўшиш';
         $this->data['employee'] = (object)$postData = [
-                                                    'kadrid'              => 0,
+                                                    'kadrid'              => null,
                                                     'name_f'              => null,
                                                     'name_i'              => null,
                                                     'name_o'              => null,
@@ -59,6 +60,7 @@ class Employee extends MY_Controller{
                                                     'email'   =>null,
                                                     'phone_work'   => null,
                                                     'phone_mobile'   => null,
+                                                    'photo'   => null,
         ];
         $this->data['content'] = $this->load->view('/employee/add_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -77,13 +79,15 @@ class Employee extends MY_Controller{
 //        $this->form_validation->set_rules('malaka_lavozim_id','Address','required|max_length[255]');
         $this->form_validation->set_rules('mutax_kodi_id','Мутахасислиги','required');
         $kollej_id=$this->data['username'];
-        $picture = $this->fileupload->do_upload(base_url('images/photos/'),'photo');
+        $picture = $this->fileupload->do_upload('images/photos/','photo');
         if ($picture !== false && $picture != null) {
             $this->fileupload->do_resize($picture,200,150);
         }
         if ($picture === false) {
             $this->session->set_flashdata('exception', 'Invalid picture!');
         }
+
+        if ($this->input->post('kadrid', true)==null){
             $this->data['employee'] = (object)$postData = [
                 'kadrid' => $this->input->post('kadrid', true),
                 'name_f' => $this->input->post('name_f', true),
@@ -109,19 +113,56 @@ class Employee extends MY_Controller{
                 'email' => $this->input->post('email', true),
                 'phone_work' => $this->input->post('phone_work', true),
                 'phone_mobile' => $this->input->post('phone_mobile', true),
+                'photo' => !empty($picture) ? $picture : $this->input->post('old_picture'),
+                'addeduser' => $this->data['username']['user_id'],
+                'addtime' => date('Y-m-d H:i:s'),
             ];
-
+        }else{
+            $this->data['employee'] = (object)$postData = [
+                'kadrid' => $this->input->post('kadrid', true),
+                'name_f' => $this->input->post('name_f', true),
+                'name_i' => $this->input->post('name_i', true),
+                'name_o' => $this->input->post('name_o', true),
+                'bdate' => $this->input->post('bdate', true),
+                'sex' => $this->input->post('sex', true),
+                'lavozim_id' => $this->input->post('lavozim_id', true),
+                'malumot_id' => $this->input->post('malumot_id', true),
+                'malaka_lavozim_id' => $this->input->post('malaka_lavozim_id', true),
+                'mutax_turi_id' => $this->input->post('mutax_turi_id', true),
+                'mutax_kodi_id' => $this->input->post('mutax_kodi_id', true),
+                'millat_id' => $this->input->post('millat_id', true),
+                'oila_id' => $this->input->post('oila_id', true),
+                'davlat_id' => $this->input->post('davlat_id', true),
+                'viloyat_id' => $this->input->post('viloyat_id', true),
+                'tuman_id' => $this->input->post('tuman_id', true),
+                'umumiy_staj' => $this->input->post('umumiy_staj', true),
+                'ped_staj' => $this->input->post('ped_staj', true),
+                'partiya_id' => $this->input->post('partiya_id', true),
+                'inn' => $this->input->post('inn', true),
+                'inps' => $this->input->post('inps', true),
+                'email' => $this->input->post('email', true),
+                'phone_work' => $this->input->post('phone_work', true),
+                'phone_mobile' => $this->input->post('phone_mobile', true),
+                'photo' => !empty($picture) ? $picture : $this->input->post('old_picture'),
+                'edituser' =>  $this->data['username']['user_id'],
+                'edittime' => date('Y-m-d H:i:s'),
+                ];
+        }
 
         if ($this->form_validation->run() === true) {
             $kadrid=$this->EmployeeModel->createOrUpdate($postData);
+//                echo $kadrid;
             if ($kadrid) {
                  $postData2 = ['kadrid'=> $kadrid,'kollej_id'=>$kollej_id['kollej_id']];
+//                 print_r($postData2);
                  $this->EmployeeModel->createOrUpdateItemsBind($postData2 );
-                $this->session->set_flashdata('message',"Маълумот киритилди!");
+                $this->session->set_flashdata('message',"Маълумот сақланди!");
                 redirect("/employee/employees");
             } else {
                 $this->session->set_flashdata('exception',"Маълумот киритилмади. Илтимос қайтадан кўриб чиқинг !");
-                redirect("/employee/add_employee");
+                $this->data['title'] = 'Ходимни маълумотларини ўзгартириш!!!';
+                $this->data['content'] = $this->load->view('/employee/add_employee', $this->data, true);
+                $this->view_lib->admin_layout($this->data);
             }
 
         }else{
@@ -134,7 +175,6 @@ class Employee extends MY_Controller{
 
     public function edit_employee($kadrid= null){
        $editdata=$this->EmployeeModel->read_by_data($kadrid);
-//       print_r($editdata);
         $this->data['employee'] = (object)$postData = [
             'kadrid'              => $editdata['kadrid'],
             'name_f'              => $editdata['name_f'],
@@ -160,6 +200,7 @@ class Employee extends MY_Controller{
             'email'               => $editdata['email'],
             'phone_work'          => $editdata['phone_work'],
             'phone_mobile'        => $editdata['phone_mobile'],
+            'photo'               => $editdata['photo'],
         ];
         $this->data['title'] = 'Янги ходимни қўшиш';
         $this->data['content'] = $this->load->view('/employee/add_employee', $this->data, true);

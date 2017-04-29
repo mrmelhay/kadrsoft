@@ -32,7 +32,7 @@
                     <?php echo validation_errors(); ?>
                 </div>
             <?php } ?>
-            <form    action="<?php echo base_url("/employee/create_employee")?>" method="post" class="form-horizontal row-border">
+            <form    action="<?php echo base_url("/employee/create_employee")?>" method="post" class="form-horizontal row-border" enctype="multipart/form-data">
                 <input type="hidden" name="kadrid" value="<?php echo $employee->kadrid;?>">
             <div class="row">
                 <div class="col-md-6">
@@ -246,6 +246,7 @@
                    <label for="" class="col-md-3">Расм</label>
                    <div class="col-md-6">
                        <input type="file" name="photo" id="photo" class="form-control" />
+                       <input type="hidden" name="old_picture" value="<?php echo $employee->photo ?>">
                    </div>
                </div>
 

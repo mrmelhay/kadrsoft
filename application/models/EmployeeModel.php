@@ -43,14 +43,9 @@ class EmployeeModel extends MY_Model
         $query=$result->row_array();
         $row= $result->num_rows();
 
-        if ($row) {
-            $this->db->where('kadrid',$data['kadrid']);
-            $this->db->update('d_kadr', $data);
-            if ($this->db->affected_rows()) {
-                return $query['kadrid'];
-            } else {
-                return false;
-            }
+        if ($row>0) {
+            $this->db->where('kadrid',$query['kadrid'])->update('d_kadr', $data);
+            return $query['kadrid'];
         }else{
             $this->db->insert('d_kadr', $data);
             if ($this->db->affected_rows()) {
@@ -59,29 +54,21 @@ class EmployeeModel extends MY_Model
                 return false;
             }
         }
-
-
     }
 
     public function createOrUpdateItemsBind($data = []){
        $result= $this->db->select("*")
-            ->from('d_kadr_items_bind')
-             ->where('kadrid',$data['kadrid'])
-            ->get();
+             ->from('d_kadr_items_bind')
+             ->where('d_kadr_items_bind.kadrid',$data['kadrid'])
+             ->get();
            $query=$result->row_array();
            $row= $result->num_rows();
-           if ($row){
-               $this->db->update('d_kadr_items_bind', $data);
-               $this->db->where('kadrid',$data['kadrid']);
+           if ($row>0){
+               $this->db->where('d_kadr_items_bind.kadrid',$query['kadrid'])->update('d_kadr_items_bind', $data);
            }else{
-            $this->db->insert('d_kadr_items_bind', $data);
+                $this->db->insert('d_kadr_items_bind', $data);
         }
 
-        if ($this->db->affected_rows()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function read_by_data($user_id = null)

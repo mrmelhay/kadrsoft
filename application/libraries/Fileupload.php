@@ -17,7 +17,7 @@ class Fileupload
             $ci->load->helper('url');
 
             //folder upload
-            $file_path = $upload_path . date('Y-m-d') . "/";
+            $file_path = $upload_path ;
             if (!is_dir($file_path))
                 mkdir($file_path, 0755,true);
             //ends of folder upload
@@ -26,7 +26,7 @@ class Fileupload
             $config = [
                 'upload_path'   => $file_path,
                 // 'file_name'     => time(),
-                'allowed_types' => 'gif|jpg|png|jpeg|ico',
+                'allowed_types' => 'gif|jpg|png|jpeg|ico|GIF|JPG|PNG|JPEG|ICO',
                 // 'max_size'      => 1024,
                 // 'max_width'     => 1024,
                 // 'max_height'    => 768,
