@@ -31,6 +31,14 @@
                            href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
                             <i class="fa fa-plus"></i>
                         </a>
+
+
+                    </div>
+                    <div class="btn-group">
+                    <a type="button" class="btn btn-info"
+                       href="<?php echo base_url('/employee/employee_info') ?>"> Маълумотнома
+                        <i class="fa fa-info"></i>
+                    </a>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i

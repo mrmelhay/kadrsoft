@@ -209,4 +209,10 @@ class Employee extends MY_Controller{
     }
 
 
+    public function employee_info(){
+
+        $this->data['title'] = 'Ходим хақида маълумот';
+        $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
+        $this->view_lib->admin_layout($this->data);
+    }
 }

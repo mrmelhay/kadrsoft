@@ -22,9 +22,6 @@ class Users extends MY_Controller
         } else {
             redirect(base_url('dashboard'));
         }
-//        $this->data['title']='Тизимга кириш';
-//        $this->data['content']=$this->load->view('/user/login',$this->data,true);
-//        $this->view_lib->layout($this->data);
     }
 
     public function login()
