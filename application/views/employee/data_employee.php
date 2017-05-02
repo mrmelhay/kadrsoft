@@ -19,68 +19,43 @@
 <div class="pull-left breadcrumb_admin clear_both"> </div>
 <div class="col-lg-12">
     <section class="panel default blue_title h2">
-        <div class="panel-heading"> хақида қўшимча маълумотлар</div>
-        <div class="panel-body">
+        <div class="panel-heading">Ҳодим хақида қўшимча маълумотлар</div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="contact_people">
+                    <a href="#"><img src="<?php echo base_url()?>images/aa-1.png" /></a>
+                    <div class="contact_people_body">
+                        <h5>Камол Жамолов</h5>
+                        <span><i class="fa fa-map-marker"></i>New York,USA</span>
+                        <span><i class="fa fa-briefcase"></i>Software Enginner at<a href="#"> abc.com</a></span>
+                        <ul class="contact_social_list">
+                            <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i></a></li>
+                            <li><a href="#"><i class="fa fa-mobile-phone"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+            <div class="panel-body">
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a data-toggle="tab" href="#Tab1">Паспорт</a></li>
-                <li><a data-toggle="tab" href="#Tab2">Tab2</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Tab3</a></li>
+                <li><a data-toggle="tab" href="#Tab2">Тиллар</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Ўқув юрти</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Илмий унвон</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Илмий даража</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Малака ошириш</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Қайта тайёрлов</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Меҳнат</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Фаолият</a></li>
+                <li><a data-toggle="tab" href="#Tab3">Фанлар</a></li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">
-
-                    <div class="btn-group">
-                        <a type="button" class="btn btn-primary"
-                           href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
-                            <i class="fa fa-plus"> </i>
-                        </a>
-                    </div>
-                    <div class="header">
-                    <p>&nbsp;</p>
-                    </div>
-
-                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                        <thead>
-                        <tr>
-                            <th>ТР</th>
-                            <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
-                            <th>Лавозими</th>
-                            <th>Маълумоти</th>
-                            <th>Тел. рақами</th>
-                            <th>Амаллар</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr class="">
-                                <td><? echo 1; ?></td>
-                                <td><a href="#" data-title="" data-kollej_id="" data-toggle="modal" >
-                                        <?php echo ""; ?></a>
-                                </td>
-                                <td>
-                                    <?php echo ""; ?></td>
-                                <td>
-                                    <?php echo ''; ?></td>
-                                <td class="center"><?php ''; ?></td>
-                                <td>
-
-                                    <div class="btn-group">
-
-                                        <a type="button" class="btn btn-default" href="#" data-title="<?php echo ''; ?>" data-kollej_id=<?php echo ''; ?> data-toggle="modal"
-                                           data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                                        <a type="button" class="btn btn-default" href="" ">
-                                            <i class="fa fa-trash-o red"></i> </a>
-
-                                    </div>
-
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-
-
+                    <?php include (base_url('employee/data/emp_passport'));?>
                 </div>
                 <div id="Tab2" class="tab-pane fade">
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet</p>
