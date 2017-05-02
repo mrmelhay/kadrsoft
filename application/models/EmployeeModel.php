@@ -75,6 +75,7 @@ class EmployeeModel extends MY_Model
     {
         return $this->db->select("*")
                         ->from("d_kadr")
+                        ->join('spr_lavozim','spr_lavozim.lavozim_id=d_kadr.lavozim_id','left')
                         ->where('kadrid',$user_id)
                         ->get()
                         ->row_array();

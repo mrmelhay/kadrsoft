@@ -1,3 +1,4 @@
+<?php $employee=$employee[0]; ?>
 <div class="pull-left breadcrumb_admin clear_both">
 </div>
 
@@ -9,7 +10,6 @@
                     <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
                 </div>
             <?php } ?>
-
             <?php if ($this->session->flashdata('exception') != null) {  ?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -24,17 +24,11 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="contact_people">
-                    <a href="#"><img src="<?php echo base_url()?>images/aa-1.png" /></a>
+                    <a href="#"><img src="<?php echo base_url()?><?php echo $employee['photo']; ?>" /></a>
                     <div class="contact_people_body">
-                        <h5>Камол Жамолов</h5>
-                        <span><i class="fa fa-map-marker"></i>New York,USA</span>
-                        <span><i class="fa fa-briefcase"></i>Software Enginner at<a href="#"> abc.com</a></span>
-                        <ul class="contact_social_list">
-                            <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i></a></li>
-                            <li><a href="#"><i class="fa fa-mobile-phone"></i></a></li>
-
-                        </ul>
+                        <h5><?php echo $employee['name_f'].' '.$employee['name_o'];?></h5>
+                        <span><i class="fa fa-map-marker"></i><?php echo $employee['address']; ?></span>
+                        <span><i class="fa fa-briefcase"></i><?php echo $employee['lavozim_name']; ?></span>
                     </div>
                 </div>
             </div>

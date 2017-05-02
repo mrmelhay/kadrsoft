@@ -32,7 +32,7 @@
                     <?php echo validation_errors(); ?>
                 </div>
             <?php } ?>
-            <form    action="<?php echo base_url("/employee/create_employee")?>" method="post" class="form-horizontal row-border" enctype="multipart/form-data">
+            <form    action="<?php echo base_url("/employee/create_employee")?>" method="post" class="form-horizontal row-border" enctype="multipart/form-data" >
                 <input type="hidden" name="kadrid" value="<?php echo $employee->kadrid;?>">
             <div class="row">
                 <div class="col-md-6">
@@ -182,6 +182,15 @@
                             </select>
                         </div>
                     </div><!--/form-group-->
+
+               <div class="form-group has-success lable-padd">
+                   <label for="" class="col-md-3">Манзил</label>
+                   <div class="col-md-6">
+                       <textarea name="address" id="address" class="form-control" cols="10" rows="5">
+                           <?php echo $employee->address; ?>
+                       </textarea>
+                   </div>
+               </div>
 
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Умумий стажи</label>

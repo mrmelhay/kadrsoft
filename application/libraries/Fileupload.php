@@ -18,15 +18,18 @@ class Fileupload
 
             //folder upload
             $file_path = $upload_path ;
-            if (!is_dir($file_path))
-                mkdir($file_path, 0755,true);
+            if (!is_dir($file_path)) {
+                mkdir($file_path, 0755, true);
+            }else {
+
+            }
             //ends of folder upload
 
             //set config
             $config = [
                 'upload_path'   => $file_path,
                 // 'file_name'     => time(),
-                'allowed_types' => 'gif|jpg|png|jpeg|ico|GIF|JPG|PNG|JPEG|ICO',
+                'allowed_types' => 'gif|jpg|png|jpeg|GIF|JPG|PNG|JPEG',
                 // 'max_size'      => 1024,
                 // 'max_width'     => 1024,
                 // 'max_height'    => 768,
