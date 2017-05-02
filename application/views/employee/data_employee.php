@@ -32,6 +32,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="contact_people">
+                    <a type="button" class="btn btn-info btn-danger" href="<? echo base_url('employee/employees');?>"> Ортга қайтиш <i class="fa fa-mail-reply-all"></i> </a>
+                </div>
+            </div>
          </div>
 
             <div class="panel-body">
