@@ -1,21 +1,44 @@
-<div class="btn-group">
-    <a type="button" class="btn btn-primary"
-       href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
-        <i class="fa fa-plus"> </i>
-    </a>
+<div class="porlets-content">
+<?php if ($this->session->flashdata('message') != null) { ?>
+    <div class="alert alert-info alert-styled-left alert-bordered">
+        <button type="button" class="close" data-dismiss="alert"><span>×</span><span
+                    class="sr-only">Закрыть</span></button>
+        <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
+    </div>
+<?php } ?>
+
+<?php if (validation_errors()) { ?>
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <?php echo validation_errors(); ?>
+    </div>
+<?php } ?>
+<div class="invoice_header">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="input-group">
+                <span class="input-group-btn">
+                <h4>Паспорт маълумотлари</h4> </span> </div>
+        </div>
+        <div class="col-sm-7">
+         <div class="btn-group pull-right">
+                <div class="btn-group"> <a class="btn btn-sm btn-success" id="new_partiya" type="button" class="btn btn-primary" data-title="<?php echo $title; ?>"
+                                           data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus"></i> Янги қўшиш </a> </div>
+         </div>
+        </div>
+    </div>
 </div>
-<div class="header">
-    <p>&nbsp;</p>
-</div>
+
 
 <table class="table table-striped table-hover table-bordered" id="editable-sample">
     <thead>
     <tr>
         <th>ТР</th>
-        <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
-        <th>Лавозими</th>
-        <th>Маълумоти</th>
-        <th>Тел. рақами</th>
+        <th>Рақами ва серияси</th>
+        <th>Берилган вақти</th>
+        <th>Амал қилиш вақти</th>
+        <th>Берган ИИБ</th>
+        <th>Статус</th>
         <th>Амаллар</th>
     </tr>
     </thead>
@@ -30,6 +53,7 @@
             <?php echo ""; ?></td>
         <td>
             <?php echo ''; ?></td>
+        <td class="center"><?php ''; ?></td>
         <td class="center"><?php ''; ?></td>
         <td>
 
@@ -48,4 +72,7 @@
 
     </tbody>
 </table>
+</div>
+
+
 

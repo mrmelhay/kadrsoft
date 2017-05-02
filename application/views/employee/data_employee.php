@@ -58,7 +58,7 @@
                     <?php $this->load->view('employee/data/emp_passport');?>
                 </div>
                 <div id="Tab2" class="tab-pane fade">
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet</p>
+                    <?php $this->load->view('employee/data/emp_passport');?>
                 </div>
                 <div id="Tab3" class="tab-pane fade">
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
@@ -68,3 +68,47 @@
     </section>
 </div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="<?php echo base_url('/employee/ajax_emp_passport') ?>" class="form-horizontal" method="post">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Чиқиш</button>
+                    <button type="submit" class="btn btn-primary">Сақлаш</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $('#myModal').on('shown.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var partiya_id = button.data('partiya_id');
+        var title = button.data("title");
+        modal.find('.modal-title').text(title);
+
+        $(".modal-body").html("Юкланмоқда...");
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url('preferences/ajax_data_partiya')?>",
+            data: {partiya_id: partiya_id},
+            success: function (data) {
+
+                $('.modal-body').html(data);
+            }
+        });
+
+    })
+</script>

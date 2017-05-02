@@ -223,4 +223,6 @@ class Employee extends MY_Controller{
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
+
+
 }

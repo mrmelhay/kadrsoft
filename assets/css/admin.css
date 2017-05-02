@@ -4127,9 +4127,9 @@ input {
 .invoice_header {
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
-    min-height: 42px;
+    height: 42px;
     padding: 8px 10px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .input-group .form-control {
