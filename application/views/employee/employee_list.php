@@ -83,22 +83,34 @@
                                 <?php echo $empl['malumot_name'] ?></td>
                             <td class="center"><?php echo $empl['phone_mobile'] ?></td>
                             <td>
+
                                 <div class="btn-group">
-                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span
-                                                class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" data-title="
-                    <?php echo $title; ?>"
-                                               data-kollej_id=
-                                               <?php echo $empl['kollej_id']; ?> data-toggle="modal"
-                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>
-                                        </li>
-                                        <li>
-                                            <a href="
-                    <?php echo base_url('preferences/del_organ/' . $empl['kollej_id']) ?>"><span
-                                                        class="fa fa-trash-o"> </span> Ўчириш</a></li>
-                                    </ul>
+                                    <a type="button" class="btn btn-default" href="<?php echo base_url('employee/data_employee'); ?>" data-title="<?php echo $title; ?>"
+                                       data-kadr_id=<?php echo $empl['kadrid']; ?> > <i class="fa fa-info-circle blue"></i> </a>
+                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>" data-kollej_id=<?php echo $empl['kollej_id']; ?> data-toggle="modal"
+                                       data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                                    <a type="button" class="btn btn-default" href="<?php echo base_url('preferences/del_organ/' . $empl['kollej_id']) ?>">
+                                        <i class="fa fa-trash-o red"></i> </a>
+
                                 </div>
+<!--                                <div class="btn-group">-->
+<!--                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span-->
+<!--                                                class="caret"></span></button>-->
+<!--                                    <ul class="dropdown-menu">-->
+<!--                                        <li>-->
+<!--                                            <a href="#" data-title=" --><?php //echo $title; ?><!--" data-kollej_id=--><?php //echo $empl['kollej_id']; ?><!-- data-toggle="modal"-->
+<!--                                               data-target="#myModal"><span class="fa fa-info-circle"> </span> Маълумотлар</a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a href="#" data-title=" --><?php //echo $title; ?><!--" data-kollej_id=--><?php //echo $empl['kollej_id']; ?><!-- data-toggle="modal"-->
+<!--                                               data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a href="-->
+<!--                    --><?php //echo base_url('preferences/del_organ/' . $empl['kollej_id']) ?><!--"><span-->
+<!--                                                        class="fa fa-trash-o"> </span> Ўчириш</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
                             </td>
                         </tr>
                     <?php } ?>
@@ -113,7 +125,7 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="<?php echo base_url('/preferences/create_organ') ?>" class="form-horizontal" method="post">
+            <form action="<?php echo base_url('/employee/add_employee') ?>" class="form-horizontal" method="post">
 
 
                 <div class="modal-header">
