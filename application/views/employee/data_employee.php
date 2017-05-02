@@ -32,7 +32,7 @@
                     <div class="btn-group">
                         <a type="button" class="btn btn-primary"
                            href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-plus"> </i>
                         </a>
                     </div>
                     <div class="header">
