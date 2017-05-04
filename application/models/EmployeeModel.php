@@ -81,6 +81,62 @@ class EmployeeModel extends MY_Model
                         ->row_array();
     }
 
+    public function read_by_passports($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_passport")
+            ->join('spr_davlat','spr_davlat.davlat_id=d_passport.davlat_id','left')
+            ->join('spr_viloyat','spr_viloyat.viloyat_id=d_passport.viloyat_id','left')
+            ->join('spr_tuman','spr_tuman.tuman_id=d_passport.tuman_id','left')
+            ->where('d_passport.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_passport($user_id = null)
+    {
+        return $this->db->select("d_passport.*")
+            ->from("d_passport")
+            ->join('spr_davlat','spr_davlat.davlat_id=d_passport.davlat_id','left')
+            ->join('spr_viloyat','spr_viloyat.viloyat_id=d_passport.viloyat_id','left')
+            ->join('spr_tuman','spr_tuman.tuman_id=d_passport.tuman_id','left')
+            ->where('d_passport.passport_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
+    public function insert_date_info($data=[],$type){
+        switch ($type){
+            case 1:
+                $result= $this->db->select("*")
+                    ->from('d_passport')
+                    ->where('d_passport.passport_id',$data['passport_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('passport_id',$query['passport_id'])->update('d_passport', $data);
+                    return $query['passport_id'];
+                }else{
+                    $this->db->insert('d_passport', $data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+                break;
+
+            case 2:
+                $this->db->insert("d_passport",$data);
+                break;
+
+            case 3:
+                $this->db->insert("d_uqigan_tm",$data);
+                break;
+        }
+
+    }
     public function read_by_isDirector($kadrid = null)
     {
         $this->lavozimList[''];

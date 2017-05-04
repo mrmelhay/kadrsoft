@@ -91,8 +91,10 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="<?php echo base_url('/employee/ajax_emp_passport') ?>" class="form-horizontal" method="post">
+            <form action="<?php echo base_url('/employee/create_date_info') ?>" class="form-horizontal" method="post">
+                <input type="hidden" name="kadr_id" id="kadr_id" value="<?php echo $employee['kadrid']; ?>"/>
 
+                <input type="hidden" name="emptype" id="emptype"/>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
@@ -109,30 +111,50 @@
     </div>
 </div>
 <script>
+    var target;
+    var emptype;
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-
-        var target = $(e.target).attr("href");
-        var emptype = $(e.target).data('emptype');
+        target = $(e.target).attr("href");
+        emptype = $(e.target).data('emptype')?$(e.target).data('emptype'):1;
+    });
 
         $('#myModal').on('shown.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var modal = $(this);
             var title = button.data("title");
-//            var emptype = button.data('emptype');
-            modal.find('.modal-title').text(target+" "+emptype);
+            var kadrid = button.data("kadrid");
+            if (emptype==undefined){
+                emptype=1;
+
+            }else{
+                modal.find('.modal-title').text(target+" "+emptype);
+            }
 
             $(".modal-body").html("Юкланмоқда...");
             $.ajax({
                 type: "GET",
                 url: "<?php echo base_url('employee/ajax_data_employee')?>",
-                data: {emptype: emptype},
+                data: {emptype: emptype,kadrid:kadrid},
                 success: function (data) {
                     $('.modal-body').html(data);
+                    $('#emptype').val(emptype);
                 }
             });
         });
 
-    });
+    $(document).ready(function () {
+        $(document).on('change', "#viloyat_id", function () {
+            var page = $('select[name="viloyat_id"]').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/preferences/ajax_data_tuman')?>",
+                data: {viloyat_id: page},
+                success: function (data) {
 
+                    $('#tuman_id').html(data);
+                }
+            });
+        });
+    });
 
 </script>

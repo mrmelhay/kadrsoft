@@ -233,18 +233,21 @@ class Employee extends MY_Controller
         }
         $editdata = $this->EmployeeModel->read_by_data($kadrid);
         $this->data['employee'] = $postData = [$editdata];
+        $this->data['passports'] =  $this->EmployeeModel->read_by_passports($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
 
     public function ajax_data_employee(){
-        if (!empty($this->input->get('emptype'))) {
+        if (isset($_GET['emptype'])) {
             $emptype = $_GET['emptype'];
+            $kadrid=isset($_GET['kadrid'])?$_GET['kadrid']:0;
 
-            switch ($emptype){
+          switch ($emptype){
                 case '1':
-                    $this->data['title'] = array();
+//                    $this->data['title'] = array();
+                    $this->data['passport']=$this->EmployeeModel->read_by_passport($kadrid);
                     $this->load->view('/employee/data/ajax_emp_passport',$this->data);
                     break;
                 case '2':
@@ -261,6 +264,32 @@ class Employee extends MY_Controller
     } else {
             $this->data['title'] = array();
             $this->load->view('/employee/data/ajax_emp_passport',$this->data);
+        }
+    }
+
+    public function create_date_info(){
+
+        if (isset($_POST['emptype'])) {
+            $emptype = $_POST['emptype'];
+            switch ($emptype){
+                case 1:
+                    $postdata=[
+                                'passport_id'=>$this->input->post('passport_id',true),
+                                'kadr_id'=>$this->input->post('kadr_id',true),
+                                'ps_ser'=>$this->input->post('ps_ser',true),
+                                'ps_num'=>$this->input->post('ps_num',true),
+                                'date_of_given'=>$this->input->post('date_of_given',true),
+                                'date_of_expr'=>$this->input->post('date_of_expr',true),
+                                'davlat_id'=>$this->input->post('davlat_id',true),
+                                'viloyat_id'=>$this->input->post('viloyat_id',true),
+                                'tuman_id'=>$this->input->post('tuman_id',true),
+                                'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
+                               ];
+                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+            }
+
         }
     }
 

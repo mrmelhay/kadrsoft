@@ -162,6 +162,7 @@ class PreferencesModel extends MY_Model{
 
     public function getTumanDropList($viloyat,$selected = false){
       //  $userdata=array();
+        print "<option value=''>Танланг...</option>";
         $this->viloyat_id=$viloyat;
         $this->loadTuman();
         if ($this->tumanList){
