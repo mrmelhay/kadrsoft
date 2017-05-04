@@ -16,6 +16,10 @@
     <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
     <link href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css'); ?>" rel="stylesheet" type="text/css" />
+<!--    <link href="--><?php //echo base_url('assets/plugins/checkbox/icheck.css'); ?><!--" rel="stylesheet" type="text/css" />-->
+<!--    <link href="--><?php //echo base_url('assets/plugins/checkbox/minimal.css'); ?><!--" rel="stylesheet" type="text/css" />-->
+<!--    <link href="--><?php //echo base_url('assets/plugins/checkbox/orange.css'); ?><!--" rel="stylesheet" type="text/css" />-->
+<!--    <link href="--><?php //echo base_url('assets/plugins/checkbox/blue.css'); ?><!--" rel="stylesheet" type="text/css" />-->
 
 
 </head>
