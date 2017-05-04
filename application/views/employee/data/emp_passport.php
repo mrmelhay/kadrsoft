@@ -38,6 +38,7 @@
         <th>Берилган вақти</th>
         <th>Амал қилиш вақти</th>
         <th>Берган ИИБ</th>
+        <th>Паспорт нусхаси</th>
         <th>Статус</th>
         <th>Амаллар</th>
     </tr>
@@ -53,6 +54,7 @@
             <?php echo ""; ?></td>
         <td>
             <?php echo ''; ?></td>
+        <td class="center"><?php ''; ?></td>
         <td class="center"><?php ''; ?></td>
         <td class="center"><?php ''; ?></td>
         <td>
