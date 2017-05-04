@@ -44,10 +44,13 @@
     </tr>
     </thead>
     <tbody>
-<?php foreach($passports as $passport){?>
+<?php
+$i=0;
+
+foreach($passports as $passport){?>
     <tr class="">
 
-        <td><? echo 1; ?></td>
+        <td><? echo $i+=1; ?></td>
         <td><a href="#"  data-kadrid="<?php echo $passport['passport_id']; ?>" data-toggle="modal" data-target="#myModal" >
                 <?php echo $passport['ps_ser'].' '.$passport['ps_num']; ?></a>
         </td>
@@ -57,14 +60,14 @@
             <?php echo $passport['date_of_expr']; ?></td>
         <td class="center"><?php echo $passport['viloyat'].' '.$passport['tuman']; ?> ИИБ</td>
         <td class="center"><?php echo $passport['scan_photo']; ?></td>
-        <td class="center"><?php echo $passport['is_active']; ?></td>
+        <td class="center"><?php echo  $passport['is_active']?"<span class='fa fa-check'></span>":"<span class='fa fa-times'></span>"; ?></td>
         <td>
 
             <div class="btn-group">
 
-                <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $passport['kadr_id']; ?>" data-toggle="modal"
+                <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $passport['passport_id']; ?>" data-toggle="modal"
                    data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                <a type="button" class="btn btn-default" href="" ">
+                <a type="button" class="btn btn-default" href="#">
                 <i class="fa fa-trash-o red"></i> </a>
             </div>
         </td>

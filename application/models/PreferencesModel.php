@@ -262,6 +262,28 @@ class PreferencesModel extends MY_Model{
         }
     }
 
+    public function getLanguageDropList($selected = false){
+        $lang=$this->getLanguages();
+        if ($lang['tillar']){
+            foreach ($lang['tillar'] as $key => $row) {
+                $sel = ($row['tillar_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['tillar_id'] . '"'.$sel.'">';
+                print $row['tillar_nomi'] . '</option>';
+            }
+        }
+    }
+
+    public function getLanguageTypeDropList($selected = false){
+        $lang=$this->getLanguages();
+        if ($lang['tillar_turi']){
+            foreach ($lang['tillar_turi'] as $key => $row) {
+                $sel = ($row['tillar_turi_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['tillar_turi_id'] . '"'.$sel.'">';
+                print $row['tillar_turi_nomi'] . '</option>';
+            }
+        }
+    }
+
 
     public function save_organ($data){
         $this->db->insert('spr_kollej',$data);
