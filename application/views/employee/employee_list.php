@@ -85,7 +85,7 @@
                             <td>
 
                                 <div class="btn-group">
-                                    <a type="button" class="btn btn-default" href="<?php echo base_url('employee/data_employee/'.$empl['kadrid']); ?>" data-title="<?php echo $title; ?>"
+                                    <a type="button" class="btn btn-default" href="<?php echo base_url('/employee/data_employee/'.$empl['kadrid']); ?>" data-title="<?php echo $title; ?>"
                                        data-kadr_id=<?php echo $empl['kadrid']; ?> > <i class="fa fa-info-circle blue"></i> </a>
                                     <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>" data-kollej_id=<?php echo $empl['kollej_id']; ?> data-toggle="modal"
                                        data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>

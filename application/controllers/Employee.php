@@ -124,7 +124,7 @@ class Employee extends MY_Controller
                 'email' => $this->input->post('email', true),
                 'phone_work' => $this->input->post('phone_work', true),
                 'phone_mobile' => $this->input->post('phone_mobile', true),
-                'photo' => !empty($picture) ? md5($picture) : $this->input->post('old_picture'),
+                'photo' => !empty($picture) ? $picture : $this->input->post('old_picture'),
                 'addeduser' => $this->data['username']['user_id'],
                 'addtime' => date('Y-m-d H:i:s'),
             ];
@@ -157,7 +157,7 @@ class Employee extends MY_Controller
                 'email' => $this->input->post('email', true),
                 'phone_work' => $this->input->post('phone_work', true),
                 'phone_mobile' => $this->input->post('phone_mobile', true),
-                'photo' => !empty($picture) ? md5($picture) : $this->input->post('old_picture'),
+                'photo' => !empty($picture) ? $picture : $this->input->post('old_picture'),
                 'edituser' => $this->data['username']['user_id'],
                 'edittime' => date('Y-m-d H:i:s'),
             ];
@@ -228,43 +228,40 @@ class Employee extends MY_Controller
 
     public function data_employee($kadrid)
     {
+        if ($this->session->userdata('logged_in') == FALSE) {
+            redirect(base_url('users/login'));
+        }
         $editdata = $this->EmployeeModel->read_by_data($kadrid);
-//        $dataarray=explode('-',$editdata['bdate']);
-//        $dataf=$dataarray[2].'/'.$dataarray[1].'/'.$dataarray[0];
         $this->data['employee'] = $postData = [$editdata];
-//        print_r($this->data['employee']);
-//            'kadrid' => $editdata['kadrid'],
-//            'name_f' => $editdata['name_f'],
-//            'name_i' => $editdata['name_i'],
-//            'name_o' => $editdata['name_o'],
-//            'bdate' => $editdata['bdate'],
-//            'sex' => $editdata['sex'],
-//            'lavozim_id' => $editdata['lavozim_id'],
-//            'lavozim_name' => $editdata['lavozim_name'],
-//            'malumot_id' => $editdata['malumot_id'],
-//            'malaka_lavozim_id' => $editdata['malaka_lavozim_id'],
-//            'mutax_turi_id' => $editdata['mutax_turi_id'],
-//            'mutax_kodi_id' => $editdata['mutax_kodi_id'],
-//            'millat_id' => $editdata['millat_id'],
-//            'oila_id' => $editdata['oila_id'],
-//            'davlat_id' => $editdata['davlat_id'],
-//            'viloyat_id' => $editdata['viloyat_id'],
-//            'tuman_id' => $editdata['tuman_id'],
-//            'address' => $editdata['address'],
-//            'umumiy_staj' => $editdata['umumiy_staj'],
-//            'ped_staj' => $editdata['ped_staj'],
-//            'partiya_id' => $editdata['partiya_id'],
-//            'inn' => $editdata['inn'],
-//            'inps' => $editdata['inps'],
-//            'email' => $editdata['email'],
-//            'phone_work' => $editdata['phone_work'],
-//            'phone_mobile' => $editdata['phone_mobile'],
-//            'photo' => $editdata['photo'],
-//        ];
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
 
+    public function ajax_data_employee(){
+        if (!empty($this->input->get('emptype'))) {
+            $emptype = $_GET['emptype'];
+
+            switch ($emptype){
+                case '1':
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_passport',$this->data);
+                    break;
+                case '2':
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_language',$this->data);
+                    break;
+                case '3':
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_uqigan_tm',$this->data);
+                    break;
+            }
+
+
+    } else {
+            $this->data['title'] = array();
+            $this->load->view('/employee/data/ajax_emp_passport',$this->data);
+        }
+    }
 
 }

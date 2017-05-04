@@ -23,9 +23,7 @@ class Fileupload
             }else {
 
             }
-            //ends of folder upload
 
-            //set config
             $config = [
                 'upload_path'   => $file_path,
                 // 'file_name'     => time(),
@@ -38,7 +36,7 @@ class Fileupload
                 'max_filename'  => 5,
                 'overwrite'     => false,
                 'maintain_ratio' => true,
-                'encrypt_name'  => false,
+                'encrypt_name'  => true,
                 'remove_spaces' => true,
                 'file_ext_tolower' => true
             ];

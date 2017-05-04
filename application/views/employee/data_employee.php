@@ -41,16 +41,16 @@
 
             <div class="panel-body">
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a data-toggle="tab" href="#Tab1">Паспорт</a></li>
-                <li><a data-toggle="tab" href="#Tab2">Тиллар</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Ўқув юрти</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Илмий унвон</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Илмий даража</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Малака ошириш</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Қайта тайёрлов</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Меҳнат</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Фаолият</a></li>
-                <li><a data-toggle="tab" href="#Tab3">Фанлар</a></li>
+                <li class="active"><a data-toggle="tab" data-emptype="1" href="#Tab1">Паспорт</a></li>
+                <li><a data-toggle="tab" data-emptype="2" href="#Tab2">Тиллар</a></li>
+                <li><a data-toggle="tab" data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
+                <li><a data-toggle="tab" data-emptype="4" href="#Tab3">Илмий унвон</a></li>
+                <li><a data-toggle="tab" data-emptype="5" href="#Tab3">Илмий даража</a></li>
+                <li><a data-toggle="tab" data-emptype="6" href="#Tab3">Малака ошириш</a></li>
+                <li><a data-toggle="tab" data-emptype="7" href="#Tab3">Қайта тайёрлов</a></li>
+                <li><a data-toggle="tab" data-emptype="8" href="#Tab3">Меҳнат</a></li>
+                <li><a data-toggle="tab" data-emptype="9" href="#Tab3">Фаолият</a></li>
+                <li><a data-toggle="tab" data-emptype="10" href="#Tab3">Фанлар</a></li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">
@@ -60,7 +60,7 @@
                     <?php $this->load->view('employee/data/emp_passport');?>
                 </div>
                 <div id="Tab3" class="tab-pane fade">
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                    <?php $this->load->view('employee/data/emp_passport');?>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <form action="<?php echo base_url('/employee/ajax_emp_passport') ?>" class="form-horizontal" method="post">
 
@@ -87,27 +87,31 @@
         </div>
     </div>
 </div>
-
 <script>
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
+        var target = $(e.target).attr("href");
+        var emptype = $(e.target).data('emptype');
 
-    $('#myModal').on('shown.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var modal = $(this);
-        var partiya_id = button.data('partiya_id');
-        var title = button.data("title");
-        modal.find('.modal-title').text(title);
+        $('#myModal').on('shown.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var modal = $(this);
+            var title = button.data("title");
+//            var emptype = button.data('emptype');
+            modal.find('.modal-title').text(target+" "+emptype);
 
-        $(".modal-body").html("Юкланмоқда...");
-        $.ajax({
-            type: "GET",
-            url: "<?php echo base_url('preferences/ajax_data_partiya')?>",
-            data: {partiya_id: partiya_id},
-            success: function (data) {
-
-                $('.modal-body').html(data);
-            }
+            $(".modal-body").html("Юкланмоқда...");
+            $.ajax({
+                type: "GET",
+                url: "<?php echo base_url('employee/ajax_data_employee')?>",
+                data: {emptype: emptype},
+                success: function (data) {
+                    $('.modal-body').html(data);
+                }
+            });
         });
 
-    })
+    });
+
+
 </script>
