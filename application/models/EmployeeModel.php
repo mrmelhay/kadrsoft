@@ -93,6 +93,32 @@ class EmployeeModel extends MY_Model
             ->result_array();
     }
 
+    public function read_by_uqigantms($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_uqigan_tm")
+            ->join('spr_davlat','spr_davlat.davlat_id=d_uqigan_tm.davlat_id','left')
+            ->join('spr_otm','spr_otm.otm_id=d_uqigan_tm.otm_id','left')
+            ->join('spr_malumot','spr_malumot.malumot_id=d_uqigan_tm.malumot_id','left')
+            ->join('spr_mutaxasislik','spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id','left')
+            ->where('d_uqigan_tm.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_uqigantm($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_uqigan_tm")
+            ->join('spr_davlat','spr_davlat.davlat_id=d_uqigan_tm.davlat_id','left')
+            ->join('spr_otm','spr_otm.otm_id=d_uqigan_tm.otm_id','left')
+            ->join('spr_malumot','spr_malumot.malumot_id=d_uqigan_tm.malumot_id','left')
+            ->join('spr_mutaxasislik','spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id','left')
+            ->where('d_uqigan_tm.uqigan_tm_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -171,7 +197,24 @@ class EmployeeModel extends MY_Model
                 break;
 
             case 3:
-                $this->db->insert("d_uqigan_tm",$data);
+                $result= $this->db->select("*")
+                    ->from('d_uqigan_tm')
+                    ->where('d_uqigan_tm.uqigan_tm_id',$data['uqigan_tm_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_uqigan_tm.uqigan_tm_id',$query['uqigan_tm_id'])->update('d_uqigan_tm', $data);
+                    return $query['uqigan_tm_id'];
+                }else{
+                    $this->db->insert("d_uqigan_tm",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
                 break;
         }
 
