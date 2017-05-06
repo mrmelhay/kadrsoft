@@ -181,6 +181,18 @@ $action5=array('organ_list');
             </div>
         </div>
         <div class="contentpanel">
+            <div class="pull-left breadcrumb_admin clear_both">
+                <div class="pull-left page_title theme_color">
+                    <h1><?php echo $username['kollej_name']?></h1>
+                </div>
+<!--<div class="pull-right">-->
+<!--<ol class="breadcrumb">-->
+<!--<li><a href="#">Home</a></li>-->
+<!--<li><a href="#">UI KIT</a></li>-->
+<!--<li class="active">typography</li>-->
+<!--</ol>-->
+<!--</div>-->
+            </div>
             <?php echo(!empty($content) ? $content : null) ?>
         </div>
     <?php } else { ?>

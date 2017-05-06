@@ -119,6 +119,27 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+
+    public function read_by_ilmiyunvons($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_ilmiy_unvon")
+            ->join('spr_ilmiy_unvon','spr_ilmiy_unvon.ilmiy_unvon_id=d_ilmiy_unvon.ilmiy_unvon_id','left')
+            ->where('d_ilmiy_unvon.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_ilmiyunvon($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_ilmiy_unvon")
+            ->join('spr_ilmiy_unvon','spr_ilmiy_unvon.ilmiy_unvon_id=d_ilmiy_unvon.ilmiy_unvon_id','left')
+            ->where('d_ilmiy_unvon.ilmiy_un_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -216,7 +237,29 @@ class EmployeeModel extends MY_Model
                 }
 
                 break;
+            case 4:
+                $result= $this->db->select("*")
+                    ->from('d_ilmiy_unvon')
+                    ->where('d_ilmiy_unvon.ilmiy_un_id',$data['ilmiy_un_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_ilmiy_unvon.ilmiy_un_id',$query['ilmiy_un_id'])->update('d_ilmiy_unvon', $data);
+                    return $query['ilmiy_un_id'];
+                }else{
+                    $this->db->insert("d_ilmiy_unvon",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
         }
+
+
 
     }
 
@@ -231,7 +274,10 @@ class EmployeeModel extends MY_Model
                 break;
 
             case 3:
-                $this->db->insert("d_uqigan_tm",$data);
+                $this->db->where('uqigan_tm_id',$data['uqigan_tm_id'])->delete('d_uqigan_tm', $data);
+                break;
+            case 4:
+                $this->db->where('ilmiy_un_id',$data['ilmiy_un_id'])->delete('d_ilmiy_unvon', $data);
                 break;
         }
     }

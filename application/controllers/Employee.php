@@ -236,6 +236,7 @@ class Employee extends MY_Controller
         $this->data['passports'] =  $this->EmployeeModel->read_by_passports($kadrid);
         $this->data['languages'] =  $this->EmployeeModel->read_by_languages($kadrid);
         $this->data['uqigantms'] =  $this->EmployeeModel->read_by_uqigantms($kadrid);
+        $this->data['ilmiyunvons'] =  $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -261,7 +262,7 @@ class Employee extends MY_Controller
                     $this->load->view('/employee/data/ajax_emp_uqigan_tm',$this->data);
                     break;
               case '4':
-                  $this->data['title'] = array();
+                  $this->data['ilmiyunvon']=$this->EmployeeModel->read_by_ilmiyunvon($kadrid);
                   $this->load->view('/employee/data/ajax_emp_ilmiy_unvon',$this->data);
                   break;
 
@@ -335,9 +336,10 @@ class Employee extends MY_Controller
 
                 case 4:
                     $postdata=[
+                        'ilmiy_un_id'=>$this->input->post('ilmiy_un_id',true),
                         'ilmiy_unvon_id'=>$this->input->post('ilmiy_unvon_id',true),
                         'kadr_id'=>$this->input->post('kadr_id',true),
-                        'diplom_ser'=>$this->input->post('diplom_ser',true),
+                        'diplom_ser'=>$this->input->post('diplom_num',true),
                         'diplom_date'=>$this->input->post('diplom_date',true),
 
                     ];
@@ -389,6 +391,16 @@ class Employee extends MY_Controller
                     break;
                 case 2:
                     $postdata=['tillar_bind_id'=>$this->input->post('kadr_id',true)];
+                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 3:
+                    $postdata=['tillar_bind_id'=>$this->input->post('kadr_id',true)];
+                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 4:
+                    $postdata=['ilmiy_un_id'=>$this->input->post('kadr_id',true)];
                     $this->EmployeeModel->delete_data_info($postdata,$emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;

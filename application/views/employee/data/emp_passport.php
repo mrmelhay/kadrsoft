@@ -46,10 +46,8 @@
     <tbody>
 <?php
 $i=0;
-
 foreach($passports as $passport){?>
     <tr class="">
-
         <td><? echo $i+=1; ?></td>
         <td><a href="#"  data-kadrid="<?php echo $passport['passport_id']; ?>" data-toggle="modal" data-target="#myModal" >
                 <?php echo $passport['ps_ser'].' '.$passport['ps_num']; ?></a>
@@ -62,9 +60,7 @@ foreach($passports as $passport){?>
         <td class="center"><?php echo $passport['scan_photo']; ?></td>
         <td class="center"><?php echo  $passport['is_active']?"<span class='fa fa-check'></span>":"<span class='fa fa-times'></span>"; ?></td>
         <td>
-
             <div class="btn-group">
-
                 <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $passport['passport_id']; ?>" data-toggle="modal"
                    data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
                 <a type="button" class="btn btn-default" href="#" data-toggle="modal" data-kadrid="<?php echo $passport['passport_id']; ?>"

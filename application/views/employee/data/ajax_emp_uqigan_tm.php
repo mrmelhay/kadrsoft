@@ -97,7 +97,7 @@
                     <label class="col-sm-4 control-label">Ностарифи-кация</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="text" name="diplom_num" id="diplom_num" value="<?php echo $uqigantm['diplom_num'];?>">
+                            <input type="text" name="diplom_num2" id="diplom_num2" value="">
                         </div>
                     </div>
                 </div>

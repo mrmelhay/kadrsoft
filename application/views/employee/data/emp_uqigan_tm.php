@@ -54,7 +54,7 @@ foreach($uqigantms as $uqiganm){?>
                     <?php echo $uqiganm['otm_name']; ?></a>
             </td>
             <td>
-                <?php echo $uqiganm['mutax_kodi'].' '.$uqiganm['mutax_kodi_name']; ?></td>
+                <?php echo $uqiganm['mutax_kodi'].' - '.$uqiganm['mutax_kodi_name']; ?></td>
             <td>
                 <?php echo $uqiganm['kirgan_yili']; ?></td>
             <td class="center"><?php echo $uqiganm['tugatgan_yili']; ?></td>

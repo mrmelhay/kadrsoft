@@ -25,18 +25,21 @@ class UserModel extends MY_Model {
         $item_found=false;
         $this->db->select('*');
         $this->db->from('users');
-        $this->db->where('username', $login);
-        $this->db->where('password', $password);
-        $this->db->where('active', '1');
+        $this->db->join('spr_kollej','spr_kollej.kollej_id=users.kollej_id','left');
+        $this->db->where('users.username', $login);
+        $this->db->where('users.password', $password);
+        $this->db->where('users.active', '1');
         $query = $this->db->get();
         $row_count = $query->num_rows();
         if ($row_count > 0) {
             $item_found=true;
             $userdata = $query->row();
+
             $newdata = array(
                 'user_id' => $userdata->user_id,
                 'username' => $userdata->username,
-                'nname' => $userdata->firstname.' '.$userdata->lastname.' '.$userdata->middlename,
+                'nname' => $userdata->firstname.'.'.mb_substr($userdata->lastname,0,1).'.'.mb_substr($userdata->middlename,0,1),
+                'kollej_name' => $userdata->kollej_name,
                 'kollej_id' => $userdata->kollej_id,
                 'group_id' => $userdata->group_id,
                 'user_roll_id' => $userdata->user_roll_id,
