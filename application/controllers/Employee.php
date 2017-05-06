@@ -316,6 +316,8 @@ class Employee extends MY_Controller
                     $this->EmployeeModel->insert_date_info($postdata,$emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
+
+
             }
 
         }

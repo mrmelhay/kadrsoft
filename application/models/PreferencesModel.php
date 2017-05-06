@@ -94,6 +94,16 @@ class PreferencesModel extends MY_Model{
         }
     }
 
+    public function getIlmiyunvonDropList($selected = false){
+        if ($this->ilmiyunvonList){
+            foreach ($this->ilmiyunvonList as $key => $row) {
+                $sel = ($row['ilmiy_unvon_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['ilmiy_unvon_id'] . '"'.$sel.'">';
+                print $row['ilmiy_unvon_nomi'] . '</option>';
+            }
+        }
+    }
+
 
 
     public function getPartiya(){
