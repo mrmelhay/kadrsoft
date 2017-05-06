@@ -2,7 +2,7 @@
     <?php if ($this->session->flashdata('message') != null) { ?>
         <div class="alert alert-info alert-styled-left alert-bordered">
             <button type="button" class="close" data-dismiss="alert"><span>×</span><span
-                    class="sr-only">Закрыть</span></button>
+                        class="sr-only">Закрыть</span></button>
             <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
         </div>
     <?php } ?>

@@ -1,8 +1,9 @@
 
 <script src="<?php echo base_url('/assets/js/common-script.js') ?>"></script>
 <script src="<?php echo base_url('/assets/js/jquery.slimscroll.min.js') ?>"></script>
-<script src="<?php echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
 <script src="<?php echo base_url('/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js'); ?>"></script>
 <!--<script src="--><?php //echo base_url('/assets/plugins/checkbox/icheck.js'); ?><!--"></script>-->
 
 

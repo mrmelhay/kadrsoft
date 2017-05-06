@@ -20,6 +20,9 @@ class MY_Model extends CI_Model{
     public $davlatList=array();
     public $partiyaList=array();
     public $otmlist=array();
+    public $ilmiyunvonList=array();
+    public $ilmiydarajaList=array();
+    public $ilmiyfanList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -48,6 +51,9 @@ class MY_Model extends CI_Model{
         $this->loadMutaxassisliktur();
         $this->loadPartiya();
         $this->loadUnvier();
+        $this->loadIlmiyUnvon();
+        $this->loadIlmiyDaraja();
+        $this->loadIlmiyFanL();
     }
 
     public function loadViloyat(){
@@ -86,6 +92,44 @@ class MY_Model extends CI_Model{
         }
         return $this->otmlist;
     }
+
+
+    public function loadIlmiyUnvon(){
+        $this->db->select('*');
+        $this->db->from('spr_ilmiy_unvon');
+        $this->db->order_by('spr_ilmiy_unvon.ilmiy_unvon_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->ilmiyunvonList[$rows['ilmiy_unvon_id']]=$rows;
+        }
+        return $this->ilmiyunvonList;
+    }
+
+
+    public function loadIlmiyFanL(){
+        $this->db->select('*');
+        $this->db->from('spr_ilm_fan');
+        $this->db->order_by('spr_ilm_fan.ilm_fan_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->ilmiyfanList[$rows['ilm_fan_id']]=$rows;
+        }
+        return $this->ilmiyfanList;
+    }
+
+
+    public function loadIlmiydaraja(){
+        $this->db->select('*');
+        $this->db->from('spr_ilmiy_daraja');
+        $this->db->order_by('spr_ilmiy_daraja.ilm_daraja_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->ilmiydarajaList[$rows['ilm_daraja_id']]=$rows;
+        }
+        return $this->ilmiydarajaList;
+    }
+
+
 
     public function loadKollej(){
         $this->db->select('*');
