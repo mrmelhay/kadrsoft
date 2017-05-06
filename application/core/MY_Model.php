@@ -19,6 +19,7 @@ class MY_Model extends CI_Model{
     public $millatiList=array();
     public $davlatList=array();
     public $partiyaList=array();
+    public $otmlist=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -46,6 +47,7 @@ class MY_Model extends CI_Model{
         $this->loadMutaxassislik();
         $this->loadMutaxassisliktur();
         $this->loadPartiya();
+        $this->loadUnvier();
     }
 
     public function loadViloyat(){
@@ -59,6 +61,8 @@ class MY_Model extends CI_Model{
         return $this->viloyatList;
     }
 
+
+
     public function loadTuman(){
 
         $this->db->select('*');
@@ -70,6 +74,17 @@ class MY_Model extends CI_Model{
             $this->tumanList[$rows['tuman_id']]=$rows;
         }
         return $this->tumanList;
+    }
+
+    public function loadUnvier(){
+        $this->db->select('*');
+        $this->db->from('spr_otm');
+        $this->db->order_by('spr_otm.otm_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->otmlist[$rows['otm_id']]=$rows;
+        }
+        return $this->otmlist;
     }
 
     public function loadKollej(){
