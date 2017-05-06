@@ -67,7 +67,8 @@ foreach($passports as $passport){?>
 
                 <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $passport['passport_id']; ?>" data-toggle="modal"
                    data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                <a type="button" class="btn btn-default" href="#">
+                <a type="button" class="btn btn-default" href="#" data-toggle="modal" data-kadrid="<?php echo $passport['passport_id']; ?>"
+                   data-target="#myModalDelete">
                 <i class="fa fa-trash-o red"></i> </a>
             </div>
         </td>

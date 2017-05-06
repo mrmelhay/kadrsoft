@@ -176,6 +176,22 @@ class EmployeeModel extends MY_Model
         }
 
     }
+
+    public function delete_data_info($data=[],$type){
+        switch ($type){
+            case 1:
+                   $this->db->where('passport_id',$data['passport_id'])->delete('d_passport', $data);
+                 break;
+
+            case 2:
+                   $this->db->where('tillar_bind_id',$data['tillar_bind_id'])->delete('d_tillar_bind', $data);
+                break;
+
+            case 3:
+                $this->db->insert("d_uqigan_tm",$data);
+                break;
+        }
+    }
     public function read_by_isDirector($kadrid = null)
     {
         $this->lavozimList[''];
