@@ -317,7 +317,26 @@ class Employee extends MY_Controller
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
             }
+        }
+    }
 
+
+    public function delete_data_info(){
+        if (isset($_POST['emptype'])) {
+            $emptype = $_POST['emptype'];
+
+            switch ($emptype) {
+                case 1:
+                    $postdata=['passport_id'=>$this->input->post('kadr_id',true)];
+                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 2:
+                    $postdata=['tillar_bind_id'=>$this->input->post('kadr_id',true)];
+                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+            }
         }
     }
 

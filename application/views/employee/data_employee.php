@@ -110,6 +110,29 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content">
+            <form action="<?php echo base_url('/employee/delete_data_info') ?>" class="form-horizontal" method="post">
+                <input type="hidden" name="kadr_id" id="kadr_id"/>
+                <input type="hidden" name="emptype" id="emptype"/>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Чиқиш</button>
+                    <button type="submit" class="btn btn-primary">Сақлаш</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     var target;
     var emptype;
@@ -141,6 +164,34 @@
                 }
             });
         });
+
+
+    $('#myModalDelete').on('shown.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var title = button.data("title");
+        var kadrid = button.data("kadrid");
+        if (emptype==undefined){
+            emptype=1;
+
+        }else{
+            modal.find('.modal-title').text(target+" "+emptype);
+        }
+
+        $(".modal-body").html("<span>Ўчиришга ишончингиз комилми!!!</span>");
+        modal.find('#emptype').val(emptype);
+        modal.find('#kadr_id').val(kadrid);
+
+        //        $.ajax({
+//            type: "GET",
+//            url: "",
+//            data: {emptype: emptype,kadrid:kadrid},
+//            success: function (data) {
+//                $('.modal-body').html(data);
+//                $('#emptype').val(emptype);
+//            }
+//        });
+    });
 
     $(document).ready(function () {
         $(document).on('change', "#viloyat_id", function () {
