@@ -104,6 +104,26 @@ class PreferencesModel extends MY_Model{
         }
     }
 
+    public function getIlmiyDarajaDropList($selected = false){
+        if ($this->ilmiydarajaList){
+            foreach ($this->ilmiydarajaList as $key => $row) {
+                $sel = ($row['ilmiy_daraja_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['ilmiy_daraja_id'] . '"'.$sel.'">';
+                print $row['ilm_daraja_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getIlmiyFanDropList($selected = false){
+        if ($this->ilmiyfanList){
+            foreach ($this->ilmiyfanList as $key => $row) {
+                $sel = ($row['ilm_fan_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['ilm_fan_id'] . '"'.$sel.'">';
+                print $row['ilm_fan_name'] . '</option>';
+            }
+        }
+    }
+
 
 
     public function getPartiya(){

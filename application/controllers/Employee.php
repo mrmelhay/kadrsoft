@@ -259,6 +259,19 @@ class Employee extends MY_Controller
                     $this->data['title'] = array();
                     $this->load->view('/employee/data/ajax_emp_uqigan_tm',$this->data);
                     break;
+              case '4':
+                  $this->data['title'] = array();
+                  $this->load->view('/employee/data/ajax_emp_ilmiy_unvon',$this->data);
+                  break;
+
+              case '5':
+                  $this->data['title'] = array();
+                  $this->load->view('/employee/data/ajax_emp_ilmiy_daraja',$this->data);
+                  break;
+              case '8':
+                  $this->data['title'] = array();
+                  $this->load->view('/employee/data/ajax_emp_mehnat_faol',$this->data);
+                  break;
             }
 
 
@@ -316,6 +329,45 @@ class Employee extends MY_Controller
                     $this->EmployeeModel->insert_date_info($postdata,$emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
+
+
+                case 4:
+                    $postdata=[
+                        'ilmiy_unvon_id'=>$this->input->post('ilmiy_unvon_id',true),
+                        'kadr_id'=>$this->input->post('kadr_id',true),
+                        'diplom_ser'=>$this->input->post('diplom_ser',true),
+                        'diplom_date'=>$this->input->post('diplom_date',true),
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
+                case 5:
+                    $postdata=[
+                        'ilm_daraja_id'=>$this->input->post('ilm_daraja_id',true),
+                        'kadr_id'=>$this->input->post('kadr_id',true),
+                        'ilm_fan_id'=>$this->input->post('ilm_fan_id',true),
+                        'berilgan_vaqt'=>$this->input->post('berilgan_vaqt',true),
+                        'diplom_ser'=>$this->input->post('diplom_ser',true),
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
+                case 5:
+                    $postdata=[
+                        'kadr_id'=>$this->input->post('kadr_id',true),
+                        'ish_vaqti'=>$this->input->post('ish_vaqti',true),
+                        'ish_tashkilot'=>$this->input->post('ish_tashkilot',true),
+                        'ordering'=>$this->input->post('ordering',true),
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
 
 
             }
