@@ -5,13 +5,11 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Ишлаган вақти</label>
                     <div class="col-md-8">
-                        <div class="col-sm-6">
+
                         <input type="text" name="ish_vaqti" id="ish_vaqti" >
-                        </div>
-                        <div class="col-sm-6">
+
                         <p class="help-block">мисол: 2000-2005 йй, ёки 2005 - ҳ.в</p>
-                        </div>
-                    </div>
+                                          </div>
                 </div>
 
                 <div class="form-group">
@@ -37,7 +35,5 @@
         </div>
     </div>
 </div>
-
-
 </div>
 
