@@ -235,6 +235,7 @@ class Employee extends MY_Controller
         $this->data['employee'] = $postData = [$editdata];
         $this->data['passports'] =  $this->EmployeeModel->read_by_passports($kadrid);
         $this->data['languages'] =  $this->EmployeeModel->read_by_languages($kadrid);
+        $this->data['uqigantms'] =  $this->EmployeeModel->read_by_uqigantms($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -246,17 +247,17 @@ class Employee extends MY_Controller
             $kadrid=isset($_GET['kadrid'])?$_GET['kadrid']:0;
 
           switch ($emptype){
-                case '1':
+                case 1:
 //                    $this->data['title'] = array();
                     $this->data['passport']=$this->EmployeeModel->read_by_passport($kadrid);
                     $this->load->view('/employee/data/ajax_emp_passport',$this->data);
                     break;
-                case '2':
+                case 2:
                     $this->data['language']=$this->EmployeeModel->read_by_language($kadrid);
                     $this->load->view('/employee/data/ajax_emp_language',$this->data);
                     break;
-                case '3':
-                    $this->data['title'] = array();
+                case 3:
+                    $this->data['uqigantm']=$this->EmployeeModel->read_by_uqigantm($kadrid);
                     $this->load->view('/employee/data/ajax_emp_uqigan_tm',$this->data);
                     break;
             }
@@ -302,15 +303,16 @@ class Employee extends MY_Controller
 
                 case 3:
                     $postdata=[
-                        'passport_id'=>$this->input->post('passport_id',true),
+                        'uqigan_tm_id'=>$this->input->post('uqigan_tm_id',true),
                         'kadr_id'=>$this->input->post('kadr_id',true),
-                        'ps_ser'=>$this->input->post('ps_ser',true),
-                        'ps_num'=>$this->input->post('ps_num',true),
-                        'date_of_given'=>$this->input->post('date_of_given',true),
-                        'date_of_expr'=>$this->input->post('date_of_expr',true),
                         'davlat_id'=>$this->input->post('davlat_id',true),
-                        'viloyat_id'=>$this->input->post('viloyat_id',true),
-                        'tuman_id'=>$this->input->post('tuman_id',true),
+                        'otm_id'=>$this->input->post('otm_id',true),
+                        'malumot_id'=>$this->input->post('malumot_id',true),
+                        'mutax_kodi_id'=>$this->input->post('mutax_kodi_id',true),
+                        'kirgan_yili'=>$this->input->post('kirgan_yili',true),
+                        'tugatgan_yili'=>$this->input->post('tugatgan_yili',true),
+                        'diplom_sana'=>$this->input->post('diplom_sana',true),
+                        'diplom_num'=>$this->input->post('diplom_num',true),
                         'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
                     ];
                     $this->EmployeeModel->insert_date_info($postdata,$emptype);
