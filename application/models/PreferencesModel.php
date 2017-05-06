@@ -84,6 +84,18 @@ class PreferencesModel extends MY_Model{
         return $query->result_array();
     }
 
+    public function getUniverDropList($selected = false){
+        if ($this->otmlist){
+            foreach ($this->otmlist as $key => $row) {
+                $sel = ($row['otm_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['otm_id'] . '"'.$sel.'">';
+                print $row['otm_name'] . '</option>';
+            }
+        }
+    }
+
+
+
     public function getPartiya(){
         $partiya="";
         if (isset($this->partiya_id) && $this->partiya_id>0) {$partiya=$this->db->where('spr_partiya.partiya_id', $this->partiya_id);}
