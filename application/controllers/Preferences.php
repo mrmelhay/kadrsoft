@@ -138,10 +138,12 @@ class Preferences extends MY_Controller
 
             if ($this->form_validation->run() == TRUE) {
                 $data = array(
+                    'kollej_parent_id' => $this->input->post('kollej_parent_id', false),
                     'kollej_name' => $this->input->post('kollej_name', false),
                     'viloyat_id' => $this->input->post('viloyat_id', false),
                     'tuman_id' => $this->input->post('tuman_id', false),
-                    'kollej_adres' => $this->input->post('kollej_adres', false),
+                    'joylash_xudud' => $this->input->post('joylash_xudud', false),
+                    'kollej_adress' => $this->input->post('kollej_adres', false),
                     'empl_count1' => $this->input->post('empl_count1', false),
                     'empl_count2' => $this->input->post('empl_count2', false),
                     'students_count' => $this->input->post('students_count', false),
@@ -150,6 +152,8 @@ class Preferences extends MY_Controller
                     'website' => $this->input->post('website', false),
                     'kollej_id'=>$kollej,
                 );
+//                echo "Update";
+                print_r($data);
                 if ($this->PreferencesModel->update_organ($data)) {
                     $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
                     redirect(base_url('preferences/organ'));
@@ -164,16 +168,18 @@ class Preferences extends MY_Controller
                 $this->view_lib->admin_layout($this->data);
             }
 
-        }else {
+        } else {
             $rules = $this->PreferencesModel->organrules;
             $this->form_validation->set_rules($rules);
-
+//            echo "Insert";
             if ($this->form_validation->run() == TRUE) {
                 $data = array(
+                    'kollej_parent_id' => $this->input->post('kollej_parent_id', false),
                     'kollej_name' => $this->input->post('kollej_name', false),
                     'viloyat_id' => $this->input->post('viloyat_id', false),
                     'tuman_id' => $this->input->post('tuman_id', false),
-                    'kollej_adres' => $this->input->post('kollej_adres', false),
+                    'joylash_xudud' => $this->input->post('joylash_xudud', false),
+                    'kollej_adress' => $this->input->post('kollej_adress', false),
                     'empl_count1' => $this->input->post('empl_count1', false),
                     'empl_count2' => $this->input->post('empl_count2', false),
                     'students_count' => $this->input->post('students_count', false),
@@ -181,6 +187,7 @@ class Preferences extends MY_Controller
                     'email' => $this->input->post('email', false),
                     'website' => $this->input->post('website', false),
                 );
+                print_r($data);
                 if ($this->PreferencesModel->save_organ($data)) {
                     $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
                     redirect(base_url('preferences/organ'));
@@ -197,6 +204,7 @@ class Preferences extends MY_Controller
 
 
         }
+
     }
 
 

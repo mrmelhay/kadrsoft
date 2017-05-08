@@ -2,13 +2,24 @@
 if(count($kollej)==0) {
 ?>
     <div class="porlets-content">
-    <input type="hidden" name="kollej" value="0" />
+<!--    <input type="hidden" name="kollej" value="0" />-->
     <div class="form-group lable-padd">
         <label class="col-sm-3">Муассаса номи</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" name="kollej_name" id="kollej_name" />
         </div>
     </div>
+
+        <div class="form-group lable-padd">
+        <label class="col-sm-3">Муассаса номи</label>
+        <div class="col-sm-6">
+            <select name="kollej_parent_id" id="kollej_parent_id" class="form-control">
+                <option value="0">Танланг...</option>
+                <?php $this->PreferencesModel->getKollejDropList(0, 0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", 0); ?>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group lable-padd">
         <label class="col-sm-3">Вилоят</label>
         <div class="col-sm-6">
@@ -25,12 +36,22 @@ if(count($kollej)==0) {
             <select name="tuman_id" id="tuman_id" class="form-control">
             </select>
         </div>
-
     </div>
+
+        <div class="form-group lable-padd">
+            <label class="col-sm-3">Жойлашуви</label>
+            <div class="col-sm-6">
+                <select name="joylash_xudud" id="joylash_xudud" class="form-control">
+                    <option value="">Танланг</option>
+                    <option value="шаҳар">Шаҳар</option>
+                    <option value="туман">Туман</option>
+                </select>
+            </div>
+        </div>
     <div class="form-group lable-padd">
         <label class="col-sm-3">Манзил</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="kollej_adres" id="kollej_adres" />
+            <input type="text" class="form-control" name="kollej_adress" id="kollej_adress" />
         </div>
 
     </div>
@@ -92,6 +113,21 @@ foreach($kollej as $kollj) {?>
             <input type="text" class="form-control" name="kollej_name" id="kollej_name" value="<?php echo $kollj['kollej_name'];?>"/>
         </div>
     </div>
+
+
+    <div class="form-group lable-padd">
+        <label class="col-sm-3">Муассаса номи</label>
+        <div class="col-sm-6">
+            <select name="kollej_parent_id" id="kollej_parent_id" class="form-control">
+                <option value="">Танланг...</option>
+                <?php $this->PreferencesModel->getKollejDropList(0, 0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $kollj['kollej_id']); ?>
+            </select>
+        </div>
+    </div>
+
+
+
+
     <div class="form-group lable-padd">
         <label class="col-sm-3">Вилоят</label>
         <div class="col-sm-6">
@@ -114,7 +150,7 @@ foreach($kollej as $kollj) {?>
     <div class="form-group lable-padd">
         <label class="col-sm-3">Манзил</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="kollej_adres" id="kollej_adres" value="<?php echo $kollj['kollej_adres'];?>"/>
+            <input type="text" class="form-control" name="kollej_adress" id="kollej_adress" value="<?php echo $kollj['kollej_adress'];?>"/>
         </div>
 
     </div>
