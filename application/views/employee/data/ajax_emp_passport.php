@@ -19,22 +19,19 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Берилган вақти</label>
-                    <div class="col-sm-5 input-append date dpYears" id='datetimepicker2' data-date="12-02-2012"
-                         data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                        <input type="text" class="form-control" name="date_of_given" id="date_of_given" required value="<?php echo $passport['date_of_given'];?>"/>
-                        <span class="input-group-btn add-on">
-                      <button type="button" class="btn btn-danger"><i class="fa fa-calendar"></i></button>
-                      </span>
+                    <div class="col-sm-6">
+                        <div class="input-group input-append date dpYears" id='datetimepicker2' data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                            <input type="text" class="form-control" name="date_of_given" id="date_of_given" required value="<?php echo $passport['date_of_given'];?>"/>
+                            <span class="input-group-addon"> <i class="fa fa-calendar icon"></i></span> </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Амал қилиш муддати</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" name="date_of_expr" id="date_of_expr" required value="<?php echo $passport['date_of_expr'];?>"/>
-                        <span class="input-group-btn add-on">
-                      <button type="button" class="btn btn-danger"><i class="fa fa-calendar"></i></button>
-                      </span>
+                    <div class="col-sm-6">
+                        <div class="input-group input-append date dpYears" id='datetimepicker2' data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                            <input type="text" class="form-control" name="date_of_expr" id="date_of_expr" required value="<?php echo $passport['date_of_expr'];?>"/>
+                            <span class="input-group-addon"> <i class="fa fa-calendar icon"></i></span> </div>
                     </div>
                 </div>
 
