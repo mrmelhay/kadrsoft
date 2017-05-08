@@ -17,6 +17,7 @@
     <link href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-timepicker/compiled/timepicker.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/checkbox/icheck.css'); ?>" rel="stylesheet" type="text/css" />
 
 
 

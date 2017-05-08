@@ -168,14 +168,20 @@
                 </div>
 
 
-                <div class="form-group icheck ">
+                <div class="form-group ">
                     <label class="col-sm-5 control-label">Статус</label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2  ">
                         <div class="input-group">
-                            <input type="checkbox" name="is_active" id="is_active" value="1" <?php if (@$passport['is_active']) {?>checked="checked" <?php }?> />
+                            <input type="checkbox" name="is_active" id="is_active" value="1" checked />
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
 
             </div>
         </div>

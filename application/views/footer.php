@@ -5,6 +5,9 @@
 <script src="<?php echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
 <script src="<?php echo base_url('/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js'); ?>"></script>
 <!--<script src="--><?php //echo base_url('/assets/plugins/checkbox/icheck.js'); ?><!--"></script>-->
+<!--<script src="--><?php //echo base_url('/assets/plugins/checkbox/zepto.js'); ?><!--"></script>-->
+<!--<script src="--><?php //echo base_url('/assets/js/icheck.js'); ?><!--"></script>-->
+<!--<script src="--><?php //echo base_url('/assets/js/icheck-init.js'); ?><!--"></script>-->
 
 
 
