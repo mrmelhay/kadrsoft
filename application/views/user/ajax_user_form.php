@@ -72,7 +72,7 @@ if(count($user)==0) {
             <div class="col-sm-6">
                 <select name="kollej_id" id="kollej_id" class="form-control">
                     <option value="">Танланг...</option>
-                    <?php $this->PreferencesModel->getKollejDropList(); ?>
+                    <?php $this->PreferencesModel->getKollejDropList(0,0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $usr['kollej_id']); ?>
                 </select>
 
             </div>
@@ -186,7 +186,8 @@ if(count($user)==0) {
                 <div class="col-sm-6">
                     <select name="kollej_id" id="kollej_id" class="form-control">
                         <option value="">Танланг...</option>
-                        <?php $this->PreferencesModel->getKollejDropList($usr['kollej_id']); ?>
+                        <?php $this->PreferencesModel->getKollejDropList(0,0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $usr['kollej_id']); ?>
+
                     </select>
 
                 </div>
