@@ -23,6 +23,8 @@ class MY_Model extends CI_Model{
     public $ilmiyunvonList=array();
     public $ilmiydarajaList=array();
     public $ilmiyfanList=array();
+    public $malakaturiList=array();
+    public $malakaxujjatList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -91,6 +93,28 @@ class MY_Model extends CI_Model{
             $this->otmlist[$rows['otm_id']]=$rows;
         }
         return $this->otmlist;
+    }
+
+    public function loadMalakaTuri(){
+        $this->db->select('*');
+        $this->db->from('spr_malaka_turi');
+        $this->db->order_by('spr_malaka_turi.malaka_turi_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->malakaturiList[$rows['malaka_turi_id']]=$rows;
+        }
+        return $this->malakaturiList;
+    }
+
+    public function loadMalakaXujjat(){
+        $this->db->select('*');
+        $this->db->from('spr_malaka_xujjat');
+        $this->db->order_by('spr_malaka_xujjat.malaka_xujjat_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->malakaxujjatList[$rows['malaka_xujjat_id']]=$rows;
+        }
+        return $this->malakaxujjatList;
     }
 
 

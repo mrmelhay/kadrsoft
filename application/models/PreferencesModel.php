@@ -142,6 +142,27 @@ class PreferencesModel extends MY_Model
         }
     }
 
+    public function getMalakaTuriDropList($selected = false){
+        $this->loadMalakaTuri();
+        if ($this->malakaturiList){
+            foreach ($this->malakaturiList as $key => $row) {
+                $sel = ($row['malaka_turi_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['malaka_turi_id'] . '"'.$sel.'">';
+                print $row['malaka_turi_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getMalakaXujjatDropList($selected = false){
+        $this->loadMalakaXujjat();
+        if ($this->malakaxujjatList){
+            foreach ($this->malakaxujjatList as $key => $row) {
+                $sel = ($row['malaka_xujjat_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['malaka_xujjat_id'] . '"'.$sel.'">';
+                print $row['malaka_xujjat_name'] . '</option>';
+            }
+        }
+    }
 
     public function getPartiya()
     {
