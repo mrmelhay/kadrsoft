@@ -226,7 +226,8 @@ class Employee extends MY_Controller
 
     }
 
-    public function delete_employee(){
+    public function delete_employee()
+    {
 
     }
 
@@ -238,16 +239,18 @@ class Employee extends MY_Controller
         $editdata = $this->EmployeeModel->read_by_data($kadrid);
 
 //        if ($editdata) {
-            $this->data['employee'] = $postData = [$editdata];
-            $this->data['passports'] = $this->EmployeeModel->read_by_passports($kadrid);
-            $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
-            $this->data['uqigantms'] = $this->EmployeeModel->read_by_uqigantms($kadrid);
-            $this->data['ilmiyunvons'] = $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
-            $this->data['ilmiydarajas'] =$this->EmployeeModel->read_by_ilmiydarajas($kadrid);
-            $this->data['malakas'] =$this->EmployeeModel->read_by_malakas($kadrid);
-            $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
-            $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
-            $this->view_lib->admin_layout($this->data);
+        $this->data['employee'] = $postData = [$editdata];
+        $this->data['passports'] = $this->EmployeeModel->read_by_passports($kadrid);
+        $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
+        $this->data['uqigantms'] = $this->EmployeeModel->read_by_uqigantms($kadrid);
+        $this->data['ilmiyunvons'] = $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
+        $this->data['ilmiydarajas'] = $this->EmployeeModel->read_by_ilmiydarajas($kadrid);
+        $this->data['malakas'] = $this->EmployeeModel->read_by_malakas($kadrid);
+        $this->data['qaytamalakas'] = $this->EmployeeModel->read_by_qaytamalakas($kadrid);
+        $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrid);
+        $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
+        $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
+        $this->view_lib->admin_layout($this->data);
 //        }else{
 //            $this->data['employee'] = array();
 //            $this->session->set_flashdata('exception', "Маълумот топилмади!");
@@ -255,220 +258,249 @@ class Employee extends MY_Controller
 //        }
     }
 
-    public function ajax_data_employee(){
+    public function ajax_data_employee()
+    {
         if (isset($_GET['emptype'])) {
             $emptype = $_GET['emptype'];
-            $kadrid=isset($_GET['kadrid'])?$_GET['kadrid']:0;
+            $kadrid = isset($_GET['kadrid']) ? $_GET['kadrid'] : 0;
 
-          switch ($emptype){
+            switch ($emptype) {
                 case 1:
-                    $this->data['passport']=$this->EmployeeModel->read_by_passport($kadrid);
-                    $this->load->view('/employee/data/ajax_emp_passport',$this->data);
+                    $this->data['passport'] = $this->EmployeeModel->read_by_passport($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_passport', $this->data);
                     break;
                 case 2:
-                    $this->data['language']=$this->EmployeeModel->read_by_language($kadrid);
-                    $this->load->view('/employee/data/ajax_emp_language',$this->data);
+                    $this->data['language'] = $this->EmployeeModel->read_by_language($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_language', $this->data);
                     break;
                 case 3:
-                    $this->data['uqigantm']=$this->EmployeeModel->read_by_uqigantm($kadrid);
-                    $this->load->view('/employee/data/ajax_emp_uqigan_tm',$this->data);
+                    $this->data['uqigantm'] = $this->EmployeeModel->read_by_uqigantm($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_uqigan_tm', $this->data);
                     break;
-              case 4:
-                  $this->data['ilmiyunvon']=$this->EmployeeModel->read_by_ilmiyunvon($kadrid);
-                  $this->load->view('/employee/data/ajax_emp_ilmiy_unvon',$this->data);
-                  break;
+                case 4:
+                    $this->data['ilmiyunvon'] = $this->EmployeeModel->read_by_ilmiyunvon($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_ilmiy_unvon', $this->data);
+                    break;
 
-              case 5:
-                  $this->data['ilmiydaraja']=$this->EmployeeModel->read_by_ilmiydaraja($kadrid);
-                  $this->load->view('/employee/data/ajax_emp_ilmiy_daraja',$this->data);
-                  break;
+                case 5:
+                    $this->data['ilmiydaraja'] = $this->EmployeeModel->read_by_ilmiydaraja($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_ilmiy_daraja', $this->data);
+                    break;
 
-              case 6:
-                  $this->data['malaka']=$this->EmployeeModel->read_by_malaka($kadrid);
-                  $this->load->view('/employee/data/ajax_emp_malaka',$this->data);
-                  break;
-              case 7:
-                  $this->data['title'] = array();
-                  $this->load->view('/employee/data/ajax_emp_qaytat',$this->data);
-                  break;
-              case 8:
-                  $this->data['title'] = array();
-                  $this->load->view('/employee/data/ajax_emp_mehnat_faol',$this->data);
-                  break;
-              case '9':
-                  $this->data['title'] = array();
-                  $this->load->view('/employee/data/ajax_emp_muassasa_ish',$this->data);
-                  break;
-              case '10':
-                  $this->data['title'] = array();
-                  $this->load->view('/employee/data/ajax_emp_uqit_fan',$this->data);
-                  break;
+                case 6:
+                    $this->data['malaka'] = $this->EmployeeModel->read_by_malaka($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_malaka', $this->data);
+                    break;
+                case 7:
+                    $this->data['qaytamalaka'] = $this->EmployeeModel->read_by_qaytamalaka($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_qaytat', $this->data);
+                    break;
+                case 8:
+                    $this->data['mehnat'] = $this->EmployeeModel->read_by_mehnat($kadrid);
+                    $this->load->view('/employee/data/ajax_emp_mehnat_faol', $this->data);
+                    break;
+                case 9:
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_muassasa_ish', $this->data);
+                    break;
+                case 10:
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_uqit_fan', $this->data);
+                    break;
             }
 
 
-    } else {
+        } else {
             $this->data['title'] = array();
-            $this->load->view('/employee/data/ajax_emp_passport',$this->data);
+            $this->load->view('/employee/data/ajax_emp_passport', $this->data);
         }
     }
 
-    public function create_date_info(){
+    public function create_date_info()
+    {
 
         if (isset($_POST['emptype'])) {
             $emptype = $_POST['emptype'];
-            switch ($emptype){
+            switch ($emptype) {
                 case 1:
-                    $postdata=[
-                                'passport_id'=>$this->input->post('passport_id',true),
-                                'kadr_id'=>$this->input->post('kadr_id',true),
-                                'ps_ser'=>$this->input->post('ps_ser',true),
-                                'ps_num'=>$this->input->post('ps_num',true),
-                                'date_of_given'=>$this->input->post('date_of_given',true),
-                                'date_of_expr'=>$this->input->post('date_of_expr',true),
-                                'davlat_id'=>$this->input->post('davlat_id',true),
-                                'viloyat_id'=>$this->input->post('viloyat_id',true),
-                                'tuman_id'=>$this->input->post('tuman_id',true),
-                                'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
-                               ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $postdata = [
+                        'passport_id' => $this->input->post('passport_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'ps_ser' => $this->input->post('ps_ser', true),
+                        'ps_num' => $this->input->post('ps_num', true),
+                        'date_of_given' => $this->input->post('date_of_given', true),
+                        'date_of_expr' => $this->input->post('date_of_expr', true),
+                        'davlat_id' => $this->input->post('davlat_id', true),
+                        'viloyat_id' => $this->input->post('viloyat_id', true),
+                        'tuman_id' => $this->input->post('tuman_id', true),
+                        'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
                 case 2:
-                    $postdata=[
-                        'tillar_bind_id'=>$this->input->post('tillar_bind_id',true),
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'tillar_id'=>$this->input->post('tillar_id',true),
-                        'tillar_turi_id'=>$this->input->post('tillar_turi_id',true),
+                    $postdata = [
+                        'tillar_bind_id' => $this->input->post('tillar_bind_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'tillar_id' => $this->input->post('tillar_id', true),
+                        'tillar_turi_id' => $this->input->post('tillar_turi_id', true),
                     ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
                 case 3:
-                    $postdata=[
-                        'uqigan_tm_id'=>$this->input->post('uqigan_tm_id',true),
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'davlat_id'=>$this->input->post('davlat_id',true),
-                        'otm_id'=>$this->input->post('otm_id',true),
-                        'malumot_id'=>$this->input->post('malumot_id',true),
-                        'mutax_kodi_id'=>$this->input->post('mutax_kodi_id',true),
-                        'kirgan_yili'=>$this->input->post('kirgan_yili',true),
-                        'tugatgan_yili'=>$this->input->post('tugatgan_yili',true),
-                        'diplom_sana'=>$this->input->post('diplom_sana',true),
-                        'diplom_num'=>$this->input->post('diplom_num',true),
-                        'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
+                    $postdata = [
+                        'uqigan_tm_id' => $this->input->post('uqigan_tm_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'davlat_id' => $this->input->post('davlat_id', true),
+                        'otm_id' => $this->input->post('otm_id', true),
+                        'malumot_id' => $this->input->post('malumot_id', true),
+                        'mutax_kodi_id' => $this->input->post('mutax_kodi_id', true),
+                        'kirgan_yili' => $this->input->post('kirgan_yili', true),
+                        'tugatgan_yili' => $this->input->post('tugatgan_yili', true),
+                        'diplom_sana' => $this->input->post('diplom_sana', true),
+                        'diplom_num' => $this->input->post('diplom_num', true),
+                        'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
                     ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
 
                 case 4:
-                    $postdata=[
-                        'ilmiy_un_id'=>$this->input->post('ilmiy_un_id',true),
-                        'ilmiy_unvon_id'=>$this->input->post('ilmiy_unvon_id',true),
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'diplom_ser'=>$this->input->post('diplom_num',true),
-                        'diplom_date'=>$this->input->post('diplom_date',true),
+                    $postdata = [
+                        'ilmiy_un_id' => $this->input->post('ilmiy_un_id', true),
+                        'ilmiy_unvon_id' => $this->input->post('ilmiy_unvon_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'diplom_ser' => $this->input->post('diplom_num', true),
+                        'diplom_date' => $this->input->post('diplom_date', true),
 
                     ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
                 case 5:
-                    $postdata=[
-                        'd_ilmiy_daraja_id'=>$this->input->post('d_ilmiy_daraja_id',true),
-                        'ilm_daraja_id'=>$this->input->post('ilm_daraja_id',true),
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'ilm_fan_id'=>$this->input->post('ilm_fan_id',true),
-                        'berilgan_vaqt'=>$this->input->post('berilgan_vaqt',true),
-                        'diplom_ser'=>$this->input->post('diplom_ser',true),
+                    $postdata = [
+                        'd_ilmiy_daraja_id' => $this->input->post('d_ilmiy_daraja_id', true),
+                        'ilm_daraja_id' => $this->input->post('ilm_daraja_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'ilm_fan_id' => $this->input->post('ilm_fan_id', true),
+                        'berilgan_vaqt' => $this->input->post('berilgan_vaqt', true),
+                        'diplom_ser' => $this->input->post('diplom_ser', true),
 
                     ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
-
-                case 5:
-                    $postdata=[
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'ish_vaqti'=>$this->input->post('ish_vaqti',true),
-                        'ish_tashkilot'=>$this->input->post('ish_tashkilot',true),
-                        'ordering'=>$this->input->post('ordering',true),
-
-                    ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
-                    redirect($_SERVER['HTTP_REFERER']);
-                    break;
-
                 case 6:
-                    $postdata=[
-                        'malaka_id'=>$this->input->post('malaka_id',true),
-                        'malaka_turi_id'=>$this->input->post('malaka_turi_id',true),
-                        'kadr_id'=>$this->input->post('kadr_id',true),
-                        'malaka_nomi'=>$this->input->post('malaka_nomi',true),
-                        'b_vaqti'=>$this->input->post('b_vaqti',true),
-                        't_vaqti'=>$this->input->post('t_vaqti',true),
-                        'otm_id'=>$this->input->post('otm_id',true),
-                        'malaka_xujjat_id'=>$this->input->post('malaka_xujjat_id',true),
-                        'malaka_xujjat_num'=>$this->input->post('malaka_xujjat_num',true),
-                        'malaka_xujjat_date'=>$this->input->post('malaka_xujjat_date',true),
-                        'malaka_soat'=>$this->input->post('malaka_soat',true),
-                        'malaka_keyingi_sana'=>$this->input->post('malaka_keyingi_sana',true),
-                        'davlat_id'=>$this->input->post('davlat_id',true),
-                        'malaka_xorij_institut'=>$this->input->post('malaka_xorij_institut',true),
-                        'xmb_vaqti'=>$this->input->post('xmb_vaqti',true),
-                        'xmt_vaqti'=>$this->input->post('xmt_vaqti',true),
-                        'malaka_organizator'=>$this->input->post('malaka_organizator',true),
-                        'malaka_yunalishi'=>$this->input->post('malaka_yunalishi',true),
-                        'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
+                    $postdata = [
+                        'malaka_id' => $this->input->post('malaka_id', true),
+                        'malaka_turi_id' => $this->input->post('malaka_turi_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'malaka_nomi' => $this->input->post('malaka_nomi', true),
+                        'b_vaqti' => $this->input->post('b_vaqti', true),
+                        't_vaqti' => $this->input->post('t_vaqti', true),
+                        'otm_id' => $this->input->post('otm_id', true),
+                        'malaka_xujjat_id' => $this->input->post('malaka_xujjat_id', true),
+                        'malaka_xujjat_num' => $this->input->post('malaka_xujjat_num', true),
+                        'malaka_xujjat_date' => $this->input->post('malaka_xujjat_date', true),
+                        'malaka_soat' => $this->input->post('malaka_soat', true),
+                        'malaka_keyingi_sana' => $this->input->post('malaka_keyingi_sana', true),
+                        'davlat_id' => $this->input->post('davlat_id', true),
+                        'malaka_xorij_institut' => $this->input->post('malaka_xorij_institut', true),
+                        'xmb_vaqti' => $this->input->post('xmb_vaqti', true),
+                        'xmt_vaqti' => $this->input->post('xmt_vaqti', true),
+                        'malaka_organizator' => $this->input->post('malaka_organizator', true),
+                        'malaka_yunalishi' => $this->input->post('malaka_yunalishi', true),
+                        'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
 
                     ];
-                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
+                case 7:
+                    $postdata = [
+                        'qaytat_id' => $this->input->post('qaytat_id', true),
+                        'qayta_turi_id' => $this->input->post('qayta_turi_id', true),
+                        'qayta_fan_id' => $this->input->post('qayta_fan_id', true),
+                        'qayta_bdate' => $this->input->post('qayta_bdate', true),
+                        'qayta_tdate' => $this->input->post('qayta_tdate', true),
+                        'otm_id' => $this->input->post('otm_id', true),
+                        'malaka_xujjat_id' => $this->input->post('malaka_xujjat_id', true),
+                        'qayta_xujjat_num' => $this->input->post('qayta_xujjat_num', true),
+                        'qayta_xujjat_date' => $this->input->post('qayta_xujjat_date', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                        'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
+                               ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 8:
+                    $postdata = [
+                        'mehnat_id' => $this->input->post('mehnat_id', true),
+                        'ish_vaqti' => $this->input->post('ish_vaqti', true),
+                        'ish_tashkilot' => $this->input->post('ish_tashkilot', true),
+                        'ordering' => $this->input->post('ordering', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
 
             }
         }
     }
 
 
-    public function delete_data_info(){
+    public function delete_data_info()
+    {
         if (isset($_POST['emptype'])) {
             $emptype = $_POST['emptype'];
 
             switch ($emptype) {
                 case 1:
-                    $postdata=['passport_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['passport_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
                 case 2:
-                    $postdata=['tillar_bind_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['tillar_bind_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
                 case 3:
-                    $postdata=['tillar_bind_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['tillar_bind_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
                 case 4:
-                    $postdata=['ilmiy_un_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['ilmiy_un_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
                 case 5:
-                    $postdata=['d_ilmiy_daraja_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['d_ilmiy_daraja_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
                 case 6:
-                    $postdata=['malaka_id'=>$this->input->post('kadr_id',true)];
-                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    $postdata = ['malaka_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 7:
+                    $postdata = ['qaytat_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 8:
+                    $postdata = ['mehnat_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
             }
