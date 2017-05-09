@@ -557,6 +557,9 @@ class EmployeeModel extends MY_Model
             case 10:
                 $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
                 break;
+            case 11:
+                $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
+                break;
         }
     }
     public function read_by_isDirector($kadrid = null)
