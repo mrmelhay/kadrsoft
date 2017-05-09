@@ -101,6 +101,7 @@
                             <div class="col-md-6">
                                 <select name="malaka_lavozim_id" id="malaka_lavozim_id" class="form-control">
                                     <option value="">Танланг...</option>
+                                    <?php $this->PreferencesModel->getMalakaLavDropList($employee->malaka_lavozim_id); ?>
 
                                 </select>
                             </div>
@@ -147,6 +148,15 @@
                                 </select>
                             </div>
                         </div>
+                    <div class="form-group has-success lable-padd">
+                        <label for="" class="col-md-3">Давлат мукофотлари</label>
+                        <div class="col-md-6">
+                            <select name="mukofot_id" id="mukofot_id" class="form-control">
+                                <option value="">Танланг...</option>
+                                <?php $this->PreferencesModel->getMukofotDropList($employee->mukofot_id); ?>
+                            </select>
+                        </div>
+                    </div>
 
                 </div>
            <div class="col-md-6">

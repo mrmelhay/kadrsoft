@@ -348,6 +348,18 @@ class PreferencesModel extends MY_Model
         }
     }
 
+    public function getMukofotDropList($selected = false)
+    {
+        if ($this->mukofotList) {
+            foreach ($this->mukofotList as $key => $row) {
+                $sel = ($row['mukofot_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['mukofot_id'] . '"' . $sel . '">';
+                print $row['mukofot_name'] . '</option>';
+            }
+        }
+    }
+
+
     public function getLavozimDropList($selected = false)
     {
         if ($this->lavozimList) {
