@@ -249,7 +249,7 @@ class Employee extends MY_Controller
         $this->data['qaytamalakas'] = $this->EmployeeModel->read_by_qaytamalakas($kadrid);
         $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrid);
         $this->data['muassasaishs'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
-        $this->data['fanlars'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
+
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
