@@ -244,6 +244,7 @@ class Employee extends MY_Controller
             $this->data['uqigantms'] = $this->EmployeeModel->read_by_uqigantms($kadrid);
             $this->data['ilmiyunvons'] = $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
             $this->data['ilmiydarajas'] =$this->EmployeeModel->read_by_ilmiydarajas($kadrid);
+            $this->data['malakas'] =$this->EmployeeModel->read_by_malakas($kadrid);
             $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
             $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
             $this->view_lib->admin_layout($this->data);
@@ -283,7 +284,7 @@ class Employee extends MY_Controller
                   break;
 
               case 6:
-                  $this->data['title'] = array();
+                  $this->data['malaka']=$this->EmployeeModel->read_by_malaka($kadrid);
                   $this->load->view('/employee/data/ajax_emp_malaka',$this->data);
                   break;
               case 7:
@@ -393,6 +394,32 @@ class Employee extends MY_Controller
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
+                case 6:
+                    $postdata=[
+                        'malaka_id'=>$this->input->post('malaka_id',true),
+                        'malaka_turi_id'=>$this->input->post('malaka_turi_id',true),
+                        'kadr_id'=>$this->input->post('kadr_id',true),
+                        'malaka_nomi'=>$this->input->post('malaka_nomi',true),
+                        'b_vaqti'=>$this->input->post('b_vaqti',true),
+                        't_vaqti'=>$this->input->post('t_vaqti',true),
+                        'otm_id'=>$this->input->post('otm_id',true),
+                        'malaka_xujjat_id'=>$this->input->post('malaka_xujjat_id',true),
+                        'malaka_xujjat_num'=>$this->input->post('malaka_xujjat_num',true),
+                        'malaka_xujjat_date'=>$this->input->post('malaka_xujjat_date',true),
+                        'malaka_soat'=>$this->input->post('malaka_soat',true),
+                        'malaka_keyingi_sana'=>$this->input->post('malaka_keyingi_sana',true),
+                        'davlat_id'=>$this->input->post('davlat_id',true),
+                        'malaka_xorij_institut'=>$this->input->post('malaka_xorij_institut',true),
+                        'xmb_vaqti'=>$this->input->post('xmb_vaqti',true),
+                        'xmt_vaqti'=>$this->input->post('xmt_vaqti',true),
+                        'malaka_organizator'=>$this->input->post('malaka_organizator',true),
+                        'malaka_yunalishi'=>$this->input->post('malaka_yunalishi',true),
+                        'is_active'=>$this->input->post('is_active',true)?$this->input->post('is_active',true):0,
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
 
 
             }
@@ -427,6 +454,12 @@ class Employee extends MY_Controller
                     break;
                 case 5:
                     $postdata=['d_ilmiy_daraja_id'=>$this->input->post('kadr_id',true)];
+                    $this->EmployeeModel->delete_data_info($postdata,$emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
+                case 6:
+                    $postdata=['malaka_id'=>$this->input->post('kadr_id',true)];
                     $this->EmployeeModel->delete_data_info($postdata,$emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
