@@ -110,7 +110,7 @@ class PreferencesModel extends MY_Model
     }
 
     public function getQaytatfanDropList($selected = false)
-    {
+    {   $this->loadQaytatfan();
         if ($this->qaytatfanList) {
             foreach ($this->qaytatfanList as $key => $row) {
                 $sel = ($row['qayta_fan_id'] == $selected) ? " selected=\"selected\"" : "";
@@ -121,7 +121,7 @@ class PreferencesModel extends MY_Model
     }
 
     public function getQaytatturiDropList($selected = false)
-    {
+    {  $this->loadQaytatturi();
         if ($this->qaytatturiList) {
             foreach ($this->qaytatturiList as $key => $row) {
                 $sel = ($row['qayta_turi_id'] == $selected) ? " selected=\"selected\"" : "";
@@ -339,6 +339,17 @@ class PreferencesModel extends MY_Model
                 $sel = ($row['malumot_id'] == $selected) ? " selected=\"selected\"" : "";
                 print '<option value="' . $row['malumot_id'] . '"' . $sel . '">';
                 print $row['malumot_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getShartnomatypeDropList($selected = false)
+    {
+        if ($this->shartnomatypeList) {
+            foreach ($this->shartnomatypeList as $key => $row) {
+                $sel = ($row['shartnoma_type_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['shartnoma_type_id'] . '"' . $sel . '">';
+                print $row['shartnoma_type_name'] . '</option>';
             }
         }
     }
