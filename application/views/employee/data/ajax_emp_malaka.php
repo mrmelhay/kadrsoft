@@ -88,7 +88,6 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
     </div>
@@ -167,7 +166,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group ">
                     <label class="col-sm-5 control-label">Статус</label>
                     <div class="col-sm-2  ">
@@ -179,15 +177,5 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-5 control-label">Хужжат нусхаси</label>
-        <div class="col-sm-5">
-
-            <input type="file" name="photo" id="photo" class="form-control"/>
-            <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo ''; ?>">
-
-        </div>
-    </div>
-
 </div>
 

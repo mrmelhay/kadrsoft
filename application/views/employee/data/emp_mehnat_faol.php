@@ -41,31 +41,30 @@
         </tr>
         </thead>
         <tbody>
-
+        <?php foreach($mehnats as $mehnat){?>
         <tr class="">
             <td><? echo 1; ?></td>
-            <td><a href="#" data-title="" data-kollej_id="" data-toggle="modal" >
-                    <?php echo ""; ?></a>
+            <td><a href="#"  data-kadrid="<?php echo $mehnat['mehnat_id']; ?>" data-toggle="modal" data-target="#myModal" >
+                    <?php echo $mehnat['ish_vaqti']; ?></a>
             </td>
             <td>
-                <?php echo ""; ?></td>
+                <?php echo $mehnat['ish_tashkilot']; ?></td>
             <td>
-                <?php echo ''; ?></td>
+                <?php echo $mehnat['ordering']; ?></td>
 
             <td>
 
                 <div class="btn-group">
 
-                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo ''; ?>" data-kollej_id=<?php echo ''; ?> data-toggle="modal"
-                       data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                    <a type="button" class="btn btn-default" href="" ">
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $mehnat['mehnat_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $mehnat['mehnat_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
                     <i class="fa fa-trash-o red"></i> </a>
 
                 </div>
 
             </td>
         </tr>
-
+<?php } ?>
 
         </tbody>
     </table>

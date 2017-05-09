@@ -188,6 +188,73 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_qaytamalakas($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_qaytat")
+            ->join('spr_otm','spr_otm.otm_id=d_qaytat.otm_id','left')
+            ->join('spr_qayta_fan','spr_qayta_fan.qayta_fan_id=d_qaytat.qayta_fan_id','left')
+            ->join('spr_qayta_turi','spr_qayta_turi.qayta_turi_id=d_qaytat.qayta_turi_id','left')
+            ->join('spr_malaka_xujjat','spr_malaka_xujjat.malaka_xujjat_id=d_qaytat.malaka_xujjat_id','left')
+            ->where('d_qaytat.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_qaytamalaka($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_qaytat")
+            ->join('spr_qayta_fan','spr_qayta_fan.qayta_fan_id=d_qaytat.qayta_fan_id','left')
+            ->join('spr_qayta_turi','spr_qayta_turi.qayta_turi_id=d_qaytat.qayta_turi_id','left')
+            ->join('spr_malaka_xujjat','spr_malaka_xujjat.malaka_xujjat_id=d_qaytat.malaka_xujjat_id','left')
+            ->where('d_qaytat.qaytat_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
+    public function read_by_mehnats($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_mehnat_faol")
+            ->where('d_mehnat_faol.kadr_id',$user_id)
+            ->order_by('ordering','asc')
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_mehnat($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_mehnat_faol")
+             ->where('d_mehnat_faol.mehnat_id',$user_id)
+            ->order_by('ordering','asc')
+            ->get()
+            ->row_array();
+    }
+
+    public function read_by_muassasaishs($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_muassasa_ish")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_muassasa_ish.lavozim_id','left')
+            ->join('spr_shartnoma_type','spr_shartnoma_type.shartnoma_type_id=d_muassasa_ish.shartnoma_type_id','left')
+            ->where('d_muassasa_ish.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_muassasaish($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_muassasa_ish")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_muassasa_ish.lavozim_id','left')
+            ->join('spr_shartnoma_type','spr_shartnoma_type.shartnoma_type_id=d_muassasa_ish.shartnoma_type_id','left')
+            ->where('d_muassasa_ish.muassasa_ish_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -346,10 +413,69 @@ class EmployeeModel extends MY_Model
                 }
 
                 break;
+
+            case 7:
+                $result= $this->db->select("*")
+                    ->from('d_qaytat')
+                    ->where('d_qaytat.qaytat_id',$data['qaytat_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_qaytat.qaytat_id',$query['qaytat_id'])->update('d_qaytat', $data);
+                    return $query['qaytat_id'];
+                }else{
+                    $this->db->insert("d_qaytat",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
+
+            case 8:
+                $result= $this->db->select("*")
+                    ->from('d_mehnat_faol')
+                    ->where('d_mehnat_faol.mehnat_id',$data['mehnat_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_mehnat_faol.mehnat_id',$query['mehnat_id'])->update('d_mehnat_faol', $data);
+                    return $query['mehnat_id'];
+                }else{
+                    $this->db->insert("d_mehnat_faol",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
+            case 9:
+                $result= $this->db->select("*")
+                    ->from('d_muassasa_ish')
+                    ->where('d_muassasa_ish.muassasa_ish_id',$data['muassasa_ish_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_muassasa_ish.muassasa_ish_id',$query['muassasa_ish_id'])->update('d_muassasa_ish', $data);
+                    return $query['muassasa_ish_id'];
+                }else{
+                    $this->db->insert("d_muassasa_ish",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
         }
-
-
-
     }
 
     public function delete_data_info($data=[],$type){
@@ -373,6 +499,15 @@ class EmployeeModel extends MY_Model
                 break;
             case 6:
                 $this->db->where('malaka_id',$data['malaka_id'])->delete('d_malaka', $data);
+                break;
+            case 7:
+                $this->db->where('qaytat_id',$data['qaytat_id'])->delete('d_qaytat', $data);
+                break;
+            case 8:
+                $this->db->where('mehnat_id',$data['mehnat_id'])->delete('d_mehnat_faol', $data);
+                break;
+            case 9:
+                $this->db->where('muassasa_ish_id',$data['muassasa_ish_id'])->delete('d_muassasa_ish', $data);
                 break;
         }
     }
