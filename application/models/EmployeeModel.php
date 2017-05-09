@@ -233,6 +233,28 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_muassasaishs($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_muassasa_ish")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_muassasa_ish.lavozim_id','left')
+            ->join('spr_shartnoma_type','spr_shartnoma_type.shartnoma_type_id=d_muassasa_ish.shartnoma_type_id','left')
+            ->where('d_muassasa_ish.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_muassasaish($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_muassasa_ish")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_muassasa_ish.lavozim_id','left')
+            ->join('spr_shartnoma_type','spr_shartnoma_type.shartnoma_type_id=d_muassasa_ish.shartnoma_type_id','left')
+            ->where('d_muassasa_ish.muassasa_ish_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -433,6 +455,26 @@ class EmployeeModel extends MY_Model
                 }
 
                 break;
+            case 9:
+                $result= $this->db->select("*")
+                    ->from('d_muassasa_ish')
+                    ->where('d_muassasa_ish.muassasa_ish_id',$data['muassasa_ish_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_muassasa_ish.muassasa_ish_id',$query['muassasa_ish_id'])->update('d_muassasa_ish', $data);
+                    return $query['muassasa_ish_id'];
+                }else{
+                    $this->db->insert("d_muassasa_ish",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
         }
     }
 
@@ -463,6 +505,9 @@ class EmployeeModel extends MY_Model
                 break;
             case 8:
                 $this->db->where('mehnat_id',$data['mehnat_id'])->delete('d_mehnat_faol', $data);
+                break;
+            case 9:
+                $this->db->where('muassasa_ish_id',$data['muassasa_ish_id'])->delete('d_muassasa_ish', $data);
                 break;
         }
     }

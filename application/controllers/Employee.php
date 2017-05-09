@@ -248,6 +248,7 @@ class Employee extends MY_Controller
         $this->data['malakas'] = $this->EmployeeModel->read_by_malakas($kadrid);
         $this->data['qaytamalakas'] = $this->EmployeeModel->read_by_qaytamalakas($kadrid);
         $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrid);
+        $this->data['muassasaishs'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -300,7 +301,7 @@ class Employee extends MY_Controller
                     $this->load->view('/employee/data/ajax_emp_mehnat_faol', $this->data);
                     break;
                 case 9:
-                    $this->data['title'] = array();
+                    $this->data['muassasaish'] = $this->EmployeeModel->read_by_muassasaish($kadrid);
                     $this->load->view('/employee/data/ajax_emp_muassasa_ish', $this->data);
                     break;
                 case 10:
@@ -451,6 +452,25 @@ class Employee extends MY_Controller
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
+                case 9:
+                    $postdata = [
+                        'muassasa_ish_id' => $this->input->post('muassasa_ish_id', true),
+                        'lavozim_id' => $this->input->post('lavozim_id', true),
+                        'lavozim_bdate' => $this->input->post('lavozim_bdate', true),
+                        'shartnoma_type_id' => $this->input->post('shartnoma_type_id', true),
+                        'shartnoma_num' => $this->input->post('shartnoma_num', true),
+                        'stavka' => $this->input->post('stavka', true),
+                        'ish_kir_buyruq' => $this->input->post('ish_kir_buyruq', true),
+                        'lavozim_tdate' => $this->input->post('lavozim_tdate', true),
+                        'ish_bush_sabab' => $this->input->post('ish_bush_sabab', true),
+                        'ish_bush_buyruq' => $this->input->post('ish_bush_buyruq', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
             }
         }
     }
@@ -503,6 +523,12 @@ class Employee extends MY_Controller
                     $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
+                case 9:
+                    $postdata = ['muassasa_ish_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
             }
         }
     }

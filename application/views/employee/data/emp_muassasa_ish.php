@@ -40,40 +40,37 @@
             <th>Ишга тайинганган буйруқ</th>
             <th>Ставкаси</th>
             <th>Хужжат нусхаси</th>
-            <th>Статус</th>
             <th>Амаллар</th>
         </tr>
         </thead>
         <tbody>
-
+<?php foreach($muassasaishs as $muassasaish){?>
         <tr class="">
             <td><? echo 1; ?></td>
-            <td><a href="#" data-title="" data-kollej_id="" data-toggle="modal" >
-                    <?php echo ""; ?></a>
+            <td><a href="#" data-title="" data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModal">
+                    <?php echo $muassasaish['lavozim_name']; ?></a>
             </td>
             <td>
-                <?php echo ""; ?></td>
+                <?php echo $muassasaish['lavozim_bdate']; ?></td>
             <td>
-                <?php echo ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
+                <?php echo $muassasaish['shartnoma_type_name']; ?></td>
+            <td class="center"><?php echo $muassasaish['ish_kir_buyruq']; ?></td>
+            <td class="center"><?php echo $muassasaish['stavka']; ?></td>
             <td class="center"><?php ''; ?></td>
 
-            <td class="center"><?php ''; ?></td>
             <td>
 
                 <div class="btn-group">
 
-                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo ''; ?>" data-kollej_id=<?php echo ''; ?> data-toggle="modal"
-                       data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                    <a type="button" class="btn btn-default" href="" ">
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                    <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModalDelete">
                     <i class="fa fa-trash-o red"></i> </a>
 
                 </div>
 
             </td>
         </tr>
-
+<?php }?>
 
         </tbody>
     </table>
