@@ -33,6 +33,7 @@ class MY_Model extends CI_Model{
     public $uqitsohaList=array();
     public $qarindoshList=array();
     public $malakaLavList=array();
+    public $mukofotList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -75,6 +76,7 @@ class MY_Model extends CI_Model{
         $this->loadUqitSoha();
         $this->loadQarindosh();
         $this->loadMalakaLavozim();
+        $this->loadMukofot();
     }
 
     public function loadViloyat(){
@@ -126,6 +128,17 @@ class MY_Model extends CI_Model{
         return $this->otmlist;
     }
 
+
+    public function loadMukofot(){
+        $this->db->select('*');
+        $this->db->from('spr_dav_mukofot');
+        $this->db->order_by('spr_dav_mukofot.mukofot_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->mukofotList[$rows['mukofot_id']]=$rows;
+        }
+        return $this->mukofotList;
+    }
 
     public function loadMalakaLavozim(){
         $this->db->select('*');
