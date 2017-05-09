@@ -2,7 +2,7 @@
     <?php if ($this->session->flashdata('message') != null) { ?>
         <div class="alert alert-info alert-styled-left alert-bordered">
             <button type="button" class="close" data-dismiss="alert"><span>×</span><span
-                    class="sr-only">Закрыть</span></button>
+                        class="sr-only">Закрыть</span></button>
             <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
         </div>
     <?php } ?>
@@ -18,7 +18,7 @@
             <div class="col-sm-5">
                 <div class="input-group">
                 <span class="input-group-btn">
-                <h4>Аттестация</h4> </span> </div>
+                <h4>Оила аъзолари</h4> </span> </div>
             </div>
             <div class="col-sm-7">
                 <div class="btn-group pull-right">
@@ -34,12 +34,11 @@
         <thead>
         <tr>
             <th>ТР</th>
-            <th>Амалдаги малака лавозими</th>
-            <th>Эгаллаган йили</th>
-            <th>Охирги аттестацияга жалб этилган йили</th>
-            <th>Навбатдаги аттестацияга жалб этиладиган йили</th>
-            <th>Охирги аттестация хулосаси</th>
-           <th>Статус</th>
+            <th>Қариндошлар</th>
+            <th>Фамилияси, исми, отасининг исми</th>
+            <th>Туғилган йили</th>
+            <th>Иш жойи ва лавозими</th>
+            <th>Манзил</th>
             <th>Амаллар</th>
         </tr>
         </thead>
@@ -57,7 +56,7 @@
                 <td class="center"><?php echo $malaka['t_vaqti']; ?></td>
                 <td class="center"><?php echo $malaka['otm_name']; ?></td>
 
-                <td class="center"><?php echo $malaka['is_active']; ?></td>
+
                 <td>
 
                     <div class="btn-group">

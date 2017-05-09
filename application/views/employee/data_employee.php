@@ -44,14 +44,15 @@
                 <li class="active"><a data-toggle="tab" data-emptype="1" href="#Tab1">Паспорт</a></li>
                 <li><a data-toggle="tab" data-emptype="2" href="#Tab2">Тиллар</a></li>
                 <li><a data-toggle="tab" data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
-                <li><a data-toggle="tab" data-emptype="4" href="#Tab4">Илмий унвон</a></li>
-                <li><a data-toggle="tab" data-emptype="5" href="#Tab5">Илмий даража</a></li>
+                <li><a data-toggle="tab" data-emptype="4" href="#Tab4">Унвон</a></li>
+                <li><a data-toggle="tab" data-emptype="5" href="#Tab5">Даража</a></li>
                 <li><a data-toggle="tab" data-emptype="6" href="#Tab6">Малака</a></li>
                 <li><a data-toggle="tab" data-emptype="7" href="#Tab7">Қайта</a></li>
                 <li><a data-toggle="tab" data-emptype="8" href="#Tab8">Меҳнат</a></li>
                 <li><a data-toggle="tab" data-emptype="9" href="#Tab9">Фаолият</a></li>
                 <li><a data-toggle="tab" data-emptype="10" href="#Tab10">Фанлар</a></li>
                 <li><a data-toggle="tab" data-emptype="11" href="#Tab11">Аттестация</a></li>
+                <li><a data-toggle="tab" data-emptype="12" href="#Tab12">Оила</a></li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">
@@ -87,6 +88,10 @@
                 <div id="Tab11" class="tab-pane fade">
                     <?php $this->load->view('employee/data/emp_attestatsiya');?>
                 </div>
+                <div id="Tab12" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_oila');?>
+                </div>
+
             </div>
         </div>
     </section>
@@ -207,6 +212,21 @@
                 success: function (data) {
 
                     $('#tuman_id').html(data);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $(document).on('change', "#fan_turi_id", function () {
+            var page = $('select[name="fan_turi_id"]').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/preferences/ajax_data_fanlar')?>",
+                data: {fan_turi_id: page},
+                success: function (data) {
+
+                    $('#fanlar_id').html(data);
                 }
             });
         });

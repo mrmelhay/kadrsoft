@@ -175,6 +175,17 @@ class PreferencesModel extends MY_Model
         }
     }
 
+    public function getMalakaLavDropList($selected = false){
+
+        if ($this->malakaLavList){
+            foreach ($this->malakaLavList as $key => $row) {
+                $sel = ($row['malaka_lavozim_id']== $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['malaka_lavozim_id'] . '"'.$sel.'">';
+                print $row['malaka_lavozim_name'] . '</option>';
+            }
+        }
+    }
+
     public function getMalakaXujjatDropList($selected = false){
         $this->loadMalakaXujjat();
         if ($this->malakaxujjatList){
@@ -299,6 +310,22 @@ class PreferencesModel extends MY_Model
     }
 
 
+    public function getFanlarDropList($fan_turi, $selected = false)
+    {
+        //  $userdata=array();
+        print "<option value=''>Танланг...</option>";
+        $this->fan_turi_id = $fan_turi;
+        $this->loadFanlar();
+        if ($this->fanlarList) {
+            foreach ($this->fanlarList as $key => $row) {
+                $sel = ($row['fanlar_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['fanlar_id'] . '"' . $sel . '">';
+                print $row['fanlar_name'] . '</option>';
+            }
+        }
+    }
+
+
     public function getKollejDropList($parent_id, $level = 0, $spacer, $selected = false)
     {
 //        $userdata=array();
@@ -332,6 +359,30 @@ class PreferencesModel extends MY_Model
         }
     }
 
+
+    public function getQarindoshDropList($selected = false)
+    {
+        if ($this->qarindoshList) {
+            foreach ($this->qarindoshList as $key => $row) {
+                $sel = ($row['qarindosh_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['qarindosh_id'] . '"' . $sel . '">';
+                print $row['qarindosh_name'] . '</option>';
+            }
+        }
+    }
+
+
+    public function getUqitSohaDropList($selected = false)
+    {
+        if ($this->uqitsohaList) {
+            foreach ($this->uqitsohaList as $key => $row) {
+                $sel = ($row['uqit_soha_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['uqit_soha_id'] . '"' . $sel . '">';
+                print $row['uqit_soha_name'] . '</option>';
+            }
+        }
+    }
+
     public function getMalumotDropList($selected = false)
     {
         if ($this->malumotList) {
@@ -350,6 +401,17 @@ class PreferencesModel extends MY_Model
                 $sel = ($row['shartnoma_type_id'] == $selected) ? " selected=\"selected\"" : "";
                 print '<option value="' . $row['shartnoma_type_id'] . '"' . $sel . '">';
                 print $row['shartnoma_type_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getFanTuriDropList($selected = false)
+    {
+        if ($this->fanturiList) {
+            foreach ($this->fanturiList as $key => $row) {
+                $sel = ($row['fan_turi_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['fan_turi_id'] . '"' . $sel . '">';
+                print $row['fan_turi_name'] . '</option>';
             }
         }
     }

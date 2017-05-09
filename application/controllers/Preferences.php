@@ -115,6 +115,14 @@ class Preferences extends MY_Controller
         }
     }
 
+    public function ajax_data_fanlar()
+    {
+        if ($this->input->post('fan_turi_id') != "") {
+            $did = $_POST['fan_turi_id'];
+            $this->PreferencesModel->getFanlarDropList($did);
+        }
+    }
+
     public function ajax_data_organ(){
         if ($this->input->get('kollej_id') != "") {
             $did = $_GET['kollej_id'];
