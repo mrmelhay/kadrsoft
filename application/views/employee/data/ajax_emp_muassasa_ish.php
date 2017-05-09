@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Ставкаси</label>
                     <div class="col-sm-4">
-                        <input type="number" name="stavka" id="stavka" step="0.5" class="form-control" min="0" max="3" value="<?php echo '';?>" required>
+                        <input type="number" name="stavka" id="stavka" step="0.25" class="form-control" min="0" max="3" value="<?php echo '';?>" required>
                     </div>
                 </div>
             </div>
