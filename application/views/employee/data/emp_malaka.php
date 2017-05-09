@@ -46,35 +46,34 @@
         </tr>
         </thead>
         <tbody>
-
+<?php foreach ($malakas as $malaka){?>
         <tr class="">
             <td><? echo 1; ?></td>
-            <td><a href="#" data-title="" data-kollej_id="" data-toggle="modal" >
-                    <?php echo ""; ?></a>
+            <td><a href="#"  data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal">
+                    <?php echo $malaka['malaka_turi_name']; ?></a>
             </td>
             <td>
-                <?php echo ""; ?></td>
+                <?php echo $malaka['malaka_nomi']; ?></td>
             <td>
-                <?php echo ''; ?></td>
+                <?php echo $malaka['b_vaqti']; ?></td>
+            <td class="center"><?php echo $malaka['t_vaqti']; ?></td>
+            <td class="center"><?php echo $malaka['otm_name']; ?></td>
             <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
+            <td class="center"><?php echo $malaka['malaka_keyingi_sana']; ?></td>
+            <td class="center"><?php echo $malaka['is_active']; ?></td>
             <td>
 
                 <div class="btn-group">
 
-                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo ''; ?>" data-kollej_id=<?php echo ''; ?> data-toggle="modal"
-                       data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                    <a type="button" class="btn btn-default" href="" ">
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
                     <i class="fa fa-trash-o red"></i> </a>
 
                 </div>
 
             </td>
         </tr>
-
+<?php }?>
 
         </tbody>
     </table>
