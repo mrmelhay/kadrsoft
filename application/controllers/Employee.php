@@ -249,6 +249,7 @@ class Employee extends MY_Controller
         $this->data['qaytamalakas'] = $this->EmployeeModel->read_by_qaytamalakas($kadrid);
         $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrid);
         $this->data['muassasaishs'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
+        $this->data['fanlars'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -306,7 +307,15 @@ class Employee extends MY_Controller
                     break;
                 case 10:
                     $this->data['title'] = array();
-                    $this->load->view('/employee/data/ajax_emp_uqit_fan', $this->data);
+                    $this->load->view('/employee/data/ajax_emp_uqit_fan',$this->data);
+                    break;
+                case 11:
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_attestatsiya',$this->data);
+                    break;
+                case 12:
+                    $this->data['title'] = array();
+                    $this->load->view('/employee/data/ajax_emp_oila',$this->data);
                     break;
             }
 
