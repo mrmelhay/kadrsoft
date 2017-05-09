@@ -38,7 +38,7 @@ if ($this->session->userdata('logged_in')!=false){
             <div class="top_right">
                 <div class="top_right_menu">
                     <ul>
-                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Tasks <span class="badge badge">8</span> </a>
+                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Маълумотлар <span class="badge badge">8</span> </a>
                             <ul class="drop_down_task dropdown-menu">
                                 <div class="top_pointer"></div>
                                 <li>
@@ -46,37 +46,37 @@ if ($this->session->userdata('logged_in')!=false){
                                 </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="green_status task_height" style="width:80%;"></div>
-                                        <div class="task_head"> <span class="pull-left">Task Heading</span> <span class="pull-right green_label">80%</span> </div>
-                                        <div class="task_detail">Task details goes here</div>
+                                        <div class="task_head"> <span class="pull-left">Маълумуоти тўлиқ эмас</span> <span class="pull-right green_label">80%</span> </div>
+                                        <div class="task_detail">Маълумуоти тўлиқ киритилмаганлар</div>
                                     </a> </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="yellow_status task_height" style="width:50%;"></div>
-                                        <div class="task_head"> <span class="pull-left">Task Heading</span> <span class="pull-right yellow_label">50%</span> </div>
-                                        <div class="task_detail">Task details goes here</div>
+                                        <div class="task_head"> <span class="pull-left">Паспорт муддати</span> <span class="pull-right yellow_label">50%</span> </div>
+                                        <div class="task_detail">Паспорт муддати тугаётганлар</div>
                                     </a> </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="blue_status task_height" style="width:70%;"></div>
-                                        <div class="task_head"> <span class="pull-left">Task Heading</span> <span class="pull-right blue_label">70%</span> </div>
-                                        <div class="task_detail">Task details goes here</div>
+                                        <div class="task_head"> <span class="pull-left">Аттестацияга жалб этилганлар</span> <span class="pull-right blue_label">70%</span> </div>
+                                        <div class="task_detail"></div>
                                     </a> </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="red_status task_height" style="width:85%;"></div>
-                                        <div class="task_head"> <span class="pull-left">Task Heading</span> <span class="pull-right red_label">85%</span> </div>
-                                        <div class="task_detail">Task details goes here</div>
+                                        <div class="task_head"> <span class="pull-left"></span>Малака оширишга  <span class="pull-right red_label">85%</span> </div>
+                                        <div class="task_detail">Малака ошириш муддати тугаётганлар</div>
                                     </a> </li>
                                 <li> <span class="new"> <a href="task.html" class="pull_left">Create New</a> <a href="task.html" class="pull-right">View All</a> </span> </li>
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Mail <span class="badge badge color_1">4</span> </a>
+                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Тизим холати <span class="badge badge color_1">4</span> </a>
                             <ul class="drop_down_task dropdown-menu">
                                 <div class="top_pointer"></div>
                                 <li>
                                     <p class="number">You have 4 mails</p>
                                 </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">sarat m</span> <span class="time">just now</span> </span> <span class="message">Hello,this is an example msg.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 1</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 2</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 3</span> <span class="time">эртага</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
+                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 4</span> <span class="time">хафта охирига</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
 
                             </ul>
                         </li>

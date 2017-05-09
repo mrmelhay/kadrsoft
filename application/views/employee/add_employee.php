@@ -196,7 +196,7 @@
                <div class="form-group has-success lable-padd">
                    <label for="" class="col-md-3">Манзил</label>
                    <div class="col-md-6">
-                       <textarea name="address" id="address" class="form-control" cols="10" rows="5">
+                       <textarea name="address" id="address" class="form-control">
                            <?php echo $employee->address; ?>
                        </textarea>
                    </div>
