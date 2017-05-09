@@ -146,8 +146,8 @@ class PreferencesModel extends MY_Model
     {
         if ($this->ilmiydarajaList) {
             foreach ($this->ilmiydarajaList as $key => $row) {
-                $sel = ($row['ilmiy_daraja_id'] == $selected) ? " selected=\"selected\"" : "";
-                print '<option value="' . $row['ilmiy_daraja_id'] . '"' . $sel . '">';
+                $sel = ($row['ilm_daraja_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['ilm_daraja_id'] . '"' . $sel . '">';
                 print $row['ilm_daraja_name'] . '</option>';
             }
         }
