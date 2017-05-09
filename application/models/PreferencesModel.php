@@ -109,6 +109,28 @@ class PreferencesModel extends MY_Model
         }
     }
 
+    public function getQaytatfanDropList($selected = false)
+    {
+        if ($this->qaytatfanList) {
+            foreach ($this->qaytatfanList as $key => $row) {
+                $sel = ($row['qayta_fan_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['qayta_fan_id'] . '"' . $sel . '">';
+                print $row['qayta_fan_name'] . '</option>';
+            }
+        }
+    }
+
+    public function getQaytatturiDropList($selected = false)
+    {
+        if ($this->qaytatturiList) {
+            foreach ($this->qaytatturiList as $key => $row) {
+                $sel = ($row['qayta_turi_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['qayta_turi_id'] . '"' . $sel . '">';
+                print $row['qayta_turi_name'] . '</option>';
+            }
+        }
+    }
+
     public function getIlmiyunvonDropList($selected = false)
     {
         if ($this->ilmiyunvonList) {

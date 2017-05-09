@@ -25,6 +25,8 @@ class MY_Model extends CI_Model{
     public $ilmiyfanList=array();
     public $malakaturiList=array();
     public $malakaxujjatList=array();
+    public $qaytatfanList=array();
+    public $qaytatturiList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -70,7 +72,6 @@ class MY_Model extends CI_Model{
     }
 
 
-
     public function loadTuman(){
 
         $this->db->select('*');
@@ -94,6 +95,30 @@ class MY_Model extends CI_Model{
         }
         return $this->otmlist;
     }
+
+    public function loadQaytatfan(){
+        $this->db->select('*');
+        $this->db->from('spr_qayta_fan');
+        $this->db->order_by('spr_qayta_fan.qayta_fan_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->qaytatfanList[$rows['qayta_fan_id']]=$rows;
+        }
+        return $this->qaytatfanList;
+    }
+
+
+    public function loadQaytatturi(){
+        $this->db->select('*');
+        $this->db->from('spr_qayta_turi');
+        $this->db->order_by('spr_qayta_turi.qayta_turi_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->qaytatturiList[$rows['qayta_turi_id']]=$rows;
+        }
+        return $this->qaytatturiList;
+    }
+
 
     public function loadMalakaTuri(){
         $this->db->select('*');
