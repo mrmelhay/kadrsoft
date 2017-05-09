@@ -39,31 +39,31 @@
             <th>Охирги аттестацияга жалб этилган йили</th>
             <th>Навбатдаги аттестацияга жалб этиладиган йили</th>
             <th>Охирги аттестация хулосаси</th>
-           <th>Статус</th>
+<!--           <th>Статус</th>-->
             <th>Амаллар</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($malakas as $malaka){?>
+        <?php foreach ($atestasiyas as $attes){?>
             <tr class="">
                 <td><? echo 1; ?></td>
-                <td><a href="#"  data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal">
-                        <?php echo $malaka['malaka_turi_name']; ?></a>
+                <td><a href="#"  data-kadrid="<?php echo $attes['attestatsiya_id']; ?>" data-toggle="modal" data-target="#myModal">
+                        <?php echo $attes['malaka_lavozim_name']; ?></a>
                 </td>
                 <td>
-                    <?php echo $malaka['malaka_nomi']; ?></td>
+                    <?php echo $attes['amal_mal_lav_bdate']; ?></td>
                 <td>
-                    <?php echo $malaka['b_vaqti']; ?></td>
-                <td class="center"><?php echo $malaka['t_vaqti']; ?></td>
-                <td class="center"><?php echo $malaka['otm_name']; ?></td>
+                    <?php echo $attes['oxirgi_att_yili']; ?></td>
+                <td class="center"><?php echo $attes['nav_att_yili']; ?></td>
+                <td class="center"><?php echo $attes['oxirgi_att_xulosa']; ?></td>
 
-                <td class="center"><?php echo $malaka['is_active']; ?></td>
+<!--                <td class="center">--><?php //echo $attes['is_active']; ?><!--</td>-->
                 <td>
 
                     <div class="btn-group">
 
-                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
+                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $attes['attestatsiya_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $attes['attestatsiya_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
                             <i class="fa fa-trash-o red"></i> </a>
 
                     </div>

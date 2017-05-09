@@ -253,6 +253,7 @@ class Employee extends MY_Controller
         $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrid);
         $this->data['muassasaishs'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
         $this->data['fanlars'] = $this->EmployeeModel->read_by_fanlars($kadrid);
+        $this->data['atestasiyas'] = $this->EmployeeModel->read_by_attestasiyas($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -313,7 +314,7 @@ class Employee extends MY_Controller
                     $this->load->view('/employee/data/ajax_emp_uqit_fan',$this->data);
                     break;
                 case 11:
-                    $this->data['title'] = array();
+                    $this->data['attestasiya'] = $this->EmployeeModel->read_by_attestasiya($kadrid);
                     $this->load->view('/employee/data/ajax_emp_attestatsiya',$this->data);
                     break;
                 case 12:
@@ -501,6 +502,23 @@ class Employee extends MY_Controller
                     redirect($_SERVER['HTTP_REFERER']);
                     break;
 
+                case 11:
+                    $postdata = [
+                        'attestatsiya_id' => $this->input->post('attestatsiya_id', true),
+                        'malaka_lavozim_id' => $this->input->post('malaka_lavozim_id', true),
+                        'amal_mal_lav_bdate' => $this->input->post('amal_mal_lav_bdate', true),
+                        'amal_mal_lav_old_toifa' => $this->input->post('amal_mal_lav_old_toifa', true),
+                        'oxirgi_att_yili' => $this->input->post('oxirgi_att_yili', true),
+                        'mutax_kodi_id' => $this->input->post('mutax_kodi_id', true),
+                        'nav_att_yili' => $this->input->post('nav_att_yili', true),
+                        'oxirgi_att_xulosa' => $this->input->post('oxirgi_att_xulosa', true),
+                        'tillar_id' => $this->input->post('tillar_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
             }
         }
     }
@@ -560,6 +578,11 @@ class Employee extends MY_Controller
                     break;
                 case 10:
                     $postdata = ['uqit_fan_id' => $this->input->post('kadr_id', true)];
+                    $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+                case 11:
+                    $postdata = ['attestatsiya_id' => $this->input->post('kadr_id', true)];
                     $this->EmployeeModel->delete_data_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
                     break;

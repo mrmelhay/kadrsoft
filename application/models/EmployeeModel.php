@@ -279,6 +279,30 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_attestasiyas($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_attestatsiya")
+            ->join('spr_malaka_lavozim','spr_malaka_lavozim.malaka_lavozim_id=d_attestatsiya.malaka_lavozim_id','left')
+            ->join('spr_tillar','spr_tillar.tillar_id=d_attestatsiya.tillar_id','left')
+            ->join('spr_mutaxasislik','spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id','left')
+            ->where('d_attestatsiya.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_attestasiya($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_attestatsiya")
+            ->join('spr_malaka_lavozim','spr_malaka_lavozim.malaka_lavozim_id=d_attestatsiya.malaka_lavozim_id','left')
+            ->join('spr_tillar','spr_tillar.tillar_id=d_attestatsiya.tillar_id','left')
+            ->join('spr_mutaxasislik','spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id','left')
+            ->where('d_attestatsiya.attestatsiya_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -518,6 +542,25 @@ class EmployeeModel extends MY_Model
                         return false;
                     }
                 }
+                break;
+            case 11:
+                $result= $this->db->select("*")
+                    ->from('d_attestatsiya')
+                    ->where('d_attestatsiya.attestatsiya_id',$data['attestatsiya_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_attestatsiya.attestatsiya_id',$query['attestatsiya_id'])->update('d_attestatsiya', $data);
+                    return $query['attestatsiya_id'];
+                }else{
+                    $this->db->insert("d_attestatsiya",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
 
                 break;
         }
@@ -558,6 +601,9 @@ class EmployeeModel extends MY_Model
                 $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
                 break;
             case 11:
+                $this->db->where('attestatsiya_id',$data['attestatsiya_id'])->delete('d_attestatsiya', $data);
+                break;
+            case 12:
                 $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
                 break;
         }
