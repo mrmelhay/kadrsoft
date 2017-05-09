@@ -283,6 +283,10 @@ class Employee extends MY_Controller
                   $this->data['title'] = array();
                   $this->load->view('/employee/data/ajax_emp_malaka',$this->data);
                   break;
+              case '7':
+                  $this->data['title'] = array();
+                  $this->load->view('/employee/data/ajax_emp_qaytat',$this->data);
+                  break;
               case '8':
                   $this->data['title'] = array();
                   $this->load->view('/employee/data/ajax_emp_mehnat_faol',$this->data);
