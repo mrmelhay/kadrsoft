@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="contact_people">
-                    <a href="#"><img src="<?php echo base_url()?><?php echo $employee['photo']; ?>" /></a>
+                    <a href="#"><img src="<?php echo  $employee['photo']?base_url($employee['photo']):base_url('/images/nophoto.jpg'); ?>" /></a>
                     <div class="contact_people_body">
                         <h5><?php echo $employee['name_f'].' '.$employee['name_o'];?></h5>
                         <span><i class="fa fa-map-marker"></i><?php echo $employee['address']; ?></span>

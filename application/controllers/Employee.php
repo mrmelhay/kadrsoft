@@ -226,20 +226,30 @@ class Employee extends MY_Controller
 
     }
 
+    public function delete_employee(){
+
+    }
+
     public function data_employee($kadrid)
     {
         if ($this->session->userdata('logged_in') == FALSE) {
             redirect(base_url('users/login'));
         }
         $editdata = $this->EmployeeModel->read_by_data($kadrid);
-        $this->data['employee'] = $postData = [$editdata];
-        $this->data['passports'] =  $this->EmployeeModel->read_by_passports($kadrid);
-        $this->data['languages'] =  $this->EmployeeModel->read_by_languages($kadrid);
-        $this->data['uqigantms'] =  $this->EmployeeModel->read_by_uqigantms($kadrid);
-        $this->data['ilmiyunvons'] =  $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
-        $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
-        $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
-        $this->view_lib->admin_layout($this->data);
+        if ($editdata) {
+            $this->data['employee'] = $postData = [$editdata];
+            $this->data['passports'] = $this->EmployeeModel->read_by_passports($kadrid);
+            $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
+            $this->data['uqigantms'] = $this->EmployeeModel->read_by_uqigantms($kadrid);
+            $this->data['ilmiyunvons'] = $this->EmployeeModel->read_by_ilmiyunvons($kadrid);
+            $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
+            $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
+            $this->view_lib->admin_layout($this->data);
+        }else{
+//            $this->data['employee'] = array();
+            $this->session->set_flashdata('exception', "Маълумот топилмади!");
+            redirect("/employee/employees");
+        }
     }
 
     public function ajax_data_employee(){
@@ -249,7 +259,6 @@ class Employee extends MY_Controller
 
           switch ($emptype){
                 case 1:
-//                    $this->data['title'] = array();
                     $this->data['passport']=$this->EmployeeModel->read_by_passport($kadrid);
                     $this->load->view('/employee/data/ajax_emp_passport',$this->data);
                     break;
