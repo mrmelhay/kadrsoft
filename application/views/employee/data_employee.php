@@ -46,11 +46,12 @@
                 <li><a data-toggle="tab" data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
                 <li><a data-toggle="tab" data-emptype="4" href="#Tab4">Илмий унвон</a></li>
                 <li><a data-toggle="tab" data-emptype="5" href="#Tab5">Илмий даража</a></li>
-                <li><a data-toggle="tab" data-emptype="6" href="#Tab6">Малака ошириш</a></li>
-                <li><a data-toggle="tab" data-emptype="7" href="#Tab7">Қайта тайёрлов</a></li>
+                <li><a data-toggle="tab" data-emptype="6" href="#Tab6">Малака</a></li>
+                <li><a data-toggle="tab" data-emptype="7" href="#Tab7">Қайта</a></li>
                 <li><a data-toggle="tab" data-emptype="8" href="#Tab8">Меҳнат</a></li>
                 <li><a data-toggle="tab" data-emptype="9" href="#Tab9">Фаолият</a></li>
                 <li><a data-toggle="tab" data-emptype="10" href="#Tab10">Фанлар</a></li>
+                <li><a data-toggle="tab" data-emptype="11" href="#Tab11">Аттестация</a></li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">
@@ -82,6 +83,9 @@
                 </div>
                 <div id="Tab10" class="tab-pane fade">
                     <?php $this->load->view('employee/data/emp_uqit_fan');?>
+                </div>
+                <div id="Tab11" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_attestatsiya');?>
                 </div>
             </div>
         </div>

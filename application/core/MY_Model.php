@@ -27,6 +27,8 @@ class MY_Model extends CI_Model{
     public $malakaxujjatList=array();
     public $qaytatfanList=array();
     public $qaytatturiList=array();
+    public $shartnomatypeList=array();
+    public $fanturiList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -58,6 +60,11 @@ class MY_Model extends CI_Model{
         $this->loadIlmiyUnvon();
         $this->loadIlmiyDaraja();
         $this->loadIlmiyFanL();
+        $this->loadMalakaXujjat();
+        $this->loadMalakaTuri();
+        $this->loadQaytatturi();
+        $this->loadQaytatfan();
+        $this->loadShartnomaType();
     }
 
     public function loadViloyat(){
@@ -95,6 +102,30 @@ class MY_Model extends CI_Model{
         }
         return $this->otmlist;
     }
+
+
+    public function loadFanTuri(){
+        $this->db->select('*');
+        $this->db->from('spr_shartnoma_type');
+        $this->db->order_by('spr_shartnoma_type.shartnoma_type_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->shartnomatypeList[$rows['shartnoma_type_id']]=$rows;
+        }
+        return $this->shartnomatypeList;
+    }
+
+    public function loadShartnomaType(){
+        $this->db->select('*');
+        $this->db->from('spr_shartnoma_type');
+        $this->db->order_by('spr_shartnoma_type.shartnoma_type_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->shartnomatypeList[$rows['shartnoma_type_id']]=$rows;
+        }
+        return $this->shartnomatypeList;
+    }
+
 
     public function loadQaytatfan(){
         $this->db->select('*');
