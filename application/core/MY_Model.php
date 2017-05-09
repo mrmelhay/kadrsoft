@@ -29,6 +29,10 @@ class MY_Model extends CI_Model{
     public $qaytatturiList=array();
     public $shartnomatypeList=array();
     public $fanturiList=array();
+    public $fanlarList=array();
+    public $uqitsohaList=array();
+    public $qarindoshList=array();
+    public $malakaLavList=array();
 
     public $viloyat_id=0;
     public $kollej_id=0;
@@ -44,6 +48,7 @@ class MY_Model extends CI_Model{
     public $tillar_turi_id=0;
     public $uqit_soha_id=0;
     public $tuman_id=0;
+    public $fan_turi_id=0;
 
 
     public function __construct()
@@ -65,6 +70,11 @@ class MY_Model extends CI_Model{
         $this->loadQaytatturi();
         $this->loadQaytatfan();
         $this->loadShartnomaType();
+        $this->loadFanTuri();
+        $this->loadFanlar();
+        $this->loadUqitSoha();
+        $this->loadQarindosh();
+        $this->loadMalakaLavozim();
     }
 
     public function loadViloyat(){
@@ -92,6 +102,19 @@ class MY_Model extends CI_Model{
         return $this->tumanList;
     }
 
+    public function loadFanlar(){
+
+        $this->db->select('*');
+        $this->db->from('spr_fanlar');
+        $this->db->where('fan_turi_id',$this->fan_turi_id);
+        $this->db->order_by('spr_fanlar.fanlar_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->fanlarList[$rows['fanlar_id']]=$rows;
+        }
+        return $this->fanlarList;
+    }
+
     public function loadUnvier(){
         $this->db->select('*');
         $this->db->from('spr_otm');
@@ -104,15 +127,49 @@ class MY_Model extends CI_Model{
     }
 
 
-    public function loadFanTuri(){
+    public function loadMalakaLavozim(){
         $this->db->select('*');
-        $this->db->from('spr_shartnoma_type');
-        $this->db->order_by('spr_shartnoma_type.shartnoma_type_id','ASC');
+        $this->db->from('spr_malaka_lavozim');
+        $this->db->order_by('spr_malaka_lavozim.malaka_lavozim_id','ASC');
         $query=$this->db->get();
         foreach($query->result_array() as $rows){
-            $this->shartnomatypeList[$rows['shartnoma_type_id']]=$rows;
+            $this->malakaLavList[$rows['malaka_lavozim_id']]=$rows;
         }
-        return $this->shartnomatypeList;
+        return $this->malakaLavList;
+    }
+
+    public function loadQarindosh(){
+        $this->db->select('*');
+        $this->db->from('spr_qarindoshlar');
+        $this->db->order_by('spr_qarindoshlar.qarindosh_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->qarindoshList[$rows['qarindosh_id']]=$rows;
+        }
+        return $this->qarindoshList;
+    }
+
+    public function loadUqitSoha(){
+        $this->db->select('*');
+        $this->db->from('spr_uqit_soha');
+        $this->db->order_by('spr_uqit_soha.uqit_soha_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->uqitsohaList[$rows['uqit_soha_id']]=$rows;
+        }
+        return $this->uqitsohaList;
+    }
+
+
+    public function loadFanTuri(){
+        $this->db->select('*');
+        $this->db->from('spr_fan_turi');
+        $this->db->order_by('spr_fan_turi.fan_turi_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->fanturiList[$rows['fan_turi_id']]=$rows;
+        }
+        return $this->fanturiList;
     }
 
     public function loadShartnomaType(){
