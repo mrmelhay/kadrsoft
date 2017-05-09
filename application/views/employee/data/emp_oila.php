@@ -43,26 +43,26 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($malakas as $malaka){?>
+        <?php foreach ($oilas as $oila){?>
             <tr class="">
                 <td><? echo 1; ?></td>
-                <td><a href="#"  data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal">
-                        <?php echo $malaka['malaka_turi_name']; ?></a>
+                <td><a href="#"  data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModal">
+                        <?php echo $oila['qarindosh_name']; ?></a>
                 </td>
                 <td>
-                    <?php echo $malaka['malaka_nomi']; ?></td>
+                    <?php echo $oila['q_name'].' '.$oila['q_lname'].' '.$oila['q_mname']; ?></td>
                 <td>
-                    <?php echo $malaka['b_vaqti']; ?></td>
-                <td class="center"><?php echo $malaka['t_vaqti']; ?></td>
-                <td class="center"><?php echo $malaka['otm_name']; ?></td>
+                    <?php echo $oila['q_bdate']; ?></td>
+                <td class="center"><?php echo $oila['q_work']; ?></td>
+                <td class="center"><?php echo $oila['q_address']; ?></td>
 
 
                 <td>
 
                     <div class="btn-group">
 
-                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
+                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
                             <i class="fa fa-trash-o red"></i> </a>
 
                     </div>

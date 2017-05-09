@@ -254,6 +254,7 @@ class Employee extends MY_Controller
         $this->data['muassasaishs'] = $this->EmployeeModel->read_by_muassasaishs($kadrid);
         $this->data['fanlars'] = $this->EmployeeModel->read_by_fanlars($kadrid);
         $this->data['atestasiyas'] = $this->EmployeeModel->read_by_attestasiyas($kadrid);
+        $this->data['oilas'] = $this->EmployeeModel->read_by_oilas($kadrid);
         $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
         $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
         $this->view_lib->admin_layout($this->data);
@@ -318,7 +319,7 @@ class Employee extends MY_Controller
                     $this->load->view('/employee/data/ajax_emp_attestatsiya',$this->data);
                     break;
                 case 12:
-                    $this->data['title'] = array();
+                    $this->data['oila'] = $this->EmployeeModel->read_by_oila($kadrid);
                     $this->load->view('/employee/data/ajax_emp_oila',$this->data);
                     break;
             }
@@ -513,6 +514,24 @@ class Employee extends MY_Controller
                         'nav_att_yili' => $this->input->post('nav_att_yili', true),
                         'oxirgi_att_xulosa' => $this->input->post('oxirgi_att_xulosa', true),
                         'tillar_id' => $this->input->post('tillar_id', true),
+                        'kadr_id' => $this->input->post('kadr_id', true),
+                    ];
+                    $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                    redirect($_SERVER['HTTP_REFERER']);
+                    break;
+
+                case 12:
+                    $postdata = [
+                        'd_oila_id' => $this->input->post('d_oila_id', true),
+                        'qarindosh_id' => $this->input->post('qarindosh_id', true),
+                        'q_name' => $this->input->post('q_name', true),
+                        'q_lname' => $this->input->post('q_lname', true),
+                        'q_mname' => $this->input->post('q_mname', true),
+                        'q_bdate' => $this->input->post('q_bdate', true),
+                        'viloyat_id' => $this->input->post('viloyat_id', true),
+                        'tuman_id' => $this->input->post('tuman_id', true),
+                        'q_address' => $this->input->post('q_address', true),
+                        'q_work' => $this->input->post('q_work', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
