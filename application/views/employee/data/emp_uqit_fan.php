@@ -36,40 +36,33 @@
             <th>ТР</th>
             <th>Фан тури</th>
             <th>Фан номи</th>
-            <th>Қачондан</th>
-            <th>Қачонгача</th>
-             <th>Статус</th>
+            <th>Дарс соати</th>
+            <th>Йиллик юкламаси</th>
+<!--            <th>Статус</th>-->
             <th>Амаллар</th>
         </tr>
         </thead>
         <tbody>
-
+<?php foreach($fanlars as $fanlar){?>
         <tr class="">
             <td><? echo 1; ?></td>
-            <td><a href="#" data-title="" data-kollej_id="" data-toggle="modal" >
-                    <?php echo ""; ?></a>
+            <td><a href="#" data-kadrid="<?php echo $fanlar['uqit_fan_id']; ?>" data-toggle="modal" data-target="#myModal">
+                    <?php echo $fanlar['fan_turi_name']; ?></a>
             </td>
             <td>
-                <?php echo ""; ?></td>
+                <?php echo $fanlar['fanlar_name']; ?></td>
             <td>
-                <?php echo ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-            <td class="center"><?php ''; ?></td>
-
+                <?php echo $fanlar['dars_soat_all']; ?></td>
+            <td class="center"><?php echo $fanlar['yillik_yuklama']; ?></td>
+<!--            <td class="center">--><?php //''; ?><!--</td>-->
             <td>
-
                 <div class="btn-group">
-
-                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo ''; ?>" data-kollej_id=<?php echo ''; ?> data-toggle="modal"
-                       data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                    <a type="button" class="btn btn-default" href="" ">
-                    <i class="fa fa-trash-o red"></i> </a>
-
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $fanlar['uqit_fan_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                    <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $fanlar['uqit_fan_id']; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash-o red"></i> </a>
                 </div>
-
             </td>
         </tr>
-
+<?php }?>
 
         </tbody>
     </table>

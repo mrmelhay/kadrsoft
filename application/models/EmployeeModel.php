@@ -255,6 +255,30 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_fanlars($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_uqit_fan")
+            ->join('spr_fan_turi','spr_fan_turi.fan_turi_id=d_uqit_fan.fan_turi_id','left')
+            ->join('spr_fanlar','spr_fanlar.fanlar_id=d_uqit_fan.fanlar_id','left')
+            ->join('spr_uqit_soha','spr_uqit_soha.uqit_soha_id=d_uqit_fan.uqit_soha_id','left')
+            ->where('d_uqit_fan.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_fanlar($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_uqit_fan")
+            ->join('spr_fan_turi','spr_fan_turi.fan_turi_id=d_uqit_fan.fan_turi_id','left')
+            ->join('spr_fanlar','spr_fanlar.fanlar_id=d_uqit_fan.fanlar_id','left')
+            ->join('spr_uqit_soha','spr_uqit_soha.uqit_soha_id=d_uqit_fan.uqit_soha_id','left')
+            ->where('d_uqit_fan.uqit_fan_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -475,6 +499,27 @@ class EmployeeModel extends MY_Model
                 }
 
                 break;
+
+            case 10:
+                $result= $this->db->select("*")
+                    ->from('d_uqit_fan')
+                    ->where('d_uqit_fan.uqit_fan_id',$data['uqit_fan_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_uqit_fan.uqit_fan_id',$query['uqit_fan_id'])->update('d_uqit_fan', $data);
+                    return $query['muassasa_ish_id'];
+                }else{
+                    $this->db->insert("d_uqit_fan",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+
+                break;
         }
     }
 
@@ -508,6 +553,9 @@ class EmployeeModel extends MY_Model
                 break;
             case 9:
                 $this->db->where('muassasa_ish_id',$data['muassasa_ish_id'])->delete('d_muassasa_ish', $data);
+                break;
+            case 10:
+                $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
                 break;
         }
     }
