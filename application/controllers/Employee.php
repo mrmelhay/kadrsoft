@@ -311,7 +311,9 @@ class Employee extends MY_Controller
                   $this->data['title'] = array();
                   $this->load->view('/employee/data/ajax_emp_oila',$this->data);
                   break;
-          }
+
+
+        }
 
 
     } else {
