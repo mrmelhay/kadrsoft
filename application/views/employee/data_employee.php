@@ -100,7 +100,7 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
-            <form action="<?php echo base_url('/employee/create_date_info') ?>" class="form-horizontal" method="post">
+            <form action="<?php echo base_url('/employee/create_date_info') ?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="kadr_id" id="kadr_id" value="<?php echo $employee['kadrid']; ?>"/>
 
                 <input type="hidden" name="emptype" id="emptype"/>
@@ -123,7 +123,7 @@
 <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
-            <form action="<?php echo base_url('/employee/delete_data_info') ?>" class="form-horizontal" method="post">
+            <form action="<?php echo base_url('/employee/delete_data_info') ?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="kadr_id" id="kadr_id"/>
                 <input type="hidden" name="emptype" id="emptype"/>
                 <div class="modal-header">

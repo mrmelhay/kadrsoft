@@ -55,18 +55,13 @@
                     <?php echo $oila['q_bdate']; ?></td>
                 <td class="center"><?php echo $oila['q_work']; ?></td>
                 <td class="center"><?php echo $oila['q_address']; ?></td>
-
-
                 <td>
 
                     <div class="btn-group">
-
                         <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
                         <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModalDelete">
                             <i class="fa fa-trash-o red"></i> </a>
-
                     </div>
-
                 </td>
             </tr>
         <?php }?>
