@@ -338,6 +338,10 @@ class Employee extends MY_Controller
             $emptype = $_POST['emptype'];
             switch ($emptype) {
                 case 1:
+                    $picture = $this->fileupload->do_upload('images/passport/', 'photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
                     $postdata = [
                         'passport_id' => $this->input->post('passport_id', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
@@ -349,6 +353,8 @@ class Employee extends MY_Controller
                         'viloyat_id' => $this->input->post('viloyat_id', true),
                         'tuman_id' => $this->input->post('tuman_id', true),
                         'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
+
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
@@ -365,6 +371,11 @@ class Employee extends MY_Controller
                     break;
 
                 case 3:
+                    $picture = $this->fileupload->do_upload('images/diplom/', 'doc_photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
+
                     $postdata = [
                         'uqigan_tm_id' => $this->input->post('uqigan_tm_id', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
@@ -376,6 +387,7 @@ class Employee extends MY_Controller
                         'tugatgan_yili' => $this->input->post('tugatgan_yili', true),
                         'diplom_sana' => $this->input->post('diplom_sana', true),
                         'diplom_num' => $this->input->post('diplom_num', true),
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
                         'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
@@ -384,12 +396,17 @@ class Employee extends MY_Controller
 
 
                 case 4:
+                    $picture = $this->fileupload->do_upload('images/unvon/', 'photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
                     $postdata = [
                         'ilmiy_un_id' => $this->input->post('ilmiy_un_id', true),
                         'ilmiy_unvon_id' => $this->input->post('ilmiy_unvon_id', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
                         'diplom_ser' => $this->input->post('diplom_num', true),
                         'diplom_date' => $this->input->post('diplom_date', true),
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
 
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
@@ -397,6 +414,10 @@ class Employee extends MY_Controller
                     break;
 
                 case 5:
+                    $picture = $this->fileupload->do_upload('images/daraja/', 'photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
                     $postdata = [
                         'd_ilmiy_daraja_id' => $this->input->post('d_ilmiy_daraja_id', true),
                         'ilm_daraja_id' => $this->input->post('ilm_daraja_id', true),
@@ -404,6 +425,7 @@ class Employee extends MY_Controller
                         'ilm_fan_id' => $this->input->post('ilm_fan_id', true),
                         'berilgan_vaqt' => $this->input->post('berilgan_vaqt', true),
                         'diplom_ser' => $this->input->post('diplom_ser', true),
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
 
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
@@ -437,6 +459,10 @@ class Employee extends MY_Controller
                     break;
 
                 case 7:
+                    $picture = $this->fileupload->do_upload('images/qayta/', 'photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
                     $postdata = [
                         'qaytat_id' => $this->input->post('qaytat_id', true),
                         'qayta_turi_id' => $this->input->post('qayta_turi_id', true),
@@ -449,6 +475,7 @@ class Employee extends MY_Controller
                         'qayta_xujjat_date' => $this->input->post('qayta_xujjat_date', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
                         'is_active' => $this->input->post('is_active', true) ? $this->input->post('is_active', true) : 0,
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
                                ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);
@@ -467,6 +494,10 @@ class Employee extends MY_Controller
                     break;
 
                 case 9:
+                    $picture = $this->fileupload->do_upload('images/qayta/', 'photo');
+                    if ($picture === false) {
+                        $this->session->set_flashdata('exception', 'Расм файл юкланмади');
+                    }
                     $postdata = [
                         'muassasa_ish_id' => $this->input->post('muassasa_ish_id', true),
                         'lavozim_id' => $this->input->post('lavozim_id', true),
@@ -479,7 +510,7 @@ class Employee extends MY_Controller
                         'ish_bush_sabab' => $this->input->post('ish_bush_sabab', true),
                         'ish_bush_buyruq' => $this->input->post('ish_bush_buyruq', true),
                         'kadr_id' => $this->input->post('kadr_id', true),
-
+                        'scan_photo' =>!empty($picture) ? $picture : $this->input->post('scan_photo'),
                     ];
                     $this->EmployeeModel->insert_date_info($postdata, $emptype);
                     redirect($_SERVER['HTTP_REFERER']);

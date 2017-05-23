@@ -105,8 +105,8 @@
                 <div class="form-group">
                     <label for="" class="col-sm-4">Диплом нусхаси</label>
                     <div class="col-sm-8">
-                        <input type="file" name="photo" id="photo" class="form-control" />
-                        <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo ''; ?>">
+                        <input type="file" name="doc_photo" id="doc_photo" class="form-control" />
+                        <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo $uqigantm['scan_photo']; ?>">
                     </div>
                 </div>
 
@@ -118,9 +118,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

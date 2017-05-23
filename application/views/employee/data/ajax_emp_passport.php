@@ -81,6 +81,15 @@
                     </div>
                 </div>
                 <div class="form-group icheck ">
+                    <label class="col-sm-3 control-label">Фото</label>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input type="file" name="photo" id="photo"/>
+                            <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo $passport['scan_photo'] ?>"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group icheck ">
                     <label class="col-sm-3 control-label">Статус</label>
                     <div class="col-sm-2">
                         <div class="input-group">
