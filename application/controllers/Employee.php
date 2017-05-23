@@ -609,4 +609,11 @@ class Employee extends MY_Controller
         }
     }
 
+
+    public function objective()
+    {
+        $this->data['title'] = 'Ходимлар рўйхати';
+        $this->data['content'] = $this->load->view('/employee/employee_objectiv', $this->data, true);
+        $this->view_lib->admin_layout($this->data);
+    }
 }
