@@ -26,7 +26,7 @@
                 </div>
             <?php } ?>
 
-<div id="SecondDiv">
+<div id="" align="center">
     <table cellpadding="0" cellspacing="0" border="0">
         <tbody><tr>
             <td>
@@ -39,7 +39,7 @@
 
                     </tr>
                     <tr>
-                        <td><h2 style="text-align:center;">МУХИТДИНОВА Гулнора Харисовна</h2></td>
+                        <td><h2 style="text-align:center;">Фамилия, имя и отчество</h2></td>
                     </tr>
                     </tbody></table>
             </td>
@@ -55,7 +55,7 @@
                     <tr>
                         <td colspan="2">
                             <strong>
-                                Наманган давлат университети,Бўлим бошлиғи
+                                Коллеж номи,Лавозими
                             </strong>
                         </td>
                     </tr>
