@@ -50,7 +50,7 @@
                     <tbody><tr>
                         <td colspan="2">&nbsp;</td>
                         <td rowspan="3" align="center">
-                            <img style="height:150px;width:100px; margin:5px 10px" src="/images/photos/nophoto.jpg">                                </td>
+                            <img style="height:150px;width:100px; margin:5px 10px" src="/images/no-p">                                </td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -151,8 +151,7 @@
                     </tr>
                     <tr>
                         <td>01.08.1989-</td>
-                        <td> </td>
-                        <td>НамДУ 2-бўлим бошлиғи</td>
+                        <td>                                    </td><td>НамДУ 2-бўлим бошлиғи</td>
                     </tr>
                     <tr>
                         <td>                                                                            </td><td>                                    </td><td></td>
@@ -184,7 +183,78 @@
                         <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
 
                     </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Онаси                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Шакирзянова  Фанзиля Рахимовна</td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1939                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">2004 йил вафот этган</td>
+                        <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
 
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Синглиси                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Петрова  Салима  Харисовна </td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1960                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">1992 йил вафот этган</td>
+                        <td style="border: 1px solid black; text-align:center;">Россия </td>
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Синглиси                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Мухитдинова  Элмира  Харисовна </td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1964                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Хоразм вилоти тренер </td>
+                        <td style="border: 1px solid black; text-align:center;">Хоразм вилояти урганч </td>
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Турмуш ўртоғи                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Махмудов  Марат  Рахманович </td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1956                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">2010 йил вафот этган</td>
+                        <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Қизи                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Махмудова  Элвина  Маратовна </td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1980                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Намнган шахар 1-мактаб ўқитувчиси </td>
+                        <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
+
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align:center;">
+                            Қизи                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">Махмудова  Регина Маратовна</td>
+                        <td style="border: 1px solid black; text-align:center;">
+                            1987                                        ,
+                            Наманган вилояти,
+                            Наманган шаҳри                                    </td>
+                        <td style="border: 1px solid black; text-align:center;">вактинча ишсиз</td>
+                        <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
+
+                    </tr>
                     </tbody></table>
             </td>
         </tr>

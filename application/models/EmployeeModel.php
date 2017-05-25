@@ -75,8 +75,17 @@ class EmployeeModel extends MY_Model
     {
         return $this->db->select("*")
                         ->from("d_kadr")
+                        ->join('d_kadr_items_bind','d_kadr_items_bind.kadrid=d_kadr.kadrid','left')
+                        ->join('spr_kollej','spr_kollej.kollej_id=d_kadr_items_bind.kollej_id','left')
                         ->join('spr_lavozim','spr_lavozim.lavozim_id=d_kadr.lavozim_id','left')
-                        ->where('kadrid',$user_id)
+                        ->join('spr_viloyat','spr_viloyat.viloyat_id=d_kadr.viloyat_id','left')
+                        ->join('spr_tuman','spr_tuman.tuman_id=d_kadr.tuman_id','left')
+                        ->join('spr_millat','spr_millat.millat_id=d_kadr.millat_id','left')
+                        ->join('spr_partiya','spr_partiya.partiya_id=d_kadr.partiya_id','left')
+                        ->join('spr_malumot','spr_malumot.malumot_id=d_kadr.malumot_id','left')
+                        ->join('d_uqigan_tm','d_uqigan_tm.kadr_id=d_kadr.kadrid','left')
+                        ->join('spr_otm','spr_otm.otm_id=d_uqigan_tm.kadr_id','left')
+                        ->where('d_kadr.kadrid',$user_id)
                         ->get()
                         ->row_array();
     }

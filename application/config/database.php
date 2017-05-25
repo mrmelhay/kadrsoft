@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.1.35',
-	'username' => 'kadr',
-	'password' => 'kadr',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'kadrsoft',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
