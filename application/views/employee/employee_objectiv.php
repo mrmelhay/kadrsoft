@@ -89,15 +89,16 @@
                                     <td colspan="2"><b>Тамомлаган:</b></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo !empty($employee->malumot_name)?$employee->malumot_name:'Йўқ';?></td>
+                                    <td><?php echo $employee->malumot_name;?></td>
                                     <td colspan="2">
                                         <?php echo $employee->otm_name;?>
+<!--                                        1983 й. Наманган педагогика институти-->
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>Маълумоти бўйича мутахассислиги:</b></td>
                                     <td colspan="2">
-                                        <?php echo !empty($employee->mutax_kodi_name)?$employee->mutax_kodi_name:'Йўқ'; ?>
+                                        рус тили ва адабиёти
                                     </td>
                                 </tr>
                                 <tr>
@@ -105,22 +106,22 @@
                                     <td colspan="2"><b>Илмий унвони:</b></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo !empty($employee->ilm_daraja_name)?$employee->ilm_daraja_name:'Йўқ'?></td>
-                                    <td><?php echo !empty($employee->ilmiy_unvon_nomi)?$employee->ilmiy_unvon_nomi:'Йўқ'?></td>
+                                    <td>Йўқ</td>
+                                    <td colspan="2">Йўқ</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3"><b>Қайси чет тилларини билади:</b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
-                                        <?php echo $employee->tillar_nomi.' '.$employee->tillar_turi_nomi?>
+                                        Рус тили Мукаммал билади
                                     </td>
                                 </tr>
-<!--                                <tr>-->
-<!--                                    <td colspan="3">-->
-<!--                                        Инглиз тили Луғат ёрдамида ўқийди-->
-<!--                                    </td>-->
-<!--                                </tr>-->
+                                <tr>
+                                    <td colspan="3">
+                                        Инглиз тили Луғат ёрдамида ўқийди
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="3"><b>Давлат мукофотлари билан тақдирланганми (қанақа):</b></td>
                                 </tr>
@@ -179,7 +180,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <h3><?php echo $employee->name_f . ' ' . $employee->name_i . ' ' . $employee->name_o; ?>нинг яқин қариндошлари ҳақида</h3>
+                            <h3>МУХИТДИНОВА Гулнора Харисовна нинг яқин қариндошлари ҳақида</h3>
                             <h3>МАЪЛУМОТ</h3>
                             <table cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
                                 <tbody>
