@@ -641,9 +641,13 @@ class Employee extends MY_Controller
     }
 
 
-    public function objective()
+    public function objective($kadrid)
     {
         $this->data['title'] = 'Ходимлар рўйхати';
+        $editdata = $this->EmployeeModel->read_by_data($kadrid);
+        $dataarray = explode('-', $editdata['bdate']);
+        $dataf = $dataarray[2] . '/' . $dataarray[1] . '/' . $dataarray[0];
+        $this->data['employee'] = (object)$editdata;
         $this->data['content'] = $this->load->view('/employee/employee_objectiv', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
