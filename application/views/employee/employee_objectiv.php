@@ -92,7 +92,7 @@
                                     <td><?php echo $employee->malumot_name;?></td>
                                     <td colspan="2">
                                         <?php echo $employee->otm_name;?>
-<!--                                        1983 й. Наманган педагогика институти-->
+                                        <!--                                        1983 й. Наманган педагогика институти-->
                                     </td>
                                 </tr>
                                 <tr>
