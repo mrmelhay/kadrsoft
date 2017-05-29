@@ -85,6 +85,11 @@ class EmployeeModel extends MY_Model
                         ->join('spr_malumot','spr_malumot.malumot_id=d_kadr.malumot_id','left')
                         ->join('d_uqigan_tm','d_uqigan_tm.kadr_id=d_kadr.kadrid','left')
                         ->join('spr_otm','spr_otm.otm_id=d_uqigan_tm.kadr_id','left')
+                        ->join('d_ilmiy_unvon','d_ilmiy_unvon.kadr_id=d_kadr.kadrid','left')
+                        ->join('spr_ilmiy_unvon','spr_ilmiy_unvon.ilmiy_unvon_id=d_ilmiy_unvon.ilmiy_unvon_id','left')
+                        ->join('d_ilmiy_daraja','d_ilmiy_daraja.kadr_id=d_kadr.kadrid','left')
+                        ->join('spr_ilmiy_daraja','spr_ilmiy_daraja.ilm_daraja_id=d_ilmiy_daraja.ilm_daraja_id','left')
+
                         ->where('d_kadr.kadrid',$user_id)
                         ->get()
                         ->row_array();
