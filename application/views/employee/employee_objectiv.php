@@ -111,16 +111,14 @@
                                 <tr>
                                     <td colspan="3"><b>Қайси чет тилларини билади:</b></td>
                                 </tr>
+
+                                <!-- chet tiliga foreach qoyish kerak-->
                                 <tr>
                                     <td colspan="3">
-                                        Рус тили мукаммал билади
+                                        <?php echo $employee->tillar_nomi; ?> тили, <?php echo $employee->tillar_turi_nomi; ?>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        Инглиз тили Луғат ёрдамида ўқийди
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <td colspan="3"><b>Давлат мукофотлари билан тақдирланганми (қанақа):</b></td>
                                 </tr>
