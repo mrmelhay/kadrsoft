@@ -92,6 +92,7 @@
                                     <td><?php echo $employee->malumot_name;?></td>
                                     <td colspan="2">
                                         <?php echo $employee->otm_name;?>
+                                        <!--                                        1983 й. Наманган педагогика институти-->
                                     </td>
                                 </tr>
                                 <tr>
@@ -105,8 +106,8 @@
                                     <td colspan="2"><b>Илмий унвони:</b></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo !empty($employee->ilm_daraja_name)?$employee->ilm_daraja_name:'Йўқ';?></td>
-                                    <td colspan="2"><?php echo !empty($employee->ilmiy_unvon_nomi)?$employee->ilmiy_unvon_nomi:'Йўқ';?></td>
+                                    <td>Йўқ</td>
+                                    <td colspan="2">Йўқ</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3"><b>Қайси чет тилларини билади:</b></td>
