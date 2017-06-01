@@ -52,7 +52,22 @@
                 <li><a data-toggle="tab" data-emptype="9" href="#Tab9">Фаолият</a></li>
                 <li><a data-toggle="tab" data-emptype="10" href="#Tab10">Фанлар</a></li>
                 <li><a data-toggle="tab" data-emptype="11" href="#Tab11">Аттестация</a></li>
-                <li><a data-toggle="tab" data-emptype="12" href="#Tab12">Оила</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Қўшимча ... <span class="fa fa-chevron-circle-down blue"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="tab" data-emptype="12" href="#Tab12">Оила</a></li>
+                        <li><a data-toggle="tab" data-emptype="13" href="#Tab13">Мукофотлар</a></li>
+                        <li><a data-toggle="tab" data-emptype="14" href="#Tab14">Модератор</a></li>
+                        <li><a data-toggle="tab" data-emptype="15" href="#Tab15">Судланганлиги</a></li>
+                        <li><a data-toggle="tab" data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
+                        <li><a data-toggle="tab" data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
+                        <li><a data-toggle="tab" data-emptype="18" href="#Tab18">Заҳира</a></li>
+
+
+                    </ul>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">
@@ -90,6 +105,24 @@
                 </div>
                 <div id="Tab12" class="tab-pane fade">
                     <?php $this->load->view('employee/data/emp_oila');?>
+                </div>
+                <div id="Tab13" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_mukofot');?>
+                </div>
+                <div id="Tab14" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_moderator');?>
+                </div>
+                <div id="Tab15" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_sudlanganlik');?>
+                </div>
+                <div id="Tab16" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_intizomchora');?>
+                </div>
+                <div id="Tab17" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_ijodiyish');?>
+                </div>
+                <div id="Tab18" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_zahira');?>
                 </div>
 
             </div>
