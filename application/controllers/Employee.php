@@ -267,6 +267,7 @@ class Employee extends MY_Controller
             $this->data['oilas'] = $this->EmployeeModel->read_by_oilas($kadrid);
             $this->data['mukofotlari'] = $this->EmployeeModel->read_by_mukofots($kadrid);
             $this->data['moderators'] = $this->EmployeeModel->read_by_moderators($kadrid);
+            $this->data['sudlanganliks'] = $this->EmployeeModel->read_by_sudlangans($kadrid);
             $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
             $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
             $this->view_lib->admin_layout($this->data);
@@ -342,6 +343,10 @@ class Employee extends MY_Controller
                     case 14:
                         $this->data['moderator'] = $this->EmployeeModel->read_by_moderator($kadrid);
                         $this->load->view('/employee/data/ajax_emp_moderator', $this->data);
+                        break;
+                    case 15:
+                        $this->data['sudlanganlik'] = $this->EmployeeModel->read_by_sudlangan($kadrid);
+                        $this->load->view('/employee/data/ajax_emp_sudlangan', $this->data);
                         break;
                 }
 
@@ -615,6 +620,17 @@ class Employee extends MY_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                         break;
 
+                    case 15:
+                        $postdata = [
+                            'sudlanganlik_id' => $this->input->post('sudlanganlik_id', true),
+                            'kadr_id' => $this->input->post('kadr_id', true),
+                            'sud_year' => $this->input->post('sud_year', true),
+                            'sud_kodeks' => $this->input->post('sud_kodeks', true),
+                        ];
+                        $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                        redirect($_SERVER['HTTP_REFERER']);
+                        break;
+
                 }
             }
         }
@@ -692,6 +708,11 @@ class Employee extends MY_Controller
 
                     case 14:
                         $postdata = ['moderator_id' => $this->input->post('kadr_id', true)];
+                        $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                        redirect($_SERVER['HTTP_REFERER']);
+                        break;
+                    case 15:
+                        $postdata = ['sudlanganlik_id' => $this->input->post('kadr_id', true)];
                         $this->EmployeeModel->delete_data_info($postdata, $emptype);
                         redirect($_SERVER['HTTP_REFERER']);
                         break;

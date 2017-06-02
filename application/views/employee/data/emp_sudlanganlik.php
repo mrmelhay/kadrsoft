@@ -30,50 +30,39 @@
     </div>
 
 
-    <!--    <table class="table table-striped table-hover table-bordered" id="editable-sample">-->
-    <!--        <thead>-->
-    <!--        <tr>-->
-    <!--            <th>ТР</th>-->
-    <!--            <th>Лавозими</th>-->
-    <!--            <th>Мазкур лавозимда қачондан бери ишлайди</th>-->
-    <!--            <th>Шартнома тури</th>-->
-    <!--            <th>Ишга тайинганган буйруқ</th>-->
-    <!--            <th>Ставкаси</th>-->
-    <!--            <th>Хужжат нусхаси</th>-->
-    <!--            <th>Амаллар</th>-->
-    <!--        </tr>-->
-    <!--        </thead>-->
-    <!--        <tbody>-->
-    <!--        --><?php //foreach($muassasaishs as $muassasaish){?>
-    <!--            <tr class="">-->
-    <!--                <td>--><?// echo 1; ?><!--</td>-->
-    <!--                <td><a href="#" data-title="" data-kadrid="--><?php //echo $muassasaish['muassasa_ish_id']?><!--" data-toggle="modal"data-target="#myModal">-->
-    <!--                        --><?php //echo $muassasaish['lavozim_name']; ?><!--</a>-->
-    <!--                </td>-->
-    <!--                <td>-->
-    <!--                    --><?php //echo $muassasaish['lavozim_bdate']; ?><!--</td>-->
-    <!--                <td>-->
-    <!--                    --><?php //echo $muassasaish['shartnoma_type_name']; ?><!--</td>-->
-    <!--                <td class="center">--><?php //echo $muassasaish['ish_kir_buyruq']; ?><!--</td>-->
-    <!--                <td class="center">--><?php //echo $muassasaish['stavka']; ?><!--</td>-->
-    <!--                <td class="center">--><?php //''; ?><!--</td>-->
-    <!---->
-    <!--                <td>-->
-    <!---->
-    <!--                    <div class="btn-group">-->
-    <!---->
-    <!--                        <a type="button" class="btn btn-default" href="#" data-kadrid="--><?php //echo $muassasaish['muassasa_ish_id']?><!--" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>-->
-    <!--                        <a type="button" class="btn btn-default" href="#"  data-kadrid="--><?php //echo $muassasaish['muassasa_ish_id']?><!--" data-toggle="modal"data-target="#myModalDelete">-->
-    <!--                            <i class="fa fa-trash-o red"></i> </a>-->
-    <!---->
-    <!--                    </div>-->
-    <!---->
-    <!--                </td>-->
-    <!--            </tr>-->
-    <!--        --><?php //}?>
-    <!---->
-    <!--        </tbody>-->
-    <!--    </table>-->
+        <table class="table table-striped table-hover table-bordered" id="editable-sample">
+            <thead>
+            <tr>
+                <th>ТР</th>
+                <th>Cудланган йили</th>
+                <th>Cудланганлик ҳолати <br/><i>қайси кодекс ва қайси статья бўйича </i></th>
+                <th>Амаллар</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($sudlanganliks as $sudlanganlik){?>
+                <tr class="">
+                    <td><? echo 1; ?></td>
+                    <td><a href="#" data-title="" data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModal">
+                            <?php echo $sudlanganlik['sud_year']; ?>
+                        </a>
+                    </td>
+                    <td>
+                        <?php echo $sudlanganlik['sud_kodeks']; ?></td>
+                    <td>
+                            <div class="btn-group">
+                            <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                            <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModalDelete">
+                                <i class="fa fa-trash-o red"></i> </a>
+    
+                        </div>
+    
+                    </td>
+                </tr>
+            <?php }?>
+    
+            </tbody>
+        </table>
 </div>
 
 
