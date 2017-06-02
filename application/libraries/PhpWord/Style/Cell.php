@@ -1,250 +1,291 @@
 <?php
 /**
- * This file is part of PHPWord - A pure PHP library for reading and writing
- * word processing documents.
+ * PHPWord
  *
- * PHPWord is free software distributed under the terms of the GNU Lesser
- * General Public License version 3 as published by the Free Software Foundation.
+ * Copyright (c) 2011 PHPWord
  *
- * For the full copyright and license information, please read the LICENSE
- * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
  *
- * @link        https://github.com/PHPOffice/PHPWord
- * @copyright   2010-2016 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @category   PHPWord
+ * @package    PHPWord
+ * @copyright  Copyright (c) 010 PHPWord
+ * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
+ * @version    Beta 0.6.3, 08.07.2011
  */
 
-namespace PhpOffice\PhpWord\Style;
 
 /**
- * Table cell style
+ * PHPWord_Style_Cell
+ *
+ * @category   PHPWord
+ * @package    PHPWord_Style
+ * @copyright  Copyright (c) 2011 PHPWord
  */
-class Cell extends Border
-{
-    /**
-     * Vertical alignment constants
-     *
-     * @const string
-     */
-    const VALIGN_TOP = 'top';
-    const VALIGN_CENTER = 'center';
-    const VALIGN_BOTTOM = 'bottom';
-    const VALIGN_BOTH = 'both';
+class PHPWord_Style_Cell {
+	
+	const TEXT_DIR_BTLR = 'btLr';
+	const TEXT_DIR_TBRL = 'tbRl';
+	
+	/**
+	 * Vertical align
+	 * 
+	 * @var string
+	 */
+	private $_valign;
+	
+	/**
+	 * Text Direction
+	 * 
+	 * @var string
+	 */
+	private $_textDirection;
+	
+	/**
+	 * Background-Color
+	 * 
+	 * @var string
+	 */
+	private $_bgColor;
+	
+	/**
+	 * Border Top Size
+	 * 
+	 * @var int
+	 */
+	private $_borderTopSize;
+	
+	/**
+	 * Border Top Color
+	 * 
+	 * @var string
+	 */
+	private $_borderTopColor;
+	
+	/**
+	 * Border Left Size
+	 * 
+	 * @var int
+	 */
+	private $_borderLeftSize;
+	
+	/**
+	 * Border Left Color
+	 * 
+	 * @var string
+	 */
+	private $_borderLeftColor;
+	
+	/**
+	 * Border Right Size
+	 * 
+	 * @var int
+	 */
+	private $_borderRightSize;
+	
+	/**
+	 * Border Right Color
+	 * 
+	 * @var string
+	 */
+	private $_borderRightColor;
+	
+	/**
+	 * Border Bottom Size
+	 * 
+	 * @var int
+	 */
+	private $_borderBottomSize;
+	
+	/**
+	 * Border Bottom Color
+	 * 
+	 * @var string
+	 */
+	private $_borderBottomColor;
+	
+	/**
+	 * Border Default Color
+	 * 
+	 * @var string
+	 */
+	private $_defaultBorderColor;
+	
+	
+	/**
+	 * Create a new Cell Style
+	 */
+	public function __construct() {
+		$this->_valign = null;
+		$this->_textDirection = null;
+		$this->_bgColor = null;
+		$this->_borderTopSize = null;
+		$this->_borderTopColor = null;
+		$this->_borderLeftSize = null;
+		$this->_borderLeftColor = null;
+		$this->_borderRightSize = null;
+		$this->_borderRightColor = null;
+		$this->_borderBottomSize = null;
+		$this->_borderBottomColor = null;
+		$this->_defaultBorderColor = '000000';
+	}
+	
+	/**
+	 * Set style value
+	 * 
+	 * @var string $key
+	 * @var mixed $value
+	 */
+	public function setStyleValue($key, $value) {
+		if($key == '_borderSize') {
+			$this->setBorderSize($value);
+		} elseif($key == '_borderColor') {
+			$this->setBorderColor($value);
+		} else {
+			$this->$key = $value;
+		}
+	}
+	
+	public function getVAlign() {
+		return $this->_valign;
+	}
+	
+	public function setVAlign($pValue = null) {
+		$this->_valign = $pValue;
+	}
+	
+	public function getTextDirection() {
+		return $this->_textDirection;
+	}
+	
+	public function setTextDirection($pValue = null) {
+		$this->_textDirection = $pValue;
+	}
+	
+	public function getBgColor() {
+		return $this->_bgColor;
+	}
 
-    /**
-     * Text direction constants
-     *
-     * @const string
-     */
-    const TEXT_DIR_BTLR = 'btLr';
-    const TEXT_DIR_TBRL = 'tbRl';
+	public function setBgColor($pValue = null) {
+	   $this->_bgColor = $pValue;
+	}
 
-    /**
-     * Vertical merge (rowspan) constants
-     *
-     * @const string
-     */
-    const VMERGE_RESTART = 'restart';
-    const VMERGE_CONTINUE = 'continue';
+	public function setHeight($pValue = null) {
+	   $this->_height = $pValue;
+	}
+	
+	public function setBorderSize($pValue = null) {
+		$this->_borderTopSize = $pValue;
+		$this->_borderLeftSize = $pValue;
+		$this->_borderRightSize = $pValue;
+		$this->_borderBottomSize = $pValue;
+	}
+	
+	public function getBorderSize() {
+		$t = $this->getBorderTopSize();
+		$l = $this->getBorderLeftSize();
+		$r = $this->getBorderRightSize();
+		$b = $this->getBorderBottomSize();
+		
+		return array($t, $l, $r, $b);
+	}
+	
+	public function setBorderColor($pValue = null) {
+		$this->_borderTopColor = $pValue;
+		$this->_borderLeftColor = $pValue;
+		$this->_borderRightColor = $pValue;
+		$this->_borderBottomColor = $pValue;
+	}
+	
+	public function getBorderColor() {
+		$t = $this->getBorderTopColor();
+		$l = $this->getBorderLeftColor();
+		$r = $this->getBorderRightColor();
+		$b = $this->getBorderBottomColor();
+		
+		return array($t, $l, $r, $b);
+	}
+	
+	public function setBorderTopSize($pValue = null) {
+		$this->_borderTopSize = $pValue;
+	}
+	
+	public function getBorderTopSize() {
+		return $this->_borderTopSize;
+	}
+	
+	public function setBorderTopColor($pValue = null) {
+		$this->_borderTopColor = $pValue;
+	}
+	
+	public function getBorderTopColor() {
+		return $this->_borderTopColor;
+	}
 
-    /**
-     * Default border color
-     *
-     * @const string
-     */
-    const DEFAULT_BORDER_COLOR = '000000';
-
-    /**
-     * Vertical align (top, center, both, bottom)
-     *
-     * @var string
-     */
-    private $vAlign;
-
-    /**
-     * Text Direction
-     *
-     * @var string
-     */
-    private $textDirection;
-
-    /**
-     * colspan
-     *
-     * @var integer
-     */
-    private $gridSpan;
-
-    /**
-     * rowspan (restart, continue)
-     *
-     * - restart: Start/restart merged region
-     * - continue: Continue merged region
-     *
-     * @var string
-     */
-    private $vMerge;
-
-    /**
-     * Shading
-     *
-     * @var \PhpOffice\PhpWord\Style\Shading
-     */
-    private $shading;
-
-    /**
-     * Get vertical align.
-     *
-     * @return string
-     */
-    public function getVAlign()
-    {
-        return $this->vAlign;
-    }
-
-    /**
-     * Set vertical align
-     *
-     * @param string $value
-     * @return self
-     */
-    public function setVAlign($value = null)
-    {
-        $enum = array(self::VALIGN_TOP, self::VALIGN_CENTER, self::VALIGN_BOTTOM, self::VALIGN_BOTH);
-        $this->vAlign = $this->setEnumVal($value, $enum, $this->vAlign);
-
-        return $this;
-    }
-
-    /**
-     * Get text direction.
-     *
-     * @return string
-     */
-    public function getTextDirection()
-    {
-        return $this->textDirection;
-    }
-
-    /**
-     * Set text direction
-     *
-     * @param string $value
-     * @return self
-     */
-    public function setTextDirection($value = null)
-    {
-        $enum = array(self::TEXT_DIR_BTLR, self::TEXT_DIR_TBRL);
-        $this->textDirection = $this->setEnumVal($value, $enum, $this->textDirection);
-
-        return $this;
-    }
-
-    /**
-     * Get background
-     *
-     * @return string
-     */
-    public function getBgColor()
-    {
-        if ($this->shading !== null) {
-            return $this->shading->getFill();
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Set background
-     *
-     * @param string $value
-     * @return self
-     */
-    public function setBgColor($value = null)
-    {
-        return $this->setShading(array('fill' => $value));
-    }
-
-    /**
-     * Get grid span (colspan).
-     *
-     * @return integer
-     */
-    public function getGridSpan()
-    {
-        return $this->gridSpan;
-    }
-
-    /**
-     * Set grid span (colspan)
-     *
-     * @param int $value
-     * @return self
-     */
-    public function setGridSpan($value = null)
-    {
-        $this->gridSpan = $this->setIntVal($value, $this->gridSpan);
-
-        return $this;
-    }
-
-    /**
-     * Get vertical merge (rowspan).
-     *
-     * @return string
-     */
-    public function getVMerge()
-    {
-        return $this->vMerge;
-    }
-
-    /**
-     * Set vertical merge (rowspan)
-     *
-     * @param string $value
-     * @return self
-     */
-    public function setVMerge($value = null)
-    {
-        $enum = array(self::VMERGE_RESTART, self::VMERGE_CONTINUE);
-        $this->vMerge = $this->setEnumVal($value, $enum, $this->vMerge);
-
-        return $this;
-    }
-
-    /**
-     * Get shading
-     *
-     * @return \PhpOffice\PhpWord\Style\Shading
-     */
-    public function getShading()
-    {
-        return $this->shading;
-    }
-
-    /**
-     * Set shading
-     *
-     * @param mixed $value
-     * @return self
-     */
-    public function setShading($value = null)
-    {
-        $this->setObjectVal($value, 'Shading', $this->shading);
-
-        return $this;
-    }
-
-    /**
-     * Get default border color
-     *
-     * @deprecated 0.10.0
-     *
-     * @codeCoverageIgnore
-     */
-    public function getDefaultBorderColor()
-    {
-        return self::DEFAULT_BORDER_COLOR;
-    }
+	
+	public function setBorderLeftSize($pValue = null) {
+		$this->_borderLeftSize = $pValue;
+	}
+	
+	public function getBorderLeftSize() {
+		return $this->_borderLeftSize;
+	}
+	
+	public function setBorderLeftColor($pValue = null) {
+		$this->_borderLeftColor = $pValue;
+	}
+	
+	public function getBorderLeftColor() {
+		return $this->_borderLeftColor;
+	}
+	
+	
+	public function setBorderRightSize($pValue = null) {
+		$this->_borderRightSize = $pValue;
+	}
+	
+	public function getBorderRightSize() {
+		return $this->_borderRightSize;
+	}
+	
+	public function setBorderRightColor($pValue = null) {
+		$this->_borderRightColor = $pValue;
+	}
+	
+	public function getBorderRightColor() {
+		return $this->_borderRightColor;
+	}
+	
+	
+	public function setBorderBottomSize($pValue = null) {
+		$this->_borderBottomSize = $pValue;
+	}
+	
+	public function getBorderBottomSize() {
+		return $this->_borderBottomSize;
+	}
+	
+	public function setBorderBottomColor($pValue = null) {
+		$this->_borderBottomColor = $pValue;
+	}
+	
+	public function getBorderBottomColor() {
+		return $this->_borderBottomColor;
+	}
+	
+	public function getDefaultBorderColor() {
+		return $this->_defaultBorderColor;
+	}
 }
+?>

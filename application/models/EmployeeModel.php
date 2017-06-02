@@ -1,21 +1,12 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 28.04.2017
- * Time: 17:03
- */
 class EmployeeModel extends MY_Model
 {
-
     public function __construct()
     {
         parent::__construct();
     }
 
-
-    public function getEmployeeList(){
+   public function getEmployeeList(){
         $kollej="";
         if (isset($this->kollej_id) && $this->kollej_id>0) {$kollej=$this->db->where('spr_kollej.kollej_id',$this->kollej_id);}
         $this->db->select('d_kadr.*,spr_kollej.kollej_id,spr_lavozim.*,spr_malumot.*');
@@ -26,7 +17,6 @@ class EmployeeModel extends MY_Model
         $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
         $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_kadr.lavozim_id', 'left');
         $this->db->join('spr_malumot', 'spr_malumot.malumot_id = d_kadr.malumot_id', 'left');
-
         $kollej;
         $this->db->order_by('d_kadr.kadrid','ASC');
         $query=$this->db->get();
@@ -68,7 +58,6 @@ class EmployeeModel extends MY_Model
            }else{
                 $this->db->insert('d_kadr_items_bind', $data);
         }
-
     }
 
     public function read_by_data($user_id = null)

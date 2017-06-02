@@ -2,6 +2,7 @@
 </div>
 
 <div class="container clear_both padding_fix">
+
     <div class="block-web">
         <div class="header">
             <div class="actions"><a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
@@ -11,6 +12,7 @@
             <h3 class="content-header">Ходим хақида маълумотлар</h3>
         </div>
         <div class="porlets-content">
+            <button type="button" class="btn btn-info" onclick="document.location.href='<?php echo base_url('employee/download/'.$employee->kadrid)?>'">Скачать</button>
             <?php if ($this->session->flashdata('message') != null) { ?>
                 <div class="alert alert-info alert-styled-left alert-bordered">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span><span
