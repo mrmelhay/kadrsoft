@@ -411,6 +411,45 @@ class EmployeeModel extends MY_Model
             ->result_array();
     }
 
+    public function read_by_ijodiy($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_ijodiyish")
+            ->where('d_ijodiyish.ijodiyish_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
+    public function read_by_ijodiys($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_ijodiyish")
+            ->where('d_ijodiyish.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+
+    public function read_by_zahira($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_zahira")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_zahira.lavozim_id','left')
+            ->where('d_zahira.zahira_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
+    public function read_by_zahiras($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_zahira")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_zahira.lavozim_id','left')
+            ->where('d_zahira.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")

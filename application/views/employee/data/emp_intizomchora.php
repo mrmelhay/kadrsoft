@@ -41,24 +41,24 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($muassasaishs as $muassasaish){?>
+            <?php foreach($intizomchoras as $intizomchora){?>
                 <tr class="">
                     <td><? echo 1; ?></td>
-                    <td><a href="#" data-title="" data-kadrid="<?php echo $muassasaish['intizomchora']?>" data-toggle="modal"data-target="#myModal">
-                            <?php echo $muassasaish['intizomchora']; ?></a>
+                    <td><a href="#" data-title="" data-kadrid="<?php echo $intizomchora['intizomchora_id']?>" data-toggle="modal" data-target="#myModal">
+                            <?php echo $intizomchora['intizomchora']; ?></a>
                     </td>
                     <td>
-                        <?php echo $muassasaish['intizomchora_begin']; ?></td>
+                        <?php echo $intizomchora['intizomchora_begin']; ?></td>
                     <td>
-                        <?php echo $muassasaish['intizomchora_muddat']; ?></td>
+                        <?php echo $intizomchora['intizomchora_muddat']; ?></td>
 
 
                     <td>
 
                         <div class="btn-group">
 
-                            <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                            <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModalDelete">
+                            <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $intizomchora['intizomchora_id']?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                            <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $intizomchora['intizomchora_id']?>" data-toggle="modal" data-target="#myModalDelete">
                                 <i class="fa fa-trash-o red"></i> </a>
 
                         </div>

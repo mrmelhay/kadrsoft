@@ -268,6 +268,9 @@ class Employee extends MY_Controller
             $this->data['mukofotlari'] = $this->EmployeeModel->read_by_mukofots($kadrid);
             $this->data['moderators'] = $this->EmployeeModel->read_by_moderators($kadrid);
             $this->data['sudlanganliks'] = $this->EmployeeModel->read_by_sudlangans($kadrid);
+            $this->data['intizomchoras'] = $this->EmployeeModel->read_by_intizomchoras($kadrid);
+            $this->data['ijodiyishs'] = $this->EmployeeModel->read_by_ijodiys($kadrid);
+            $this->data['zahiras'] = $this->EmployeeModel->read_by_zahiras($kadrid);
             $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
             $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
             $this->view_lib->admin_layout($this->data);
@@ -353,11 +356,11 @@ class Employee extends MY_Controller
                         $this->load->view('/employee/data/ajax_emp_intizomchora', $this->data);
                         break;
                     case 17:
-                        $this->data['ijodiy'] = $this->EmployeeModel->read_by_sudlangan($kadrid);
+                        $this->data['ijodiy'] = $this->EmployeeModel->read_by_ijodiy($kadrid);
                         $this->load->view('/employee/data/ajax_emp_ijodiyish', $this->data);
                         break;
                     case 18:
-                        $this->data['zahira'] = $this->EmployeeModel->read_by_sudlangan($kadrid);
+                        $this->data['zahira'] = $this->EmployeeModel->read_by_zahira($kadrid);
                         $this->load->view('/employee/data/ajax_emp_zahira', $this->data);
                         break;
                 }

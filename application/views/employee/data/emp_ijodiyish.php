@@ -41,18 +41,18 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($muassasaishs as $muassasaish){?>
+            <?php foreach($ijodiyishs as $ijodiyish){?>
                 <tr class="">
                     <td><? echo 1; ?></td>
-                    <td><a href="#" data-title="" data-kadrid="<?php echo $muassasaish['ijodiyish_name']?>" data-toggle="modal"data-target="#myModal">
-                            <?php echo $muassasaish['ijodiyish_name']; ?></a>
+                    <td><a href="#" data-title="" data-kadrid="<?php echo $ijodiyish['ijodiyish_id']?>" data-toggle="modal"data-target="#myModal">
+                            <?php echo $ijodiyish['ijodiyish_name']; ?></a>
                     </td>
-                    <td class="center"> <?php echo $muassasaish['ijodiyish_year']; ?></td>
+                    <td class="center"> <?php echo $ijodiyish['ijodiyish_year']; ?></td>
                     <td>
                         <div class="btn-group">
 
-                            <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                            <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModalDelete">
+                            <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $ijodiyish['ijodiyish_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                            <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $ijodiyish['ijodiyish_id']?>" data-toggle="modal"data-target="#myModalDelete">
                                 <i class="fa fa-trash-o red"></i> </a>
                         </div>
                     </td>
