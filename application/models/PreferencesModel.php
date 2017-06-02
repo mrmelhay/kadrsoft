@@ -310,7 +310,7 @@ class PreferencesModel extends MY_Model
     }
 
 
-    public function getFanlarDropList($fan_turi, $selected = false)
+    public function getFanlarDropList($fan_turi=null, $selected = false)
     {
         //  $userdata=array();
         print "<option value=''>Танланг...</option>";

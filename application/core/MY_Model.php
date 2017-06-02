@@ -108,7 +108,9 @@ class MY_Model extends CI_Model{
 
         $this->db->select('*');
         $this->db->from('spr_fanlar');
-        $this->db->where('fan_turi_id',$this->fan_turi_id);
+        if ($this->fan_turi_id!=null) {
+            $this->db->where('fan_turi_id', $this->fan_turi_id);
+        }
         $this->db->order_by('spr_fanlar.fanlar_id','ASC');
         $query=$this->db->get();
         foreach($query->result_array() as $rows){

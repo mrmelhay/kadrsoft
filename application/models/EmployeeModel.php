@@ -353,6 +353,28 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_moderators($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_moderator")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_moderator.lavozim_id','left')
+            ->join('spr_fanlar','spr_fanlar.fanlar_id=d_moderator.fanlar_id','left')
+            ->where('d_moderator.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
+    public function read_by_moderator($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_moderator")
+            ->join('spr_lavozim','spr_lavozim.lavozim_id=d_moderator.lavozim_id','left')
+            ->join('spr_fanlar','spr_fanlar.fanlar_id=d_moderator.fanlar_id','left')
+            ->where('d_moderator.moderator_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -651,6 +673,25 @@ class EmployeeModel extends MY_Model
                     }
                 }
                 break;
+            case 14:
+                $result= $this->db->select("*")
+                    ->from('d_moderator')
+                    ->where('d_moderator.moderator_id',$data['moderator_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_moderator.moderator_id',$query['moderator_id'])->update('d_moderator', $data);
+                    return $query['moderator_id'];
+                }else{
+                    $this->db->insert("d_moderator",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+                break;
         }
     }
 
@@ -696,6 +737,9 @@ class EmployeeModel extends MY_Model
                 break;
             case 13:
                 $this->db->where('d_mukofot.dmukofot_id',$data['dmukofot_id'])->delete('d_mukofot', $data);
+                break;
+            case 14:
+                $this->db->where('d_moderator.moderator_id',$data['moderator_id'])->delete('d_moderator', $data);
                 break;
         }
     }
