@@ -6,8 +6,7 @@
             <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
         </div>
     <?php } ?>
-
-    <?php if (validation_errors()) { ?>
+<?php if (validation_errors()) { ?>
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <?php echo validation_errors(); ?>
@@ -28,8 +27,6 @@
             </div>
         </div>
     </div>
-
-
         <table class="table table-striped table-hover table-bordered" id="editable-sample">
             <thead>
             <tr>
@@ -54,16 +51,10 @@
                             <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
                             <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModalDelete">
                                 <i class="fa fa-trash-o red"></i> </a>
-    
-                        </div>
-    
+                      </div>
                     </td>
                 </tr>
             <?php }?>
-    
             </tbody>
         </table>
 </div>
-
-
-
