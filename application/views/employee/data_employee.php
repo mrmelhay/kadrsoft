@@ -53,7 +53,6 @@
                 <li><a data-toggle="tab" data-emptype="10" href="#Tab10">Фанлар</a></li>
                 <li><a data-toggle="tab" data-emptype="11" href="#Tab11">Аттестация</a></li>
                 <li><a data-toggle="tab" data-emptype="12" href="#Tab12">Оила</a></li>
-                <li><a data-toggle="tab" data-emptype="13" href="#Tab13">Давлат мукофотлари</a></li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div id="Tab1" class="tab-pane fade in active">

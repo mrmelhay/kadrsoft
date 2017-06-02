@@ -94,7 +94,6 @@
                                     <td><?php echo $employee->malumot_name;?></td>
                                     <td colspan="2">
                                         <?php echo $employee->otm_name;?>
-                                        <!--                                        1983 й. Наманган педагогика институти-->
                                     </td>
                                 </tr>
                                 <tr>
@@ -108,22 +107,20 @@
                                     <td colspan="2"><b>Илмий унвони:</b></td>
                                 </tr>
                                 <tr>
-                                    <td>Йўқ</td>
-                                    <td colspan="2">Йўқ</td>
+                                    <td><?php echo !empty($employee->ilm_daraja_name)?$employee->ilm_daraja_name:'Йўқ';?></td>
+                                    <td colspan="2"><?php echo !empty($employee->ilmiy_unvon_nomi)?$employee->ilmiy_unvon_nomi:'Йўқ';?></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3"><b>Қайси чет тилларини билади:</b></td>
                                 </tr>
+
+                                <!-- chet tiliga foreach qoyish kerak-->
                                 <tr>
                                     <td colspan="3">
-                                        Рус тили мукаммал билади
+                                        <?php echo $employee->tillar_nomi; ?> тили, <?php echo $employee->tillar_turi_nomi; ?>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        Инглиз тили Луғат ёрдамида ўқийди
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <td colspan="3"><b>Давлат мукофотлари билан тақдирланганми (қанақа):</b></td>
                                 </tr>
