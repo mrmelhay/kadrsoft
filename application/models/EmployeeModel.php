@@ -348,7 +348,7 @@ class EmployeeModel extends MY_Model
         return $this->db->select("*")
             ->from("d_mukofot")
             ->join('spr_dav_mukofot','spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id','left')
-            ->where('d_mukofot.mukofot_id',$user_id)
+            ->where('d_mukofot.dmukofot_id',$user_id)
             ->get()
             ->row_array();
     }
@@ -693,6 +693,9 @@ class EmployeeModel extends MY_Model
                 break;
             case 12:
                 $this->db->where('uqit_fan_id',$data['uqit_fan_id'])->delete('d_uqit_fan', $data);
+                break;
+            case 13:
+                $this->db->where('d_mukofot.dmukofot_id',$data['dmukofot_id'])->delete('d_mukofot', $data);
                 break;
         }
     }

@@ -665,6 +665,12 @@ class Employee extends MY_Controller
                         $this->EmployeeModel->delete_data_info($postdata, $emptype);
                         redirect($_SERVER['HTTP_REFERER']);
                         break;
+
+                    case 13:
+                        $postdata = ['dmukofot_id' => $this->input->post('kadr_id', true)];
+                        $this->EmployeeModel->delete_data_info($postdata, $emptype);
+                        redirect($_SERVER['HTTP_REFERER']);
+                        break;
                 }
             }
         }
