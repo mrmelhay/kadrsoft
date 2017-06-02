@@ -265,6 +265,7 @@ class Employee extends MY_Controller
             $this->data['fanlars'] = $this->EmployeeModel->read_by_fanlars($kadrid);
             $this->data['atestasiyas'] = $this->EmployeeModel->read_by_attestasiyas($kadrid);
             $this->data['oilas'] = $this->EmployeeModel->read_by_oilas($kadrid);
+            $this->data['mukofotlari'] = $this->EmployeeModel->read_by_mukofots($kadrid);
             $this->data['title'] = 'Ходим хақида қўшимча маълумотлар';
             $this->data['content'] = $this->load->view('/employee/data_employee', $this->data, true);
             $this->view_lib->admin_layout($this->data);
@@ -332,6 +333,10 @@ class Employee extends MY_Controller
                     case 12:
                         $this->data['oila'] = $this->EmployeeModel->read_by_oila($kadrid);
                         $this->load->view('/employee/data/ajax_emp_oila', $this->data);
+                        break;
+                    case 13:
+                        $this->data['mukofot'] = $this->EmployeeModel->read_by_mukofot($kadrid);
+                        $this->load->view('/employee/data/ajax_emp_mukofot', $this->data);
                         break;
                 }
 
@@ -576,6 +581,17 @@ class Employee extends MY_Controller
                             'q_address' => $this->input->post('q_address', true),
                             'q_work' => $this->input->post('q_work', true),
                             'kadr_id' => $this->input->post('kadr_id', true),
+                        ];
+                        $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                        redirect($_SERVER['HTTP_REFERER']);
+                        break;
+
+                    case 13:
+                        $postdata = [
+                            'dmukofot_id' => $this->input->post('dmukofot_id', true),
+                            'mukofot_id' => $this->input->post('mukofot_id', true),
+                            'kadr_id' => $this->input->post('kadr_id', true),
+                            'year' => $this->input->post('year', true),
                         ];
                         $this->EmployeeModel->insert_date_info($postdata, $emptype);
                         redirect($_SERVER['HTTP_REFERER']);

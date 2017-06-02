@@ -106,6 +106,27 @@
                 <div id="Tab12" class="tab-pane fade">
                     <?php $this->load->view('employee/data/emp_oila');?>
                 </div>
+                <div id="Tab13" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_mukofot');?>
+                </div>
+
+                <div id="Tab14" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_moderator');?>
+                </div>
+
+                <div id="Tab15" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_sudlanganlik');?>
+                </div>
+
+                <div id="Tab16" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_intizomchora');?>
+                </div>
+                <div id="Tab17" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_ijodiyish');?>
+                </div>
+                <div id="Tab18" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_zahira');?>
+                </div>
 
             </div>
         </div>
