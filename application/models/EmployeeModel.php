@@ -393,6 +393,24 @@ class EmployeeModel extends MY_Model
             ->result_array();
     }
 
+    public function read_by_intizomchora($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_intizomchora")
+            ->where('d_intizomchora.intizomchora_id',$user_id)
+            ->get()
+            ->row_array();
+    }
+
+    public function read_by_intizomchoras($user_id = null)
+    {
+        return $this->db->select("*")
+            ->from("d_intizomchora")
+            ->where('d_intizomchora.kadr_id',$user_id)
+            ->get()
+            ->result_array();
+    }
+
     public function read_by_languages($user_id = null)
     {
         return $this->db->select("d_tillar_bind.*,spr_tillar.tillar_nomi,spr_tillar_turi.tillar_turi_nomi")
@@ -730,6 +748,65 @@ class EmployeeModel extends MY_Model
                     }
                 }
                 break;
+
+            case 16:
+                $result= $this->db->select("*")
+                    ->from('d_intizomchora')
+                    ->where('d_intizomchora.intizomchora_id',$data['intizomchora_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_intizomchora.intizomchora_id',$query['intizomchora_id'])->update('d_intizomchora', $data);
+                    return $query['intizomchora_id'];
+                }else{
+                    $this->db->insert("d_intizomchora",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+                break;
+
+            case 17:
+                $result= $this->db->select("*")
+                    ->from('d_ijodiyish')
+                    ->where('d_ijodiyish.ijodiyish_id',$data['ijodiyish_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_ijodiyish.ijodiyish_id',$query['ijodiyish_id'])->update('d_ijodiyish', $data);
+                    return $query['ijodiyish_id'];
+                }else{
+                    $this->db->insert("d_ijodiyish",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+                break;
+            case 18:
+                $result= $this->db->select("*")
+                    ->from('d_zahira')
+                    ->where('d_zahira.zahira_id',$data['zahira_id'])
+                    ->get();
+                $query=$result->row_array();
+                $row= $result->num_rows();
+                if ($row>0) {
+                    $this->db->where('d_zahira.zahira_id',$query['zahira_id'])->update('d_zahira', $data);
+                    return $query['zahira_id'];
+                }else{
+                    $this->db->insert("d_zahira",$data);
+                    if ($this->db->affected_rows()) {
+                        return $this->db->insert_id();
+                    } else {
+                        return false;
+                    }
+                }
+                break;
         }
     }
 
@@ -781,6 +858,15 @@ class EmployeeModel extends MY_Model
                 break;
             case 15:
                 $this->db->where('d_sudlanganlik.sudlanganlik_id',$data['sudlanganlik_id'])->delete('d_sudlanganlik', $data);
+                break;
+            case 16:
+                $this->db->where('d_intizomchora.intizomchora_id',$data['intizomchora_id'])->delete('d_intizomchora', $data);
+                break;
+            case 17:
+                $this->db->where('d_ijodiyish.ijodiyish_id',$data['ijodiyish_id'])->delete('d_ijodiyish', $data);
+                break;
+            case 18:
+                $this->db->where('d_zahira.zahira_id',$data['zahira_id'])->delete('d_zahira', $data);
                 break;
         }
     }
