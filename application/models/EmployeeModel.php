@@ -318,7 +318,7 @@ class EmployeeModel extends MY_Model
 
     public function read_by_oilas($user_id = null)
     {
-        return $this->db->select("*")
+        return $this->db->select("d_oila.*,spr_qarindoshlar.qarindosh_name,spr_viloyat.viloyat,spr_tuman.tuman")
             ->from("d_oila")
             ->join('spr_qarindoshlar','spr_qarindoshlar.qarindosh_id=d_oila.qarindosh_id','left')
             ->join('spr_viloyat','spr_viloyat.viloyat_id=d_oila.viloyat_id','left')

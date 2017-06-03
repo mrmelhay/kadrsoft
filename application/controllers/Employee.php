@@ -788,9 +788,12 @@ class Employee extends MY_Controller
         {
             $this->data['title'] = 'Ходимлар рўйхати';
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
-            $dataarray = explode('-', $editdata['bdate']);
-            $dataf = $dataarray[2] . '/' . $dataarray[1] . '/' . $dataarray[0];
+
+
             $this->data['employee'] = (object)$editdata;
+            $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
+            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
+            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
             $this->data['content'] = $this->load->view('/employee/employee_objectiv', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }
