@@ -127,6 +127,9 @@
                 <div id="Tab18" class="tab-pane fade">
                     <?php $this->load->view('employee/data/emp_zahira');?>
                 </div>
+                <div id="Tab19" class="tab-pane fade">
+                    <?php $this->load->view('employee/data/emp_saylov');?>
+                </div>
 
             </div>
         </div>

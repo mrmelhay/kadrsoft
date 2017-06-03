@@ -122,7 +122,8 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="3"><b>Давлат мукофотлари билан тақдирланганми (қанақа):</b></td>
+                                    <td colspan="3"><b>Давлат мукофотлари билан тақдирланганми (қанақа):</b>
+                                        <?php echo !empty($employee->mukofot_name)?$employee->mukofot_name:'Йўқ';?></td>
                                 </tr>
 
                                 <tr>

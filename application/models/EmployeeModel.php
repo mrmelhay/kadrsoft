@@ -82,6 +82,8 @@ class EmployeeModel extends MY_Model
             ->join('d_tillar_bind','d_tillar_bind.kadr_id =d_kadr.kadrid','left')
             ->join('spr_tillar','spr_tillar.tillar_id =d_tillar_bind.tillar_id','left')
             ->join('spr_tillar_turi','spr_tillar_turi.tillar_turi_id =d_tillar_bind.tillar_turi_id','left')
+            ->join('d_mukofot','d_mukofot.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
             ->where('d_kadr.kadrid',$user_id)
             ->get()
             ->row_array();
