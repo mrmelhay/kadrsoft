@@ -35,6 +35,8 @@
             <div class="col-sm-6">
                 <div class="contact_people">
                     <a type="button" class="btn btn-info btn-danger" href="<? echo base_url('employee/employees');?>"> Ортга қайтиш <i class="fa fa-mail-reply-all"></i> </a>
+
+                    <a type="button" class="btn btn-default" href="<?php echo base_url("/employee/objective/".$employee['kadrid'])?>"> <i class="fa fa-user magento"></i> </a>
                 </div>
             </div>
          </div>
@@ -64,6 +66,7 @@
                         <li><a data-toggle="tab" data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
                         <li><a data-toggle="tab" data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
                         <li><a data-toggle="tab" data-emptype="18" href="#Tab18">Заҳира</a></li>
+                        <li><a data-toggle="tab" data-emptype="18" href="#Tab19">Депутатлик</a></li>
 
 
                     </ul>

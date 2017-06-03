@@ -13,6 +13,8 @@
         </div>
         <div class="porlets-content">
             <button type="button" class="btn btn-info" onclick="document.location.href='<?php echo base_url('employee/download/'.$employee->kadrid)?>'">Скачать</button>
+            <a type="button" class="btn btn-info btn-danger" href="<? echo base_url('employee/employees');?>"> Ортга қайтиш <i class="fa fa-mail-reply-all"></i> </a>
+
             <?php if ($this->session->flashdata('message') != null) { ?>
                 <div class="alert alert-info alert-styled-left alert-bordered">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span><span
@@ -64,7 +66,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <strong>
-                                            <?php echo $employee->kollej_name; ?>,<?php echo $employee->lavozim_name; ?>
+                                            <?php echo $employee->kollej_name; ?>, <?php echo $employee->lavozim_name; ?>
                                         </strong>
                                     </td>
                                 </tr>
@@ -98,9 +100,7 @@
                                 </tr>
                                 <tr>
                                     <td><b>Маълумоти бўйича мутахассислиги:</b></td>
-                                    <td colspan="2">
-                                        рус тили ва адабиёти
-                                    </td>
+                                    <td colspan="2"><?php echo $employee->mutax_kodi_name; ?></td>
                                 </tr>
                                 <tr>
                                     <td><b>Илмий даражаси:</b></td>
@@ -128,7 +128,9 @@
 
                                 <tr>
                                     <td colspan="3"><b>Халқ депутатлари, республика, вилоят, шаҳар ва туман Кенгаши
-                                            депутатими ёки бошқа сайланадиган органларнинг аъзосими:</b></td>
+                                            депутатими ёки бошқа сайланадиган органларнинг аъзосими:</b>
+                                        <?php echo !empty($employee->saylov_name)?$employee->saylov_name:'Йўқ';?>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -136,52 +138,22 @@
                     </tr>
                     <tr>
                         <td>
-                            <h3>МЕҲНАТ ФАОЛИЯТИ</h3>
+                            <h3 style="text-align: center;">МЕҲНАТ ФАОЛИЯТИ</h3>
                             <table cellpadding="10" cellspacing="5">
                                 <tbody>
                                 <tr>
-                                    <td>13.08.1976-</td>
-                                    <td>01.08.1977-</td>
-                                    <td>Наманган шахар 6-мактаб котиба</td>
+                                    <td><?php echo $employee->ish_vaqti;?> -</td>
+                                    <td>&nbsp;<?php echo $employee->ish_tashkilot;?></td>
                                 </tr>
-                                <tr>
-                                    <td>19.10.1977-</td>
-                                    <td>01.03.1981-</td>
-                                    <td>НамДу лаборант</td>
-                                </tr>
-                                <tr>
-                                    <td>01.03.1981-</td>
-                                    <td>01.02.1983-</td>
-                                    <td>НамДУ Стенаграфист</td>
-                                </tr>
-                                <tr>
-                                    <td>01.09.1983-</td>
-                                    <td>10.11.1983-</td>
-                                    <td>НамДУ катта лаборант</td>
-                                </tr>
-                                <tr>
-                                    <td>06.11.1985-</td>
-                                    <td>31.07.1989-</td>
-                                    <td>НамДУ ўқув бўлими инспектори</td>
-                                </tr>
-                                <tr>
-                                    <td>01.08.1989-</td>
-                                    <td></td>
-                                    <td>НамДУ 2-бўлим бошлиғи</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h3>МУХИТДИНОВА Гулнора Харисовна нинг яқин қариндошлари ҳақида</h3>
-                            <h3>МАЪЛУМОТ</h3>
+                            <h3 style="text-align: center;"><?php echo $employee->name_f . ' ' . $employee->name_i . ' ' . $employee->name_o; ?>нинг яқин қариндошлари ҳақида <br> МАЪЛУМОТ</h3>
+
                             <table cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
                                 <tbody>
                                 <tr>
@@ -195,114 +167,18 @@
                                 </tr>
                                 <tr>
                                     <td style="border: 1px solid black; text-align:center;">
-                                        Отаси
+                                        <?php echo $employee->qarindosh_name;?>
                                     </td>
-                                    <td style="border: 1px solid black; text-align:center;">Мухитдинов Харис
-                                        Харибуллаевич
+                                    <td style="border: 1px solid black; text-align:center;"><?php echo $employee->q_name . ' ' . $employee->q_lname . ' ' . $employee->q_mname; ?>
                                     </td>
                                     <td style="border: 1px solid black; text-align:center;">
-                                        1933 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
+                                        <?php echo $employee->q_bdate . ' ' . $employee->viloyat . ' ' . $employee->tuman; ?>
                                     </td>
-                                    <td style="border: 1px solid black; text-align:center;">пенционер</td>
-                                    <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
+                                    <td style="border: 1px solid black; text-align:center;"><?php echo $employee->q_work; ?></td>
+                                    <td style="border: 1px solid black; text-align:center;"><?php echo $employee->q_address; ?></td>
 
                                 </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Онаси
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Шакирзянова Фанзиля
-                                        Рахимовна
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1939 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">2004 йил вафот этган</td>
-                                    <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Синглиси
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Петрова Салима Харисовна
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1960 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">1992 йил вафот этган</td>
-                                    <td style="border: 1px solid black; text-align:center;">Россия</td>
-
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Синглиси
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Мухитдинова Элмира
-                                        Харисовна
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1964 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Хоразм вилоти тренер</td>
-                                    <td style="border: 1px solid black; text-align:center;">Хоразм вилояти урганч</td>
-
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Турмуш ўртоғи
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Махмудов Марат Рахманович
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1956 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">2010 йил вафот этган</td>
-                                    <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
-
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Қизи
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Махмудова Элвина Маратовна
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1980 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Намнган шахар 1-мактаб
-                                        ўқитувчиси
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
-
-                                </tr>
-                                <tr>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        Қизи
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">Махмудова Регина Маратовна
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">
-                                        1987 ,
-                                        Наманган вилояти,
-                                        Наманган шаҳри
-                                    </td>
-                                    <td style="border: 1px solid black; text-align:center;">вактинча ишсиз</td>
-                                    <td style="border: 1px solid black; text-align:center;">Наманган шахар</td>
-
-                                </tr>
                                 </tbody>
                             </table>
                         </td>

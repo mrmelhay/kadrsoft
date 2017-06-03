@@ -84,6 +84,11 @@ class EmployeeModel extends MY_Model
             ->join('spr_tillar_turi','spr_tillar_turi.tillar_turi_id =d_tillar_bind.tillar_turi_id','left')
             ->join('d_mukofot','d_mukofot.kadr_id=d_kadr.kadrid', 'left')
             ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
+            ->join('d_saylov', 'd_saylov.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_saylov', 'spr_saylov.saylov_id=d_saylov.saylov_id', 'left')
+            ->join('d_mehnat_faol','d_mehnat_faol.kadr_id=d_kadr.kadrid', 'left')
+            ->join('d_oila', 'd_oila.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_qarindoshlar', 'spr_qarindoshlar.qarindosh_id=d_oila.qarindosh_id', 'left')
             ->where('d_kadr.kadrid',$user_id)
             ->get()
             ->row_array();
