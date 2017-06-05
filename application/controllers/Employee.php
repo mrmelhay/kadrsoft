@@ -21,7 +21,10 @@ class Employee extends MY_Controller
         if ($this->session->userdata('logged_in') == FALSE) {
             redirect(base_url('users/login'));
         }
+           $is_admin=$this->session->userdata('is_admin');
+           $kollej_id=$this->session->userdata('kollej_id');
             $this->data['title'] = 'Ходимлар рўйхати';
+            if ($is_admin!=1) {$this->EmployeeModel->kollej_id=$kollej_id;}
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
             $this->view_lib->admin_layout($this->data);
@@ -119,7 +122,7 @@ class Employee extends MY_Controller
                     'mutax_kodi_id' => $this->input->post('mutax_kodi_id', true),
                     'millat_id' => $this->input->post('millat_id', true),
                     'oila_id' => $this->input->post('oila_id', true),
-                    'mukofot_id' => $this->input->post('mukofot_id', true),
+//                    'mukofot_id' => $this->input->post('mukofot_id', true),
                     'davlat_id' => $this->input->post('davlat_id', true),
                     'viloyat_id' => $this->input->post('viloyat_id', true),
                     'tuman_id' => $this->input->post('tuman_id', true),
@@ -153,7 +156,7 @@ class Employee extends MY_Controller
                     'mutax_kodi_id' => $this->input->post('mutax_kodi_id', true),
                     'millat_id' => $this->input->post('millat_id', true),
                     'oila_id' => $this->input->post('oila_id', true),
-                    'mukofot_id' => $this->input->post('mukofot_id', true),
+//                    'mukofot_id' => $this->input->post('mukofot_id', true),
                     'davlat_id' => $this->input->post('davlat_id', true),
                     'viloyat_id' => $this->input->post('viloyat_id', true),
                     'tuman_id' => $this->input->post('tuman_id', true),

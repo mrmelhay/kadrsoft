@@ -23,9 +23,11 @@ class UserModel extends MY_Model {
     public function login($login,$password)
     {
         $item_found=false;
-        $this->db->select('*');
+        $this->db->select('users.*,spr_kollej.kollej_name,user_groups.group_name,user_groups.is_admin,user_rolles.roll_name');
         $this->db->from('users');
         $this->db->join('spr_kollej','spr_kollej.kollej_id=users.kollej_id','left');
+        $this->db->join('user_groups','user_groups.group_id=users.group_id','left');
+        $this->db->join('user_rolles','user_rolles.rolle_id=users.user_roll_id','left');
         $this->db->where('users.username', $login);
         $this->db->where('users.password', $password);
         $this->db->where('users.active', '1');
@@ -44,6 +46,8 @@ class UserModel extends MY_Model {
                 'group_id' => $userdata->group_id,
                 'user_roll_id' => $userdata->user_roll_id,
                 'email' => $userdata->email,
+                'is_admin' => $userdata->is_admin,
+                'group_name' => $userdata->group_name,
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($newdata);

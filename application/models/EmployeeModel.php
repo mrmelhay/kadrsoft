@@ -7,9 +7,8 @@ class EmployeeModel extends MY_Model
     }
 
    public function getEmployeeList(){
-        $kollej="";
-        if (isset($this->kollej_id) && $this->kollej_id>0) {$kollej=$this->db->where('spr_kollej.kollej_id',$this->kollej_id);}
-        $this->db->select('d_kadr.*,spr_kollej.kollej_id,spr_lavozim.*,spr_malumot.*');
+
+        $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
@@ -17,7 +16,8 @@ class EmployeeModel extends MY_Model
         $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
         $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_kadr.lavozim_id', 'left');
         $this->db->join('spr_malumot', 'spr_malumot.malumot_id = d_kadr.malumot_id', 'left');
-        $kollej;
+        $this->db->where('d_kadr.isdelete','0');
+       if (isset($this->kollej_id) && $this->kollej_id>0) {$this->db->where('d_kadr_items_bind.kollej_id',$this->kollej_id);}
         $this->db->order_by('d_kadr.kadrid','ASC');
         $query=$this->db->get();
         return $query->result_array();
@@ -62,15 +62,15 @@ class EmployeeModel extends MY_Model
 
     public function read_by_data($user_id = null)
     {
-        return $this->db->select("d_kadr.*,d_kadr_items_bind.*,spr_kollej.kollej_name,spr_lavozim.lavozim_name,spr_viloyat.viloyat,
-        spr_tuman.tuman,spr_millat.millat_name,spr_partiya.partiya_name,spr_malumot.malumot_name,d_uqigan_tm.*,spr_otm.*,spr_mutaxasislik.*,
-        d_ilmiy_daraja.*,spr_ilmiy_daraja.ilm_daraja_name,d_ilmiy_unvon.*,spr_ilmiy_unvon.ilmiy_unvon_nomi,d_tillar_bind.*, spr_tillar.tillar_nomi,
-        spr_tillar_turi.tillar_turi_nomi, d_mukofot.*,spr_dav_mukofot.mukofot_name, d_saylov.*, spr_saylov.saylov_name,d_mehnat_faol.*,
-        d_oila.*,spr_qarindoshlar.qarindosh_name")
+        return $this->db->select("d_kadr.*,d_kadr_items_bind.*,spr_kollej.kollej_name,spr_lavozim.lavozim_name, spr_viloyat.viloyat,
+        spr_tuman.tuman,spr_millat.millat_name,spr_partiya.partiya_name,spr_malumot.malumot_name,d_uqigan_tm.kirgan_yili,d_uqigan_tm.tugatgan_yili,d_uqigan_tm.diplom_sana,d_uqigan_tm.diplom_num,
+        diplom_num,spr_otm.*,spr_mutaxasislik.mutax_kodi,spr_mutaxasislik.mutax_kodi_name,d_ilmiy_daraja.*,spr_ilmiy_daraja.ilm_daraja_name,d_ilmiy_unvon.*,spr_ilmiy_unvon.ilmiy_unvon_nomi,d_tillar_bind.*, spr_tillar.tillar_nomi,
+        spr_tillar_turi.tillar_turi_nomi, d_mukofot.*,spr_dav_mukofot.mukofot_name,d_mehnat_faol.*")
             ->from("d_kadr")
             ->join('d_kadr_items_bind','d_kadr_items_bind.kadrid=d_kadr.kadrid','left')
             ->join('spr_kollej','spr_kollej.kollej_id=d_kadr_items_bind.kollej_id','left')
             ->join('spr_lavozim','spr_lavozim.lavozim_id=d_kadr.lavozim_id','left')
+            ->join('spr_davlat','spr_davlat.davlat_id=d_kadr.davlat_id','left')
             ->join('spr_viloyat','spr_viloyat.viloyat_id=d_kadr.viloyat_id','left')
             ->join('spr_tuman','spr_tuman.tuman_id=d_kadr.tuman_id','left')
             ->join('spr_millat','spr_millat.millat_id=d_kadr.millat_id','left')
@@ -88,11 +88,7 @@ class EmployeeModel extends MY_Model
             ->join('spr_tillar_turi','spr_tillar_turi.tillar_turi_id =d_tillar_bind.tillar_turi_id','left')
             ->join('d_mukofot','d_mukofot.kadr_id=d_kadr.kadrid', 'left')
             ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
-            ->join('d_saylov', 'd_saylov.kadr_id=d_kadr.kadrid', 'left')
-            ->join('spr_saylov', 'spr_saylov.saylov_id=d_saylov.saylov_id', 'left')
             ->join('d_mehnat_faol','d_mehnat_faol.kadr_id=d_kadr.kadrid', 'left')
-            ->join('d_oila', 'd_oila.kadr_id=d_kadr.kadrid', 'left')
-            ->join('spr_qarindoshlar', 'spr_qarindoshlar.qarindosh_id=d_oila.qarindosh_id', 'left')
             ->where('d_kadr.kadrid',$user_id)
             ->get()
             ->row_array();

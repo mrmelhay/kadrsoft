@@ -118,13 +118,14 @@
                                 <tr>
                                     <td colspan="3"><b>Қайси чет тилларини билади:</b></td>
                                 </tr>
-
-                                <!-- chet tiliga foreach qoyish kerak-->
                                 <tr>
                                     <td colspan="3">
-                                        <?php foreach ($languages as $language) { ?>
-                                            <?php echo $language['tillar_nomi'] . ' тили ' . $language['tillar_turi_nomi'] . '</br>'; ?>
-                                        <?php } ?>
+                                        <?php
+                                        if (count($languages)>0) {
+                                            foreach ($languages as $language) { ?>
+                                                <?php echo $language['tillar_nomi'] . ' тили ' . $language['tillar_turi_nomi'] . '</br>'; ?>
+                                            <?php }
+                                        }?>
                                     </td>
                                 </tr>
 
