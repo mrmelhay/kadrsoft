@@ -62,7 +62,11 @@ class EmployeeModel extends MY_Model
 
     public function read_by_data($user_id = null)
     {
-        return $this->db->select("*")
+        return $this->db->select("d_kadr.*,d_kadr_items_bind.*,spr_kollej.kollej_name,spr_lavozim.lavozim_name,spr_viloyat.viloyat,
+        spr_tuman.tuman,spr_millat.millat_name,spr_partiya.partiya_name,spr_malumot.malumot_name,d_uqigan_tm.*,spr_otm.*,spr_mutaxasislik.*,
+        d_ilmiy_daraja.*,spr_ilmiy_daraja.ilm_daraja_name,d_ilmiy_unvon.*,spr_ilmiy_unvon.ilmiy_unvon_nomi,d_tillar_bind.*, spr_tillar.tillar_nomi,
+        spr_tillar_turi.tillar_turi_nomi, d_mukofot.*,spr_dav_mukofot.mukofot_name, d_saylov.*, spr_saylov.saylov_name,d_mehnat_faol.*,
+        d_oila.*,spr_qarindoshlar.qarindosh_name")
             ->from("d_kadr")
             ->join('d_kadr_items_bind','d_kadr_items_bind.kadrid=d_kadr.kadrid','left')
             ->join('spr_kollej','spr_kollej.kollej_id=d_kadr_items_bind.kollej_id','left')
