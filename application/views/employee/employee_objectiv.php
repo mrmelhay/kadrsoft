@@ -182,7 +182,7 @@
                                         <td style="border: 1px solid black; text-align:center;">
                                             <?php echo $oila['qarindosh_name']; ?>
                                         </td>
-                                        <td style="border: 1px solid black; text-align:center;"><?php echo $oila['q_name'] . ' ' . $oila['q_lname'] . ' ' . $oila['q_mname']; ?>
+                                        <td style="border: 1px solid black; text-align:center;"><?php echo $oila['q_lname'] . ' ' . $oila['q_name'] . ' ' . $oila['q_mname']; ?>
                                         </td>
                                         <td style="border: 1px solid black; text-align:center;">
                                             <?php echo $oila['q_bdate'] . ' ' . $oila['viloyat'] . ' ' . $oila['tuman']; ?>

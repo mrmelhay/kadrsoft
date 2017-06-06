@@ -18,15 +18,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Исми</label>
-                    <div class="col-sm-7">
-                        <div class="input-group">
-                            <input type="text" name="q_name" id="q_name" value="<?php echo $oila['q_name']; ?>"
-                                   required>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Фамилияси</label>
@@ -37,7 +29,15 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Исми</label>
+                    <div class="col-sm-7">
+                        <div class="input-group">
+                            <input type="text" name="q_name" id="q_name" value="<?php echo $oila['q_name']; ?>"
+                                   required>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Отасининг исми</label>
                     <div class="col-sm-7">
