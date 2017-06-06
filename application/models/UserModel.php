@@ -23,7 +23,7 @@ class UserModel extends MY_Model {
     public function login($login,$password)
     {
         $item_found=false;
-        $this->db->select('users.*,spr_kollej.kollej_name,user_groups.group_name,user_groups.is_admin,user_rolles.roll_name');
+        $this->db->select('users.*,spr_kollej.kollej_name,spr_kollej.kollej_parent_id,user_groups.group_name,user_groups.is_admin,user_rolles.roll_name');
         $this->db->from('users');
         $this->db->join('spr_kollej','spr_kollej.kollej_id=users.kollej_id','left');
         $this->db->join('user_groups','user_groups.group_id=users.group_id','left');
@@ -43,6 +43,7 @@ class UserModel extends MY_Model {
                 'nname' => $userdata->firstname.'.'.mb_substr($userdata->lastname,0,1).'.'.mb_substr($userdata->middlename,0,1),
                 'kollej_name' => $userdata->kollej_name,
                 'kollej_id' => $userdata->kollej_id,
+                'kollej_parent_id' => $userdata->kollej_parent_id,
                 'group_id' => $userdata->group_id,
                 'user_roll_id' => $userdata->user_roll_id,
                 'email' => $userdata->email,

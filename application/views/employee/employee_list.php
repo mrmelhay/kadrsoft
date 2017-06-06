@@ -89,7 +89,7 @@
                                        data-kadr_id=<?php echo $empl['kadrid']; ?> > <i class="fa fa-info-circle blue"></i> </a>
                                     <a type="button" class="btn btn-default" href="<?php echo base_url("/employee/edit_employee/".$empl['kadrid'])?>"> <i class="fa fa-edit green_info"></i> </a>
                                     <a type="button" class="btn btn-default" href="<?php echo base_url("/employee/objective/".$empl['kadrid'])?>"> <i class="fa fa-user magento"></i> </a>
-                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>" data-kollej_id="<?php echo $empl['kadrid']; ?>" onclick="if (confirm('Ўчиришга ишончингиз комилми!!')==true){ document.location.href='<?php echo base_url('employee/delete_data_info/'.$empl['kadrid']);?>'; }">
+                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>" data-kollej_id="<?php echo $empl['kadrid']; ?>" onclick="if (confirm('Ўчиришга ишончингиз комилми!!')==true){ document.location.href='<?php echo base_url('employee/delete_employee/'.$empl['kadrid']);?>'; }">
                                         <i class="fa fa-trash-o red"></i> </a>
 
                                 </div>

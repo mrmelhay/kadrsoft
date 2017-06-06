@@ -21,19 +21,25 @@ class Employee extends MY_Controller
         if ($this->session->userdata('logged_in') == FALSE) {
             redirect(base_url('users/login'));
         }
-           $is_admin=$this->session->userdata('is_admin');
-           $kollej_id=$this->session->userdata('kollej_id');
+            $is_admin=$this->session->userdata('is_admin');
+            $kollej_id=$this->session->userdata('kollej_id');
+            $kollej_parent_id=$this->session->userdata('kollej_parent_id');
             $this->data['title'] = 'Ходимлар рўйхати';
-            if ($is_admin!=1) {$this->EmployeeModel->kollej_id=$kollej_id;}
+            if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }
 
-        public
-        function archives()
+        public function archives()
         {
             $this->data['title'] = 'Ходимлар рўйхати';
+            $is_admin=$this->session->userdata('is_admin');
+            $kollej_id=$this->session->userdata('kollej_id');
+            $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+            $this->data['title'] = 'Ходимлар рўйхати';
+            if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+            $this->data['employees'] = $this->EmployeeModel->getEmployeeListArchive();
             $this->data['content'] = $this->load->view('/employee/employee_arch', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }
@@ -177,6 +183,15 @@ class Employee extends MY_Controller
 
             if ($this->form_validation->run() === true) {
                 $kadrid = $this->EmployeeModel->createOrUpdate($postData);
+                $postdata = [
+                    'kadr_id' => $kadrid,
+                    'muassasa_ish_id' => 0,
+                    'lavozim_id' => $this->input->post('lavozim_id', true),
+                    'shartnoma_type_id' => 1,
+                    'is_active' => 1,
+                      ];
+                $this->EmployeeModel->insert_date_info($postdata, 9);
+
 //                echo $kadrid;
                 if ($kadrid) {
                     $postData2 = ['kadrid' => $kadrid, 'kollej_id' => $kollej_id['kollej_id']];
@@ -199,8 +214,7 @@ class Employee extends MY_Controller
         }
 
 
-        public
-        function edit_employee($kadrid = null)
+        public function edit_employee($kadrid = null)
         {
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
             $dataarray = explode('-', $editdata['bdate']);
@@ -240,14 +254,23 @@ class Employee extends MY_Controller
 
         }
 
-        public
-        function delete_employee()
+        public  function delete_employee($kadr_id=null)
         {
+            if ($this->session->userdata('logged_in') == FALSE) {
+                redirect(base_url('users/login'));
+            }
+            $data=['kadr_id'=>$kadr_id];
+            if ($this->EmployeeModel->delete_employee($data)) {
+                $this->session->set_flashdata('message', "Маълумот учирилди!");
+                redirect("/employee/employees");
+            }else{
+                $this->session->set_flashdata('message', "Маълумот учирилмади!");
+                redirect("/employee/employees");
+            }
 
         }
 
-        public
-        function data_employee($kadrid)
+        public function data_employee($kadrid)
         {
             if ($this->session->userdata('logged_in') == FALSE) {
                 redirect(base_url('users/login'));
@@ -284,8 +307,7 @@ class Employee extends MY_Controller
 //        }
         }
 
-        public
-        function ajax_data_employee()
+        public function ajax_data_employee()
         {
             if (isset($_GET['emptype'])) {
                 $emptype = $_GET['emptype'];
@@ -375,8 +397,7 @@ class Employee extends MY_Controller
             }
         }
 
-        public
-        function create_date_info()
+        public function create_date_info()
         {
 
             if (isset($_POST['emptype'])) {
@@ -555,6 +576,7 @@ class Employee extends MY_Controller
                             'ish_bush_sabab' => $this->input->post('ish_bush_sabab', true),
                             'ish_bush_buyruq' => $this->input->post('ish_bush_buyruq', true),
                             'kadr_id' => $this->input->post('kadr_id', true),
+                            'is_active' => $this->input->post('is_active', true),
                             'scan_photo' => !empty($picture) ? $picture : $this->input->post('scan_photo'),
                         ];
                         $this->EmployeeModel->insert_date_info($postdata, $emptype);
@@ -669,7 +691,6 @@ class Employee extends MY_Controller
                         ];
                         $this->EmployeeModel->insert_date_info($postdata, $emptype);
                         redirect($_SERVER['HTTP_REFERER']);
-                        break;
                         break;
                     case 18:
                         $postdata = [

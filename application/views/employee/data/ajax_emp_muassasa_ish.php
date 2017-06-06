@@ -87,6 +87,13 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="" class="col-sm-5 control-label">Статус</label>
+                    <div class="col-sm-6">
+                        <input type="checkbox" name="isactive" id="isactive" class="form-control" value="1" <?php if ($muassasaish['is_active']) {echo 'checked="checked"';}?>/>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="" class="col-sm-5 control-label">Хужжат нусхаси</label>
                     <div class="col-sm-6">
 
