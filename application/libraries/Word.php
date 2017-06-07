@@ -29,7 +29,7 @@ class Word{
         $template->setValue('JUMLAHBULAN', '2');
         $template->setValue('JUMLAHBULANHURUF', 'dua');
 
-        $temp_filename = APPPATH.'/libraries/Example/save/obektivka.docx';
+        $temp_filename = 'obektivka.docx';
         $template->save($temp_filename);
 
         header('Content-Description: File Transfer');
