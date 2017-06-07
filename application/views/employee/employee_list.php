@@ -57,8 +57,11 @@
                     <thead>
                     <tr>
                         <th>ТР</th>
+                        <th>ID</th>
                         <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
                         <th>Лавозими</th>
+                        <th>Тугилган йили</th>
+                        <th>Жинси</th>
                         <th>Маълумоти</th>
                         <th>Тел. рақами</th>
                         <th>Амаллар</th>
@@ -72,6 +75,7 @@
                         ?>
                         <tr class="">
                             <td><? echo $counter ?></td>
+                            <td><?php echo $empl['kadrid'] ?></td>
                             <td><a href="<?php echo base_url("/employee/edit_employee/".$empl['kadrid'])?>" data-title="<?php echo $title; ?>"
                                    data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
                                    >
@@ -79,6 +83,11 @@
                             </td>
                             <td>
                                 <?php echo $empl['lavozim_name'] ?></td>
+
+                            <td>
+                                <?php echo $empl['bdate'] ?></td>
+                            <td>
+                                <?php echo $empl['sex']==2?'Эркак':'Аёл' ?></td>
                             <td>
                                 <?php echo $empl['malumot_name'] ?></td>
                             <td class="center"><?php echo $empl['phone_mobile'] ?></td>

@@ -16,8 +16,9 @@ class EmployeeModel extends MY_Model
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = d_kadr.tuman_id', 'left');
         $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
-        $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_kadr.lavozim_id', 'left');
         $this->db->join('spr_malumot', 'spr_malumot.malumot_id = d_kadr.malumot_id', 'left');
+        $this->db->join('d_muassasa_ish', 'd_muassasa_ish.kadr_id = d_kadr.kadrid and d_muassasa_ish.is_active=1', 'left');
+        $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_muassasa_ish.lavozim_id', 'left');
         $this->db->where('d_kadr.isdelete', $isDelete);
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
             $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
@@ -958,7 +959,18 @@ class EmployeeModel extends MY_Model
         }else{
             return false;
         }
-    }
+   }
+
+   public function read_by_muassasa_ish_is_active($user_id){
+       return $this->db->select("*")
+           ->from("d_muassasa_ish")
+           ->join('spr_lavozim', 'spr_lavozim.lavozim_id=d_muassasa_ish.lavozim_id', 'left')
+           ->join('spr_shartnoma_type', 'spr_shartnoma_type.shartnoma_type_id=d_muassasa_ish.shartnoma_type_id', 'left')
+           ->where('d_muassasa_ish.is_active', 1)
+           ->where('d_muassasa_ish.kadr_id', $user_id)
+           ->get()
+           ->row_array();
+   }
 
 
 }
