@@ -44,16 +44,14 @@ class Employee extends MY_Controller
             $this->view_lib->admin_layout($this->data);
         }
 
-        public
-        function stir()
+        public function stir()
         {
             $this->data['title'] = 'Ходимлар рўйхати';
             $this->data['content'] = $this->load->view('/employee/employee_stir', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }
 
-        public
-        function add_employee()
+        public function add_employee()
         {
 
             $this->data['title'] = 'Янги ходимни қўшиш';
@@ -89,8 +87,7 @@ class Employee extends MY_Controller
         }
 
 
-        public
-        function create_employee()
+        public function create_employee()
         {
 
             $this->form_validation->set_rules('name_f', 'Фамилияси', 'required|max_length[50]');
@@ -183,19 +180,17 @@ class Employee extends MY_Controller
 
             if ($this->form_validation->run() === true) {
                 $kadrid = $this->EmployeeModel->createOrUpdate($postData);
+                $muassasa_ish_id=$this->EmployeeModel->read_by_muassasa_ish_is_active($kadrid);
                 $postdata = [
                     'kadr_id' => $kadrid,
-                    'muassasa_ish_id' => 0,
+                    'muassasa_ish_id' => $muassasa_ish_id['muassasa_ish_id'],
                     'lavozim_id' => $this->input->post('lavozim_id', true),
                     'shartnoma_type_id' => 1,
                     'is_active' => 1,
                       ];
                 $this->EmployeeModel->insert_date_info($postdata, 9);
-
-//                echo $kadrid;
                 if ($kadrid) {
                     $postData2 = ['kadrid' => $kadrid, 'kollej_id' => $kollej_id['kollej_id']];
-//                 print_r($postData2);
                     $this->EmployeeModel->createOrUpdateItemsBind($postData2);
                     $this->session->set_flashdata('message', "Маълумот сақланди!");
                     redirect("/employee/employees");
@@ -576,7 +571,7 @@ class Employee extends MY_Controller
                             'ish_bush_sabab' => $this->input->post('ish_bush_sabab', true),
                             'ish_bush_buyruq' => $this->input->post('ish_bush_buyruq', true),
                             'kadr_id' => $this->input->post('kadr_id', true),
-                            'is_active' => $this->input->post('is_active', true),
+                            'is_active' => $this->input->post('isactive', true) ? $this->input->post('isactive', true) : 0,
                             'scan_photo' => !empty($picture) ? $picture : $this->input->post('scan_photo'),
                         ];
                         $this->EmployeeModel->insert_date_info($postdata, $emptype);
