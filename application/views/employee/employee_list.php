@@ -79,7 +79,13 @@
                 <div class="margin-top-10">
                     <div class="invoice_header">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-5">
+                                <select name="kollej_id" id="kollej_id" class="form-control" <?php echo $username['is_admin']==0?'readonly disabled':'';?>>
+                                    <option value="">Танланг...</option>
+                                    <?php $this->PreferencesModel->getKollejDropList(0,0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $username['kollej_id']); ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="query" id="query"/>
                                     <span class="input-group-btn">
