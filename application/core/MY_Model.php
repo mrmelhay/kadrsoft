@@ -51,6 +51,9 @@ class MY_Model extends CI_Model{
     public $tuman_id=0;
     public $fan_turi_id=0;
 
+    public $query;
+
+
 
     public function __construct()
     {

@@ -4127,7 +4127,7 @@ input {
 .invoice_header {
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
-    height: 42px;
+    /*height: 42px;*/
     padding: 8px 10px;
     margin-bottom: 16px;
 }

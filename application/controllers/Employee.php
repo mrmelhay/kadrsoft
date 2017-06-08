@@ -26,6 +26,11 @@ class Employee extends MY_Controller
             $kollej_parent_id=$this->session->userdata('kollej_parent_id');
             $this->data['title'] = 'Ходимлар рўйхати';
             if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+            if ($this->input->post('query',true)!=null) {
+                $query = $this->input->post('query', true);
+                $this->EmployeeModel->query=$query;
+            }
+
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
             $this->view_lib->admin_layout($this->data);

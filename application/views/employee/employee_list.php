@@ -18,27 +18,51 @@
                 </div>
             <?php } ?>
 
-            <?php if ($this->session->flashdata('exception') != null) {  ?>
+            <?php if ($this->session->flashdata('exception') != null) { ?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <?php echo $this->session->flashdata('exception'); ?>
                 </div>
             <?php } ?>
+            <form class="form-horizontal" method="post" action="<?php echo base_url('employee/employees')?>">
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
                         <a type="button" class="btn btn-primary"
-                           href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
-                            <i class="fa fa-plus"></i>
+                           href="<?php echo base_url('/employee/add_employee') ?>"><i class="fa fa-plus"></i> Янги қўшиш
+
                         </a>
 
 
                     </div>
                     <div class="btn-group">
-                    <a type="button" class="btn btn-info"
-                       href="<?php echo base_url('/employee/employee_info') ?>"> Маълумотнома
-                        <i class="fa fa-info"></i>
-                    </a>
+                        <a type="button" class="btn btn-info"
+                           href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-info"></i>
+                            Маълумотнома
+
+                        </a>
+                    </div>
+
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-warning"
+                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
+                            Тахрирлаш
+
+                        </a>
+                    </div>
+
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-success"
+                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-file"></i>
+                            Обективка
+
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-danger"
+                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-trash-o"></i> Ишдан
+                            бўшатиш
+                        </a>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i
@@ -52,10 +76,26 @@
                     </div>
                 </div>
 
-                <div class="margin-top-10"></div>
+                <div class="margin-top-10">
+                    <div class="invoice_header">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="query" id="query"/>
+                                    <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> <?php echo empty($this->input->post('query',true))?'Излаш':'Тозалаш'?></button>
+                  </span></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>ТР</th>
                         <th>ID</th>
                         <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
@@ -74,11 +114,14 @@
                         $counter++;
                         ?>
                         <tr class="">
+                            <td><input type="checkbox" value="<?php echo $empl['kadrid'] ?>" name="kadr[]" id="kadr[]"/>
+                            </td>
                             <td><? echo $counter ?></td>
                             <td><?php echo $empl['kadrid'] ?></td>
-                            <td><a href="<?php echo base_url("/employee/edit_employee/".$empl['kadrid'])?>" data-title="<?php echo $title; ?>"
+                            <td><a href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"
+                                   data-title="<?php echo $title; ?>"
                                    data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
-                                   >
+                                >
                                     <?php echo $empl['name_f'] . ' ' . $empl['name_i'] . ' ' . $empl['name_o'] ?></a>
                             </td>
                             <td>
@@ -87,18 +130,27 @@
                             <td>
                                 <?php echo $empl['bdate'] ?></td>
                             <td>
-                                <?php echo $empl['sex']==2?'Эркак':'Аёл' ?></td>
+                                <?php echo $empl['sex'] == 2 ? 'Эркак' : 'Аёл' ?></td>
                             <td>
                                 <?php echo $empl['malumot_name'] ?></td>
                             <td class="center"><?php echo $empl['phone_mobile'] ?></td>
                             <td>
 
                                 <div class="btn-group">
-                                    <a type="button" class="btn btn-default" href="<?php echo base_url('/employee/data_employee/'.$empl['kadrid']); ?>" data-title="<?php echo $title; ?>"
-                                       data-kadr_id=<?php echo $empl['kadrid']; ?> > <i class="fa fa-info-circle blue"></i> </a>
-                                    <a type="button" class="btn btn-default" href="<?php echo base_url("/employee/edit_employee/".$empl['kadrid'])?>"> <i class="fa fa-edit green_info"></i> </a>
-                                    <a type="button" class="btn btn-default" href="<?php echo base_url("/employee/objective/".$empl['kadrid'])?>"> <i class="fa fa-user magento"></i> </a>
-                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>" data-kollej_id="<?php echo $empl['kadrid']; ?>" onclick="if (confirm('Ўчиришга ишончингиз комилми!!')==true){ document.location.href='<?php echo base_url('employee/delete_employee/'.$empl['kadrid']);?>'; }">
+                                    <a type="button" class="btn btn-default"
+                                       href="<?php echo base_url('/employee/data_employee/' . $empl['kadrid']); ?>"
+                                       data-title="<?php echo $title; ?>"
+                                       data-kadr_id=<?php echo $empl['kadrid']; ?>> <i
+                                                class="fa fa-info-circle blue"></i> </a>
+                                    <a type="button" class="btn btn-default"
+                                       href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"> <i
+                                                class="fa fa-edit green_info"></i> </a>
+                                    <a type="button" class="btn btn-default"
+                                       href="<?php echo base_url("/employee/objective/" . $empl['kadrid']) ?>"> <i
+                                                class="fa fa-user magento"></i> </a>
+                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>"
+                                       data-kollej_id="<?php echo $empl['kadrid']; ?>"
+                                       onclick="if (confirm('Ўчиришга ишончингиз комилми!!')==true){ document.location.href='<?php echo base_url('employee/delete_employee/' . $empl['kadrid']); ?>'; }">
                                         <i class="fa fa-trash-o red"></i> </a>
 
                                 </div>
@@ -109,7 +161,7 @@
                     </tbody>
                 </table>
             </div>
-
+            </form>
         </div><!--/porlets-content-->
     </div>
 </div>

@@ -10,6 +10,7 @@ class EmployeeModel extends MY_Model
     public function getEmployeeList($isDelete=0)
     {
 
+
         $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
@@ -23,7 +24,11 @@ class EmployeeModel extends MY_Model
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
             $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
         }
+        if (!empty($this->query)) {
+            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%')");
+        }
         $this->db->order_by('d_kadr.kadrid', 'ASC');
+//        echo $this->db->get_compiled_select();
         $query = $this->db->get();
         return $query->result_array();
     }
