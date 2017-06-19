@@ -826,7 +826,13 @@ class Employee extends MY_Controller
         public
         function download($kadrid)
         {
+
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
-            $this->word->down($editdata);
+            $this->data['employee'] = [$editdata];
+            $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
+            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
+            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
+
+            $this->word->down( $this->data);
         }
     }
