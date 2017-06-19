@@ -21,6 +21,8 @@ class Word{
         $template = $this->phpWord->loadTemplate(APPPATH.'/libraries/Example/obektivka.docx');
         $template->setValue('NOMORSURAT', 1);
         $template->setValue('TANGGALSURAT', $data['name_f'] . ' ' . $data['name_i'] . ' ' . $data['name_o']);
+        $template->setValue('BDATE', $data['bdate']);
+        $template->setValue('MILLATNAME', $data['millat_name']);
         $template->setValue('BULANSURAT', date('m'));
         $template->setValue('TAHUNSURAT', date('Y'));
         $template->setValue('NAMA', 'M Arief Fakhrudin');
@@ -45,6 +47,7 @@ class Word{
         unlink($temp_filename);
         exit;
     }
+
 
 
 }
