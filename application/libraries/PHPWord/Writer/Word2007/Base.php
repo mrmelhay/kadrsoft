@@ -588,6 +588,8 @@ class PHPWord_Writer_Word2007_Base extends PHPWord_Writer_Word2007_WriterPart {
 		$height = $style->getHeight();
 		$align = $style->getAlign();
 		
+                
+                
 		$objWriter->startElement('w:p');
 		
 			if(!is_null($align)) {
