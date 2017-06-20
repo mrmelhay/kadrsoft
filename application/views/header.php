@@ -67,7 +67,7 @@ if ($this->session->userdata('logged_in')!=false){
                                 <li> <span class="new"> <a href="task.html" class="pull_left">Create New</a> <a href="task.html" class="pull-right">View All</a> </span> </li>
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Тизим холати <span class="badge badge color_1">4</span> </a>
+                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Янги ҳабар<span class="badge badge color_1">4</span> </a>
                             <ul class="drop_down_task dropdown-menu">
                                 <div class="top_pointer"></div>
                                 <li>

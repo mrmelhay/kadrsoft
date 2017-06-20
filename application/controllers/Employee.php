@@ -389,6 +389,10 @@ class Employee extends MY_Controller
                         $this->data['zahira'] = $this->EmployeeModel->read_by_zahira($kadrid);
                         $this->load->view('/employee/data/ajax_emp_zahira', $this->data);
                         break;
+                    case 19:
+                        $this->data['zahira'] = $this->EmployeeModel->read_by_zahira($kadrid);
+                        $this->load->view('/employee/data/ajax_emp_saylov', $this->data);
+                        break;
                 }
 
 

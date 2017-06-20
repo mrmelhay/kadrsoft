@@ -8,7 +8,7 @@
                     <div class="col-sm-6">
                         <select name="lavozim_id" id="lavozim_id" class="form-control">
                             <option value="">Танланг...</option>
-                            <?php $this->PreferencesModel->getLavozimDropList($zahira['lavozim_id']); ?>
+                            <?php $this->PreferencesModel->getParpiaDropList($zahira['lavozim_id']); ?>
                         </select>
                     </div>
                 </div>
