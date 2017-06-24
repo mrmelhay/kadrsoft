@@ -5881,8 +5881,20 @@ input {
     background: #e84c3d;
 }
 
+
+.magento_symbols {
+    background: #FF00AE;
+
+}.siyoh_symbols {
+    background: #B34EE9;
+}
+
 .green_symbols {
     background: #3ac3a9;
+
+
+}.green2_symbols {
+    background: #DDFB66;
 }
 
 .blue_symbols {
@@ -5952,6 +5964,13 @@ input {
 .infoprogress_red {
     height: 6px;
     background: #b42819;
+    margin-bottom: 5px;
+    margin-top: 28px;
+}
+
+.infoprogress_green2{
+    height: 6px;
+    background: #DDFB66;
     margin-bottom: 5px;
     margin-top: 28px;
 }

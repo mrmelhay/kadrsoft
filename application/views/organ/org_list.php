@@ -29,11 +29,11 @@
                         <td><a href="#" id="empl_count1" data-type="text" data-pk="1" data-value="" ></a></td>
                     </tr>
                     <tr>
-                        <td>Педагогик ходимлар сони</td>
+                        <td>Педагог ходимлар сони</td>
                         <td><a href="#" id="empl_count2" data-type="text" data-pk="1" data-value="5"></a></td>
                     </tr>
                     <tr>
-                        <td>Талабалар сони</td>
+                        <td>Ўқувчилар сони</td>
                         <td><a href="#" id="students_count" data-type="text" data-pk="1" ></a></td>
                     </tr>
                     <tr>

@@ -60,14 +60,14 @@ if(count($kollej)==0) {
         <div class="col-sm-2">
             <input type="text" class="form-control" id="empl_count1" name="empl_count1" />
         </div>
-        <label class="col-sm-3">Пeдагогик ходимлар сони</label>
+        <label class="col-sm-3">Пeдагог ходимлар сони</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" id="empl_count2" name="empl_count2" />
         </div>
 
     </div>
       <div class="form-group lable-padd">
-        <label class="col-sm-3">Талабалар сони</label>
+        <label class="col-sm-3">Ўқувчилар сони</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" id="students_count" name="students_count" />
         </div>
@@ -159,7 +159,7 @@ foreach($kollej as $kollj) {?>
         <div class="col-sm-2">
             <input type="text" class="form-control" id="empl_count1" name="empl_count1" value="<?php echo $kollj['empl_count1'];?>"/>
         </div>
-        <label class="col-sm-3">Пeдагогик ходимлар сони</label>
+        <label class="col-sm-3">Пeдагог ходимлар сони</label>
         <div class="col-sm-2">
             <input type="text" class="form-control" id="empl_count2" name="empl_count2" value="<?php echo $kollj['empl_count2'];?>"/>
         </div>
@@ -172,7 +172,7 @@ foreach($kollej as $kollj) {?>
     <!--                                    </div>-->
     <!--                                </div>-->
     <div class="form-group lable-padd">
-        <label class="col-sm-3">Талабалар сони</label>
+        <label class="col-sm-3">Ўқувчилар сони</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" id="students_count" name="students_count" value="<?php echo $kollj['students_count'];?>"/>
         </div>

@@ -34,6 +34,7 @@
             <thead>
             <tr>
                 <th>ТР</th>
+                <th>Тури</th>
                 <th>Ижодий махсулот номи</th>
                 <th>Яратилган йили</th>
 
@@ -44,8 +45,9 @@
             <?php foreach($ijodiyishs as $ijodiyish){?>
                 <tr class="">
                     <td><? echo 1; ?></td>
+                    <td class="center"> <?php echo $ijodiyish['ijodiyish_type']; ?></td>
                     <td><a href="#" data-title="" data-kadrid="<?php echo $ijodiyish['ijodiyish_id']?>" data-toggle="modal"data-target="#myModal">
-                            <?php echo $ijodiyish['ijodiyish_name']; ?></a>
+                    <?php echo $ijodiyish['ijodiyish_name']; ?></a>
                     </td>
                     <td class="center"> <?php echo $ijodiyish['ijodiyish_year']; ?></td>
                     <td>

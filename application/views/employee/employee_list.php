@@ -24,6 +24,7 @@
                     <?php echo $this->session->flashdata('exception'); ?>
                 </div>
             <?php } ?>
+
             <form class="form-horizontal" method="post" action="<?php echo base_url('employee/employees')?>">
             <div class="adv-table editable-table ">
                 <div class="clearfix">
@@ -37,7 +38,7 @@
                     </div>
                     <div class="btn-group">
                         <a type="button" class="btn btn-info"
-                           href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-info"></i>
+                           href="<?php echo base_url('/employee/data_employee/'); ?>"><i class="fa fa-info"></i>
                             Маълумотнома
 
                         </a>
