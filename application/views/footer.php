@@ -1,4 +1,3 @@
-
 <script src="<?php echo base_url('/assets/js/common-script.js') ?>"></script>
 <script src="<?php echo base_url('/assets/js/jquery.slimscroll.min.js') ?>"></script>
 <script src="<?php echo base_url('/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
@@ -193,12 +192,12 @@ switch ($this->uri->segment(2)) {
     case 'add_employee':
         ?>
 
-        <script src="<?php echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/js/jquery-2.1.0.js'); ?>"></script>
-        <script src="<?php echo base_url('/assets/js/bootstrap.min.js'); ?>"></script>
-        <script  src="<?php echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?>" type="text/javascript" ></script>
+<!--        <script src="--><?php //echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?><!--"></script>-->
+<!--        <script src="--><?php //echo base_url('/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?><!--"></script>-->
+<!--        <script src="--><?php //echo base_url('/assets/plugins/input-mask/jquery.inputmask.min.js'); ?><!--"></script>-->
+<!--        <script src="--><?php //echo base_url('/assets/js/jquery-2.1.0.js'); ?><!--"></script>-->
+<!--        <script src="--><?php //echo base_url('/assets/js/bootstrap.min.js'); ?><!--"></script>-->
+<!--        <script  src="--><?php //echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?><!--" type="text/javascript" ></script>-->
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/input-mask/demo-mask.js');?>"></script>
         <?php

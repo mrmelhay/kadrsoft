@@ -43,29 +43,29 @@
 
             <div class="panel-body">
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a data-toggle="tab"  data-caption='Паспорт' data-emptype="1" href="#Tab1">Паспорт</a></li>
-                <li><a data-toggle="tab"  data-caption='Тиллар' data-emptype="2" href="#Tab2">Тиллар</a></li>
-                <li><a data-toggle="tab"  data-caption='Ўқув юрти' data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
-                <li><a data-toggle="tab"  data-caption='Унвон' data-emptype="4" href="#Tab4">Унвон</a></li>
-                <li><a data-toggle="tab"  data-caption='Даража' data-emptype="5" href="#Tab5">Даража</a></li>
-                <li><a data-toggle="tab"  data-caption='Малака' data-emptype="6" href="#Tab6">Малака</a></li>
-                <li><a data-toggle="tab" data-caption='Қайта' data-emptype="7" href="#Tab7">Қайта</a></li>
-                <li><a data-toggle="tab" data-caption='Меҳнат' data-emptype="8" href="#Tab8">Меҳнат</a></li>
-                <li><a data-toggle="tab" data-caption='Фаолият' data-emptype="9" href="#Tab9">Фаолият</a></li>
-                <li><a data-toggle="tab" data-caption='Фанлар' data-emptype="10" href="#Tab10">Фанлар</a></li>
+                <li class="active"><a data-toggle="tab"  data-caption='Паспорт маълумотлари' data-emptype="1" href="#Tab1">Паспорт</a></li>
+                <li><a data-toggle="tab"  data-caption='Тилларни билиш даражаси' data-emptype="2" href="#Tab2">Тиллар</a></li>
+                <li><a data-toggle="tab"  data-caption='Битирган ўқув юрти' data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
+                <li><a data-toggle="tab"  data-caption='Илмий унвони' data-emptype="4" href="#Tab4">Унвон</a></li>
+                <li><a data-toggle="tab"  data-caption='Илмий даражаси' data-emptype="5" href="#Tab5">Даража</a></li>
+                <li><a data-toggle="tab"  data-caption='Малака ошириш' data-emptype="6" href="#Tab6">Малака</a></li>
+                <li><a data-toggle="tab" data-caption='Қайта тайёрлов' data-emptype="7" href="#Tab7">Қайта</a></li>
+                <li><a data-toggle="tab" data-caption='Меҳнат фаоляти' data-emptype="8" href="#Tab8">Меҳнат</a></li>
+                <li><a data-toggle="tab" data-caption='Муассасадаги фаолияти' data-emptype="9" href="#Tab9">Фаолият</a></li>
+                <li><a data-toggle="tab" data-caption='Ўқитадиган фанлари' data-emptype="10" href="#Tab10">Фанлар</a></li>
                 <li><a data-toggle="tab" data-caption='Аттестация' data-emptype="11" href="#Tab11">Аттестация</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         Қўшимча ... <span class="fa fa-chevron-circle-down blue"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a data-toggle="tab" data-caption='Оила' data-emptype="12" href="#Tab12">Оила</a></li>
-                        <li><a data-toggle="tab" data-caption='Мукофотлар' data-emptype="13" href="#Tab13">Мукофотлар</a></li>
-                        <li><a data-toggle="tab" data-caption='Модератор' data-emptype="14" href="#Tab14">Модератор</a></li>
+                        <li><a data-toggle="tab" data-caption='Оила аъзолари' data-emptype="12" href="#Tab12">Оила</a></li>
+                        <li><a data-toggle="tab" data-caption='Давлат мукофотлари' data-emptype="13" href="#Tab13">Мукофотлар</a></li>
+                        <li><a data-toggle="tab" data-caption='Модераторлик қобилияти' data-emptype="14" href="#Tab14">Модератор</a></li>
                         <li><a data-toggle="tab" data-caption='Судланганлиги' data-emptype="15" href="#Tab15">Судланганлиги</a></li>
                         <li><a data-toggle="tab" data-caption='Интизомий чоралар' data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
                         <li><a data-toggle="tab" data-caption='Ижодий ишлар' data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
-                        <li><a data-toggle="tab" data-caption='Заҳира' data-emptype="18" href="#Tab18">Заҳира</a></li>
+                        <li><a data-toggle="tab" data-caption='Заҳира кадр' data-emptype="18" href="#Tab18">Заҳира</a></li>
                         <li><a data-toggle="tab" data-caption='Депутатлик' data-emptype="19" href="#Tab19">Депутатлик</a></li>
 
 

@@ -61,7 +61,7 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Туғилган вақти</label>
                             <div class="col-md-6">
-                                <input id="bdate" name="bdate" type="text" class="form-control form-control-inline input-medium default-date-picker"   data-date-format="dd-mm-yyyy" value="<?php echo $employee->bdate;?>" placeholder="Кк/Ой/Йил">
+                                <input id="bdate" name="bdate" type="text" class="form-control form-control-inline input-medium default-date-picker"  value="<?php echo $employee->bdate;?>" placeholder="Кк/Ой/Йил">
                             </div>
                         </div>
 
