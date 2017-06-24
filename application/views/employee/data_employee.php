@@ -43,30 +43,30 @@
 
             <div class="panel-body">
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a data-toggle="tab" data-emptype="1" href="#Tab1">Паспорт</a></li>
-                <li><a data-toggle="tab" data-emptype="2" href="#Tab2">Тиллар</a></li>
-                <li><a data-toggle="tab" data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
-                <li><a data-toggle="tab" data-emptype="4" href="#Tab4">Унвон</a></li>
-                <li><a data-toggle="tab" data-emptype="5" href="#Tab5">Даража</a></li>
-                <li><a data-toggle="tab" data-emptype="6" href="#Tab6">Малака</a></li>
-                <li><a data-toggle="tab" data-emptype="7" href="#Tab7">Қайта</a></li>
-                <li><a data-toggle="tab" data-emptype="8" href="#Tab8">Меҳнат</a></li>
-                <li><a data-toggle="tab" data-emptype="9" href="#Tab9">Фаолият</a></li>
-                <li><a data-toggle="tab" data-emptype="10" href="#Tab10">Фанлар</a></li>
-                <li><a data-toggle="tab" data-emptype="11" href="#Tab11">Аттестация</a></li>
+                <li class="active"><a data-toggle="tab"  data-caption='Паспорт' data-emptype="1" href="#Tab1">Паспорт</a></li>
+                <li><a data-toggle="tab"  data-caption='Тиллар' data-emptype="2" href="#Tab2">Тиллар</a></li>
+                <li><a data-toggle="tab"  data-caption='Ўқув юрти' data-emptype="3" href="#Tab3">Ўқув юрти</a></li>
+                <li><a data-toggle="tab"  data-caption='Унвон' data-emptype="4" href="#Tab4">Унвон</a></li>
+                <li><a data-toggle="tab"  data-caption='Даража' data-emptype="5" href="#Tab5">Даража</a></li>
+                <li><a data-toggle="tab"  data-caption='Малака' data-emptype="6" href="#Tab6">Малака</a></li>
+                <li><a data-toggle="tab" data-caption='Қайта' data-emptype="7" href="#Tab7">Қайта</a></li>
+                <li><a data-toggle="tab" data-caption='Меҳнат' data-emptype="8" href="#Tab8">Меҳнат</a></li>
+                <li><a data-toggle="tab" data-caption='Фаолият' data-emptype="9" href="#Tab9">Фаолият</a></li>
+                <li><a data-toggle="tab" data-caption='Фанлар' data-emptype="10" href="#Tab10">Фанлар</a></li>
+                <li><a data-toggle="tab" data-caption='Аттестация' data-emptype="11" href="#Tab11">Аттестация</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         Қўшимча ... <span class="fa fa-chevron-circle-down blue"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a data-toggle="tab" data-emptype="12" href="#Tab12">Оила</a></li>
-                        <li><a data-toggle="tab" data-emptype="13" href="#Tab13">Мукофотлар</a></li>
-                        <li><a data-toggle="tab" data-emptype="14" href="#Tab14">Модератор</a></li>
-                        <li><a data-toggle="tab" data-emptype="15" href="#Tab15">Судланганлиги</a></li>
-                        <li><a data-toggle="tab" data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
-                        <li><a data-toggle="tab" data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
-                        <li><a data-toggle="tab" data-emptype="18" href="#Tab18">Заҳира</a></li>
-                        <li><a data-toggle="tab" data-emptype="19" href="#Tab19">Депутатлик</a></li>
+                        <li><a data-toggle="tab" data-caption='Оила' data-emptype="12" href="#Tab12">Оила</a></li>
+                        <li><a data-toggle="tab" data-caption='Мукофотлар' data-emptype="13" href="#Tab13">Мукофотлар</a></li>
+                        <li><a data-toggle="tab" data-caption='Модератор' data-emptype="14" href="#Tab14">Модератор</a></li>
+                        <li><a data-toggle="tab" data-caption='Судланганлиги' data-emptype="15" href="#Tab15">Судланганлиги</a></li>
+                        <li><a data-toggle="tab" data-caption='Интизомий чоралар' data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
+                        <li><a data-toggle="tab" data-caption='Ижодий ишлар' data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
+                        <li><a data-toggle="tab" data-caption='Заҳира' data-emptype="18" href="#Tab18">Заҳира</a></li>
+                        <li><a data-toggle="tab" data-caption='Депутатлик' data-emptype="19" href="#Tab19">Депутатлик</a></li>
 
 
                     </ul>
@@ -187,22 +187,25 @@
 <script>
     var target;
     var emptype;
+    var title;
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         target = $(e.target).attr("href");
         emptype = $(e.target).data('emptype')?$(e.target).data('emptype'):1;
+        title = $(e.target).data("caption")?$(e.target).data('caption'):'Паспорт';
     });
 
         $('#myModal').on('shown.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var modal = $(this);
-            var title = button.data("title");
+            //title = button.data("caption");
             var kadrid = button.data("kadrid");
-            if (emptype==undefined){
+            if (emptype==undefined && title==undefined){
                 emptype=1;
+                title='Паспорт';
 
-            }else{
-                modal.find('.modal-title').text(target+" "+emptype);
             }
+                modal.find('.modal-title').text(title);
+
 
             $(".modal-body").html("Юкланмоқда...");
             $.ajax({
@@ -212,6 +215,7 @@
                 success: function (data) {
                     $('.modal-body').html(data);
                     $('#emptype').val(emptype);
+
                 }
             });
 
