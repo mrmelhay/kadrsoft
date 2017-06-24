@@ -106,10 +106,10 @@ $('.timepicker-24').timepicker({
 
 //colorpicker start
 
-$('.colorpicker-default').colorpicker({
-    format: 'hex'
-});
-$('.colorpicker-rgba').colorpicker();
+// $('.colorpicker-default').colorpicker({
+//     format: 'hex'
+// });
+// $('.colorpicker-rgba').colorpicker();
 
 //colorpicker end
 

@@ -97,7 +97,7 @@
                                     <?php $this->PreferencesModel->getMalumotDropList($employee->malumot_id); ?>
                                 </select>
                             </div>
-                        </div><!--/form-group-->
+                        </div>
 
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Тоифаси</label>
