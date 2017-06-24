@@ -21,7 +21,8 @@ class EmployeeModel extends MY_Model
         $this->db->where('d_kadr.isdelete', $isDelete);
 
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
-            $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
+//            $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
+            $this->db->where('(d_kadr_items_bind.kollej_id='.$this->kollej_id.' or spr_kollej.kollej_parent_id='.$this->kollej_id.')');
         }
 
         if (!empty($this->query)) {

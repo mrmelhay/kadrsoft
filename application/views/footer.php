@@ -241,11 +241,7 @@ switch ($this->uri->segment(2)) {
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/x-editable/form-x-editable-demo.js');?>"></script>
         <script type="text/javascript"  src="<?php echo base_url('assets/plugins/mockjax/jquery.mockjax.min.js');?>"></script>
         <script  src="<?php echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?>" type="text/javascript" ></script>
-
-
-
-
-        <?php
+       <?php
         break;
 
 }
