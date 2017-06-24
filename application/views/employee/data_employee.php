@@ -66,7 +66,7 @@
                         <li><a data-toggle="tab" data-emptype="16" href="#Tab16">Интизомий чоралар</a></li>
                         <li><a data-toggle="tab" data-emptype="17" href="#Tab17">Ижодий ишлар</a></li>
                         <li><a data-toggle="tab" data-emptype="18" href="#Tab18">Заҳира</a></li>
-                        <li><a data-toggle="tab" data-emptype="18" href="#Tab19">Депутатлик</a></li>
+                        <li><a data-toggle="tab" data-emptype="19" href="#Tab19">Депутатлик</a></li>
 
 
                     </ul>

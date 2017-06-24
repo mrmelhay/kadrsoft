@@ -371,6 +371,17 @@ class PreferencesModel extends MY_Model
         }
     }
 
+    public function getSaylovDropList($selected = false)
+    {
+        if ($this->saylovList) {
+            foreach ($this->saylovList as $key => $row) {
+                $sel = ($row['saylov_id'] == $selected) ? " selected=\"selected\"" : "";
+                print '<option value="' . $row['saylov_id'] . '"' . $sel . '">';
+                print $row['saylov_name'] . '</option>';
+            }
+        }
+    }
+
 
     public function getQarindoshDropList($selected = false)
     {

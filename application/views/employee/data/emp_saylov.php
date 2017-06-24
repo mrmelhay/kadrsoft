@@ -40,22 +40,22 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach($zahiras as $zahira){?>
+        <?php foreach($saylov as $charity){?>
             <tr class="">
                 <td><? echo 1; ?></td>
-                <td><a href="#" data-title="" data-kadrid="<?php echo $zahira['saylov_id']?>" data-toggle="modal" data-target="#myModal">
-                        <?php echo $zahira['saylov_name']; ?></a>
+                <td><a href="#" data-title="" data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal" data-target="#myModal">
+                        <?php echo $charity['saylov_name']; ?></a>
                 </td>
                 <td>
-                    <?php echo $zahira['saylov_year']; ?></td>
+                    <?php echo $charity['saylov_year']; ?></td>
 
 
                 <td>
 
                     <div class="btn-group">
 
-                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $zahira['zahira_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
-                        <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $zahira['zahira_id']?>" data-toggle="modal"data-target="#myModalDelete">
+                        <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
+                        <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal"data-target="#myModalDelete">
                             <i class="fa fa-trash-o red"></i> </a>
 
                     </div>

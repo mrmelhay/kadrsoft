@@ -3,22 +3,21 @@
         <div class="block-web">
             <div class="porlets-content">
                 <div class="form-group">
-                    <input type="hidden" name="dmukofot_id" id="dmukofot_id" value="<?php echo $zahira['zahira_id']; ?>">
+                    <input type="hidden" name="dsaylov_id" id="dsaylov_id"
+                           value="<?php echo $saylov['dsaylov_id']; ?>">
                     <label class="col-sm-5 control-label">Қаерга сайланган</label>
                     <div class="col-sm-6">
-                        <select name="lavozim_id" id="lavozim_id" class="form-control">
+                        <select name="saylov_id" id="saylov_id" class="form-control">
                             <option value="">Танланг...</option>
-                            <?php $this->PreferencesModel->getLavozimDropList($zahira['lavozim_id']); ?>
+                            <?php $this->PreferencesModel->getSaylovDropList($saylov['saylov_id']); ?>
                         </select>
                     </div>
                 </div>
-
-
-
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Сайланган йили</label>
                     <div class="col-sm-6">
-                        <input type="text" name="zahira_year" class="form=control" id="zahira_year" value="<?php echo $zahira['zahira_year'];?>"/>
+                        <input type="text" name="saylov_year" class="form=control" id="saylov_year"
+                               value="<?php echo $saylov['saylov_year']; ?>"/>
                     </div>
                 </div>
             </div>

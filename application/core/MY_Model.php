@@ -19,6 +19,7 @@ class MY_Model extends CI_Model{
     public $millatiList=array();
     public $davlatList=array();
     public $partiyaList=array();
+    public $saylovList=array();
     public $otmlist=array();
     public $ilmiyunvonList=array();
     public $ilmiydarajaList=array();
@@ -80,6 +81,7 @@ class MY_Model extends CI_Model{
         $this->loadQarindosh();
         $this->loadMalakaLavozim();
         $this->loadMukofot();
+        $this->loadSaylov();
     }
 
     public function loadViloyat(){
@@ -398,6 +400,17 @@ class MY_Model extends CI_Model{
             $this->partiyaList[$rows['partiya_id']]=$rows;
         }
         return $this->partiyaList;
+    }
+
+    public function loadSaylov(){
+        $this->db->select('*');
+        $this->db->from('spr_saylov');
+        $this->db->order_by('spr_saylov.saylov_id','ASC');
+        $query=$this->db->get();
+        foreach($query->result_array() as $rows){
+            $this->saylovList[$rows['saylov_id']]=$rows;
+        }
+        return $this->saylovList;
     }
 
 
