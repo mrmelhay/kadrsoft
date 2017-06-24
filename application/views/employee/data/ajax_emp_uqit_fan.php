@@ -17,8 +17,9 @@
                     <label class="col-sm-5 control-label">Фан номи</label>
                     <div class="col-sm-6">
                         <select name="fanlar_id" id="fanlar_id" class="form-control" required>
-                            <option value="">Танланг...</option>
+                           <?php if ($fanlari['fanlar_id']) {?>
                             <?php $this->PreferencesModel->getFanlarDropList($fanlari['fan_turi_id'],$fanlari['fanlar_id']); ?>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
@@ -96,4 +97,18 @@
     </div>
 
 </div>
-
+<script>
+    $(document).ready(function () {
+        $(document).on('change', "#fan_turi_id", function () {
+            var page = $('select[name="fan_turi_id"]').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/preferences/ajax_data_fanlar')?>",
+                data: {fan_turi_id: page},
+                success: function (data) {
+                    $('#fanlar_id').html(data);
+                }
+            });
+        });
+    });
+</script>

@@ -76,7 +76,6 @@ class MY_Model extends CI_Model{
         $this->loadQaytatfan();
         $this->loadShartnomaType();
         $this->loadFanTuri();
-        $this->loadFanlar();
         $this->loadUqitSoha();
         $this->loadQarindosh();
         $this->loadMalakaLavozim();
@@ -116,6 +115,7 @@ class MY_Model extends CI_Model{
         if ($this->fan_turi_id!=null) {
             $this->db->where('fan_turi_id', $this->fan_turi_id);
         }
+
         $this->db->order_by('spr_fanlar.fanlar_id','ASC');
         $query=$this->db->get();
         foreach($query->result_array() as $rows){

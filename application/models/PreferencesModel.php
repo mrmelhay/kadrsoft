@@ -315,6 +315,7 @@ class PreferencesModel extends MY_Model
         //  $userdata=array();
         print "<option value=''>Танланг...</option>";
         $this->fan_turi_id = $fan_turi;
+
         $this->loadFanlar();
         if ($this->fanlarList) {
             foreach ($this->fanlarList as $key => $row) {
@@ -433,7 +434,7 @@ class PreferencesModel extends MY_Model
         if ($this->fanturiList) {
             foreach ($this->fanturiList as $key => $row) {
                 $sel = ($row['fan_turi_id'] == $selected) ? " selected=\"selected\"" : "";
-                print '<option value="' . $row['fan_turi_id'] . '"' . $sel . '">';
+                print '<option value="' . $row['fan_turi_id'] . '"' . $sel . '>';
                 print $row['fan_turi_name'] . '</option>';
             }
         }
