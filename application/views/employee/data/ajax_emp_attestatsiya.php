@@ -38,6 +38,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Тест топшириш тили</label>
+                    <div class="col-sm-6">
+                        <select name="tillar_id" id="tillar_id" class="form-control" required>
+                            <option value="">Танланг...</option>
+                            <?php $this->PreferencesModel->getLanguageDropList($attestasiya['tillar_id']); ?>
+                        </select>
+                    </div>
+                </div>
 
 
             </div>
@@ -48,11 +57,20 @@
         <div class="block-web">
             <div class="porlets-content">
                 <div class="form-group">
-                    <label class="col-sm-5 control-label">Аттестациядан ўтган фани</label>
+                    <label class="col-sm-5 control-label">Фан тури</label>
                     <div class="col-sm-6">
-                        <select name="mutax_kodi_id" id="mutax_kodi_id" class="form-control" required>
+                        <select name="fan_turi_id" id="fan_turi_id" class="form-control" required>
                             <option value="">Танланг...</option>
-                            <?php $this->PreferencesModel->getMutaxasislikDropList($attestasiya['mutax_kodi_id']); ?>
+                            <?php $this->PreferencesModel->getFanTuriDropList($attestasiya['fan_turi_id']); ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Фан номи</label>
+                    <div class="col-sm-6">
+                        <select name="fanlar_id" id="fanlar_id" class="form-control" required>
+                            <option value="">Танланг...</option>
+                            <?php $this->PreferencesModel->getFanlarDropList($attestasiya['fan_turi_id'],$attestasiya['fanlar_id']); ?>
                         </select>
                     </div>
                 </div>
@@ -73,15 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Тест топшириш тили</label>
-                    <div class="col-sm-6">
-                        <select name="tillar_id" id="tillar_id" class="form-control" required>
-                            <option value="">Танланг...</option>
-                            <?php $this->PreferencesModel->getLanguageDropList($attestasiya['tillar_id']); ?>
-                        </select>
-                    </div>
-                </div>
+
 
 
 

@@ -177,7 +177,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Чиқиш</button>
-                    <button type="submit" class="btn btn-primary">Сақлаш</button>
+                    <button type="submit" class="btn btn-primary">Ўчириш</button>
                 </div>
             </form>
         </div>
