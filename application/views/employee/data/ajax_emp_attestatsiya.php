@@ -30,11 +30,17 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Охирги марта аттестация жалб этилган йили</label>
                     <div class="col-sm-6">
-                        <div class="input-group">
-                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili" class="form-control" maxlength="4" value="<?php echo $attestasiya['oxirgi_att_yili'];?>">
+                        <div id="datetimepicker1" class="input-group date">
+                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" maxlength="4"
+                                   value="<?php echo $attestasiya['oxirgi_att_yili'];?>">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar icon"></i>
+<!--                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>-->
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -68,7 +74,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Охирги аттестация комиссия хулосаси</label>
                     <div class="col-sm-6">
-                        <div class="input-group">
+                        <div class="input-group ">
                             <textarea  name="oxirgi_att_xulosa" id="oxirgi_att_xulosa" class="form-control" style="resize:vertical; height: 100px; min-height: 100px; max-height: 500px " rows="6" ><?php echo $attestasiya['oxirgi_att_xulosa'];?></textarea>
                         </div>
                     </div>

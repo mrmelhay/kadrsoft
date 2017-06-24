@@ -25,7 +25,7 @@
                 </div>
             <?php } ?>
 
-            <form class="form-horizontal" method="post" action="<?php echo base_url('employee/employees')?>">
+            <form class="form-horizontal" method="post" name="selform" action="<?php echo base_url('employee/employees')?>">
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
@@ -37,31 +37,32 @@
 
                     </div>
                     <div class="btn-group">
-                        <a type="button" class="btn btn-info"
-                           href="<?php echo base_url('/employee/data_employee/'); ?>"><i class="fa fa-info"></i>
+                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("/employee/data_employee") ?>')"
+                           ><i class="fa fa-info"></i>
                             Маълумотнома
 
-                        </a>
+                        </button>
                     </div>
 
                     <div class="btn-group">
-                        <a type="button" class="btn btn-warning"
+                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("/employee/edit_employee") ?>')"
                            href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
                             Тахрирлаш
 
-                        </a>
+                        </button>
                     </div>
 
                     <div class="btn-group">
-                        <a type="button" class="btn btn-success"
+                        <button type="button" class="btn btn-success" onclick="javascript:checkSel('<?php echo base_url("/employee/download") ?>')"
                            href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-file"></i>
                             Обективка
 
-                        </a>
+                        </button>
                     </div>
+
                     <div class="btn-group">
-                        <a type="button" class="btn btn-danger"
-                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-trash-o"></i> Ишдан
+                        <a type="button" class="btn btn-danger" onclick='javascript:checkSel("<?php echo base_url("/employee/employee_info") ?>")'
+                           href="#"> <i class="fa fa-trash-o"></i> Ишдан
                             бўшатиш
                         </a>
                     </div>

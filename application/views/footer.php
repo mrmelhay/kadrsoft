@@ -1,13 +1,14 @@
 
-<script src="<?php echo base_url('/assets/js/common-script.js') ?>"></script>
-<script src="<?php echo base_url('/assets/js/jquery.slimscroll.min.js') ?>"></script>
-<script src="<?php echo base_url('/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
-<script src="<?php echo base_url('/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
-<script src="<?php echo base_url('/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js'); ?>"></script>
-<!--<script src="--><?php //echo base_url('/assets/plugins/checkbox/icheck.js'); ?><!--"></script>-->
 <!--<script src="--><?php //echo base_url('/assets/plugins/checkbox/zepto.js'); ?><!--"></script>-->
 <!--<script src="--><?php //echo base_url('/assets/js/icheck.js'); ?><!--"></script>-->
 <!--<script src="--><?php //echo base_url('/assets/js/icheck-init.js'); ?><!--"></script>-->
+<script src="<?php echo base_url('assets/js/common-script.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.slimscroll.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js'); ?>"></script>
+
+
 
 
 
@@ -248,6 +249,29 @@ switch ($this->uri->segment(2)) {
         break;
 
 }
-
-
 ?>
+<script>
+    $(function() {
+        $('#datetimepicker1').datepicker({
+            language: 'pt-BR'
+        });
+    });
+
+    function checkSel(link){
+        var ch = 0;
+        for (var i=0; i<document.selform.length; i++){
+            if(document.selform.elements[i].name == 'kadr[]'){
+                if(document.selform.elements[i].checked){
+                    ch++;
+                }
+            }
+        }
+
+        if (ch>0){
+            document.selform.action = link;
+            document.selform.submit();
+        } else { alert(' Илтимос...   ходимни танланг!'); }
+
+    }
+</script>
+

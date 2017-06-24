@@ -328,7 +328,7 @@ class EmployeeModel extends MY_Model
             ->from("d_attestatsiya")
             ->join('spr_malaka_lavozim', 'spr_malaka_lavozim.malaka_lavozim_id=d_attestatsiya.malaka_lavozim_id', 'left')
             ->join('spr_tillar', 'spr_tillar.tillar_id=d_attestatsiya.tillar_id', 'left')
-            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id', 'left')
+//            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id', 'left')
             ->where('d_attestatsiya.kadr_id', $user_id)
             ->get()
             ->result_array();
@@ -340,7 +340,7 @@ class EmployeeModel extends MY_Model
             ->from("d_attestatsiya")
             ->join('spr_malaka_lavozim', 'spr_malaka_lavozim.malaka_lavozim_id=d_attestatsiya.malaka_lavozim_id', 'left')
             ->join('spr_tillar', 'spr_tillar.tillar_id=d_attestatsiya.tillar_id', 'left')
-            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id', 'left')
+//            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_attestatsiya.mutax_kodi_id', 'left')
             ->where('d_attestatsiya.attestatsiya_id', $user_id)
             ->get()
             ->row_array();

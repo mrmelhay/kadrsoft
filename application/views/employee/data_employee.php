@@ -214,6 +214,8 @@
                     $('#emptype').val(emptype);
                 }
             });
+
+
         });
 
 
