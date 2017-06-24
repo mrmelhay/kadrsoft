@@ -17,7 +17,7 @@ class PreferencesModel extends MY_Model
         'kollej_adress' => array('field' => 'kollej_adress', 'label' => 'Манзил', 'rules' => 'required|max_length[32]'),
         'empl_count1' => array('field' => 'empl_count1', 'label' => 'Ходимлар сони', 'rules' => 'required|max_length[32]'),
         'empl_count2' => array('field' => 'empl_count2', 'label' => 'Пeдагогик ходимлар сони', 'rules' => 'required|max_length[32]'),
-        'students_count' => array('field' => 'students_count', 'label' => 'Талабалар сони', 'rules' => 'required|max_length[32]'),
+        'students_count' => array('field' => 'students_count', 'label' => 'Ўқувчилар сони', 'rules' => 'required|max_length[32]'),
         'phone' => array('field' => 'phone', 'label' => 'Телефон', 'rules' => 'required|max_length[32]'),
         'email' => array('field' => 'email', 'label' => 'Электрон почта', 'rules' => 'required|max_length[32]'),
         'website' => array('field' => 'website', 'label' => 'Веб сайт', 'rules' => 'required|max_length[32]'),

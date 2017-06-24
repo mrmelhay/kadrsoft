@@ -690,6 +690,7 @@ class Employee extends MY_Controller
                         $postdata = [
                             'ijodiyish_id' => $this->input->post('ijodiyish_id', true),
                             'kadr_id' => $this->input->post('kadr_id', true),
+                            'ijodiyish_type' => $this->input->post('ijodiyish_type', true),
                             'ijodiyish_name' => $this->input->post('ijodiyish_name', true),
                             'ijodiyish_year' => $this->input->post('ijodiyish_year', true),
                             'ijodiyish_page' => $this->input->post('ijodiyish_page', true),
@@ -703,6 +704,17 @@ class Employee extends MY_Controller
                             'kadr_id' => $this->input->post('kadr_id', true),
                             'lavozim_id' => $this->input->post('lavozim_id', true),
                             'zahira_year' => $this->input->post('zahira_year', true),
+                        ];
+                        $this->EmployeeModel->insert_date_info($postdata, $emptype);
+                        redirect($_SERVER['HTTP_REFERER']);
+                        break;
+
+                    case 19:
+                        $postdata = [
+                            'dsaylov_id' => $this->input->post('dsaylov_id', true),
+                            'kadr_id' => $this->input->post('kadr_id', true),
+                            'saylov_id' => $this->input->post('saylov_id', true),
+                            'saylov_year' => $this->input->post('saylov_year', true),
                         ];
                         $this->EmployeeModel->insert_date_info($postdata, $emptype);
                         redirect($_SERVER['HTTP_REFERER']);
