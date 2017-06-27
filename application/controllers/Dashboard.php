@@ -19,7 +19,11 @@ class Dashboard extends MY_Controller{
         if($this->session->userdata('logged_in')!=TRUE){
             redirect(base_url('users'));
         }
+        $kollej_id=$this->session->userdata('kollej_id');
+        $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+        if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
 
+        $this->data['emp_count'] = count($this->EmployeeModel->getEmployeeList());
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }

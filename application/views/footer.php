@@ -246,3 +246,27 @@ switch ($this->uri->segment(2)) {
 
 
 ?>
+<script>
+    $(function() {
+        $('#datetimepicker1').datepicker({
+            language: 'pt-BR'
+        });
+    });
+
+    function checkSel(link){
+        var ch = 0;
+        for (var i=0; i<document.selform.length; i++){
+            if(document.selform.elements[i].name == 'kadr[]'){
+                if(document.selform.elements[i].checked){
+                    ch++;
+                }
+            }
+        }
+
+        if (ch>0){
+            document.selform.action = link;
+            document.selform.submit();
+        } else { alert(' Илтимос...   ходимни танланг!'); }
+
+    }
+</script>

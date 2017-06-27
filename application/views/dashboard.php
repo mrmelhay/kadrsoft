@@ -20,7 +20,7 @@
                 <div class="information_inner">
                     <div class="info green_symbols"><i class="fa fa-users icon"></i></div>
                     <span>Жами ходимлар сони</span>
-                    <h1 class="bolded">12,254K</h1>
+                    <h1 class="bolded"><?php echo $emp_count?> та</h1>
                     <div class="infoprogress_green">
                         <div class="greenprogress"></div>
                     </div>
