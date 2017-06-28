@@ -44,9 +44,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($atestasiyas as $attes){?>
+        <?php
+        $i=0;
+        foreach ($atestasiyas as $attes){?>
             <tr class="">
-                <td><? echo 1; ?></td>
+                <td><? echo $i+=1; ?></td>
                 <td><a href="#"  data-kadrid="<?php echo $attes['attestatsiya_id']; ?>" data-toggle="modal" data-target="#myModal">
                         <?php echo $attes['malaka_lavozim_name']; ?></a>
                 </td>

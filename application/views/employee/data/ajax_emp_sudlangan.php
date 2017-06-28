@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="block-web">
-            <input type="hidden" name="dmukofot_id" id="dmukofot_id" value="<?php echo $sudlanganlik['sudlanganlik_id']; ?>">
+            <input type="hidden" name="sudlanganlik_id" id="sudlanganlik_id" value="<?php echo $sudlanganlik['sudlanganlik_id']; ?>">
             <div class="porlets-content">
 
                 <div class="form-group">

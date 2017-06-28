@@ -42,9 +42,11 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($moderators as $moderator){?>
+            <?php
+            $i=0;
+            foreach($moderators as $moderator){?>
                 <tr class="">
-                    <td><? echo 1; ?></td>
+                    <td><? echo $i+=1; ?></td>
                     <td><a href="#" data-title="" data-kadrid="<?php echo $moderator['moderator_id']?>" data-toggle="modal" data-target="#myModal">
                             <?php echo $moderator['lavozim_name']; ?></a>
                     </td>

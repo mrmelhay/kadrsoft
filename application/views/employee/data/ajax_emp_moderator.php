@@ -3,7 +3,7 @@
         <div class="block-web">
             <div class="porlets-content">
                 <div class="form-group">
-                    <input type="hidden" name="dmukofot_id" id="dmukofot_id" value="<?php echo $moderator['moderator_id']; ?>">
+                    <input type="hidden" name="moderator_id" id="moderator_id" value="<?php echo $moderator['moderator_id']; ?>">
                     <label class="col-sm-5 control-label">Лавозими</label>
                     <div class="col-sm-6">
                         <select name="lavozim_id" id="lavozim_id" class="form-control">

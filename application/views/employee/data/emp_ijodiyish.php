@@ -42,9 +42,11 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($ijodiyishs as $ijodiyish){?>
+            <?php
+            $i=0;
+            foreach($ijodiyishs as $ijodiyish){?>
                 <tr class="">
-                    <td><? echo 1; ?></td>
+                    <td><? echo $i+=1; ?></td>
                     <td class="center"> <?php echo $ijodiyish['ijodiyish_type']; ?></td>
                     <td><a href="#" data-title="" data-kadrid="<?php echo $ijodiyish['ijodiyish_id']?>" data-toggle="modal"data-target="#myModal">
                     <?php echo $ijodiyish['ijodiyish_name']; ?></a>

@@ -46,9 +46,11 @@
         </tr>
         </thead>
         <tbody>
-<?php foreach ($malakas as $malaka){?>
+<?php
+    $i=0;
+        foreach ($malakas as $malaka){?>
         <tr class="">
-            <td><? echo 1; ?></td>
+            <td><? echo $i+=1; ?></td>
             <td><a href="#"  data-kadrid="<?php echo $malaka['malaka_id']; ?>" data-toggle="modal" data-target="#myModal">
                     <?php echo $malaka['malaka_turi_name']; ?></a>
             </td>

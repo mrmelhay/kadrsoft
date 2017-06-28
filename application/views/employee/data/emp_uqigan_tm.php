@@ -62,16 +62,12 @@ foreach($uqigantms as $uqiganm){?>
             <td class="center"><?php ''; ?></td>
             <td class="center"><?php echo  $uqiganm['is_active']?"<span class='fa fa-check'></span>":"<span class='fa fa-times'></span>"; ?></td>
             <td>
-
                 <div class="btn-group">
-
                     <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $uqiganm['uqigan_tm_id']; ?>" data-toggle="modal" data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
                     <a type="button" class="btn btn-default" href="#" data-toggle="modal" data-kadrid="<?php echo $uqiganm['uqigan_tm_id']; ?>"
                        data-target="#myModalDelete">
                     <i class="fa fa-trash-o red"></i> </a>
-
                 </div>
-
             </td>
         </tr>
 <?php }?>

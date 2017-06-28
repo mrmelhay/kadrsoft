@@ -47,9 +47,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($qaytamalakas as $qaytamalaka) { ?>
+        <?php
+        $i=0;
+        foreach ($qaytamalakas as $qaytamalaka) { ?>
             <tr class="">
-                <td><? echo 1; ?></td>
+                <td><? echo $i+=1; ?></td>
                 <td><a href="#" data-kadrid="<?php echo $qaytamalaka['qaytat_id']; ?>" data-toggle="modal"  data-target="#myModal">
                         <?php echo $qaytamalaka['qayta_turi_name']; ?></a>
                 </td>

@@ -46,9 +46,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($ilmiydarajas as $ilmdarajas) {?>
+        <?php
+        $i=0;
+        foreach ($ilmiydarajas as $ilmdarajas) {?>
         <tr class="">
-            <td><? echo 1; ?></td>
+            <td><? echo $i+=1; ?></td>
             <td><a href="#" data-title="" data-kadrid="<?php echo $ilmdarajas['d_ilmiy_daraja_id']; ?>"
                    data-toggle="modal" data-target="#myModal">
                     <?php echo $ilmdarajas['ilm_daraja_name']; ?>

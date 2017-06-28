@@ -44,9 +44,11 @@
         </tr>
         </thead>
         <tbody>
-<?php foreach($muassasaishs as $muassasaish){?>
+        <?php
+        $i=0;
+        foreach($muassasaishs as $muassasaish){?>
         <tr class="">
-            <td><? echo 1; ?></td>
+            <td><? echo $i+=1; ?></td>
             <td><a href="#" data-title="" data-kadrid="<?php echo $muassasaish['muassasa_ish_id']?>" data-toggle="modal"data-target="#myModal">
                     <?php echo $muassasaish['lavozim_name']; ?></a>
             </td>

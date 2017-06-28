@@ -43,9 +43,11 @@
         </tr>
         </thead>
         <tbody>
-<?php foreach($ilmiyunvons as $uqigntms){?>
+<?php
+$i=0;
+foreach($ilmiyunvons as $uqigntms){?>
         <tr class="">
-            <td><? echo 1; ?></td>
+            <td><? echo $i+=1; ?></td>
             <td><a href="#"  data-kadrid="<?php echo $uqigntms['ilmiy_un_id']; ?>" data-toggle="modal" data-target="#myModal">
                     <?php echo $uqigntms['ilmiy_unvon_nomi']; ?></a>
             </td>

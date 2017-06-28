@@ -42,9 +42,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($languages as $lang) { ?>
+        <?php
+        $i=0;
+        foreach ($languages as $lang) { ?>
             <tr class="">
-                <td><? echo 1; ?></td>
+                <td><? echo $i+=1; ?></td>
                 <td><a href="#" data-title="" data-kadrid="<?php echo $lang['tillar_bind_id']; ?>" data-toggle="modal"
                        data-target="#myModal">
                         <?php echo $lang['tillar_nomi']; ?></a>

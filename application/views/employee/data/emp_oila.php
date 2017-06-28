@@ -43,9 +43,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($oilas as $oila){?>
+        <?php
+        $i=0;
+        foreach ($oilas as $oila){?>
             <tr class="">
-                <td><? echo 1; ?></td>
+                <td><? echo $i+=1; ?></td>
                 <td><a href="#"  data-kadrid="<?php echo $oila['d_oila_id']; ?>" data-toggle="modal" data-target="#myModal">
                         <?php echo $oila['qarindosh_name']; ?></a>
                 </td>

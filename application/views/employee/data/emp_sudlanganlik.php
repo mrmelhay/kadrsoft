@@ -37,9 +37,11 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($sudlanganliks as $sudlanganlik){?>
+            <?php
+            $i=0;
+            foreach($sudlanganliks as $sudlanganlik){?>
                 <tr class="">
-                    <td><? echo 1; ?></td>
+                    <td><? echo $i+=1; ?></td>
                     <td><a href="#" data-title="" data-kadrid="<?php echo $sudlanganlik['sudlanganlik_id']?>" data-toggle="modal"data-target="#myModal">
                             <?php echo $sudlanganlik['sud_year']; ?>
                         </a>

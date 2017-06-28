@@ -40,9 +40,11 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($zahiras as $zahira){?>
+            <?php
+            $i=0;
+            foreach($zahiras as $zahira){?>
                 <tr class="">
-                    <td><? echo 1; ?></td>
+                    <td><? echo $i+=1; ?></td>
                     <td><a href="#" data-title="" data-kadrid="<?php echo $zahira['zahira_id']?>" data-toggle="modal" data-target="#myModal">
                             <?php echo $zahira['lavozim_name']; ?></a>
                     </td>

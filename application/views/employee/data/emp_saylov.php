@@ -40,30 +40,25 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach($saylov as $charity){?>
+        <?php
+        $i=0;
+        foreach($saylov as $charity){?>
             <tr class="">
-                <td><? echo 1; ?></td>
+                <td><? echo $i+=1; ?></td>
                 <td><a href="#" data-title="" data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal" data-target="#myModal">
                         <?php echo $charity['saylov_name']; ?></a>
                 </td>
                 <td>
                     <?php echo $charity['saylov_year']; ?></td>
-
-
                 <td>
-
                     <div class="btn-group">
-
                         <a type="button" class="btn btn-default" href="#" data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal"data-target="#myModal"> <i class="fa fa-edit green_info"></i> </a>
                         <a type="button" class="btn btn-default" href="#"  data-kadrid="<?php echo $charity['dsaylov_id']?>" data-toggle="modal"data-target="#myModalDelete">
                             <i class="fa fa-trash-o red"></i> </a>
-
                     </div>
-
                 </td>
             </tr>
         <?php }?>
-
         </tbody>
     </table>
 </div>
