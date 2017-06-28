@@ -1116,7 +1116,7 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Word Wrap
+	 * Word2 Wrap
 	 *
 	 * @param	string
 	 * @param	int	line-length limit

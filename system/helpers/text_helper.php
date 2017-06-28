@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if ( ! function_exists('word_limiter'))
 {
 	/**
-	 * Word Limiter
+	 * Word2 Limiter
 	 *
 	 * Limits a string to X number of words.
 	 *
@@ -130,7 +130,7 @@ if ( ! function_exists('ascii_to_entities'))
 	/**
 	 * High ASCII to Entities
 	 *
-	 * Converts high ASCII text and MS Word special characters to character entities
+	 * Converts high ASCII text and MS Word2 special characters to character entities
 	 *
 	 * @param	string	$str
 	 * @return	string
@@ -247,7 +247,7 @@ if ( ! function_exists('entities_to_ascii'))
 if ( ! function_exists('word_censor'))
 {
 	/**
-	 * Word Censoring Function
+	 * Word2 Censoring Function
 	 *
 	 * Supply a string and an array of disallowed words and any
 	 * matched words will be converted to #### or to the replacement
@@ -429,7 +429,7 @@ if ( ! function_exists('convert_accented_characters'))
 if ( ! function_exists('word_wrap'))
 {
 	/**
-	 * Word Wrap
+	 * Word2 Wrap
 	 *
 	 * Wraps text at the specified character. Maintains the integrity of words.
 	 * Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor

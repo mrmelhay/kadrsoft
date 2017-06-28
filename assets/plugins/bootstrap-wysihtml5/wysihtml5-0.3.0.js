@@ -5472,7 +5472,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
         // It more or less just takes care of basic attacks and prevents accidental theft of sensitive information
         // IE is secure though, which is the most important thing, since IE is the only browser, who
         // takes over scripts & styles into contentEditable elements when copied from external websites
-        // or applications (Microsoft Word, ...)
+        // or applications (Microsoft Word2, ...)
         var i, length;
         for (i=0, length=windowProperties.length; i<length; i++) {
           this._unset(iframeWindow, windowProperties[i]);

@@ -230,7 +230,7 @@ if ( ! function_exists('is_countable'))
 	/**
 	 * Checks if the given word has a plural version.
 	 *
-	 * @param	string	$word	Word to check
+	 * @param	string	$word	Word2 to check
 	 * @return	bool
 	 */
 	function is_countable($word)

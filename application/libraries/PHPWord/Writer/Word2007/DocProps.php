@@ -46,7 +46,7 @@ class PHPWord_Writer_Word2007_DocProps extends PHPWord_Writer_Word2007_WriterPar
 		$objWriter->writeAttribute('xmlns:vt', 'http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes');
 
 			// Application
-			$objWriter->writeElement('Application', 	'Microsoft Office Word');
+			$objWriter->writeElement('Application', 	'Microsoft Office Word2');
 
 			// ScaleCrop
 			$objWriter->writeElement('ScaleCrop', 		'false');

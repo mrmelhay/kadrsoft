@@ -472,7 +472,7 @@ if ( ! function_exists('url_title'))
 	 *
 	 * @todo	Remove old 'dash' and 'underscore' usage in 3.1+.
 	 * @param	string	$str		Input string
-	 * @param	string	$separator	Word separator
+	 * @param	string	$separator	Word2 separator
 	 *			(usually '-' or '_')
 	 * @param	bool	$lowercase	Whether to transform the output string to lowercase
 	 * @return	string
