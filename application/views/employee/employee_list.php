@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("/employee/data_employee") ?>')"
+                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("employee/employees/info") ?>')"
                            ><i class="fa fa-info"></i>
                             Маълумотнома
 
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("/employee/edit_employee") ?>')"
+                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("employee/employees/edit") ?>')"
                            href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
                             Тахрирлаш
 
@@ -105,14 +105,14 @@
                     <tr>
                         <th>#</th>
                         <th>ТР</th>
-                        <th>ID</th>
+<!--                        <th>ID</th>-->
                         <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
                         <th>Лавозими</th>
                         <th>Тугилган йили</th>
                         <th>Жинси</th>
                         <th>Маълумоти</th>
                         <th>Тел. рақами</th>
-                        <th>Амаллар</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -125,7 +125,7 @@
                             <td><input type="checkbox" value="<?php echo $empl['kadrid'] ?>" name="kadr[]" id="kadr[]"/>
                             </td>
                             <td><? echo $counter ?></td>
-                            <td><?php echo $empl['kadrid'] ?></td>
+<!--                            <td>--><?php //echo $empl['kadrid'] ?><!--</td>-->
                             <td><a href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"
                                    data-title="<?php echo $title; ?>"
                                    data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
@@ -142,27 +142,7 @@
                             <td>
                                 <?php echo $empl['malumot_name'] ?></td>
                             <td class="center"><?php echo $empl['phone_mobile'] ?></td>
-                            <td>
 
-                                <div class="btn-group">
-                                    <a type="button" class="btn btn-default"
-                                       href="<?php echo base_url('/employee/data_employee/' . $empl['kadrid']); ?>"
-                                       data-title="<?php echo $title; ?>"
-                                       data-kadr_id=<?php echo $empl['kadrid']; ?>> <i
-                                                class="fa fa-info-circle blue"></i> </a>
-                                    <a type="button" class="btn btn-default"
-                                       href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"> <i
-                                                class="fa fa-edit green_info"></i> </a>
-                                    <a type="button" class="btn btn-default"
-                                       href="<?php echo base_url("/employee/objective/" . $empl['kadrid']) ?>"> <i
-                                                class="fa fa-user magento"></i> </a>
-                                    <a type="button" class="btn btn-default" href="#" data-title="<?php echo $title; ?>"
-                                       data-kollej_id="<?php echo $empl['kadrid']; ?>"
-                                       onclick="if (confirm('Ўчиришга ишончингиз комилми!!')==true){ document.location.href='<?php echo base_url('employee/delete_employee/' . $empl['kadrid']); ?>'; }">
-                                        <i class="fa fa-trash-o red"></i> </a>
-
-                                </div>
-                            </td>
                         </tr>
                     <?php } ?>
 

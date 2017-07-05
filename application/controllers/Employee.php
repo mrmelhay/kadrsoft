@@ -9,13 +9,14 @@
 class Employee extends MY_Controller
 {
 
+    public $kadr;
 
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function employees()
+    public function employees($action=null)
     {
 
         if ($this->session->userdata('logged_in') == FALSE) {
@@ -36,6 +37,46 @@ class Employee extends MY_Controller
                 $this->EmployeeModel->query=$query;
             }
 
+
+            if ($action!=null){
+                switch ($action){
+                    case 'info':
+                        $kadr=$this->input->post('kadr',true);
+                        if ($kadr!=null) {
+                            if (is_array($kadr)) {
+                                if (sizeof($kadr) > 0) {
+                                    foreach ($kadr as $key => $val) {
+                                        if ($val == '') {
+                                            unset($kadr[$key]);
+                                        } else {
+                                            $this->kadr = $val;
+                                        }
+                                    }
+                                }
+                            }
+                            redirect(base_url('employee/data_employee/'.$this->kadr));
+                        }
+                        break;
+                    case 'edit':
+                        $kadr=$this->input->post('kadr',true);
+                        if ($kadr!=null) {
+                            if (is_array($kadr)) {
+                                if (sizeof($kadr) > 0) {
+                                    foreach ($kadr as $key => $val) {
+                                        if ($val == '') {
+                                            unset($kadr[$key]);
+                                        } else {
+                                            $this->kadr = $val;
+                                        }
+                                    }
+                                }
+                            }
+                            redirect(base_url('employee/edit_employee/'.$this->kadr));
+                        }
+                        break;
+                }
+
+            }
 
 
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
@@ -293,17 +334,7 @@ class Employee extends MY_Controller
         public function data_employee($kadrid=null)
         {
 
-            $kadr=$this->input->post('kadr',true);
-            if (is_array($kadr)){
-                if (sizeof($kadr)>0){
-                    foreach($kadr as $key=>$val){
-                        if ($val=='') { unset($kadr[$key]); }
-                        else{
-                            $kadrid=$val;
-                        }
-                    }
-                }
-            }
+
 
             if ($this->session->userdata('logged_in') == FALSE) {
                 redirect(base_url('users/login'));
@@ -897,6 +928,6 @@ class Employee extends MY_Controller
             $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
             $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
 
-            $this->word->download( $this->data);
+            $this->word->download2( $this->data);
         }
     }
