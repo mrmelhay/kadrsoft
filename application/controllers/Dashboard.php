@@ -40,7 +40,6 @@ class Dashboard extends MY_Controller{
             } else if ($edatum['type'] == 3){
                 $this->data['emp_count']['tehnik'] = $tehnik+=1;
             }
-//            $this->data['emp_count']['tehnik'] = ($edatum['type'] == 3) ? count($edatum['type']) : 0;
         }
 
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
