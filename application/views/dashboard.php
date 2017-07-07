@@ -20,14 +20,7 @@
                 <div class="information_inner">
                     <div class="info green_symbols"><i class="fa fa-users icon"></i></div>
                     <span>Жами ходимлар сони</span>
-                    <h1 class="bolded"><?php echo $emp_count?> та</h1>
-                    <div class="infoprogress_green">
-                        <div class="greenprogress"></div>
-                    </div>
-                    <b class=""><small>Умумий фоиз ( 7,5% )</small></b>
-                    <div class="pull-right" id="work-progress1">
-                        <canvas style="display: inline-block; width: 47px; height: 25px; vertical-align: top;" width="47" height="25"></canvas>
-                    </div>
+                    <h1 class="bolded"><?php echo $emp_count['total'];?> та</h1>
                 </div>
             </div>
         </div>
@@ -36,14 +29,7 @@
                 <div class="information_inner">
                     <div class="info blue_symbols"><i class="fa fa-book icon"></i></div>
                     <span>Педагог ходимлар</span>
-                    <h1 class="bolded">12,254K</h1>
-                    <div class="infoprogress_blue">
-                        <div class="blueprogress"></div>
-                    </div>
-                    <b class=""><small>Умумий фоиз ( 7,5% )</small></b>
-                    <div class="pull-right" id="work-progress2">
-                        <canvas style="display: inline-block; width: 47px; height: 25px; vertical-align: top;" width="47" height="25"></canvas>
-                    </div>
+                    <h1 class="bolded"><?php echo $emp_count['pedagog'];?> та</h1>
                 </div>
             </div>
         </div>
@@ -53,14 +39,8 @@
                 <div class="information_inner">
                     <div class="info gray_symbols"><i class="fa fa-user icon"></i></div>
                     <span>Раҳбар ходимлар</span>
-                    <h1 class="bolded">12,254K</h1>
-                    <div class="infoprogress_gray">
-                        <div class="grayprogress"></div>
-                    </div>
-                    <b class=""><small>Умумий фоиз ( 7,5% )</small></b>
-                    <div class="pull-right" id="work-progress4">
-                        <canvas style="display: inline-block; width: 47px; height: 25px; vertical-align: top;" width="47" height="25"></canvas>
-                    </div>
+                    <h1 class="bolded"><?php echo $emp_count['rahbar'];?> та</h1>
+
                 </div>
             </div>
         </div>
@@ -70,14 +50,7 @@
                 <div class="information_inner">
                     <div class="info red_symbols"><i class="fa fa-briefcase icon"></i></div>
                     <span>Техник  ходимлар</span>
-                    <h1 class="bolded">12,254K</h1>
-                    <div class="infoprogress_red">
-                        <div class="redprogress"></div>
-                    </div>
-                    <b class=""><small>Умумий фоиз ( 7,5% )</small></b>
-                    <div class="pull-right" id="work-progress3">
-                        <canvas style="display: inline-block; width: 47px; height: 25px; vertical-align: top;" width="47" height="25"></canvas>
-                    </div>
+                    <h1 class="bolded"><?php echo $emp_count['tehnik'];?> та</h1>
                 </div>
             </div>
         </div>
