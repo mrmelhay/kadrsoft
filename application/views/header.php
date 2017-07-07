@@ -71,19 +71,19 @@ if ($this->session->userdata('logged_in')!=false){
                                 <li> <span class="new"> <a href="task.html" class="pull_left">Create New</a> <a href="task.html" class="pull-right">View All</a> </span> </li>
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Янги ҳабар<span class="badge badge color_1">4</span> </a>
-                            <ul class="drop_down_task dropdown-menu">
-                                <div class="top_pointer"></div>
-                                <li>
-                                    <p class="number">You have 4 mails</p>
-                                </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 1</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 2</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 3</span> <span class="time">эртага</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
-                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="<?php echo base_url()?>/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 4</span> <span class="time">хафта охирига</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>
-
-                            </ul>
-                        </li>
+<!--                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Янги ҳабар<span class="badge badge color_1">4</span> </a>-->
+<!--                            <ul class="drop_down_task dropdown-menu">-->
+<!--                                <div class="top_pointer"></div>-->
+<!--                                <li>-->
+<!--                                    <p class="number">You have 4 mails</p>-->
+<!--                                </li>-->
+<!--                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="--><?php //echo base_url()?><!--/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 1</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>-->
+<!--                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="--><?php //echo base_url()?><!--/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 2</span> <span class="time">бугун</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>-->
+<!--                                <li> <a href="readmail.html" class="mail red_color"> <span class="photo"><img src="--><?php //echo base_url()?><!--/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 3</span> <span class="time">эртага</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>-->
+<!--                                <li> <a href="readmail.html" class="mail"> <span class="photo"><img src="--><?php //echo base_url()?><!--/assets/images/user.png" /></span> <span class="subject"> <span class="from">Топшириқ 4</span> <span class="time">хафта охирига</span> </span> <span class="message">Наъмуна шаклидаги хабар.</span> </a> </li>-->
+<!---->
+<!--                            </ul>-->
+<!--                        </li>-->
 
                     </ul>
                 </div>

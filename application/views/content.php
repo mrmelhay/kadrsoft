@@ -14,7 +14,17 @@ $action5=array('organ_list');
                 </div>
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px">
                     <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
+
+
                         <ul>
+                            <li class="left_nav_active theme_border ">
+                                <a href="/dashboard"><i
+                                            class="fa fa-home"></i> Асосий ойна <span class="left_nav_pointer"></span>
+
+                                </a>
+
+                            </li>
+
                             <li <?php if (in_array($this->uri->segment(2),$action2)) { ?>class="left_nav_active theme_border <?php }?>">
                                 <a href="javascript:void(0);"><i
                                             class="fa fa-home"></i> Муассаса <span class="left_nav_pointer"></span>
