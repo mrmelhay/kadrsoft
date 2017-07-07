@@ -129,9 +129,8 @@ $action5=array('organ_list');
                             <!--                                                Table</b> </a></li>-->
                             <!--                                </ul>-->
                             <!--                            </li>-->
-                            <li <?php
-
-                                if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
+                            <?php if ($username['is_admin']){?>
+                            <li <?php if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
                                 <ul <?php
@@ -163,6 +162,7 @@ $action5=array('organ_list');
                                                     class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
                                 </ul>
                             </li>
+                            <?php }?>
                             <li><a href="javascript:void(0);"> <i class="fa fa-user"></i> Фойдаланувчилар <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span> </a>
