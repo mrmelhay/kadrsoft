@@ -28,6 +28,10 @@ class EmployeeModel extends MY_Model
             $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%')");
         }
 
+        if (!empty($this->type)) {
+            $this->db->where("(spr_lavozim.type='{$this->type}')");
+        }
+
         $this->db->order_by('d_kadr.kadrid', 'ASC');
         $query = $this->db->get();
 

@@ -51,6 +51,7 @@ class MY_Model extends CI_Model{
     public $uqit_soha_id=0;
     public $tuman_id=0;
     public $fan_turi_id=0;
+    public $type;
 
     public $query;
 

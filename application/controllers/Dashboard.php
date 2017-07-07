@@ -34,13 +34,16 @@ class Dashboard extends MY_Controller{
         foreach($edata as $edatum) {
 
             if ($edatum['type']==1){
-                $this->data['emp_count']['rahbar'] =  $rahbar+=1;
+                  $rahbar+=1;
             } else if ($edatum['type']==2){
-                $this->data['emp_count']['pedagog'] = $pedagog+=1;
+                 $pedagog+=1;
             } else if ($edatum['type'] == 3){
-                $this->data['emp_count']['tehnik'] = $tehnik+=1;
+                $tehnik+=1;
             }
         }
+        $this->data['emp_count']['rahbar'] =$rahbar;
+        $this->data['emp_count']['pedagog'] = $pedagog;
+        $this->data['emp_count']['tehnik'] = $tehnik;
 
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
         $this->view_lib->admin_layout($this->data);

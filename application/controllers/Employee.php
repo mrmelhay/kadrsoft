@@ -37,6 +37,10 @@ class Employee extends MY_Controller
                 $this->EmployeeModel->query=$query;
             }
 
+            if ($this->input->get('type')!=null){
+                $type=$_GET['type'];
+                $this->EmployeeModel->type=$type;
+            }
 
             if ($action!=null){
                 switch ($action){
