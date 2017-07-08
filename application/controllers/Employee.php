@@ -104,6 +104,33 @@ class Employee extends MY_Controller
         public function stir()
         {
             $this->data['title'] = 'Ходимлар рўйхати';
+            if ($this->session->userdata('logged_in') == FALSE) {
+                redirect(base_url('users/login'));
+            }
+            $is_admin=$this->session->userdata('is_admin');
+            $kollej_id=$this->session->userdata('kollej_id');
+            $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+            $this->data['title'] = 'Ходимлар рўйхати';
+            if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+
+            if ($this->input->post('kollej_id',true)!=null){
+                $kollej_id = $this->input->post('kollej_id', true);
+                $this->EmployeeModel->kollej_id=$kollej_id;
+            }
+            if ($this->input->post('query',true)!=null) {
+                $query = $this->input->post('query', true);
+                $this->EmployeeModel->query=$query;
+            }
+
+            if ($this->input->get('type')!=null){
+                $type=$_GET['type'];
+                $this->EmployeeModel->type=$type;
+            }
+
+
+
+
+            $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_stir', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }

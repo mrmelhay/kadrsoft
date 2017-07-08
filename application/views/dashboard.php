@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-3 col-sm-6">
             <div class="information blue_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=1') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=2') ?>">
                     <div class="info blue_symbols"><i class="fa fa-book icon"></i></div>
                     <span>Педагог ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['pedagog']; ?> та</h1>
@@ -36,7 +36,7 @@
 
         <div class="col-sm-3 col-sm-6">
             <div class="information gray_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=2') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=1') ?>">
                     <div class="info gray_symbols"><i class="fa fa-user icon"></i></div>
                     <span>Раҳбар ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['rahbar']; ?> та</h1>
