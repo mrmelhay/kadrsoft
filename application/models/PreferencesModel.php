@@ -14,7 +14,7 @@ class PreferencesModel extends MY_Model
         'kollej_name' => array('field' => 'kollej_name', 'label' => 'Муассаса номи', 'rules' => 'required|max_length[150]'),
         'viloyat_id' => array('field' => 'viloyat_id', 'label' => 'Вилоят', 'rules' => 'required|max_length[32]'),
         'tuman_id' => array('field' => 'tuman_id', 'label' => 'Туман', 'rules' => 'required|max_length[32]'),
-        'kollej_adress' => array('field' => 'kollej_adress', 'label' => 'Манзил', 'rules' => 'required|max_length[32]'),
+        'kollej_adress' => array('field' => 'kollej_adress', 'label' => 'Манзил', 'rules' => 'required|max_length[150]'),
         'empl_count1' => array('field' => 'empl_count1', 'label' => 'Ходимлар сони', 'rules' => 'required|max_length[32]'),
         'empl_count2' => array('field' => 'empl_count2', 'label' => 'Пeдагогик ходимлар сони', 'rules' => 'required|max_length[32]'),
         'students_count' => array('field' => 'students_count', 'label' => 'Ўқувчилар сони', 'rules' => 'required|max_length[32]'),
@@ -36,15 +36,17 @@ class PreferencesModel extends MY_Model
             $kollej = $this->db->where('spr_kollej.kollej_id', $this->kollej_id);
         }
         $this->db->select('spr_kollej.*,
-                           spr_viloyat.viloyat,spr_tuman.tuman,d_kadr_items_bind.is_director,d_kadr.name_f,d_kadr.name_i,d_kadr.name_o');
+                           spr_viloyat.viloyat,spr_tuman.tuman,d_kadr_items_bind.is_director,d_kadr.name_f,d_kadr.name_i,d_kadr.name_o,spr_bank.bank_name');
         $this->db->from('spr_kollej');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = spr_kollej.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = spr_kollej.tuman_id', 'left');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kollej_id = spr_kollej.kollej_id', 'left');
         $this->db->join('d_kadr', 'd_kadr.kadrid = d_kadr_items_bind.kadrid', 'left');
-        $this->db->where('d_kadr_items_bind.is_director', 1);
+        $this->db->join('spr_bank', 'spr_bank.bank_id = spr_kollej.bank_id', 'left');
+//        $this->db->where('d_kadr_items_bind.is_director', 1);
         $kollej;
         $this->db->order_by('spr_kollej.kollej_id', 'ASC');
+//        echo $this->db->get_compiled_select();
         $query = $this->db->get();
         return $query->result_array();
     }
