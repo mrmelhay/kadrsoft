@@ -23,7 +23,6 @@ class PreferencesModel extends MY_Model
         'website' => array('field' => 'website', 'label' => 'Веб сайт', 'rules' => 'required|max_length[32]'),
     );
 
-
     public function __construct()
     {
         parent::__construct();
