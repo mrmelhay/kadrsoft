@@ -55,7 +55,7 @@
                     </tr>
 <!--                    <tr>-->
 <!--                        <td>Банк номи</i></td>-->
-<!--                        <td><a href="#" id="bank_id" data-type="text" data-pk="1"  data-title="Банк номи">--><?php //echo $organ[0]['bank_name']?><!--</a></td>-->
+<!--                                                <td><a href="#" id="bank_id" data-type="text" data-pk="1"  data-title="Банк номи">--><?php //echo $organ[0]['bank_name']?><!--</a></td>-->
 <!--                    </tr>-->
 <!--                    <tr>-->
 <!--                        <td>Банк хисоб рақами</td>-->
@@ -65,7 +65,6 @@
 <!--                        <td>Муассаса СТИР рақами</td>-->
 <!--                        <td><a href="#" id="kollej_inn" data-type="text" data-value="2,3" data-title="СТИР">--><?php //echo $organ[0]['kollej_inn']?><!--</a></td>-->
 <!--                    </tr>-->
-
                     </tbody>
                 </table>
             </div><!--/porlets-content-->
@@ -130,4 +129,3 @@
 //      modal.find('.modal-body').text(recipient);
     })
 </script>
-

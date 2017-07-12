@@ -34,9 +34,7 @@ $action5=array('organ_list');
                                     <li><a href="<?php echo base_url("/organ/organ_list")?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle theme_color"></i> <b
                                                     class="theme_color">Муассаса хақида</b> </a></li>
-<!--                                    <li><a href="--><?php //echo base_url("/dashboard/organ_info")?><!--"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Маълумотларни-->
-<!--                                                киритиш</b>-->
-<!--                                        </a></li>-->
+
                                 </ul>
                             </li>
                             <li <?php if (in_array($this->uri->segment(2),$action3)) { ?>class="left_nav_active theme_border <?php }?>"><a href="javascript:void(0);"> <i class="fa fa-edit"></i> Ходимлар <span class="plus"><i
@@ -67,68 +65,7 @@ $action5=array('organ_list');
                                     <!--                                        </a></li>-->
                                 </ul>
                             </li>
-                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-users icon"></i> APPS <span class="plus"><i-->
-                            <!--                                            class="fa fa-plus"></i></span> </a>-->
-                            <!--                                <ul>-->
-                            <!--                                    <li><a href="todo.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>To-Do</b> </a></li>-->
-                            <!--                                    <li><a href="task.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>Task</b> </a></li>-->
-                            <!--                                    <li><a href="notes.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>Notes</b> </a></li>-->
-                            <!--                                    <li><a href="media.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Media-->
-                            <!--                                                Manager</b> </a></li>-->
-                            <!--                                    <li><a href="calendar.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Calendar</b>-->
-                            <!--                                        </a></li>-->
-                            <!--                                    <li><a href="ticket.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ticket-->
-                            <!--                                                Support</b> </a></li>-->
-                            <!--                                    <li><a href="invoice.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Invoice</b>-->
-                            <!--                                        </a></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </li>-->
-                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-envelope"></i> EMAIL <span-->
-                            <!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
-                            <!--                                <ul>-->
-                            <!--                                    <li><a href="inbox.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>Inbox</b> </a></li>-->
-                            <!--                                    <li><a href="compose.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Compose</b>-->
-                            <!--                                        </a></li>-->
-                            <!--                                    <li><a href="readmail.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Read-->
-                            <!--                                                Mail</b> </a></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </li>-->
-                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-folder-open-o"></i> PAGES <span-->
-                            <!--                                        class="plus"><i class="fa fa-plus"></i></span> </a>-->
-                            <!--                                <ul>-->
-                            <!--                                    <li><a href="login.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>Login</b> </a></li>-->
-                            <!--                                    <li><a href="registration.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>Registration</b> </a></li>-->
-                            <!--                                    <li><a href="lockscreen.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Lock-->
-                            <!--                                                Screen</b> </a></li>-->
-                            <!--                                    <li><a href="blankpage.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Blank-->
-                            <!--                                                Page</b> </a></li>-->
-                            <!--                                    <li><a href="404error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>404-->
-                            <!--                                                Error</b> </a></li>-->
-                            <!--                                    <li><a href="500error.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>500-->
-                            <!--                                                Error</b> </a></li>-->
-                            <!--                                    <li><a href="search.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Search</b>-->
-                            <!--                                        </a></li>-->
-                            <!--                                    <li><a href="about.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i>-->
-                            <!--                                            <b>About</b> </a></li>-->
-                            <!--                                    <li><a href="contact.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Contact</b>-->
-                            <!--                                        </a></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </li>-->
-                            <!--                            <li><a href="javascript:void(0);"> <i class="fa fa-th"></i> TABLES <span class="plus"><i-->
-                            <!--                                            class="fa fa-plus"></i></span> </a>-->
-                            <!--                                <ul>-->
-                            <!--                                    <li><a href="statictable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Static-->
-                            <!--                                                Table</b> </a></li>-->
-                            <!--                                    <li><a href="datatable.html"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Data-->
-                            <!--                                                Table</b> </a></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </li>-->
+
                             <?php if ($username['is_admin']){?>
                             <li <?php if (in_array($this->uri->segment(2),$action)) { ?>class="left_nav_active theme_border" <?php }?>><a href="javascript:void(0);"> <i class="fa fa-glass"></i> Маълумотнома <span
                                             class="plus"><i
@@ -195,13 +132,7 @@ $action5=array('organ_list');
                 <div class="pull-left page_title theme_color">
                     <h1><?php echo $username['kollej_name']?></h1>
                 </div>
-<!--<div class="pull-right">-->
-<!--<ol class="breadcrumb">-->
-<!--<li><a href="#">Home</a></li>-->
-<!--<li><a href="#">UI KIT</a></li>-->
-<!--<li class="active">typography</li>-->
-<!--</ol>-->
-<!--</div>-->
+
             </div>
             <?php echo(!empty($content) ? $content : null) ?>
         </div>

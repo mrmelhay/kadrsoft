@@ -8,23 +8,39 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/admin.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/plugins/data-tables/DT_bootstrap.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/plugins/advanced-datatable/css/demo_table.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/select2.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/toggle-switch/toggles.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/checkbox/icheck.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/checkbox/minimal/blue.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/plugins/bootstrap-timepicker/compiled/timepicker.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/plugins/checkbox/icheck.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/plugins/data-tables/DT_bootstrap.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/advanced-datatable/css/demo_table.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/advanced-datatable/css/demo_page.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/select2/select2.css');?>" rel="stylesheet" />
+<!--    <link href="--><?php //echo base_url('assets/datepick/jquery-ui.css');?><!--" rel="stylesheet" />-->
 
     <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+<!--    <script src="--><?php //echo base_url('assets/datepick/jquery-1.12.4.js') ?><!--"></script>-->
+<!--    <script src="--><?php //echo base_url('assets/datepick/jquery-ui.js') ?><!--"></script>-->
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
-    <style type="text/css">
-    .clsDatePicker {
-        z-index: 100000;
-    }
-    </style>
 
+    <script src="<?php echo base_url('assets/select2/select2.js') ?>"></script>
+
+
+
+
+
+
+    <style type="text/css">
+        .datepicker {
+            z-index:100000;
+        }
+
+        .select22{
+            z-index: 100000 !important;
+        }
+    </style>
 </head>
 <body class="blue_thm  fixed_header left_nav_fixed">
 
@@ -98,10 +114,10 @@ if ($this->session->userdata('logged_in')!=false){
                 </ul>
             </div>
 
-<!--            <a href="javascript:;" class="toggle-menu menu-right push-body jPushMenuBtn rightbar-switch"><i class="fa fa-comment chat"></i></a>-->
+
 
         </div>
     </div>
-    <!--\\\\\\\ header top bar end \\\\\\-->
+
 </div>
 <?php }?>

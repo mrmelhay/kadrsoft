@@ -294,3 +294,21 @@
     $('#myTab a[href="' + hash + '"]').tab('show');
 
 </script>
+
+
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>
