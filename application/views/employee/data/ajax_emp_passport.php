@@ -103,10 +103,13 @@
     </div>
 </div>
 
+
+
 <script>
 
     $(document).ready(function() {
         $(".select22").select2();
+        dropdownParent: $('#myModal');
     });
 
 

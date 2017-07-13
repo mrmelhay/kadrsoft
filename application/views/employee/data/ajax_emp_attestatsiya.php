@@ -36,9 +36,9 @@
                     <div class="col-sm-6">
                         <div id="datetimepicker1" class="input-group date">
                             <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili"  class="form-control" maxlength="4"
-                                   value="<?php echo $attestasiya['oxirgi_att_yili'];?>">
+                                   value="<?php echo $attestasiya['oxirgi_att_yili'];?>" onkeyup="updateInput(this.value);>
                             <span class="input-group-addon">
-                                <i class="fa fa-calendar icon"></i>
+<!--                                <i class="fa fa-calendar icon"></i>-->
 <!--                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>-->
                             </span>
                         </div>
@@ -120,4 +120,16 @@
             changeYear: true
         });
     } );
+
+
+//    /////
+//    $('.oxirgi_att_yili').change(function() {
+//        var nav_att_yili = $('.oxirgi_att_yili').datepicker('getDate', '+1d');
+//        nav_att_yili.setDate(nav_att_yili.getDate()+1);
+//        $('.dropoffDate').datepicker('setDate', nav_att_yili);
+//    });
+
+    function updateInput(ish){
+        document.getElementById("oxirgi_att_yili").value = ish;
+    }
 </script>

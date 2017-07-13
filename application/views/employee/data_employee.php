@@ -139,7 +139,7 @@
     </section>
 </div>
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal"  role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
             <form action="<?php echo base_url('/employee/create_date_info') ?>" class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -299,7 +299,8 @@
 <script>
 
     $(document).ready(function() {
-        $(".select22").select2();
+        $(".select22").select2()
+        dropdownParent: $('#myModal');
     });
 
 
@@ -311,4 +312,25 @@
     } );
 
 
+</script>
+
+
+<script>
+    $(function() {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+            // сохраним последнюю вкладку
+            localStorage.setItem('lastTab', $(this).attr('href'));
+        });
+
+        //перейти к последней вкладки, если она существует:
+        var lastTab = localStorage.getItem('lastTab');
+        if (lastTab) {
+            $('a[href=' + lastTab + ']').tab('show');
+        }
+        else
+        {
+            // установить первую вкладку активной если lasttab не существует
+            $('a[data-toggle="tab"]:first').tab('show');
+        }
+    });
 </script>

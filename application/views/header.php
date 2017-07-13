@@ -32,14 +32,19 @@
 
 
 
-    <style type="text/css">
+    <style>
         .datepicker {
             z-index:100000;
         }
 
-        .select22{
-            z-index: 100000 !important;
+        select22{
+            z-index: 100500;
         }
+
+        span.select2-container {
+            z-index:10050;
+        }
+
     </style>
 </head>
 <body class="blue_thm  fixed_header left_nav_fixed">
