@@ -35,7 +35,7 @@
                     <label class="col-sm-5 control-label">Охирги марта аттестация жалб этилган йили</label>
                     <div class="col-sm-6">
                         <div id="datetimepicker1" class="input-group date">
-                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" maxlength="4"
+                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili"  class="form-control" maxlength="4"
                                    value="<?php echo $attestasiya['oxirgi_att_yili'];?>">
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar icon"></i>
@@ -74,7 +74,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Фан номи</label>
                     <div class="col-sm-6">
-                        <select name="fanlar_id" id="fanlar_id" class="form-control" required>
+                        <select name="fanlar_id" id="fanlar_id" class="form-control select22" required>
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getFanlarDropList($attestasiya['fan_turi_id'],$attestasiya['fanlar_id']); ?>
                         </select>
@@ -108,3 +108,16 @@
 
 </div>
 
+<script>
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#amal_mal_lav_bdate, #oxirgi_att_yili, #nav_att_yili" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>

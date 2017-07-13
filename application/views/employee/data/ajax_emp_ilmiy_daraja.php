@@ -62,3 +62,19 @@
 
 </div>
 
+    <script>
+
+        $(document).ready(function() {
+            $(".select22").select2();
+        });
+
+
+        $( function() {
+            $( "#berilgan_vaqt" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        } );
+
+
+    </script>

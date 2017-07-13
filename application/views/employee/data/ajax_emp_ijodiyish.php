@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Яратилган йили</label>
                     <div class="col-sm-7">
-                        <input type="text" name="ijodiyish_year" class="form=control" id="ijodiyish_year" value="<?php echo $ijodiy['ijodiyish_year'];?>"/>
+                        <input type="text" name="ijodiyish_year" class="form=control" id="ijodiyish_year" value="<?php echo $ijodiy['ijodiyish_year'];?>" maxlength="4"/>
                     </div>
                 </div>
 

@@ -51,3 +51,19 @@
 
 </div>
 
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#diplom_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>
