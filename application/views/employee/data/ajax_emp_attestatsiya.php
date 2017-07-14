@@ -17,7 +17,7 @@
                     <label class="col-sm-5 control-label">Амалдаги малака лавозимини эгаллаган йили</label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" name="amal_mal_lav_bdate" id="amal_mal_lav_bdate" class="form-control" maxlength="4" value="<?php echo $attestasiya['amal_mal_lav_bdate'];?>">
+                            <input type="text" name="amal_mal_lav_bdate" id="amal_mal_lav_bdate" class="form-control" maxlength="10" value="<?php echo $attestasiya['amal_mal_lav_bdate'];?>">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <label class="col-sm-5 control-label">Охирги марта аттестация жалб этилган йили</label>
                     <div class="col-sm-6">
                         <div id="datetimepicker1" class="input-group date">
-                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili"  class="form-control" maxlength="4"
+                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili"  class="form-control" maxlength="10"
                                    value="<?php echo $attestasiya['oxirgi_att_yili'];?>" onkeyup="updateInput(this.value);>
                             <span class="input-group-addon">
 <!--                                <i class="fa fa-calendar icon"></i>-->
@@ -84,7 +84,7 @@
                     <label class="col-sm-5 control-label">Навбатдаги аттестацияга жалб этилган йили</label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" name="nav_att_yili" id="nav_att_yili" class="form-control" maxlength="4" value="<?php echo $attestasiya['nav_att_yili'];?>">
+                            <input type="text" name="nav_att_yili" id="nav_att_yili" class="form-control" maxlength="10" value="<?php echo $attestasiya['nav_att_yili'];?>">
                         </div>
                     </div>
                 </div>
@@ -111,25 +111,30 @@
 <script>
     $(document).ready(function() {
         $(".select22").select2();
+
     });
 
 
     $( function() {
         $( "#amal_mal_lav_bdate, #oxirgi_att_yili, #nav_att_yili" ).datepicker({
-            changeMonth: true,
-            changeYear: true
+
         });
     } );
 
 
-//    /////
-//    $('.oxirgi_att_yili').change(function() {
-//        var nav_att_yili = $('.oxirgi_att_yili').datepicker('getDate', '+1d');
-//        nav_att_yili.setDate(nav_att_yili.getDate()+1);
-//        $('.dropoffDate').datepicker('setDate', nav_att_yili);
-//    });
+    $( "#oxirgi_att_yili" ).datepicker({
+        dateFormat: "yyyy-mm-dd",
+        onSelect: function(dt, inst){
+            var date2 = $('#oxirgi_att_yili').datepicker('getDate');
+            date2.setDate(date2.getDate()+60);
+            $( "#nav_att_yili" ).datepicker({
+                dateFormat: "yyyy-mm-dd",
+                minDate: date2
+            });
 
-    function updateInput(ish){
-        document.getElementById("oxirgi_att_yili").value = ish;
-    }
+            $('#nav_att_yili').datepicker(
+                'setDate', date2);
+        }
+    });
+
 </script>
