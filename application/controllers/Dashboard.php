@@ -44,7 +44,9 @@ class Dashboard extends MY_Controller{
         $this->data['emp_count']['rahbar'] =$rahbar;
         $this->data['emp_count']['pedagog'] = $pedagog;
         $this->data['emp_count']['tehnik'] = $tehnik;
-
+        $this->data['emp_count']['att_soni'] = count($this->EmployeeModel->count_att_soni($kollej_id));
+        $this->data['emp_count']['malaka_soni'] = count($this->EmployeeModel->malaka_soni($kollej_id));
+//        print_r($this->EmployeeModel->count_att_soni($kollej_id));
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
@@ -82,10 +84,10 @@ class Dashboard extends MY_Controller{
         $this->data['emp_count']['rahbar'] =$rahbar;
         $this->data['emp_count']['pedagog'] = $pedagog;
         $this->data['emp_count']['tehnik'] = $tehnik;
-
+        $this->data['emp_count']['att_soni'] = $this->EmployeeModel->count_att_soni($kollej_id);
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
 
-        $this->data['content'] = $this->load->view('dashboard',$this->data,true);
+
         $this->view_lib->admin_layout($this->data);
     }
 

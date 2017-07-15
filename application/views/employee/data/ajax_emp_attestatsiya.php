@@ -127,6 +127,8 @@
         onSelect: function(dt, inst){
             var date2 = $('#oxirgi_att_yili').datepicker('getDate');
             date2.setDate(date2.getDate()+60);
+            alert('ok');
+
             $( "#nav_att_yili" ).datepicker({
                 dateFormat: "yyyy-mm-dd",
                 minDate: date2
@@ -134,6 +136,7 @@
 
             $('#nav_att_yili').datepicker(
                 'setDate', date2);
+
         }
     });
 

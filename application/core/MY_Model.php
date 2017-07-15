@@ -35,6 +35,7 @@ class MY_Model extends CI_Model{
     public $qarindoshList=array();
     public $malakaLavList=array();
     public $mukofotList=array();
+    public $count_malaka;
 
     public $viloyat_id=0;
     public $kollej_id=0;

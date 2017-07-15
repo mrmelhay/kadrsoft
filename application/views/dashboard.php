@@ -59,20 +59,20 @@
     <div class="row">
         <div class="col-sm-3 col-sm-6">
             <div class="information green_info">
-                <div class="information_inner">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?att=malaka') ?>">
                     <div class="info green_symbols"><i class="fa fa-maxcdn icon"></i></div>
                     <span>МОга эхтиёж</span>
-                    <h1 class="bolded">12,254K</h1>
+                    <h1 class="bolded"><?php echo $emp_count['malaka_soni']; ?> та</h1>
 
                 </div>
             </div>
         </div>
         <div class="col-sm-3 col-sm-6">
             <div class="information blue_info">
-                <div class="information_inner">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?att=attestatsiya') ?>">
                     <div class="info blue_symbols"><i class="fa fa-suitcase icon"></i></div>
                     <span>АТТга киради</span>
-                    <h1 class="bolded">12,254K</h1>
+                    <h1 class="bolded"><?php echo $emp_count['att_soni']; ?> та</h1>
 
                 </div>
             </div>

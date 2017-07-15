@@ -21,8 +21,10 @@
 <!--    <link href="--><?php //echo base_url('assets/datepick/jquery-ui.css');?><!--" rel="stylesheet" />-->
 
     <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
-<!--    <script src="--><?php //echo base_url('assets/datepick/jquery-1.12.4.js') ?><!--"></script>-->
+<!--    <script src="--><?php //echo base_url('assets/js/jquery-1.9.1.js') ?><!--"></script>-->
 <!--    <script src="--><?php //echo base_url('assets/datepick/jquery-ui.js') ?><!--"></script>-->
+
+    <!--    <script src="--><?php //echo base_url('assets/datepick/jquery-1.12.4.js') ?><!--"></script>-->
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
 
     <script src="<?php echo base_url('assets/select2/select2.js') ?>"></script>
