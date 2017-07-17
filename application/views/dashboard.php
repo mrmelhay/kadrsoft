@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-3 col-sm-6">
             <div class="information blue_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=2') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=pedagog') ?>">
                     <div class="info blue_symbols"><i class="fa fa-book icon"></i></div>
                     <span>Педагог ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['pedagog']; ?> та</h1>
@@ -36,7 +36,7 @@
 
         <div class="col-sm-3 col-sm-6">
             <div class="information gray_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=1') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=rahbar') ?>">
                     <div class="info gray_symbols"><i class="fa fa-user icon"></i></div>
                     <span>Раҳбар ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['rahbar']; ?> та</h1>
@@ -47,7 +47,7 @@
 
         <div class="col-sm-3 col-sm-6">
             <div class="information red_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=3') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
                     <div class="info red_symbols"><i class="fa fa-briefcase icon"></i></div>
                     <span>Техник  ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-sm-3 col-sm-6">
             <div class="information green_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?att=malaka') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=malaka') ?>">
                     <div class="info green_symbols"><i class="fa fa-maxcdn icon"></i></div>
                     <span>МОга эхтиёж</span>
                     <h1 class="bolded"><?php echo $emp_count['malaka_soni']; ?> та</h1>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-sm-3 col-sm-6">
             <div class="information blue_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?att=attestatsiya') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=attestatsiya') ?>">
                     <div class="info blue_symbols"><i class="fa fa-suitcase icon"></i></div>
                     <span>АТТга киради</span>
                     <h1 class="bolded"><?php echo $emp_count['att_soni']; ?> та</h1>

@@ -31,11 +31,16 @@ class EmployeeModel extends MY_Model
         }
 
         if (!empty($this->type)) {
-            $this->db->where("(spr_lavozim.type='{$this->type}')");
-        }
-
-        if (!empty($this->count_malaka)) {
-            switch ($this->count_malaka){
+            switch ($this->type){
+                case 'pedagog':
+                    $this->db->where("(spr_lavozim.type='2')");
+                    break;
+                case 'rahbar':
+                    $this->db->where("(spr_lavozim.type='1')");
+                    break;
+                case 'tehnik':
+                    $this->db->where("(spr_lavozim.type='3')");
+                    break;
                 case 'malaka':
                     $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')");
                     break;

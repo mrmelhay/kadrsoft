@@ -42,10 +42,10 @@ class Employee extends MY_Controller
                 $this->EmployeeModel->type=$type;
             }
 
-        if ($this->input->get('att')!=null){
-        $count_malaka=$_GET['att'];
-        $this->EmployeeModel->count_malaka=$count_malaka;
-    }
+//        if ($this->input->get('att')!=null){
+//        $count_malaka=$_GET['att'];
+//        $this->EmployeeModel->count_malaka=$count_malaka;
+//    }
 
 
 
