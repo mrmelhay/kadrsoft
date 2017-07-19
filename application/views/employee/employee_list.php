@@ -66,16 +66,13 @@
                             бўшатиш
                         </a>
                     </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i
-                                    class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">Чоп этиш</a></li>
-                            <li><a href="#">PDF га сақлаш</a></li>
-                            <li><a href="#">Excel га сақлаш</a></li>
-                        </ul>
+
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-success" onclick='javascript:checkSel("<?php echo base_url("/employee/exportxls") ?>")'
+                           href="#"> <i class="fa fa-table"></i> Excel
+                        </a>
                     </div>
+
                 </div>
 
                 <div class="margin-top-10">

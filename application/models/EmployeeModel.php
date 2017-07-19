@@ -150,6 +150,40 @@ class EmployeeModel extends MY_Model
             ->row_array();
     }
 
+    public function read_by_datas($user_id = null)
+    {
+        return $this->db->select("d_kadr.*,d_kadr_items_bind.*,spr_kollej.kollej_name,spr_lavozim.lavozim_name, spr_viloyat.viloyat,
+        spr_tuman.tuman,spr_millat.millat_name,spr_partiya.partiya_name,spr_malumot.malumot_name,d_uqigan_tm.kirgan_yili,d_uqigan_tm.tugatgan_yili,d_uqigan_tm.diplom_sana,d_uqigan_tm.diplom_num,
+        diplom_num,spr_otm.*,spr_mutaxasislik.mutax_kodi,spr_mutaxasislik.mutax_kodi_name,d_ilmiy_daraja.*,spr_ilmiy_daraja.ilm_daraja_name,d_ilmiy_unvon.*,spr_ilmiy_unvon.ilmiy_unvon_nomi,d_tillar_bind.*, spr_tillar.tillar_nomi,
+        spr_tillar_turi.tillar_turi_nomi, d_mukofot.*,spr_dav_mukofot.mukofot_name,d_mehnat_faol.*")
+            ->from("d_kadr")
+            ->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid=d_kadr.kadrid', 'left')
+            ->join('spr_kollej', 'spr_kollej.kollej_id=d_kadr_items_bind.kollej_id', 'left')
+            ->join('spr_lavozim', 'spr_lavozim.lavozim_id=d_kadr.lavozim_id', 'left')
+            ->join('spr_davlat', 'spr_davlat.davlat_id=d_kadr.davlat_id', 'left')
+            ->join('spr_viloyat', 'spr_viloyat.viloyat_id=d_kadr.viloyat_id', 'left')
+            ->join('spr_tuman', 'spr_tuman.tuman_id=d_kadr.tuman_id', 'left')
+            ->join('spr_millat', 'spr_millat.millat_id=d_kadr.millat_id', 'left')
+            ->join('spr_partiya', 'spr_partiya.partiya_id=d_kadr.partiya_id', 'left')
+            ->join('spr_malumot', 'spr_malumot.malumot_id=d_kadr.malumot_id', 'left')
+            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_otm', 'spr_otm.otm_id=d_uqigan_tm.kadr_id', 'left')
+            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id', 'left')
+            ->join('d_ilmiy_daraja', 'd_ilmiy_daraja.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_ilmiy_daraja', 'spr_ilmiy_daraja.ilm_daraja_id =d_ilmiy_daraja.ilm_daraja_id', 'left')
+            ->join('d_ilmiy_unvon', 'd_ilmiy_unvon.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_ilmiy_unvon', 'spr_ilmiy_unvon.ilmiy_unvon_id =d_ilmiy_unvon.ilmiy_unvon_id', 'left')
+            ->join('d_tillar_bind', 'd_tillar_bind.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_tillar', 'spr_tillar.tillar_id =d_tillar_bind.tillar_id', 'left')
+            ->join('spr_tillar_turi', 'spr_tillar_turi.tillar_turi_id =d_tillar_bind.tillar_turi_id', 'left')
+            ->join('d_mukofot', 'd_mukofot.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
+            ->join('d_mehnat_faol', 'd_mehnat_faol.kadr_id=d_kadr.kadrid', 'left')
+//            ->where('d_kadr.kadrid', $user_id)
+            ->get()
+            ->result_array();
+    }
+
     public function read_by_passports($user_id = null)
     {
         return $this->db->select("*")

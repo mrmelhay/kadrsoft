@@ -968,4 +968,32 @@ class Employee extends MY_Controller
 
             $this->word->download2( $this->data);
         }
+
+    public function exportxls($kadrid=null){
+        if ($this->session->userdata('logged_in') == FALSE) {
+            redirect(base_url('users/login'));
+        }
+        $is_admin=$this->session->userdata('is_admin');
+        $kollej_id=$this->session->userdata('kollej_id');
+        $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+        $this->data['title'] = 'Ходимлар рўйхати';
+        if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+
+        if ($this->input->post('kollej_id',true)!=null){
+            $kollej_id = $this->input->post('kollej_id', true);
+            $this->EmployeeModel->kollej_id=$kollej_id;
+        }
+
+            $editdata = $this->EmployeeModel->getEmployeeList();
+            $this->data['employee'] = $editdata;
+//            $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
+//            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
+//            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
+            $this->excel->exportxsl($this->data);
+//        }
+
+//        print_r($editdata);
+
     }
+    }
+

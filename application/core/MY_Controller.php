@@ -23,6 +23,7 @@ class MY_Controller extends CI_Controller{
         $this->data['username']=$this->session->all_userdata();
         $this->load->library('Fileupload');
         $this->load->library('Word');
+        $this->load->library('Excel');
     }
 
     
