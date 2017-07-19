@@ -29,3 +29,13 @@
 
 
 
+
+<script>
+
+    $( function() {
+        $( "#saylov_year" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>

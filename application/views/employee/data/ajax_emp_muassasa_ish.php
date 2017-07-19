@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Лавозим</label>
                     <div class="col-sm-6">
-                        <select name="lavozim_id" id="lavozim_id" class="form-control" required>
+                        <select name="lavozim_id" id="lavozim_id" class="form-control select22" required>
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getLavozimDropList($muassasaish['lavozim_id']); ?>
                         </select>
@@ -107,3 +107,20 @@
     </div>
 
 </div>
+
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#lavozim_bdate, #lavozim_tdate" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>

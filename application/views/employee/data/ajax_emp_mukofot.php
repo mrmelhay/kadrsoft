@@ -18,7 +18,7 @@
                     <div class="col-sm-7">
                         <div class="input-group">
                             <input type="text" name="year" id="year" value="<?php echo $mukofot['year']; ?>"
-                                   required>
+                                   required maxlength="4">
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Фан номи</label>
                     <div class="col-sm-6">
-                        <select name="fanlar_id" id="fanlar_id" class="form-control">
+                        <select name="fanlar_id" id="fanlar_id" class="form-control select22">
                             <?php $this->PreferencesModel->getFanlarDropList(null,$moderator['fanlar_id']); ?>
                         </select>
                     </div>
@@ -44,3 +44,17 @@
 
 
 
+
+<script>
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#training_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>

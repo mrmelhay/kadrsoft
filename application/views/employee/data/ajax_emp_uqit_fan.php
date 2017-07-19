@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Фан номи</label>
                     <div class="col-sm-6">
-                        <select name="fanlar_id" id="fanlar_id" class="form-control" required>
+                        <select name="fanlar_id" id="fanlar_id" class="form-control select22" required>
                            <?php if ($fanlari['fanlar_id']) {?>
                             <?php $this->PreferencesModel->getFanlarDropList($fanlari['fan_turi_id'],$fanlari['fanlar_id']); ?>
                             <?php }?>
@@ -111,4 +111,17 @@
             });
         });
     });
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#lavozim_bdate, #lavozim_tdate" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
 </script>

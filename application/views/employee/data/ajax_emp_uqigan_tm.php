@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Давлат</label>
                     <div class="col-sm-8">
-                        <select name="davlat_id" id="davlat_id" class="form-control">
+                        <select name="davlat_id" id="davlat_id" class="form-control select2">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getDavlatDropList($uqigantm['davlat_id']); ?>
                         </select>
@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">ОТМ номи</label>
                     <div class="col-sm-8">
-                        <select name="otm_id" id="otm_id" class="form-control">
+                        <select name="otm_id" id="otm_id" class="form-control select2">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getUniverDropList($uqigantm['otm_id']); ?>
                         </select>
@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Мутахасислиги</label>
                     <div class="col-sm-8">
-                        <select name="mutax_kodi_id" id="mutax_kodi_id" class="form-control">
+                        <select name="mutax_kodi_id" id="mutax_kodi_id" class="form-control select2">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getMutaxasislikDropList($uqigantm['mutax_kodi_id']); ?>
                         </select>
@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Берилган сана</label>
                     <div class="col-sm-6">
-                        <div class="input-group input-append date dpYears" id='datetimepicker2' data-date="12-02-2012"
+                        <div class="input-group input-append date dpYears" id='datetimepicker3' data-date="12-02-2012"
                              data-date-format="dd-mm-yyyy" data-date-viewmode="years">
                             <input type="text" class="form-control" name="diplom_sana" id="diplom_sana" required value="<?php echo $uqigantm['diplom_sana'];?>"/>
                             <span class="input-group-addon"> <i class="fa fa-calendar icon"></i></span> </div>
@@ -84,7 +84,7 @@
                     <label class="col-sm-4 control-label">Ўқитиш даражаси</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <select name="malumot_id" id="malumot_id" class="form-control">
+                            <select name="malumot_id" id="malumot_id" class="form-control select2">
                                 <option value="">Танланг...</option>
                                 <?php $this->PreferencesModel->getMalumotDropList($uqigantm['malumot_id']); ?>
 
@@ -123,3 +123,19 @@
     </div>
 </div>
 
+<script>
+
+
+    $(document).ready(function() {
+        $(".select2").select2();
+    });
+
+    $( function() {
+        $( "#diplom_sana, #tugatgan_yili,#kirgan_yili" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>

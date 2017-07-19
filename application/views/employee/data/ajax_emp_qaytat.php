@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Қайта таёрланган фан</label>
                     <div class="col-sm-5">
-                        <select name="qayta_fan_id" id="qayta_fan_id" class="form-control">
+                        <select name="qayta_fan_id" id="qayta_fan_id" class="form-control select22">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getQaytatfanDropList($qaytamalaka['qayta_fan_id']); ?>
                         </select>
@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">ҚТ муассасаси</label>
                     <div class="col-sm-6">
-                        <select name="otm_id" id="otm_id" class="form-control">
+                        <select name="otm_id" id="otm_id" class="form-control select22">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getUniverDropList($qaytamalaka['otm_id']); ?>
                         </select>
@@ -111,3 +111,19 @@
     </div>
 </div>
 
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#qayta_bdate, #qayta_tdate, #qayta_xujjat_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>

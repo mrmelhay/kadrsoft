@@ -12,6 +12,8 @@ class EmployeeModel extends MY_Model
         $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
+        $this->db->join('d_attestatsiya', 'd_kadr_items_bind.kadrid = d_attestatsiya.kadr_id', 'left');
+        $this->db->join('d_malaka', 'd_kadr_items_bind.kadrid = d_malaka.kadr_id', 'left');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = d_kadr.tuman_id', 'left');
         $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
@@ -21,7 +23,6 @@ class EmployeeModel extends MY_Model
         $this->db->where('d_kadr.isdelete', $isDelete);
 
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
-//            $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
             $this->db->where('(d_kadr_items_bind.kollej_id='.$this->kollej_id.' or spr_kollej.kollej_parent_id='.$this->kollej_id.')');
         }
 
@@ -29,8 +30,32 @@ class EmployeeModel extends MY_Model
             $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%')");
         }
 
+        if (!empty($this->type)) {
+            switch ($this->type){
+                case 'pedagog':
+                    $this->db->where("(spr_lavozim.type='2')");
+                    break;
+                case 'rahbar':
+                    $this->db->where("(spr_lavozim.type='1')");
+                    break;
+                case 'tehnik':
+                    $this->db->where("(spr_lavozim.type='3')");
+                    break;
+                case 'malaka':
+                    $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')");
+                    break;
+
+
+                case 'attestatsiya':
+
+                  $this->db->where("DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')");
+                  break;
+        }}
+
         $this->db->order_by('d_kadr.kadrid', 'ASC');
         $query = $this->db->get();
+
+
         return $query->result_array();
     }
 
@@ -1025,5 +1050,50 @@ class EmployeeModel extends MY_Model
            ->row_array();
    }
 
+
+   public function count_att_soni($kollej_id){
+//            $sana = date("Y-m-d");
+
+
+           return $this->db->query(
+             "
+            SELECT
+            *
+            FROM d_kadr
+            LEFT JOIN d_kadr_items_bind ON d_kadr.kadrid=d_kadr_items_bind.kadrid
+            LEFT JOIN d_attestatsiya ON d_kadr.kadrid=d_attestatsiya.kadr_id
+            WHERE d_kadr_items_bind.kollej_id = '{$kollej_id}' AND
+            DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')
+          "
+           )
+           ->result_array()    ;
+//
+//
+//            return $this->db->select ("*")
+//            ->from ("d_kadr")
+//            ->join ('d_kadr_items_bind', 'd_kadr_items_bind.kadrid=d_kadr.kadrid', 'left')
+//            ->join ('d_attestatsiya', 'd_attestatsiya.kadr_id=d_kadr.kadrid','left')
+//            ->where ('d_kadr_items_bind.kollej_id', $kollej_id)
+//            ->where ("(date_format('oxirgi_att_yili', '%m') =  date_format('$sana', '%m'))")
+//            ->get()
+//            ->row_array();
+   }
+
+    public function malaka_soni($kollej_id){
+
+
+        return $this->db->query(
+            "
+            SELECT
+            *
+            FROM d_kadr
+            LEFT JOIN d_kadr_items_bind ON d_kadr.kadrid=d_kadr_items_bind.kadrid
+            LEFT JOIN d_malaka ON d_kadr.kadrid=d_malaka.kadr_id
+            WHERE d_kadr_items_bind.kollej_id = '{$kollej_id}' AND
+            DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')
+          "
+        )
+            ->result_array()    ;
+    }
 
 }

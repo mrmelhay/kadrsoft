@@ -20,8 +20,8 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Берилган вақти</label>
                     <div class="col-sm-6">
-                        <div class="input-group input-append date dpYears" id='datetimepicker2' data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                            <input type="text" class="form-control" name="date_of_given" id="date_of_given" required value="<?php echo $passport['date_of_given'];?>"/>
+                        <div class="input-group">
+                            <input type="text" class="form-control mask" data-inputmask="'alias': 'date'" name="date_of_given" id="date_of_given" required value="<?php echo $passport['date_of_given'];?>" placeholder="kk/oy/yil"/>
                             <span class="input-group-addon"> <i class="fa fa-calendar icon"></i></span> </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <label class="col-sm-3 control-label">Давлат</label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <select name="davlat_id" id="davlat_id" class="form-control">
+                            <select name="davlat_id" id="davlat_id" class="form-control select22">
                                 <option value="">Танланг...</option>
                                 <?php $this->PreferencesModel->getDavlatDropList($passport['davlat_id']); ?>
                             </select>
@@ -59,7 +59,7 @@
                     <label class="col-sm-3 control-label">Вилоят</label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <select name="viloyat_id" id="viloyat_id" class="form-control">
+                            <select name="viloyat_id" id="viloyat_id" class="form-control select22">
                                 <option value="">Танланг...</option>
                                 <?php $this->PreferencesModel->getViloyatDropList($passport['viloyat_id']); ?>
                             </select>
@@ -71,7 +71,7 @@
                     <label class="col-sm-3 control-label">Туман</label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <select name="tuman_id" id="tuman_id" class="form-control">
+                            <select name="tuman_id" id="tuman_id" class="form-control select22">
                                 <option value="">Танланг...</option>
 
                                     <?php $this->PreferencesModel->getTumanDropList($passport['viloyat_id'], $passport['tuman_id']); ?>
@@ -103,3 +103,22 @@
     </div>
 </div>
 
+
+
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+        dropdownParent: $('#myModal');
+    });
+
+
+    $( function() {
+        $( "#date_of_given, #date_of_expr" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>

@@ -320,11 +320,24 @@ class TemplateProcessor
      */
     public function save()
     {
+
+
+
         foreach ($this->tempDocumentHeaders as $index => $headerXML) {
             $this->zipClass->addFromString($this->getHeaderName($index), $this->tempDocumentHeaders[$index]);
         }
 
         $this->zipClass->addFromString('word/document.xml', $this->tempDocumentMainPart);
+
+        if($this->_rels!="")
+        {
+            $this->zipClass->addFromString('word/_rels/document.xml.rels', $this->_rels);
+        }
+        if($this->_types!="")
+        {
+            $this->zipClass->addFromString('[Content_Types].xml', $this->_types);
+        }
+
 
         foreach ($this->tempDocumentFooters as $index => $headerXML) {
             $this->zipClass->addFromString($this->getFooterName($index), $this->tempDocumentFooters[$index]);
@@ -334,6 +347,8 @@ class TemplateProcessor
         if (false === $this->zipClass->close()) {
             throw new Exception('Could not close zip file.');
         }
+
+
 
         return $this->tempDocumentFilename;
     }
@@ -595,5 +610,20 @@ class TemplateProcessor
             array('&amp;', '&lt;', '&gt;', "\n" . '<w:br/>'),
             $str
         );
+    }
+
+    public function setImageValue($search, $replace)
+    {
+        // Sanity check
+        if (!file_exists($replace))
+        {
+            return;
+        }
+
+        // Delete current image
+        $this->zipClass->deleteName('word/media/' . $search);
+
+        // Add a new one
+        $this->zipClass->addFile($replace, 'word/media/' . $search);
     }
 }

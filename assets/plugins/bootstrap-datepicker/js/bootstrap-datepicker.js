@@ -23,7 +23,7 @@
 
 	var Datepicker = function(element, options){
 		this.element = $(element);
-		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'mm/dd/yyyy');
+		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'yyyy-mm-dd');
 		this.picker = $(DPGlobal.template)
 							.appendTo('body')
 							.on({
@@ -201,9 +201,11 @@
 				clsName = '';
 				if (prevMonth.getMonth() < month) {
 					clsName += ' old';
-				} else if (prevMonth.getMonth() > month) {
+				} 
+				/*else if (prevMonth.getMonth() > month) {
 					clsName += ' new';
-				}
+				}*/
+
 				if (prevMonth.valueOf() === currentDate) {
 					clsName += ' active';
 				}

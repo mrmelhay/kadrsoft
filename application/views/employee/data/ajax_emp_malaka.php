@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">МО муассасаси</label>
                     <div class="col-sm-6">
-                        <select name="otm_id" id="otm_id" class="form-control">
+                        <select name="otm_id" id="otm_id" class="form-control select22">
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getUniverDropList($malaka['otm_id']); ?>
                         </select>
@@ -179,3 +179,19 @@
     </div>
 </div>
 
+<script>
+
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#b_vaqti, #t_vaqti, #malaka_keyingi_sana, #xmb_vaqti, #xmt_vaqti, #malaka_xujjat_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+
+
+</script>

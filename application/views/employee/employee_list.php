@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("/employee/data_employee") ?>')"
+                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("employee/employees/info") ?>')"
                            ><i class="fa fa-info"></i>
                             Маълумотнома
 
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("/employee/edit_employee") ?>')"
+                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("employee/employees/edit") ?>')"
                            href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
                             Тахрирлаш
 

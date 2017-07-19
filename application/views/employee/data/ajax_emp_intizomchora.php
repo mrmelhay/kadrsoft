@@ -33,3 +33,17 @@
 
 
 
+
+<script>
+    $(document).ready(function() {
+        $(".select22").select2();
+    });
+
+
+    $( function() {
+        $( "#intizomchora_begin, #intizomchora_muddat").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>
