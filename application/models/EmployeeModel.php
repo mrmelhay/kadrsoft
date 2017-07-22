@@ -27,7 +27,8 @@ class EmployeeModel extends MY_Model
         }
 
         if (!empty($this->query)) {
-            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%' or inn='$this->query')");
+            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%' or inn='$this->query'
+                                or inps='$this->query' or phone_mobile='$this->query')");
         }
 
         if (!empty($this->type)) {
