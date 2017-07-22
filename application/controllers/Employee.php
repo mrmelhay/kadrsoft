@@ -33,8 +33,11 @@ class Employee extends MY_Controller
                 $this->EmployeeModel->kollej_id=$kollej_id;
             }
             if ($this->input->post('query',true)!=null) {
-                $query = $this->input->post('query', true);
+                $query = $this->input->post('query',false);
+                $this->data['query']=$query;
                 $this->EmployeeModel->query=$query;
+            }else {
+                $this->data['query']='';
             }
 
             if ($this->input->get('type')!=null){
@@ -133,9 +136,6 @@ class Employee extends MY_Controller
                 $type=$_GET['type'];
                 $this->EmployeeModel->type=$type;
             }
-
-
-
 
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_stir', $this->data, true);
@@ -984,7 +984,7 @@ class Employee extends MY_Controller
             $this->EmployeeModel->kollej_id=$kollej_id;
         }
 
-            $editdata = $this->EmployeeModel->getEmployeeList();
+            $editdata = $this->data['employees'];
             $this->data['employee'] = $editdata;
 //            $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
 //            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);

@@ -27,7 +27,7 @@ class EmployeeModel extends MY_Model
         }
 
         if (!empty($this->query)) {
-            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%')");
+            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%' or inn='$this->query')");
         }
 
         if (!empty($this->type)) {
@@ -44,10 +44,7 @@ class EmployeeModel extends MY_Model
                 case 'malaka':
                     $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')");
                     break;
-
-
                 case 'attestatsiya':
-
                   $this->db->where("DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')");
                   break;
         }}

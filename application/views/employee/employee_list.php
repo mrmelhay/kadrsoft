@@ -86,7 +86,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="query" id="query"/>
+                                    <input type="text" class="form-control" name="query" id="query" value="<?php echo $query;?>"/>
                                     <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> <?php echo empty($this->input->post('query',true))?'Излаш':'Тозалаш'?></button>
                   </span></div>
