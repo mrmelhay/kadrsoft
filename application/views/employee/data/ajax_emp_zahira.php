@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Захирага олинган санаси</label>
                     <div class="col-sm-6">
-                        <input type="text" name="zahira_year" class="form=control" id="zahira_year" value="<?php echo $zahira['zahira_year'];?>"/>
+                        <input type="text" name="zahira_year" class="form-control" id="zahira_year" value="<?php echo $zahira['zahira_year'];?>"/>
                     </div>
                 </div>
             </div>

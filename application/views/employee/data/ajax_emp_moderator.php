@@ -25,14 +25,14 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Тренинг номи</label>
                     <div class="col-sm-6">
-                       <input type="text" name="training_name" class="form=control" id="training_name" value="<?php echo $moderator['training_name'];?>"/>
+                       <input type="text" name="training_name" class="form control" id="training_name" value="<?php echo $moderator['training_name'];?>"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Тренинг санаси</label>
                     <div class="col-sm-6">
-                        <input type="text" name="training_date" class="form=control" id="training_date" value="<?php echo $moderator['training_date'];?>"/>
+                        <input type="text" name="training_date" class="form control" id="training_date" value="<?php echo $moderator['training_date'];?>"/>
                     </div>
                 </div>
             </div>

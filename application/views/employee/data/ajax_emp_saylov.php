@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Сайланган йили</label>
                     <div class="col-sm-6">
-                        <input type="text" name="saylov_year" class="form=control" id="saylov_year"
+                        <input type="text" name="saylov_year" class="form-control" id="saylov_year"
                                value="<?php echo $saylov['saylov_year']; ?>"/>
                     </div>
                 </div>
