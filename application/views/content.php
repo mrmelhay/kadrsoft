@@ -9,13 +9,13 @@ $action5=array('organ_list');
     <?php if ($this->session->userdata('logged_in') != false) { ?>
         <div class="inner">
             <div class="left_nav">
+                <form action="<?php echo base_url('employee/employees') ?>" method="post">
                 <div class="search_bar"><i class="fa fa-search"></i>
-                    <input name="" type="text" class="search" placeholder="Излаш...">
+                    <input type="text" class="search" name="query" id="query" placeholder="Излаш...">
                 </div>
+                </form>
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px">
-                    <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
-
-
+                   <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
                             <li class="left_nav_active theme_border ">
                                 <a href="/dashboard"><i
@@ -99,7 +99,8 @@ $action5=array('organ_list');
                                                     class="fa fa-circle"></i><b>Ўқитиш соҳалари</b> </a></li>
                                 </ul>
                             </li>
-                            <?php }?>
+
+
                             <li><a href="javascript:void(0);"> <i class="fa fa-user"></i> Фойдаланувчилар <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span> </a>
@@ -116,6 +117,7 @@ $action5=array('organ_list');
                                 </ul>
 
                             </li>
+                            <?php }?>
                             <li><a href="javascript:void(0);"> <i class="fa fa-info"></i> Ёрдам </a>
                             </li>
                         </ul>

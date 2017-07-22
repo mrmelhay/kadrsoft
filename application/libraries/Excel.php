@@ -26,11 +26,8 @@ class Excel extends PHPExcel {
     {
         $numrow = 8;
         if ($data != null) {
-
-
-            foreach ($data['employee'] as $datae) {
+           foreach ($data['employee'] as $datae) {
                 $this->excel->getActiveSheet()->setCellValue('A'.$numrow, $numrow);
-
                 $this->excel->getActiveSheet()->setCellValue('C'.$numrow, $datae['name_f'].' '.$datae['name_i'].' '.$datae['name_o']);
                 $this->excel->getActiveSheet()->setCellValue('D'.$numrow, $datae['lavozim_name']);
                 $this->excel->getActiveSheet()->setCellValue('E'.$numrow, $datae['bdate']);
@@ -39,12 +36,9 @@ class Excel extends PHPExcel {
                 $this->excel->getActiveSheet()->setCellValue('H'.$numrow, $datae['malumot_name']);
                 $this->excel->getActiveSheet()->setCellValue('AA'.$numrow, $datae['address']);
                 $this->excel->getActiveSheet()->setCellValue('AC'.$numrow, $datae['address']);
-
                 $objDrawing = new PHPExcel_Worksheet_Drawing();
                 $objDrawing->setName('Customer Signature');
                 $objDrawing->setDescription('Customer Signature');
-                //Path to signature .jpg file
-//                $signature = $reportdetails[$rowCount][$value];
                 $objDrawing->setPath($datae['photo']);
                 $objDrawing->setOffsetX(0);
                 $objDrawing->setOffsetY(0);
