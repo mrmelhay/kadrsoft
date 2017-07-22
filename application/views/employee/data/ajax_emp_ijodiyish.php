@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Яратилган ижодий тури</label>
                     <div class="col-sm-7">
-                        <input type="text" name="ijodiyish_type" class="form control" id="ijodiyish_type" value="<?php echo $ijodiy['ijodiyish_type'];?>"/>
+                        <input type="text" name="ijodiyish_type" class="form-control" id="ijodiyish_type" value="<?php echo $ijodiy['ijodiyish_type'];?>"/>
                     </div>
                 </div>
                 <div class="form-group">
