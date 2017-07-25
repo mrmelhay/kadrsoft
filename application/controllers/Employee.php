@@ -929,7 +929,6 @@ class Employee extends MY_Controller
             }
         }
 
-
         public
         function objective($kadrid)
         {
