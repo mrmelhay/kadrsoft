@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="kadrsoft">
+  <component name="PublishConfigData" serverName="kadrsoft" uploadOnCheckin="f92a78c4-40ad-49e6-bae7-317e1fa47b9b">
     <serverData>
       <paths name="kadrsoft">
         <serverdata>
@@ -13,5 +13,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="kadrsoft" />
   </component>
 </project>
