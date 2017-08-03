@@ -130,7 +130,7 @@ class EmployeeModel extends MY_Model
             ->join('spr_millat', 'spr_millat.millat_id=d_kadr.millat_id', 'left')
             ->join('spr_partiya', 'spr_partiya.partiya_id=d_kadr.partiya_id', 'left')
             ->join('spr_malumot', 'spr_malumot.malumot_id=d_kadr.malumot_id', 'left')
-            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid', 'left')
+            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid and d_uqigan_tm.is_active=1', 'left')
             ->join('spr_otm', 'spr_otm.otm_id=d_uqigan_tm.kadr_id', 'left')
             ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id', 'left')
             ->join('d_ilmiy_daraja', 'd_ilmiy_daraja.kadr_id =d_kadr.kadrid', 'left')
