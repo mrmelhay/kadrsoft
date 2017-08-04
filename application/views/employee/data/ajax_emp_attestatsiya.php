@@ -17,7 +17,7 @@
                     <label class="col-sm-5 control-label">Амалдаги малака лавозимини эгаллаган йили</label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" name="amal_mal_lav_bdate" id="amal_mal_lav_bdate" class="form-control" maxlength="4" value="<?php echo $attestasiya['amal_mal_lav_bdate'];?>">
+                            <input type="text" name="amal_mal_lav_bdate" id="amal_mal_lav_bdate" class="form-control" maxlength="10" value="<?php echo $attestasiya['amal_mal_lav_bdate'];?>">
                         </div>
                     </div>
                 </div>
@@ -35,10 +35,10 @@
                     <label class="col-sm-5 control-label">Охирги марта аттестация жалб этилган йили</label>
                     <div class="col-sm-6">
                         <div id="datetimepicker1" class="input-group date">
-                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" maxlength="4"
-                                   value="<?php echo $attestasiya['oxirgi_att_yili'];?>">
+                            <input type="text" name="oxirgi_att_yili" id="oxirgi_att_yili"  class="form-control" maxlength="10"
+                                   value="<?php echo $attestasiya['oxirgi_att_yili'];?>" onkeyup="updateInput(this.value);>
                             <span class="input-group-addon">
-                                <i class="fa fa-calendar icon"></i>
+<!--                                <i class="fa fa-calendar icon"></i>-->
 <!--                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>-->
                             </span>
                         </div>
@@ -74,7 +74,7 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Фан номи</label>
                     <div class="col-sm-6">
-                        <select name="fanlar_id" id="fanlar_id" class="form-control" required>
+                        <select name="fanlar_id" id="fanlar_id" class="form-control select22" required>
                             <option value="">Танланг...</option>
                             <?php $this->PreferencesModel->getFanlarDropList($attestasiya['fan_turi_id'],$attestasiya['fanlar_id']); ?>
                         </select>
@@ -84,7 +84,7 @@
                     <label class="col-sm-5 control-label">Навбатдаги аттестацияга жалб этилган йили</label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" name="nav_att_yili" id="nav_att_yili" class="form-control" maxlength="4" value="<?php echo $attestasiya['nav_att_yili'];?>">
+                            <input type="text" name="nav_att_yili" id="nav_att_yili" class="form-control" maxlength="10" value="<?php echo $attestasiya['nav_att_yili'];?>">
                         </div>
                     </div>
                 </div>
@@ -108,3 +108,36 @@
 
 </div>
 
+<script>
+    $(document).ready(function() {
+        $(".select22").select2();
+
+    });
+
+
+    $( function() {
+        $( "#amal_mal_lav_bdate, #oxirgi_att_yili, #nav_att_yili" ).datepicker({
+
+        });
+    } );
+
+
+    $( "#oxirgi_att_yili" ).datepicker({
+        dateFormat: "yyyy-mm-dd",
+        onSelect: function(dt, inst){
+            var date2 = $('#oxirgi_att_yili').datepicker('getDate');
+            date2.setDate(date2.getDate()+60);
+            alert('ok');
+
+            $( "#nav_att_yili" ).datepicker({
+                dateFormat: "yyyy-mm-dd",
+                minDate: date2
+            });
+
+            $('#nav_att_yili').datepicker(
+                'setDate', date2);
+
+        }
+    });
+
+</script>

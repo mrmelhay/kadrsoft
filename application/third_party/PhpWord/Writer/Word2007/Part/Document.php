@@ -17,9 +17,20 @@
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 
+use PhpOffice\PhpWord\Element\Link;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\Shared\XMLWriter;
+use PhpOffice\PhpWord\Writer\HTML\Element\Image;
+use PhpOffice\PhpWord\Writer\RTF\Element\Table;
 use PhpOffice\PhpWord\Writer\Word2007\Element\Container;
+use PhpOffice\PhpWord\Writer\Word2007\Element\ListItem;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Object;
+use PhpOffice\PhpWord\Writer\Word2007\Element\PageBreak;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Text;
+use PhpOffice\PhpWord\Writer\Word2007\Element\TextBreak;
+use PhpOffice\PhpWord\Writer\Word2007\Element\TextRun;
+use PhpOffice\PhpWord\Writer\Word2007\Element\Title;
+use PhpOffice\PhpWord\Writer\Word2007\Element\TOC;
 use PhpOffice\PhpWord\Writer\Word2007\Style\Section as SectionStyleWriter;
 
 /**
@@ -134,5 +145,86 @@ class Document extends AbstractPart
         $styleWriter->write();
 
         $xmlWriter->endElement(); // w:sectPr
+    }
+
+    public function getObjectAsText($element){
+
+        if($this->getParentWriter()->getUseDiskCaching()) {
+            $objWriter = new \PhpOffice\PhpWord\Shared\XMLWriter(\PhpOffice\PhpWord\Shared\XMLWriter::STORAGE_DISK, $this->getParentWriter()->getDiskCachingDirectory());
+        } else {
+            $objWriter = new \PhpOffice\PhpWord\Shared\XMLWriter(\PhpOffice\PhpWord\Shared\XMLWriter::STORAGE_MEMORY);
+        }
+        if($element instanceof PHPWord_Section_Text) {
+            $this->_writeText($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_TextRun) {
+            $this->_writeTextRun($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_Link) {
+            $this->_writeLink($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_Title) {
+            $this->_writeTitle($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_TextBreak) {
+            $this->_writeTextBreak($objWriter);
+        } elseif($element instanceof PHPWord_Section_PageBreak) {
+            $this->_writePageBreak($objWriter);
+        } elseif($element instanceof PHPWord_Section_Table) {
+            $this->_writeTable($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_ListItem) {
+            $this->_writeListItem($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_Image ||
+            $element instanceof PHPWord_Section_MemoryImage) {
+            $this->_writeImage($objWriter, $element);
+        } elseif($element instanceof PHPWord_Section_Object) {
+            $this->_writeObject($objWriter, $element);
+        } elseif($element instanceof PHPWord_TOC) {
+            $this->_writeTOC($objWriter);
+        }
+        return trim(preg_replace("/[\x1-\x8\xB-\xC\xE-\x1F-\t+]/", "", $objWriter->getData()));
+
+    }
+
+    public function getTableAsText($element) {
+
+//
+//        $objWriter = $this->getXmlWriter();
+//        if($element instanceof Text) {
+//            $writer = new \PhpOffice\PhpWord\Writer\Word2007\Element\Text($objWriter, $element);
+//            $writer->write();
+//        } elseif($element instanceof TextRun) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof Link) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof Title) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof TextBreak) {
+//            $this->write($objWriter);
+//        } elseif($element instanceof PageBreak) {
+//            $this->write($objWriter);
+//        } elseif($element instanceof Table) {
+//            $writer = new \PhpOffice\PhpWord\Writer\Word2007\Element\Table($objWriter, $element);
+//            $writer->write();
+//        } elseif($element instanceof ListItem) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof Image) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof Object) {
+//            $this->write($objWriter, $element);
+//        } elseif($element instanceof TOC) {
+//            $this->write($objWriter);
+//        }
+//        return trim(preg_replace("/[\x1-\x8\xB-\xC\xE-\x1F-\t+]/", "", $objWriter->getData()));
+
+
+        $xmlWriter = $this->getXmlWriter();
+        $writer = new \PhpOffice\PhpWord\Writer\Word2007\Element\Table($xmlWriter, $element);
+        $writer->write();
+        return $xmlWriter->getData();
+    }
+
+    public function getTextAsText($element){
+
+        $xmlWriter = $this->getXmlWriter();
+        $writer = new \PhpOffice\PhpWord\Writer\Word2007\Element\Text($xmlWriter, $element);
+        $writer->write();
+        return $xmlWriter->getData();
     }
 }

@@ -1319,13 +1319,11 @@ img {
 }
 
 .theme_color {
-    color: #f35958;
-!important;
+    color: #f35958 !important;
 }
 
 .theme_border {
-    border-color: #f35958;
-!important;
+    border-color: #f35958 !important;
 }
 
 .breadcrumb_admin {

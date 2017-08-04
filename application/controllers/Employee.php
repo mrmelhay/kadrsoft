@@ -9,13 +9,14 @@
 class Employee extends MY_Controller
 {
 
+    public $kadr;
 
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function employees()
+    public function employees($action=null)
     {
 
         if ($this->session->userdata('logged_in') == FALSE) {
@@ -32,10 +33,64 @@ class Employee extends MY_Controller
                 $this->EmployeeModel->kollej_id=$kollej_id;
             }
             if ($this->input->post('query',true)!=null) {
-                $query = $this->input->post('query', true);
+                $query = $this->input->post('query',false);
+                $this->data['query']=$query;
                 $this->EmployeeModel->query=$query;
+            }else {
+                $this->data['query']='';
             }
 
+            if ($this->input->get('type')!=null){
+                $type=$_GET['type'];
+                $this->EmployeeModel->type=$type;
+            }
+
+//        if ($this->input->get('att')!=null){
+//        $count_malaka=$_GET['att'];
+//        $this->EmployeeModel->count_malaka=$count_malaka;
+//    }
+
+
+
+            if ($action!=null){
+                switch ($action){
+                    case 'info':
+                        $kadr=$this->input->post('kadr',true);
+                        if ($kadr!=null) {
+                            if (is_array($kadr)) {
+                                if (sizeof($kadr) > 0) {
+                                    foreach ($kadr as $key => $val) {
+                                        if ($val == '') {
+                                            unset($kadr[$key]);
+                                        } else {
+                                            $this->kadr = $val;
+                                        }
+                                    }
+                                }
+                            }
+                            redirect(base_url('employee/data_employee/'.$this->kadr));
+                        }
+                        break;
+                    case 'edit':
+                        $kadr=$this->input->post('kadr',true);
+                        if ($kadr!=null) {
+                            if (is_array($kadr)) {
+                                if (sizeof($kadr) > 0) {
+                                    foreach ($kadr as $key => $val) {
+                                        if ($val == '') {
+                                            unset($kadr[$key]);
+                                        } else {
+                                            $this->kadr = $val;
+                                        }
+                                    }
+                                }
+                            }
+                            redirect(base_url('employee/edit_employee/'.$this->kadr));
+                        }
+                        break;
+                }
+
+            }
 
 
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
@@ -59,6 +114,30 @@ class Employee extends MY_Controller
         public function stir()
         {
             $this->data['title'] = 'Ходимлар рўйхати';
+            if ($this->session->userdata('logged_in') == FALSE) {
+                redirect(base_url('users/login'));
+            }
+            $is_admin=$this->session->userdata('is_admin');
+            $kollej_id=$this->session->userdata('kollej_id');
+            $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+            $this->data['title'] = 'Ходимлар рўйхати';
+            if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+
+            if ($this->input->post('kollej_id',true)!=null){
+                $kollej_id = $this->input->post('kollej_id', true);
+                $this->EmployeeModel->kollej_id=$kollej_id;
+            }
+            if ($this->input->post('query',true)!=null) {
+                $query = $this->input->post('query', true);
+                $this->EmployeeModel->query=$query;
+            }
+
+            if ($this->input->get('type')!=null){
+                $type=$_GET['type'];
+                $this->EmployeeModel->type=$type;
+            }
+
+            $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_stir', $this->data, true);
             $this->view_lib->admin_layout($this->data);
         }
@@ -293,17 +372,7 @@ class Employee extends MY_Controller
         public function data_employee($kadrid=null)
         {
 
-            $kadr=$this->input->post('kadr',true);
-            if (is_array($kadr)){
-                if (sizeof($kadr)>0){
-                    foreach($kadr as $key=>$val){
-                        if ($val=='') { unset($kadr[$key]); }
-                        else{
-                            $kadrid=$val;
-                        }
-                    }
-                }
-            }
+
 
             if ($this->session->userdata('logged_in') == FALSE) {
                 redirect(base_url('users/login'));
@@ -860,7 +929,6 @@ class Employee extends MY_Controller
             }
         }
 
-
         public
         function objective($kadrid)
         {
@@ -899,4 +967,32 @@ class Employee extends MY_Controller
 
             $this->word->download2( $this->data);
         }
+
+    public function exportxls($kadrid=null){
+        if ($this->session->userdata('logged_in') == FALSE) {
+            redirect(base_url('users/login'));
+        }
+        $is_admin=$this->session->userdata('is_admin');
+        $kollej_id=$this->session->userdata('kollej_id');
+        $kollej_parent_id=$this->session->userdata('kollej_parent_id');
+        $this->data['title'] = 'Ходимлар рўйхати';
+        if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
+
+        if ($this->input->post('kollej_id',true)!=null){
+            $kollej_id = $this->input->post('kollej_id', true);
+            $this->EmployeeModel->kollej_id=$kollej_id;
+        }
+
+            $editdata = $this->data['employees'];
+            $this->data['employee'] = $editdata;
+//            $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
+//            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
+//            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
+            $this->excel->exportxsl($this->data);
+//        }
+
+//        print_r($editdata);
+
     }
+    }
+

@@ -12,6 +12,8 @@ class EmployeeModel extends MY_Model
         $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
+        $this->db->join('d_attestatsiya', 'd_kadr_items_bind.kadrid = d_attestatsiya.kadr_id', 'left');
+        $this->db->join('d_malaka', 'd_kadr_items_bind.kadrid = d_malaka.kadr_id', 'left');
         $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
         $this->db->join('spr_tuman', 'spr_tuman.tuman_id = d_kadr.tuman_id', 'left');
         $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
@@ -21,16 +23,37 @@ class EmployeeModel extends MY_Model
         $this->db->where('d_kadr.isdelete', $isDelete);
 
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
-//            $this->db->where('d_kadr_items_bind.kollej_id', $this->kollej_id);
             $this->db->where('(d_kadr_items_bind.kollej_id='.$this->kollej_id.' or spr_kollej.kollej_parent_id='.$this->kollej_id.')');
         }
 
         if (!empty($this->query)) {
-            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%')");
+            $this->db->where("(d_kadr.name_f like '%$this->query%' or d_kadr.name_i like '%$this->query%' or d_kadr.name_o like '%$this->query%' or inn='$this->query'
+                                or inps='$this->query' or phone_mobile='$this->query')");
         }
+
+        if (!empty($this->type)) {
+            switch ($this->type){
+                case 'pedagog':
+                    $this->db->where("(spr_lavozim.type='2')");
+                    break;
+                case 'rahbar':
+                    $this->db->where("(spr_lavozim.type='1')");
+                    break;
+                case 'tehnik':
+                    $this->db->where("(spr_lavozim.type='3')");
+                    break;
+                case 'malaka':
+                    $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')");
+                    break;
+                case 'attestatsiya':
+                  $this->db->where("DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')");
+                  break;
+        }}
 
         $this->db->order_by('d_kadr.kadrid', 'ASC');
         $query = $this->db->get();
+
+
         return $query->result_array();
     }
 
@@ -107,7 +130,7 @@ class EmployeeModel extends MY_Model
             ->join('spr_millat', 'spr_millat.millat_id=d_kadr.millat_id', 'left')
             ->join('spr_partiya', 'spr_partiya.partiya_id=d_kadr.partiya_id', 'left')
             ->join('spr_malumot', 'spr_malumot.malumot_id=d_kadr.malumot_id', 'left')
-            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid', 'left')
+            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid and d_uqigan_tm.is_active=1', 'left')
             ->join('spr_otm', 'spr_otm.otm_id=d_uqigan_tm.kadr_id', 'left')
             ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id', 'left')
             ->join('d_ilmiy_daraja', 'd_ilmiy_daraja.kadr_id =d_kadr.kadrid', 'left')
@@ -123,6 +146,40 @@ class EmployeeModel extends MY_Model
             ->where('d_kadr.kadrid', $user_id)
             ->get()
             ->row_array();
+    }
+
+    public function read_by_datas($user_id = null)
+    {
+        return $this->db->select("d_kadr.*,d_kadr_items_bind.*,spr_kollej.kollej_name,spr_lavozim.lavozim_name, spr_viloyat.viloyat,
+        spr_tuman.tuman,spr_millat.millat_name,spr_partiya.partiya_name,spr_malumot.malumot_name,d_uqigan_tm.kirgan_yili,d_uqigan_tm.tugatgan_yili,d_uqigan_tm.diplom_sana,d_uqigan_tm.diplom_num,
+        diplom_num,spr_otm.*,spr_mutaxasislik.mutax_kodi,spr_mutaxasislik.mutax_kodi_name,d_ilmiy_daraja.*,spr_ilmiy_daraja.ilm_daraja_name,d_ilmiy_unvon.*,spr_ilmiy_unvon.ilmiy_unvon_nomi,d_tillar_bind.*, spr_tillar.tillar_nomi,
+        spr_tillar_turi.tillar_turi_nomi, d_mukofot.*,spr_dav_mukofot.mukofot_name,d_mehnat_faol.*")
+            ->from("d_kadr")
+            ->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid=d_kadr.kadrid', 'left')
+            ->join('spr_kollej', 'spr_kollej.kollej_id=d_kadr_items_bind.kollej_id', 'left')
+            ->join('spr_lavozim', 'spr_lavozim.lavozim_id=d_kadr.lavozim_id', 'left')
+            ->join('spr_davlat', 'spr_davlat.davlat_id=d_kadr.davlat_id', 'left')
+            ->join('spr_viloyat', 'spr_viloyat.viloyat_id=d_kadr.viloyat_id', 'left')
+            ->join('spr_tuman', 'spr_tuman.tuman_id=d_kadr.tuman_id', 'left')
+            ->join('spr_millat', 'spr_millat.millat_id=d_kadr.millat_id', 'left')
+            ->join('spr_partiya', 'spr_partiya.partiya_id=d_kadr.partiya_id', 'left')
+            ->join('spr_malumot', 'spr_malumot.malumot_id=d_kadr.malumot_id', 'left')
+            ->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_otm', 'spr_otm.otm_id=d_uqigan_tm.kadr_id', 'left')
+            ->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_uqigan_tm.mutax_kodi_id', 'left')
+            ->join('d_ilmiy_daraja', 'd_ilmiy_daraja.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_ilmiy_daraja', 'spr_ilmiy_daraja.ilm_daraja_id =d_ilmiy_daraja.ilm_daraja_id', 'left')
+            ->join('d_ilmiy_unvon', 'd_ilmiy_unvon.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_ilmiy_unvon', 'spr_ilmiy_unvon.ilmiy_unvon_id =d_ilmiy_unvon.ilmiy_unvon_id', 'left')
+            ->join('d_tillar_bind', 'd_tillar_bind.kadr_id =d_kadr.kadrid', 'left')
+            ->join('spr_tillar', 'spr_tillar.tillar_id =d_tillar_bind.tillar_id', 'left')
+            ->join('spr_tillar_turi', 'spr_tillar_turi.tillar_turi_id =d_tillar_bind.tillar_turi_id', 'left')
+            ->join('d_mukofot', 'd_mukofot.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
+            ->join('d_mehnat_faol', 'd_mehnat_faol.kadr_id=d_kadr.kadrid', 'left')
+//            ->where('d_kadr.kadrid', $user_id)
+            ->get()
+            ->result_array();
     }
 
     public function read_by_passports($user_id = null)
@@ -1025,5 +1082,50 @@ class EmployeeModel extends MY_Model
            ->row_array();
    }
 
+
+   public function count_att_soni($kollej_id){
+//            $sana = date("Y-m-d");
+
+
+           return $this->db->query(
+             "
+            SELECT
+            *
+            FROM d_kadr
+            LEFT JOIN d_kadr_items_bind ON d_kadr.kadrid=d_kadr_items_bind.kadrid
+            LEFT JOIN d_attestatsiya ON d_kadr.kadrid=d_attestatsiya.kadr_id
+            WHERE d_kadr_items_bind.kollej_id = '{$kollej_id}' AND
+            DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')
+          "
+           )
+           ->result_array()    ;
+//
+//
+//            return $this->db->select ("*")
+//            ->from ("d_kadr")
+//            ->join ('d_kadr_items_bind', 'd_kadr_items_bind.kadrid=d_kadr.kadrid', 'left')
+//            ->join ('d_attestatsiya', 'd_attestatsiya.kadr_id=d_kadr.kadrid','left')
+//            ->where ('d_kadr_items_bind.kollej_id', $kollej_id)
+//            ->where ("(date_format('oxirgi_att_yili', '%m') =  date_format('$sana', '%m'))")
+//            ->get()
+//            ->row_array();
+   }
+
+    public function malaka_soni($kollej_id){
+
+
+        return $this->db->query(
+            "
+            SELECT
+            *
+            FROM d_kadr
+            LEFT JOIN d_kadr_items_bind ON d_kadr.kadrid=d_kadr_items_bind.kadrid
+            LEFT JOIN d_malaka ON d_kadr.kadrid=d_malaka.kadr_id
+            WHERE d_kadr_items_bind.kollej_id = '{$kollej_id}' AND
+            DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')
+          "
+        )
+            ->result_array()    ;
+    }
 
 }

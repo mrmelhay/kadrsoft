@@ -1,3 +1,6 @@
+
+
+
 <div class="pull-left breadcrumb_admin clear_both">
 </div>
 <div class="container clear_both padding_fix">
@@ -61,7 +64,8 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Туғилган вақти</label>
                             <div class="col-md-6">
-                                <input id="bdate" name="bdate" type="text" class="form-control form-control-inline input-medium default-date-picker"  value="<?php echo $employee->bdate;?>" placeholder="Кк/Ой/Йил">
+<!--                                <input id="bdate" name="bdate" type="text" class="form-control mask" data-inputmask="'alias': 'date'"  value="--><?php //echo $employee->bdate;?><!--" placeholder="Кк/Ой/Йил">-->
+                                <input id="datepicker" name="bdate" type="text" value="<?php echo $employee->bdate;?>" placeholder="Кк/Ой/Йил">
                             </div>
                         </div>
 
@@ -71,7 +75,7 @@
                     <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Жинси</label>
                             <div class="col-md-6">
-                                <select name="sex" id="sex" class="form-control">
+                                <select name="sex" id="sex" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <option value="1" <?php  if ($employee->sex==1) { ?>selected="selected" <?php }?>>Аёл</option>
                                     <option value="2" <?php  if ($employee->sex==2) { ?>selected="selected" <?php }?>>Эркак</option>
@@ -82,7 +86,7 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Лавозими</label>
                             <div class="col-md-6">
-                                <select name="lavozim_id" id="lavozim_id" class="form-control">
+                                <select name="lavozim_id" id="lavozim_id" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getLavozimDropList($employee->lavozim_id); ?>
                                 </select>
@@ -92,7 +96,7 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Маълумоти</label>
                             <div class="col-md-6">
-                                <select name="malumot_id" id="malumot_id" class="form-control">
+                                <select name="malumot_id" id="malumot_id" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getMalumotDropList($employee->malumot_id); ?>
                                 </select>
@@ -102,7 +106,7 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Тоифаси</label>
                             <div class="col-md-6">
-                                <select name="malaka_lavozim_id" id="malaka_lavozim_id" class="form-control">
+                                <select name="malaka_lavozim_id" id="malaka_lavozim_id" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getMalakaLavDropList($employee->malaka_lavozim_id); ?>
 
@@ -113,27 +117,27 @@
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Мутахасислик тури</label>
                             <div class="col-md-6">
-                                <select name="mutax_turi_id" id="mutax_turi_id" class="form-control">
+                                <select name="mutax_turi_id" id="mutax_turi_id" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getMutaxasislikTurDropList($employee->mutax_turi_id); ?>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group has-success lable-padd">
-                            <label for="" class="col-md-3">Мутахасислиги</label>
-                            <div class="col-md-6">
-                                <select name="mutax_kodi_id" id="mutax_kodi_id" class="form-control">
-                                    <option value="">Танланг...</option>
-                                    <?php $this->PreferencesModel->getMutaxasislikDropList($employee->mutax_kodi_id); ?>
-                                </select>
-                            </div>
+                    <div class="form-group has-success lable-padd">
+                        <label for="" class="col-md-3">Мутахасислиги</label>
+                        <div class="col-md-6">
+                            <select name="mutax_kodi_id" id="mutax_kodi_id" class="form-control select22">
+                                <option value="">Танланг...</option>
+                                <?php $this->PreferencesModel->getMutaxasislikDropList($employee->mutax_kodi_id); ?>
+                            </select>
                         </div>
+                    </div>
 
                         <div class="form-group has-success lable-padd">
                             <label for="" class="col-md-3">Миллати</label>
                             <div class="col-md-6">
-                                <select name="millat_id" id="millat_id" class="form-control">
+                                <select name="millat_id" id="millat_id" class="form-control select22">
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getMillatiDropList($employee->millat_id); ?>
                                 </select>
@@ -167,7 +171,7 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Давлат</label>
                         <div class="col-md-6">
-                            <select name="davlat_id" id="davlat_id" class="form-control">
+                            <select name="davlat_id" id="davlat_id" class="form-control select22">
                                 <option value="">Танланг...</option>
                                 <?php $this->PreferencesModel->getDavlatDropList($employee->davlat_id); ?>
                             </select>
@@ -177,7 +181,7 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Вилоят</label>
                         <div class="col-md-6">
-                            <select name="viloyat_id" id="viloyat_id" class="form-control">
+                            <select name="viloyat_id" id="viloyat_id" class="form-control select22">
                                 <option value="">Танланг...</option>
                                 <?php $this->PreferencesModel->getViloyatDropList($employee->viloyat_id); ?>
                             </select>
@@ -187,7 +191,7 @@
                     <div class="form-group has-success lable-padd">
                         <label for="" class="col-md-3">Туман</label>
                         <div class="col-md-6">
-                            <select name="tuman_id" id="tuman_id" class="form-control">
+                            <select name="tuman_id" id="tuman_id" class="form-control select22">
                                 <option value="">Танланг...</option>
                                 <?php if ($employee->tuman_id) {?>
                                 <?php $this->PreferencesModel->getTumanDropList($employee->viloyat_id,$employee->tuman_id); ?>

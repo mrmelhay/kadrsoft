@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("/employee/data_employee") ?>')"
+                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("employee/employees/info") ?>')"
                            ><i class="fa fa-info"></i>
                             Маълумотнома
 
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("/employee/edit_employee") ?>')"
+                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("employee/employees/edit") ?>')"
                            href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
                             Тахрирлаш
 
@@ -66,16 +66,13 @@
                             бўшатиш
                         </a>
                     </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i
-                                    class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">Чоп этиш</a></li>
-                            <li><a href="#">PDF га сақлаш</a></li>
-                            <li><a href="#">Excel га сақлаш</a></li>
-                        </ul>
+
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-success" onclick='javascript:checkSel("<?php echo base_url("/employee/exportxls") ?>")'
+                           href="#"> <i class="fa fa-table"></i> Excel
+                        </a>
                     </div>
+
                 </div>
 
                 <div class="margin-top-10">
@@ -89,7 +86,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="query" id="query"/>
+                                    <input type="text" class="form-control" name="query" id="query" value="<?php echo $query;?>"/>
                                     <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> <?php echo empty($this->input->post('query',true))?'Излаш':'Тозалаш'?></button>
                   </span></div>
