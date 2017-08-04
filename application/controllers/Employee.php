@@ -897,6 +897,6 @@ class Employee extends MY_Controller
             $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
             $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
 
-            $this->word->download( $this->data);
+            $this->word->download2( $this->data);
         }
     }
