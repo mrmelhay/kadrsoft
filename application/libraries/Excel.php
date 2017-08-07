@@ -31,11 +31,26 @@ class Excel extends PHPExcel {
                 $this->excel->getActiveSheet()->setCellValue('C'.$numrow, $datae['name_f'].' '.$datae['name_i'].' '.$datae['name_o']);
                 $this->excel->getActiveSheet()->setCellValue('D'.$numrow, $datae['lavozim_name']);
                 $this->excel->getActiveSheet()->setCellValue('E'.$numrow, $datae['bdate']);
-                $this->excel->getActiveSheet()->setCellValue('F'.$numrow, $datae['bdate']);
+               $this->excel->getActiveSheet()->setCellValue('F' . $numrow, $datae['partiya_name']);
                 $this->excel->getActiveSheet()->setCellValue('G'.$numrow, $datae['malumot_name']);
-                $this->excel->getActiveSheet()->setCellValue('H'.$numrow, $datae['malumot_name']);
-                $this->excel->getActiveSheet()->setCellValue('AA'.$numrow, $datae['address']);
-                $this->excel->getActiveSheet()->setCellValue('AC'.$numrow, $datae['address']);
+               $this->excel->getActiveSheet()->setCellValue('H' . $numrow, $datae['otm_name']);
+               $this->excel->getActiveSheet()->setCellValue('I' . $numrow, $datae['diplom_num']);
+               $this->excel->getActiveSheet()->setCellValue('J' . $numrow, $datae['tugatgan_yili']);
+               $this->excel->getActiveSheet()->setCellValue('K' . $numrow, $datae['mutax_kodi_name']);
+
+               $tillar = '';
+               foreach ($data['languages'] as $language) {
+                   $tillar .= $language['tillar_nomi'] . ', ';
+               }
+               $this->excel->getActiveSheet()->setCellValue('T' . $numrow, $datae['umumiy_staj']);
+               $this->excel->getActiveSheet()->setCellValue('U' . $numrow, $datae['ped_staj']);
+               $this->excel->getActiveSheet()->setCellValue('X' . $numrow, $datae['millat_name']);
+               $this->excel->getActiveSheet()->setCellValue('Y' . $numrow, $tillar);
+               $this->excel->getActiveSheet()->setCellValue('Z' . $numrow, $datae['address']);
+               $this->excel->getActiveSheet()->setCellValue('AA' . $numrow, $datae['ps_ser'] . ' ' . $datae['ps_num'] . ' ' . $datae['date_of_given']);
+
+
+
                 $objDrawing = new PHPExcel_Worksheet_Drawing();
                 $objDrawing->setName('Customer Signature');
                 $objDrawing->setDescription('Customer Signature');

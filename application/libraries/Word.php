@@ -98,12 +98,18 @@ class Word extends Autoloader
             'size' => array(120, 160));
         $this->document->setImg('Value2', $img);
 
-//        $this->phpWord->addTableStyle('myOwnTableStyle', $tableStyle, $firstRowStyle);
-//        $table = $section->addTable();
+        $this->document->cloneRow('saylovyear', sizeof($data['saylov']));
+        $countSaylov = 0;
+        foreach ($data['saylov'] as $saylov) {
+            $countSaylov += 1;
+            $this->document->setValue('saylovyear#' . $countSaylov, $saylov['saylov_year']);
+            $this->document->setValue('saylovname#' . $countSaylov, $saylov['saylov_name']);
+        }
+
 
         $this->document->cloneRow('workyear',sizeof($data['mehnats']));
         $count1=0;
-       foreach ($data['mehnats'] as $mehnat) {
+        foreach ($data['mehnats'] as $mehnat) {
            $count1+=1;
            $this->document->setValue('workyear#'.$count1, $mehnat['ish_vaqti']);
            $this->document->setValue('space#'.$count1, $mehnat['ish_tashkilot']);

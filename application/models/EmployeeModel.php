@@ -9,7 +9,7 @@ class EmployeeModel extends MY_Model
 
     public function getEmployeeList($isDelete=0)
     {
-        $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*');
+        $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*,d_passport.*,spr_millat.*,spr_partiya.*,spr_otm.*,d_uqigan_tm.*,spr_mutaxasislik.*');
         $this->db->from('d_kadr');
         $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
         $this->db->join('d_attestatsiya', 'd_kadr_items_bind.kadrid = d_attestatsiya.kadr_id', 'left');
@@ -20,6 +20,12 @@ class EmployeeModel extends MY_Model
         $this->db->join('spr_malumot', 'spr_malumot.malumot_id = d_kadr.malumot_id', 'left');
         $this->db->join('d_muassasa_ish', 'd_muassasa_ish.kadr_id = d_kadr.kadrid and d_muassasa_ish.is_active=1', 'left');
         $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_muassasa_ish.lavozim_id', 'left');
+        $this->db->join('d_passport', 'd_passport.kadr_id = d_kadr.kadrid', 'left');
+        $this->db->join('spr_millat', 'spr_millat.millat_id = d_kadr.millat_id', 'left');
+        $this->db->join('spr_partiya', 'spr_partiya.partiya_id = d_kadr.partiya_id', 'left');
+        $this->db->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id =d_kadr.kadrid and d_uqigan_tm.is_active=1', 'left');
+        $this->db->join('spr_otm', 'spr_otm.otm_id =d_uqigan_tm.otm_id', 'left');
+        $this->db->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_kadr.mutax_kodi_id', 'left');
         $this->db->where('d_kadr.isdelete', $isDelete);
 
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
@@ -143,6 +149,8 @@ class EmployeeModel extends MY_Model
             ->join('d_mukofot', 'd_mukofot.kadr_id=d_kadr.kadrid', 'left')
             ->join('spr_dav_mukofot', 'spr_dav_mukofot.mukofot_id=d_mukofot.mukofot_id', 'left')
             ->join('d_mehnat_faol', 'd_mehnat_faol.kadr_id=d_kadr.kadrid', 'left')
+            ->join('d_saylov', 'd_saylov.kadr_id=d_kadr.kadrid', 'left')
+            ->join('spr_saylov', 'spr_saylov.saylov_id=d_saylov.saylov_id', 'left')
             ->where('d_kadr.kadrid', $user_id)
             ->get()
             ->row_array();

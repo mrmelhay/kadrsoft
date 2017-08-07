@@ -923,8 +923,7 @@ class Employee extends MY_Controller
             }
         }
 
-        public
-        function objective($kadrid)
+    public function objective($kadrid)
         {
             $this->data['title'] = 'Ходимлар рўйхати';
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
@@ -957,6 +956,7 @@ class Employee extends MY_Controller
             $this->data['employee'] = [$editdata];
             $this->data['languages']=$this->EmployeeModel->read_by_languages($kadrid);
             $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
+            $this->data['saylov'] = $this->EmployeeModel->read_by_saylovs($kadrid);
             $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
 
             $this->word->download2( $this->data);
@@ -977,11 +977,25 @@ class Employee extends MY_Controller
             $this->EmployeeModel->kollej_id=$kollej_id;
         }
 
+        $kadr = $this->input->post('kadr', true);
+        if (is_array($kadr)) {
+            if (sizeof($kadr) > 0) {
+                foreach ($kadr as $key => $val) {
+                    if ($val == '') {
+                        unset($kadr[$key]);
+                    } else {
+                        $kadrid = $val;
+                    }
+                }
+            }
+        }
             $editdata = $this->EmployeeModel->getEmployeeList();
             $this->data['employee'] = $editdata;
-//            $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
-//            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
-//            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
+        foreach ($editdata as $kadrdata) {
+            $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrdata['kadrid']);
+            $this->data['mehnats'] = $this->EmployeeModel->read_by_mehnats($kadrdata['kadrid']);
+            $this->data['oilas'] = $this->EmployeeModel->read_by_oilas($kadrdata['kadrid']);
+        }
             $this->excel->exportxsl($this->data);
 //        }
 
