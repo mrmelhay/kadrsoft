@@ -979,7 +979,7 @@ class Employee extends MY_Controller
 
             $editdata = $this->EmployeeModel->getEmployeeList();
             $this->data['employee'] = $editdata;
-        $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
+//            $this->data['languages'] = $this->EmployeeModel->read_by_languages($kadrid);
 //            $this->data['mehnats']=$this->EmployeeModel->read_by_mehnats($kadrid);
 //            $this->data['oilas']=$this->EmployeeModel->read_by_oilas($kadrid);
             $this->excel->exportxsl($this->data);
