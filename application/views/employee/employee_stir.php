@@ -27,20 +27,11 @@
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a type="button" class="btn btn-primary"  href="<?php echo base_url('/employee/add_employee') ?>"> Янги қўшиш
-                            <i class="fa fa-plus"></i>
+                        <a type="button" class="btn btn-success"  href="<?php echo base_url('/employee/add_employee') ?>">
+                            <i class="fa fa-table"></i> Excel
                         </a>
                     </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">Амаллар <i
-                                class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">Чоп этиш</a></li>
-                            <li><a href="#">PDF га сақлаш</a></li>
-                            <li><a href="#">Excel га сақлаш</a></li>
-                        </ul>
-                    </div>
+
                 </div>
 
                 <div class="margin-top-10"></div>
@@ -52,7 +43,7 @@
                         <th>Лавозими</th>
                         <th>СТИР</th>
                         <th>ЖБПДР</th>
-                        <th>Амаллар</th>
+<!--                        <th>Амаллар</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -69,21 +60,21 @@
                                                 <td><?php echo $employee['lavozim_name']; ?></td>
                                                 <td><?php echo $employee['inn'] ?></td>
                                                 <td class="center"><?php echo $employee['inps'] ?></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span
-                                                                class="caret"></span></button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="#" data-title="<?php echo $title;?>"
-                                                                   data-kollej_id=<?php echo $employee['kollej_id']; ?> data-toggle="modal"
-                                                                   data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="<?php echo base_url('preferences/del_organ/' . $employee['kollej_id']) ?>"><span
-                                                                        class="fa fa-trash-o"> </span> Ўчириш</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
+<!--                                                <td>-->
+<!--                                                    <div class="btn-group">-->
+<!--                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> ... <span-->
+<!--                                                                class="caret"></span></button>-->
+<!--                                                        <ul class="dropdown-menu">-->
+<!--                                                            <li><a href="#" data-title="--><?php //echo $title;?><!--"-->
+<!--                                                                   data-kollej_id=--><?php //echo $employee['kollej_id']; ?><!-- data-toggle="modal"-->
+<!--                                                                   data-target="#myModal"><span class="fa fa-edit"> </span> Таҳрирлаш</a>-->
+<!--                                                            </li>-->
+<!--                                                            <li>-->
+<!--                                                                <a href="--><?php //echo base_url('preferences/del_organ/' . $employee['kollej_id']) ?><!--"><span-->
+<!--                                                                        class="fa fa-trash-o"> </span> Ўчириш</a></li>-->
+<!--                                                        </ul>-->
+<!--                                                    </div>-->
+<!--                                                </td>-->
                                             </tr>
                                         <?php } ?>
 

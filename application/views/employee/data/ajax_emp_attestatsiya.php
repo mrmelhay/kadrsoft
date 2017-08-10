@@ -122,22 +122,47 @@
     } );
 
 
+//    $( "#oxirgi_att_yili" ).datepicker({
+//        dateFormat: "yyyy-mm-dd",
+//        onSelect: function(dt, inst){
+//            var date2 = $('#oxirgi_att_yili').datepicker('getDate');
+//            date2.setDate(date2.getDate()+60);
+//            alert('ok');
+//
+//            $( "#nav_att_yili" ).datepicker({
+//                dateFormat: "yyyy-mm-dd",
+//                minDate: date2
+//            });
+//
+//            $('#nav_att_yili').datepicker(
+//                'setDate', date2);
+//
+//        }
+//    });
+
+    ///////////////////////////////////////
+//    $('.oxirgi_att_yili').change(function() {
+//        var date2 = $('.oxirgi_att_yili').datepicker('getDate');
+//        date2.setDate(date2.getDate()+1);
+//        $('.nav_att_yili').datepicker('setDate', date2);
+//    });
+
+
+    ///////////////////////////////////////////////////
+
     $( "#oxirgi_att_yili" ).datepicker({
-        dateFormat: "yyyy-mm-dd",
-        onSelect: function(dt, inst){
-            var date2 = $('#oxirgi_att_yili').datepicker('getDate');
-            date2.setDate(date2.getDate()+60);
-            alert('ok');
 
-            $( "#nav_att_yili" ).datepicker({
-                dateFormat: "yyyy-mm-dd",
-                minDate: date2
-            });
+        minDate: 0,
+        dateFormat: "mm/dd/yy",
 
-            $('#nav_att_yili').datepicker(
-                'setDate', date2);
-
+        onSelect: function(selected) {
+            $("#nav_att_yili").datepicker("option","minDate", selected); //  mindate on the End datepicker cannot be less than start date already selected.
+            var date = $(this).datepicker('getDate');
+            var tempStartDate = new Date(date);
+            var default_end = new Date(tempStartDate.getFullYear(), tempStartDate.getMonth(), tempStartDate.getDate()+1); //this parses date to overcome new year date weirdness
+            $('#nav_att_yili').datepicker('setDate', default_end); // Set as default
         }
+
     });
 
 </script>

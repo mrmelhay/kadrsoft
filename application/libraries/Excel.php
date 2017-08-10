@@ -66,7 +66,7 @@ class Excel extends PHPExcel {
         }
         $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
         header('Content-type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=faktura.xls");
+        header("Content-Disposition: attachment; filename=xisobot1.xls");
         $Writer->save('php://output');
     }
 
