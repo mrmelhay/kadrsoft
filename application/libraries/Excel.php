@@ -27,23 +27,28 @@ class Excel extends PHPExcel {
         $numrow = 8;
         if ($data != null) {
            foreach ($data['employee'] as $datae) {
-                $this->excel->getActiveSheet()->setCellValue('A'.$numrow, $numrow);
-                $this->excel->getActiveSheet()->setCellValue('C'.$numrow, $datae['name_f'].' '.$datae['name_i'].' '.$datae['name_o']);
-                $this->excel->getActiveSheet()->setCellValue('D'.$numrow, $datae['lavozim_name']);
-                $this->excel->getActiveSheet()->setCellValue('E'.$numrow, $datae['bdate']);
+               $this->excel->getActiveSheet()->setCellValue('A' . $numrow, $numrow);
+               $this->excel->getActiveSheet()->setCellValue('C' . $numrow, $datae['name_f'] . ' ' . $datae['name_i'] . ' ' . $datae['name_o']);
+               $this->excel->getActiveSheet()->setCellValue('D' . $numrow, $datae['lavozim_name']);
+               $this->excel->getActiveSheet()->setCellValue('E' . $numrow, $datae['bdate']);
                $this->excel->getActiveSheet()->setCellValue('F' . $numrow, $datae['partiya_name']);
-                $this->excel->getActiveSheet()->setCellValue('G'.$numrow, $datae['malumot_name']);
+               $this->excel->getActiveSheet()->setCellValue('G' . $numrow, $datae['malumot_name']);
                $this->excel->getActiveSheet()->setCellValue('H' . $numrow, $datae['otm_name']);
                $this->excel->getActiveSheet()->setCellValue('I' . $numrow, $datae['diplom_num']);
                $this->excel->getActiveSheet()->setCellValue('J' . $numrow, $datae['tugatgan_yili']);
                $this->excel->getActiveSheet()->setCellValue('K' . $numrow, $datae['mutax_kodi_name']);
+               $this->excel->getActiveSheet()->setCellValue('L' . $numrow, $datae['fanlar_name']);
+               $this->excel->getActiveSheet()->setCellValue('P' . $numrow, $datae['dars_soat_all']);
+               $this->excel->getActiveSheet()->setCellValue('R' . $numrow, $datae['otm_name']);
 
                $tillar = '';
                foreach ($data['languages'] as $language) {
                    $tillar .= $language['tillar_nomi'] . ', ';
                }
+               $this->excel->getActiveSheet()->setCellValue('S' . $numrow, $datae['kirgan_yili']);
                $this->excel->getActiveSheet()->setCellValue('T' . $numrow, $datae['umumiy_staj']);
                $this->excel->getActiveSheet()->setCellValue('U' . $numrow, $datae['ped_staj']);
+               $this->excel->getActiveSheet()->setCellValue('W' . $numrow, $datae['sex'] == 1 ? 'Aёл' : 'Эркак');
                $this->excel->getActiveSheet()->setCellValue('X' . $numrow, $datae['millat_name']);
                $this->excel->getActiveSheet()->setCellValue('Y' . $numrow, $tillar);
                $this->excel->getActiveSheet()->setCellValue('Z' . $numrow, $datae['address']);
