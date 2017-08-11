@@ -70,7 +70,7 @@ class Excel extends PHPExcel {
         }
         $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
         header('Content-type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=xisobot1.xls");
+        header("Content-Disposition: attachment; filename=xisobot1.xlsx");
         $Writer->save('php://output');
     }
 
@@ -106,7 +106,7 @@ class Excel extends PHPExcel {
         }
         $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
         header('Content-type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=xisobot2.xls");
+        header("Content-Disposition: attachment; filename=xisobot2.xlsx");
         $Writer->save('php://output');
     }
 
