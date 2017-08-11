@@ -27,7 +27,7 @@
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a type="button" class="btn btn-success"  href="<?php echo base_url('/employee/add_employee') ?>">
+                        <a type="button" class="btn btn-success" href="<?php echo base_url('/employee/exportstir') ?>">
                             <i class="fa fa-table"></i> Excel
                         </a>
                     </div>
@@ -56,7 +56,8 @@
                                                 <td><? echo $counter ?></td>
                                                 <td><a href="#" data-title="<?php echo $title;?>"
                                                        data-kollej_id=<?php echo $employee['kollej_id']; ?> data-toggle="modal"
-                                                       data-target="#myModal"><?php echo $employee['name_f'] . ' ' . $employee['name_i'] . ' ' . $employee['name_o'] ?>"</a></td>
+                                                       data-target="#myModal"><?php echo $employee['name_f'] . ' ' . $employee['name_i'] . ' ' . $employee['name_o'] ?></a>
+                                                </td>
                                                 <td><?php echo $employee['lavozim_name']; ?></td>
                                                 <td><?php echo $employee['inn'] ?></td>
                                                 <td class="center"><?php echo $employee['inps'] ?></td>

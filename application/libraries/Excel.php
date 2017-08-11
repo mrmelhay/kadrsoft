@@ -19,11 +19,12 @@ class Excel extends PHPExcel {
         parent::__construct();
         $this->excel=$this;
         $this->Reader=PHPExcel_IOFactory::createReader('Excel2007');
-        $this->excel=$this->Reader->load(APPPATH.'/libraries/Example/template.xlsx');
+
     }
 
     public function exportxsl($data=null)
     {
+        $this->excel = $this->Reader->load(APPPATH . '/libraries/Example/template.xlsx');
         $numrow = 8;
         if ($data != null) {
            foreach ($data['employee'] as $datae) {
@@ -54,8 +55,6 @@ class Excel extends PHPExcel {
                $this->excel->getActiveSheet()->setCellValue('Z' . $numrow, $datae['address']);
                $this->excel->getActiveSheet()->setCellValue('AA' . $numrow, $datae['ps_ser'] . ' ' . $datae['ps_num'] . ' ' . $datae['date_of_given']);
 
-
-
                 $objDrawing = new PHPExcel_Worksheet_Drawing();
                 $objDrawing->setName('Customer Signature');
                 $objDrawing->setDescription('Customer Signature');
@@ -72,6 +71,36 @@ class Excel extends PHPExcel {
         $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
         header('Content-type: application/vnd.ms-excel');
         header("Content-Disposition: attachment; filename=xisobot1.xls");
+        $Writer->save('php://output');
+    }
+
+    public function exportstir($data)
+    {
+        $this->excel = $this->Reader->load(APPPATH . '/libraries/Example/templatestir.xlsx');
+        $numrow = 2;
+        if ($data != null) {
+            foreach ($data['employees'] as $datae) {
+                $this->excel->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+
+                $this->excel->getActiveSheet()->setCellValue('A' . $numrow, $numrow);
+                $this->excel->getActiveSheet()->setCellValue('B' . $numrow, $datae['kollej_name']);
+                $this->excel->getActiveSheet()->setCellValue('C' . $numrow, $datae['name_f'] . ' ' . $datae['name_i'] . ' ' . $datae['name_o']);
+                $this->excel->getActiveSheet()->setCellValue('D' . $numrow, $datae['lavozim_name']);
+                $this->excel->getActiveSheet()->setCellValue('E' . $numrow, $datae['inn']);
+                $this->excel->getActiveSheet()->setCellValue('F' . $numrow, $datae['inps']);
+
+
+                $numrow++;
+            }
+        }
+        $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
+        header('Content-type: application/vnd.ms-excel');
+        header("Content-Disposition: attachment; filename=xisobot2.xls");
         $Writer->save('php://output');
     }
 
