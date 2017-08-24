@@ -53,9 +53,6 @@ class Dashboard extends MY_Controller{
 
     public function organ_info(){
         $this->data['title']='Асосий сахифа';
-
-        $this->data['title']='Асосий сахифа';
-
         if($this->session->userdata('logged_in')!=TRUE){
             redirect(base_url('users'));
         }
@@ -66,6 +63,7 @@ class Dashboard extends MY_Controller{
 //        echo '<pre>';
 //        print_r($edata);
 //        echo '</pre>';
+
 
         $this->data['emp_count']['total'] = count($edata);
         $rahbar=0;

@@ -37,7 +37,8 @@
 
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-info" onclick="javascript:checkSel('<?php echo base_url("employee/employees/info") ?>')"
+                        <button type="button" class="btn btn-info"
+                                onclick="checkSel('<?php echo base_url("employee/employees/info") ?>')"
                            ><i class="fa fa-info"></i>
                             Маълумотнома
 
@@ -45,30 +46,34 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning" onclick="javascript:checkSel('<?php echo base_url("employee/employees/edit") ?>')"
-                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-edit"></i>
+                        <button type="button" class="btn btn-warning"
+                                onclick="checkSel('<?php echo base_url("employee/employees/edit") ?>')"
+                                href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-edit"></i>
                             Тахрирлаш
 
                         </button>
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success" onclick="javascript:checkSel('<?php echo base_url("/employee/download") ?>')"
-                           href="<?php echo base_url('/employee/employee_info') ?>"> <i class="fa fa-file"></i>
+                        <button type="button" class="btn btn-success"
+                                onclick="checkSel('<?php echo base_url("/employee/download") ?>')"
+                                href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-file"></i>
                             Обективка
 
                         </button>
                     </div>
 
                     <div class="btn-group">
-                        <a type="button" class="btn btn-danger" onclick='javascript:checkSel("<?php echo base_url("/employee/employee_info") ?>")'
+                        <a type="button" class="btn btn-danger"
+                           onclick='checkSel("<?php echo base_url("/employee/employee_info") ?>")'
                            href="#"> <i class="fa fa-trash-o"></i> Ишдан
                             бўшатиш
                         </a>
                     </div>
 
                     <div class="btn-group">
-                        <a type="button" class="btn btn-success" onclick='javascript:checkSel("<?php echo base_url("/employee/exportxls") ?>")'
+                        <a type="button" class="btn btn-success"
+                           onclick='document.location.href="<?php echo base_url("/employee/exportxls") ?>"'
                            href="#"> <i class="fa fa-table"></i> Excel
                         </a>
                     </div>
