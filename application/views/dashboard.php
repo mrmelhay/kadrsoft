@@ -84,7 +84,7 @@
                 <div class="information_inner">
                     <div class="info gray_symbols"><i class="fa fa-sign-in icon"></i></div>
                     <span>Янги қабул қилинган</span>
-                    <h1 class="bolded">12,254K</h1>
+                    <h1 class="bolded">0 та</h1>
 
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="information_inner">
                     <div class="info red_symbols"><i class="fa fa-sign-out icon"></i></div>
                     <span>Ишдан бўшаганлар</span>
-                    <h1 class="bolded">12,254K</h1>
+                    <h1 class="bolded">0 та</h1>
 <!--                    <div class="infoprogress_red">-->
 <!--                        <div class="redprogress"></div>-->
 <!--                    </div>-->
