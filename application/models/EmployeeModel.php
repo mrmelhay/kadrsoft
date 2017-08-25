@@ -1141,4 +1141,34 @@ class EmployeeModel extends MY_Model
             ->result_array()    ;
     }
 
+    public function getEmployeeProfTex2($isDelete = 0)
+    {
+        $this->db->select('d_kadr.*,spr_kollej.*,spr_lavozim.*,spr_malumot.*,d_passport.*,spr_millat.*,spr_partiya.*,spr_otm.*,d_uqigan_tm.*,spr_mutaxasislik.*,spr_fanlar.*,d_uqit_fan.*,d_malaka.*');
+        $this->db->from('d_kadr');
+        $this->db->join('d_kadr_items_bind', 'd_kadr_items_bind.kadrid = d_kadr.kadrid', 'left');
+        $this->db->join('d_attestatsiya', 'd_kadr_items_bind.kadrid = d_attestatsiya.kadr_id', 'left');
+        $this->db->join('d_malaka', 'd_kadr_items_bind.kadrid = d_malaka.kadr_id', 'left');
+        $this->db->join('spr_viloyat', 'spr_viloyat.viloyat_id = d_kadr.viloyat_id', 'left');
+        $this->db->join('spr_tuman', 'spr_tuman.tuman_id = d_kadr.tuman_id', 'left');
+        $this->db->join('spr_kollej', 'spr_kollej.kollej_id = d_kadr_items_bind.kollej_id', 'left');
+        $this->db->join('spr_malumot', 'spr_malumot.malumot_id = d_kadr.malumot_id', 'left');
+        $this->db->join('d_muassasa_ish', 'd_muassasa_ish.kadr_id = d_kadr.kadrid and d_muassasa_ish.is_active=1', 'left');
+        $this->db->join('spr_lavozim', 'spr_lavozim.lavozim_id = d_muassasa_ish.lavozim_id', 'left');
+        $this->db->join('d_passport', 'd_passport.kadr_id = d_kadr.kadrid', 'left');
+        $this->db->join('spr_millat', 'spr_millat.millat_id = d_kadr.millat_id', 'left');
+        $this->db->join('spr_partiya', 'spr_partiya.partiya_id = d_kadr.partiya_id', 'left');
+        $this->db->join('d_uqigan_tm', 'd_uqigan_tm.kadr_id =d_kadr.kadrid and d_uqigan_tm.is_active=1', 'left');
+        $this->db->join('spr_otm', 'spr_otm.otm_id =d_uqigan_tm.otm_id', 'left');
+        $this->db->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_kadr.mutax_kodi_id', 'left');
+        $this->db->join('d_uqit_fan', 'd_uqit_fan.kadr_id=d_kadr.kadrid', 'left');
+        $this->db->join('spr_fanlar', 'spr_fanlar.fanlar_id=d_uqit_fan.fanlar_id', 'left');
+
+
+        $this->db->order_by('d_kadr.kadrid', 'ASC');
+        $query = $this->db->get();
+
+
+        return $query->result_array();
+    }
+
 }

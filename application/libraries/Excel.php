@@ -110,4 +110,40 @@ class Excel extends PHPExcel {
         $Writer->save('php://output');
     }
 
+    public function exportProfTex20($data = null)
+    {
+        $this->excel = $this->Reader->load(APPPATH . '/libraries/Example/proftex20.xlsx');
+        $numrow = 2;
+        $counter = 0;
+        if ($data != null) {
+            foreach ($data['employees'] as $datae) {
+
+                $counter++;
+                $this->excel->getActiveSheet()->setCellValue('A' . $numrow, $counter);
+                $this->excel->getActiveSheet()->setCellValue('B' . $numrow, $datae['kollej_name']);
+                $this->excel->getActiveSheet()->setCellValue('C' . $numrow, $datae['name_f'] . ' ' . $datae['name_i'] . ' ' . $datae['name_o']);
+                $this->excel->getActiveSheet()->setCellValue('D' . $numrow, $datae['lavozim_name']);
+                $this->excel->getActiveSheet()->setCellValue('E' . $numrow, $datae['inn']);
+                $this->excel->getActiveSheet()->setCellValue('F' . $numrow, $datae['inps']);
+
+                $this->excel->getActiveSheet()->getColumnDimension('A')->setAutoSize(false);
+                $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(72.86);
+                $this->excel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+                $this->excel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+                $this->excel->getActiveSheet()->setBreak('B' . $numrow, PHPExcel_Worksheet::BREAK_COLUMN);
+                $this->excel->getActiveSheet()->freezePane('A2');
+                $this->excel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTopByStartAndEnd(1, 1);
+
+                $numrow++;
+
+            }
+        }
+        $Writer = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
+        header('Content-type: application/vnd.ms-excel');
+        header("Content-Disposition: attachment; filename=xisobot2.xlsx");
+        $Writer->save('php://output');
+    }
+
 }

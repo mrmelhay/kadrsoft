@@ -1031,5 +1031,11 @@ class Employee extends MY_Controller
         $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
         $this->excel->exportstir($this->data);
     }
+
+    public function proftex20()
+    {
+
+    }
+
     }
 

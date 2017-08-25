@@ -78,6 +78,13 @@
                         </a>
                     </div>
 
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-success"
+                           onclick='document.location.href="<?php echo base_url("/employee/proftex20") ?>"'
+                           href="#"> <i class="fa fa-table"></i> Профтех 20
+                        </a>
+                    </div>
+
                 </div>
 
                 <div class="margin-top-10">
