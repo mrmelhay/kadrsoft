@@ -14,10 +14,27 @@ class Help extends MY_Controller
 
     }
 
-    public function index()
+    public function index($param = null)
     {
 
-        $this->data['content'] = $this->load->view('book/index',$this->data,true);
+//        $param=1;
+//        echo $param;
+        $url = "";
+        switch ($param) {
+            case '01':
+                $url .= "01";
+                break;
+            case '02':
+                $url .= "02";
+                break;
+            default:
+                $url .= "index";
+                break;
+        }
+
+
+        $this->data['content'] = $this->load->view('book/' . $url, $this->data, true);
         $this->view_lib->admin_layout($this->data);
+
     }
 }
