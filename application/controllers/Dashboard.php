@@ -87,6 +87,7 @@ class Dashboard extends MY_Controller{
 
 
         $this->view_lib->admin_layout($this->data);
+
     }
 
 }

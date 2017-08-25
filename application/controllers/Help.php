@@ -9,15 +9,15 @@
 class Help extends MY_Controller
 {
 
-    public function __construct()
-    {
-        parent::__constuct();
+    public function __construct(){
+        parent::__construct();
+
     }
 
     public function index()
     {
 
-
-        $this->load->view('');
+        $this->data['content'] = $this->load->view('book/index',$this->data,true);
+        $this->view_lib->admin_layout($this->data);
     }
 }

@@ -120,7 +120,7 @@ $action5=array('organ_list');
                             <?php }?>
                             <li><a href="javascript:void(0);"> <i class="fa fa-info"></i> Ёрдам </a>
                                 <ul>
-                                    <li><a href="<?php echo base_url('/assets/book/index.html') ?>"> <span>&nbsp;</span> <i
+                                    <li><a href="<?php echo base_url('/assets/book/index.php') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i> <b> Ёрдам</b></a></li>
 
 
