@@ -69,7 +69,7 @@ if ($this->session->userdata('logged_in')!=false){
                             <ul class="drop_down_task dropdown-menu">
                                 <div class="top_pointer"></div>
                                 <li>
-                                    <p class="number">You have 7 pending tasks</p>
+                                    <p class="number">7 pending tasks</p>
                                 </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="green_status task_height" style="width:80%;"></div>
