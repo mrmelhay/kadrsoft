@@ -32,7 +32,7 @@ class Help extends MY_Controller
                 break;
         }
 
-
+        $this->data['title'] = 'Коллеж Кадр дастури қўлланмаси';
         $this->data['content'] = $this->load->view('book/' . $url, $this->data, true);
         $this->view_lib->admin_layout($this->data);
 
