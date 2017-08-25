@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="kadrsoft@192.168.1.35">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
     <root id="1"/>
     <schema id="2" parent="1" name="kadrsoft">
       <Current>1</Current>
@@ -82,7 +82,7 @@
     </column>
     <column id="66" parent="4" name="amal_mal_lav_bdate">
       <Position>4</Position>
-      <DataType>int(4)|0</DataType>
+      <DataType>varchar(50)|0</DataType>
     </column>
     <column id="67" parent="4" name="amal_mal_lav_old_toifa">
       <Position>5</Position>
@@ -90,7 +90,7 @@
     </column>
     <column id="68" parent="4" name="oxirgi_att_yili">
       <Position>6</Position>
-      <DataType>int(4)|0</DataType>
+      <DataType>varchar(50)|0</DataType>
     </column>
     <column id="69" parent="4" name="fan_turi_id">
       <Position>7</Position>
@@ -102,7 +102,7 @@
     </column>
     <column id="71" parent="4" name="nav_att_yili">
       <Position>9</Position>
-      <DataType>int(4)|0</DataType>
+      <DataType>varchar(50)|0</DataType>
     </column>
     <column id="72" parent="4" name="oxirgi_att_xulosa">
       <Position>10</Position>
@@ -442,26 +442,26 @@
     <index id="149" parent="10" name="millat_id">
       <ColNames>millat_id</ColNames>
     </index>
-    <index id="150" parent="10" name="mutax_kodi_id">
+    <index id="150" parent="10" name="mukofot_id">
+      <ColNames>mukofot_id</ColNames>
+    </index>
+    <index id="151" parent="10" name="mutax_kodi_id">
       <ColNames>mutax_kodi_id</ColNames>
     </index>
-    <index id="151" parent="10" name="mutax_turi_id">
+    <index id="152" parent="10" name="mutax_turi_id">
       <ColNames>mutax_turi_id</ColNames>
     </index>
-    <index id="152" parent="10" name="oila_id">
+    <index id="153" parent="10" name="oila_id">
       <ColNames>oila_id</ColNames>
     </index>
-    <index id="153" parent="10" name="partiya_id">
+    <index id="154" parent="10" name="partiya_id">
       <ColNames>partiya_id</ColNames>
     </index>
-    <index id="154" parent="10" name="tuman_id">
+    <index id="155" parent="10" name="tuman_id">
       <ColNames>tuman_id</ColNames>
     </index>
-    <index id="155" parent="10" name="viloyat_id">
+    <index id="156" parent="10" name="viloyat_id">
       <ColNames>viloyat_id</ColNames>
-    </index>
-    <index id="156" parent="10" name="mukofot_id">
-      <ColNames>mukofot_id</ColNames>
     </index>
     <key id="157" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -560,7 +560,7 @@
     </column>
     <column id="179" parent="12" name="malaka_keyingi_sana">
       <Position>16</Position>
-      <DataType>int(4)|0</DataType>
+      <DataType>varchar(10)|0</DataType>
     </column>
     <column id="180" parent="12" name="malaka_yunalishi">
       <Position>17</Position>
