@@ -20,12 +20,22 @@ class Help extends MY_Controller
 //        $param=1;
 //        echo $param;
         $url = "";
+
         switch ($param) {
             case '01':
                 $url .= "01";
                 break;
             case '02':
                 $url .= "02";
+                break;
+            case '03':
+                $url .= "03";
+                break;
+            case '04':
+                $url .= "04";
+                break;
+            case '05':
+                $url .= "05";
                 break;
             default:
                 $url .= "index";

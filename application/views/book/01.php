@@ -5,6 +5,6 @@
   <img src="<?php echo base_url('images/bookimg/kadr_photo_001.png')?>" width="95%" height="95%" alt=""/>
 </p>
 
-   <h4 style="padding-left: 50px; padding-top: 50px">Логин ва паролни тергандан сўнг "Кириш" тугмасини босинг шундан сўнг дастур асосий ойнаси очилади </h4>
+   <h4 style="padding-left: 50px; padding-top: 50px">Логин ва паролни тергандан сўнг <button type="button" class="btn btn-default btn-sm">Кириш</button> тугмасини босинг шундан сўнг дастур асосий ойнаси очилади </h4>
    <p  align="center"> <img src="<?php echo base_url('images/bookimg/kadr_photo_002.png')  ?>" width="95%" alt=""/></p>
 </div>
