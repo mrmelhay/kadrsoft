@@ -1163,7 +1163,6 @@ class EmployeeModel extends MY_Model
         $this->db->join('d_uqit_fan', 'd_uqit_fan.kadr_id=d_kadr.kadrid', 'left');
         $this->db->join('spr_fanlar', 'spr_fanlar.fanlar_id=d_uqit_fan.fanlar_id', 'left');
 
-
         $this->db->order_by('d_kadr.kadrid', 'ASC');
         $query = $this->db->get();
 
