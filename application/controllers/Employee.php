@@ -193,14 +193,15 @@ class Employee extends MY_Controller
             }
 
             if ($this->input->post('kadrid', true) == null) {
-                $datearr = explode('/', $this->input->post('bdate', true));
-                $datef = $datearr[2] . '-' . $datearr[1] . '-' . $datearr[0];
+//                $datearr = explode('/', $this->input->post('bdate', true));
+//                $datef = $datearr[2] . '-' . $datearr[1] . '-' . $datearr[0];
+                $datef =
                 $this->data['employee'] = (object)$postData = [
                     'kadrid' => $this->input->post('kadrid', true),
                     'name_f' => $this->input->post('name_f', true),
                     'name_i' => $this->input->post('name_i', true),
                     'name_o' => $this->input->post('name_o', true),
-                    'bdate' => $datef,
+                    'bdate' => $this->input->post('bdate', true),
                     'sex' => $this->input->post('sex', true),
                     'lavozim_id' => $this->input->post('lavozim_id', true),
                     'malumot_id' => $this->input->post('malumot_id', true),
