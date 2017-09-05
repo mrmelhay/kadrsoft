@@ -11,6 +11,8 @@
     <ul>
         <li>Ойнада қўрсатилган барча майдонларни тўлдиринг ва <button type="button" class="btn btn-primary btn-xs">Сақлаш</button> тугмасини босинг</li>
         <li>Агар маълумотларни ўзгартиришни ҳоҳламасангиз <button type="button" class="btn btn-default btn-xs">Чиқиш</button> тугмасини босинг</li>
+        <li>Маълумотларни ушбу наъмунада кўрсатилган тартибда тўлдиринг</li>
+        <li>Корхона веб-сайти мавжуд бўлганда <strong>http://saynomi.uz</strong> кўринишида тўлдиринг </li>
     </ul>
 
 </div>
