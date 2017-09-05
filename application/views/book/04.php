@@ -1,18 +1,20 @@
 <div class="container clear_both padding_fix">
     <h2>Янги ҳодим қўшиш</h2>
-    <p>Муассаса ҳақидаги умумий маълумотлар қўйидаги суратда кўрсатиб ўтилган</p>
-    <p>Муассасангиз ҳақидаги маълумотларни таҳрирлаш учун ойнанинг ўнг томонида жойлашган <button type="button" class="btn btn-primary btn-xs">Ўзгартириш</button> тугмасини босинг</p>
-    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_005.png')?>" width="95%" height="95%" alt="5-расм"/></p>
+    <p>Янги ҳодимни киритиш учун дастурнинг чап ойнасидаги менюдан <strong>Ҳодимлар</strong> қаторини танланг.</p>
+    <p>Шундан сўнг асосий ойнада мавжуд ходимлар тўғрисидаги маълумотлар пайдо бўлади</p>
+    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_007.png')?>" width="95%" height="95%" alt="7-расм"/></p>
+    <p>Ушбу ойнадан янги ходим тўғрисидаги асосий маълумотларни қўшиши учун <button type="button" class="btn btn-primary btn-xs">+ Янги қўшиш</button> тугмасини босинг</p>
 
     <hr>
-    <h2>Муассаса ҳақидаги маълумотларни ўзгартириш ойнаси</h2>
-    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_006.png')?>" width="95%" height="95%" alt="6-расм"/></p>
+    <h2>Ходим ҳақидаги маълумотлар</h2>
+    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_008.png')?>" width="95%" height="95%" alt="8-расм"/></p>
 
     <ul>
         <li>Ойнада қўрсатилган барча майдонларни тўлдиринг ва <button type="button" class="btn btn-primary btn-xs">Сақлаш</button> тугмасини босинг</li>
         <li>Агар маълумотларни ўзгартиришни ҳоҳламасангиз <button type="button" class="btn btn-default btn-xs">Чиқиш</button> тугмасини босинг</li>
         <li>Маълумотларни ушбу наъмунада кўрсатилган тартибда тўлдиринг</li>
-        <li>Корхона веб-сайти мавжуд бўлганда <strong>http://saynomi.uz</strong> кўринишида тўлдиринг </li>
+        <br>Эътибор берган бўлсангиз ушбу ойнадаги айрим майдонлар яшил чизиқ билан белгилаб қўйилган бўлиб, улар тўлдириши  </br>
+        <i>Масалан: Фамилия ва исм, СТИР, жамғариб бориладиган пенсия дафтарчаси рақами кабилар, ушбу маълумотлар мавжуд бўлмаса янги ходимни базага сақлай олмайсиз</i></li>
     </ul>
 
 </div>
