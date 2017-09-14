@@ -114,7 +114,7 @@ if ($this->session->userdata('logged_in')!=false){
             <div class="user_admin dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"><img src="<?php echo base_url()?>/assets/images/user.png" /><span class="user_adminname"><?php echo $username['nname']?></span> <b class="caret"></b> </a>
                 <ul class="dropdown-menu">
                     <div class="top_pointer"></div>
-                    <li> <a href="profile.html"><i class="fa fa-user"></i> Парол</a> </li>
+                    <li><a href="<?php echo base_url('users/profile') ?>"><i class="fa fa-user"></i> Парол</a></li>
                     <li> <a href="<?php echo base_url('help/') ?>"><i class="fa fa-question-circle"></i> Ёрдам</a> </li>
 <!--                    <li> <a href="settings.html"><i class="fa fa-cog"></i> Setting </a></li>-->
                     <li> <a href="<?php echo base_url('/users/logout')?>"><i class="fa fa-power-off"></i> Чиқиш</a> </li>

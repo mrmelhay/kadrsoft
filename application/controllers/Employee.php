@@ -86,6 +86,7 @@ class Employee extends MY_Controller
 
             }
 
+        $this->data['is_admin'] = $is_admin;
 
             $this->data['employees'] = $this->EmployeeModel->getEmployeeList();
             $this->data['content'] = $this->load->view('/employee/employee_list', $this->data, true);
@@ -228,14 +229,14 @@ class Employee extends MY_Controller
                     'addtime' => date('Y-m-d H:i:s'),
                 ];
             } else {
-                $datearr = explode('/', $this->input->post('bdate', true));
-                $datef = $datearr[2] . '-' . $datearr[1] . '-' . $datearr[0];
+//                $datearr = explode('/', $this->input->post('bdate', true));
+//                $datef = $datearr[2] . '-' . $datearr[1] . '-' . $datearr[0];
                 $this->data['employee'] = (object)$postData = [
                     'kadrid' => $this->input->post('kadrid', true),
                     'name_f' => $this->input->post('name_f', true),
                     'name_i' => $this->input->post('name_i', true),
                     'name_o' => $this->input->post('name_o', true),
-                    'bdate' => $datef,
+                    'bdate' => $this->input->post('bdate', true),
                     'sex' => $this->input->post('sex', true),
                     'lavozim_id' => $this->input->post('lavozim_id', true),
                     'malumot_id' => $this->input->post('malumot_id', true),
@@ -278,7 +279,12 @@ class Employee extends MY_Controller
 
                 $this->EmployeeModel->insert_date_info($postdata, 9);
                 if ($kadrid) {
-                    $postData2 = ['kadrid' => $kadrid, 'kollej_id' => $kollej_id['kollej_id']];
+                    if ($kollej_id['is_admin'] != 0) {
+                        $kolljid = $this->input->post('kollej_id', true);
+                    } else {
+                        $kolljid = $kollej_id['kollej_id'];
+                    }
+                    $postData2 = ['kadrid' => $kadrid, 'kollej_id' => $kolljid];
                     $this->EmployeeModel->createOrUpdateItemsBind($postData2);
                     $this->session->set_flashdata('message', "Маълумот сақланди!");
                     redirect("/employee/employees");
@@ -311,9 +317,11 @@ class Employee extends MY_Controller
                 }
             }
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
-            $dataarray = explode('-', $editdata['bdate']);
-            $dataf = $dataarray[2] . '/' . $dataarray[1] . '/' . $dataarray[0];
+//            $dataarray = explode('-', $editdata['bdate']);
+//            $dataf = $dataarray[2] . '/' . $dataarray[1] . '/' . $dataarray[0];
+            $dataf = $editdata['bdate'];
             $this->data['employee'] = (object)$postData = [
+                'kollej_id' => $editdata['kollej_id'],
                 'kadrid' => $editdata['kadrid'],
                 'name_f' => $editdata['name_f'],
                 'name_i' => $editdata['name_i'],

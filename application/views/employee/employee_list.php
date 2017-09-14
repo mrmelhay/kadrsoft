@@ -109,52 +109,64 @@
                     </div>
 
                 </div>
-                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <table width="100%" class="datatable table table-striped table-hover table-bordered"
+                       id="editable-sample">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>ТР</th>
-<!--                        <th>ID</th>-->
+                        <th>Фото</th>
                         <th style="width: 250px;">Фамилияси, исми ва отасининг исми</th>
+                        <?php if ($is_admin != 0) { ?>
+                            <th>Муассаса</th><?php } ?>
                         <th>Лавозими</th>
                         <th>Тугилган йили</th>
                         <th>Жинси</th>
                         <th>Маълумоти</th>
-                        <th>Тел. рақами</th>
+                        <!--                        <th>Тел. рақами</th>-->
 
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    $counter = 0;
-                    foreach ($employees as $empl) {
-                        $counter++;
-                        ?>
-                        <tr class="">
-                            <td><input type="checkbox" value="<?php echo $empl['kadrid'] ?>" name="kadr[]" id="kadr[]"/>
-                            </td>
-                            <td><? echo $counter ?></td>
-<!--                            <td>--><?php //echo $empl['kadrid'] ?><!--</td>-->
-                            <td><a href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"
-                                   data-title="<?php echo $title; ?>"
-                                   data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
-                                >
-                                    <?php echo $empl['name_f'] . ' ' . $empl['name_i'] . ' ' . $empl['name_o'] ?></a>
-                            </td>
-                            <td>
-                                <?php echo $empl['lavozim_name'] ?></td>
+                    <?php if (!empty($employees)) { ?>
+                        <?php
 
-                            <td>
-                                <?php echo $empl['bdate'] ?></td>
-                            <td>
-                                <?php echo $empl['sex'] == 2 ? 'Эркак' : 'Аёл' ?></td>
-                            <td>
-                                <?php echo $empl['malumot_name'] ?></td>
-                            <td class="center"><?php echo $empl['phone_mobile'] ?></td>
+                        $counter = 1;
 
-                        </tr>
+                        foreach ($employees as $empl) {
+
+                            ?>
+                            <tr class="<?php echo ($counter & 1) ? "odd gradeX" : "even gradeC" ?>">
+                                <td><input type="checkbox" value="<?php echo $empl['kadrid'] ?>" name="kadr[]" id="kadr[]"/>
+                                </td>
+                                <td><? echo $counter ?></td>
+                                <td>
+                                    <img src="<?php echo file_exists($empl['photo']) ? base_url($empl['photo']) : base_url('images/photos/nophoto.jpg'); ?>"
+                                         alt="" class="img-thumbnail" width="80" height="80"/></td>
+                                <td><a href="<?php echo base_url("/employee/edit_employee/" . $empl['kadrid']) ?>"
+                                       data-title="<?php echo $title; ?>"
+                                       data-kollej_id="<?php echo $empl['kollej_id']; ?>" data-toggle="modal"
+                                    >
+                                        <?php echo $empl['name_f'] . ' ' . $empl['name_i'] . ' ' . $empl['name_o'] ?></a>
+                                </td>
+                                <?php if ($is_admin != 0) { ?>
+                                    <td><?php echo $empl['kollej_name'] ?></td><?php } ?>
+                                <td>
+                                    <?php echo $empl['lavozim_name'] ?></td>
+
+                                <td>
+                                    <?php echo $empl['bdate'] ?></td>
+                                <td>
+                                    <?php echo $empl['sex'] == 2 ? 'Эркак' : 'Аёл' ?></td>
+                                <td>
+                                    <?php echo $empl['malumot_name'] ?></td>
+                                <!--                            <td class="center">-->
+                                <?php //echo $empl['phone_mobile'] ?><!--</td>-->
+
+                            </tr>
+                            <?php $counter++; ?>
+                        <?php } ?>
                     <?php } ?>
-
                     </tbody>
                 </table>
             </div>
