@@ -37,6 +37,12 @@ class Help extends MY_Controller
             case '05':
                 $url .= "05";
                 break;
+            case '06':
+                $url .= "06";
+                break;
+            case '07':
+                $url .= "07";
+                break;
             default:
                 $url .= "index";
                 break;
