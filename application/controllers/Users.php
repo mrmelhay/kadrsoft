@@ -26,6 +26,8 @@ class Users extends MY_Controller
 
     public function login()
     {
+        if ($this->session->userdata('logged_in') != FALSE)
+            redirect(base_url('dashboard'));
         $this->data['title'] = 'Тизимга кириш';
         $this->data['content'] = $this->load->view('/user/login', $this->data, true);
         $this->view_lib->user_layout($this->data);
@@ -207,8 +209,50 @@ class Users extends MY_Controller
 
     public function profile()
     {
+        if ($this->session->userdata('logged_in') == FALSE) {
+            redirect(base_url('users/login'));
+        }
+
+        $this->data['title'] = 'Фойдаланувчи паролни алмаштириш';
+        $this->data['userid'] = $this->session->userdata('user_id');
+        $this->data['content'] = $this->load->view('/user/user_profile', $this->data, true);
+        $this->view_lib->user_layout($this->data);
+    }
+
+    public function update_login()
+    {
+        $this->form_validation->set_rules('password', 'Янги пароль ', 'required|max_length[50]');
+        $this->form_validation->set_rules('password1', 'Пароль тасдиги', 'required|max_length[50]');
+
+        if ($this->form_validation->run() == TRUE) {
+            $password = $this->input->post('password', true);
+            $password1 = $this->input->post('password1', true);
+
+            if ($password == $password1) {
+                $data = [
+                    'user_id' => $this->input->post('userid', true),
+                    'password' => md5($this->input->post('password', true)),
+                    'modify_date' => date('Y-m-d H:i:s')
+                ];
+                if ($this->UserModel->update_login($data)) {
+                    $this->session->set_flashdata('message', "Пароль узгартирилди!!!");
+                    redirect("/users/profile");
+                } else {
+                    $this->session->set_flashdata('exception', "Пароль узгартирилмади!!!");
+                    redirect("/users/profile");
+                }
+            } else {
+                $this->session->set_flashdata('exception', "Пароль мос эмас!!!");
+                redirect("/users/users");
+            }
 
 
+        } else {
+            $this->data['title'] = 'Фойдаланувчи паролни алмаштириш';
+            $this->data['userid'] = $this->session->userdata('user_id');
+            $this->data['content'] = $this->load->view('/user/user_profile', $this->data, true);
+            $this->view_lib->user_layout($this->data);
+        }
     }
 
 

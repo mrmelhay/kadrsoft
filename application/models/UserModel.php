@@ -152,6 +152,17 @@ class UserModel extends MY_Model {
         }
     }
 
+    public function update_login($data = [])
+    {
+        $this->db->where('users.user_id', $data['user_id']);
+        $this->db->update('users', $data);
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
 
