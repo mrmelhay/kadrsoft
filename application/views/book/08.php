@@ -1,12 +1,12 @@
 <div class="container clear_both padding_fix">
-    <h2>Тилларни билиш даражасини киритиш</h2>
-    <p>Тилларни билиш даражасини киритиш учун ходим ҳақидаги қўшимча маълумотларни киритиш ойнасидан <strong>"Тиллар"</strong> бўлимига ўтамиз.</p>
-    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_011.png')?>" width="95%" height="95%" alt="11-расм"/></p>
-    <p>Янги тил ҳақидаги маълумотларини киритиш учун <button type="button" class="btn btn-success btn-xs">
+    <h2>Таълим олган ўқув юртлари маълумотларини киритиш</h2>
+    <p>Таълим олган ўқув юртлари маълумотларини киритиш учун ходим ҳақидаги қўшимча маълумотларни киритиш ойнасидан <strong>"Ўқув юрти"</strong> бўлимига ўтамиз.</p>
+    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_013.png')?>" width="95%" height="95%" alt="11-расм"/></p>
+    <p>Янги таълим олган ўқув юрти ҳақидаги маълумотларини киритиш учун <button type="button" class="btn btn-success btn-xs">
             <i class="fa fa-plus"></i> Янги қўшиш</button> тугмасини босинг.</p>
     <p>Агарда сиз мавжуд тиллар ҳақидаги маълумотларини ўзгартирмоқчи бўлсангиз унда ойнада мавжуд тил номи устига босинг.</p>
 
-    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_012.png')?>" width="95%" height="95%" alt="12-расм"/></p>
+    <p align="center"><img src="<?php echo base_url('images/bookimg/kadr_photo_014.png')?>" width="95%" height="95%" alt="12-расм"/></p>
     <hr>
     <p>Тилларни билиш даражаси ҳақидаги маълумотларни киритиб бўлгач</p>
     <ul>
@@ -15,3 +15,6 @@
 
     </ul>
 </div>
+
+
+
