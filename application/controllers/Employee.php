@@ -1043,6 +1043,8 @@ class Employee extends MY_Controller
 
     public function proftex20()
     {
+        $this->data['employees'] = $this->EmployeeModel->getEmployeeProfTex2();
+        $this->excel->exportProfTex20($this->data);
 
     }
 

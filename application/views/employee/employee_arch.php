@@ -74,6 +74,7 @@
                             <td>
                                 <?php echo $empl['lavozim_bdate'] ?></td>
                             <td class="center"><?php echo $empl['phone_mobile'] ?></td>
+                            <td class="center"><?php echo $empl['phone_mobile'] ?></td>
                             <td>
 
                                 <div class="btn-group">

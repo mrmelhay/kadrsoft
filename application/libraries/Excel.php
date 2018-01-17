@@ -58,7 +58,7 @@ class Excel extends PHPExcel {
                 $objDrawing = new PHPExcel_Worksheet_Drawing();
                 $objDrawing->setName('Customer Signature');
                 $objDrawing->setDescription('Customer Signature');
-                $objDrawing->setPath($datae['photo']);
+               $objDrawing->setPath(base_url($datae['photo']));
                 $objDrawing->setOffsetX(0);
                 $objDrawing->setOffsetY(0);
                 $objDrawing->setCoordinates('B'.$numrow);

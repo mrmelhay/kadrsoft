@@ -18,7 +18,7 @@ $action5=array('organ_list');
                    <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
                             <li class="left_nav_active theme_border ">
-                                <a href="/dashboard"><i
+                                <a href="<?php echo base_url('/dashboard') ?>"><i
                                             class="fa fa-home"></i> Асосий ойна <span class="left_nav_pointer"></span>
 
                                 </a>

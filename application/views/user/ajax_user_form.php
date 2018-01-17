@@ -80,7 +80,7 @@ if(count($user)==0) {
         <div class="form-group lable-padd">
             <label class="col-sm-3">Гурух</label>
             <div class="col-sm-6">
-                <select name="group_id" id="group_id" class="form-control">
+                <select name="group_id" id="group_id" class="form-control select22">
                     <option value="">Танланг...</option>
                     <?php $this->UserModel->getGroupDropList(); ?>
                 </select>
@@ -97,14 +97,8 @@ if(count($user)==0) {
             </div>
 
         </div>
-
-
     </div>
-
-
     <?php
-
-
 } else
 {
     foreach($user as $usr) {?>
@@ -184,7 +178,7 @@ if(count($user)==0) {
             <div class="form-group lable-padd">
                 <label class="col-sm-3">Муассаса номи</label>
                 <div class="col-sm-6">
-                    <select name="kollej_id" id="kollej_id" class="form-control">
+                    <select name="kollej_id" id="kollej_id" class="form-control select22">
                         <option value="">Танланг...</option>
                         <?php $this->PreferencesModel->getKollejDropList(0,0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $usr['kollej_id']); ?>
 
@@ -195,7 +189,7 @@ if(count($user)==0) {
             <div class="form-group lable-padd">
                 <label class="col-sm-3">Гурух</label>
                 <div class="col-sm-6">
-                    <select name="group_id" id="group_id" class="form-control">
+                    <select name="group_id" id="group_id" class="form-control select22">
                         <option value="">Танланг...</option>
                         <?php $this->UserModel->getGroupDropList($usr['group_id']); ?>
                     </select>
@@ -205,7 +199,7 @@ if(count($user)==0) {
             <div class="form-group lable-padd">
                 <label class="col-sm-3">Роллар</label>
                 <div class="col-sm-6">
-                    <select name="user_roll_id" id="user_roll_id" class="form-control">
+                    <select name="user_roll_id" id="user_roll_id" class="form-control select22">
                         <option value="">Танланг...</option>
                         <?php $this->UserModel->getRollsDropList($usr['user_roll_id']); ?>
                     </select>
@@ -217,3 +211,5 @@ if(count($user)==0) {
         </div>
     <?php }
 }?>
+
+
