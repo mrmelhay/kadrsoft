@@ -181,9 +181,9 @@ class Employee extends MY_Controller
 //          $this->form_validation->set_rules('bdate','Туғилган вақти','required');
             $this->form_validation->set_rules('sex', 'Жинси', 'required|max_length[10]');
             $this->form_validation->set_rules('lavozim_id', 'Лавозими', 'required|max_length[10]');
-            $this->form_validation->set_rules('malumot_id', 'Маълумоти', 'required|max_length[10]');
+            $this->form_validation->set_rules('malumot_id', 'Маълумоти', 'max_length[10]');
 //          $this->form_validation->set_rules('malaka_lavozim_id','Address','required|max_length[255]');
-            $this->form_validation->set_rules('mutax_kodi_id', 'Мутахасислиги', 'required');
+            $this->form_validation->set_rules('mutax_kodi_id', 'Мутахасислиги');
             $kollej_id = $this->data['username'];
             $picture = $this->fileupload->do_upload('images/photos/', 'photo');
             if ($picture !== false && $picture != null) {
