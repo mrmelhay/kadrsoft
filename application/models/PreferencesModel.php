@@ -905,6 +905,57 @@ class PreferencesModel extends MY_Model
     }
     /****************** eof Tillar Turi **************************/
 
+    public function getLavozim(){
+        if ($this->lavozimList) {
+            return $this->lavozimList;
+        }else{
+            return 0;
+        }
+    }
+
+    public function getReadByLavozim(){
+        $this->db->select('*');
+        $this->db->from('spr_lavozim');
+        $this->db->where('lavozim_id',$this->lavozim_id);
+        $this->db->order_by('spr_lavozim.lavozim_id','ASC');
+        $query=$this->db->get();
+        return $query->row_array();
+
+
+    }
+
+    public function update_lavozim($data)
+    {
+        $this->db->where('spr_lavozim.lavozim_id', $data['lavozim_id']);
+        $this->db->update('spr_lavozim', $data);
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function delete_lavozim($data)
+    {
+
+        $this->db->delete('spr_lavozim', $data);
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function save_lavozim($data)
+    {
+
+        $this->db->insert('spr_lavozim', $data);
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 

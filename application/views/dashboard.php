@@ -1,4 +1,3 @@
-<!--echo-->
 <div class="pull-left breadcrumb_admin clear_both">
     <div class="pull-left page_title theme_color">
         <h1>Бошқарув панели</h1>
@@ -12,9 +11,7 @@
     </div>
 </div>
 
-
 <div class="container clear_both padding_fix">
-
     <div class="row">
         <div class="col-sm-3 col-sm-6">
             <div class="information green_info">
@@ -109,7 +106,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <script>

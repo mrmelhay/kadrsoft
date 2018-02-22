@@ -308,7 +308,7 @@
                         onclick="document.location.href='<?php echo base_url('/employee/add_employee') ?>'"><i
                             class="fa fa-plus"></i> Янги ходим
                 </button>
-                <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Сақлаш </button>
+                <button type="submit" class="btn btn-primary" <?php if ($username['is_admin']) {?> disabled="disabled" <?php }?>> <i class="fa fa-save"></i> Сақлаш </button>
             </div>
 
         </div>

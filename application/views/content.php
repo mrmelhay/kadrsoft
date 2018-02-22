@@ -88,7 +88,8 @@ $action5=array('organ_list');
                                     <li><a href="<?php echo base_url('/preferences/mutaxassislik') ?>">
                                             <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a>
                                     </li>
-                                    <li>  </li>
+                                    <li> <a href="<?php echo base_url('/preferences/lavozim') ?>">
+                                            <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Лавозимлар</b> </a> </li>
                                     <li><a href="<?php echo base_url('/preferences/millat') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
                                     <li><a href="<?php echo base_url('/preferences/shartnoma') ?>"> <span>&nbsp;</span>

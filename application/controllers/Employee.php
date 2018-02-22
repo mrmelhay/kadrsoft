@@ -374,10 +374,7 @@ class Employee extends MY_Controller
 
         public function data_employee($kadrid=null)
         {
-
-
-
-            if ($this->session->userdata('logged_in') == FALSE) {
+          if ($this->session->userdata('logged_in') == FALSE) {
                 redirect(base_url('users/login'));
             }
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
@@ -499,8 +496,6 @@ class Employee extends MY_Controller
                         $this->load->view('/employee/data/ajax_emp_saylov', $this->data);
                         break;
                 }
-
-
             } else {
                 $this->data['title'] = array();
                 $this->load->view('/employee/data/ajax_emp_passport', $this->data);
@@ -509,7 +504,6 @@ class Employee extends MY_Controller
 
         public function create_date_info()
         {
-
             if (isset($_POST['emptype'])) {
                 $emptype = $_POST['emptype'];
                 switch ($emptype) {

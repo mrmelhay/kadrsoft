@@ -7,9 +7,36 @@
 
 
 
-
 <?php
 switch ($this->uri->segment(2)) {
+    case 'employees':
+        ?>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/jquery.dataTables.js'); ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.js'); ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/dynamic_table_init.js') ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/edit-table/edit-table.js'); ?>"></script>
+        <script>
+            jQuery(document).ready(function () {
+                EditableTable.init();
+            });
+        </script>
+
+        <?php
+        break;
+    case 'stir':
+        ?>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/jquery.dataTables.js'); ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.js'); ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/data-tables/dynamic_table_init.js') ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/edit-table/edit-table.js'); ?>"></script>
+        <script>
+            jQuery(document).ready(function () {
+                EditableTable.init();
+            });
+        </script>
+
+        <?php
+        break;
     case 'organ':
         ?>
         <script src="<?php echo base_url('/assets/plugins/data-tables/jquery.dataTables.js'); ?>"></script>
