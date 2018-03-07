@@ -28,9 +28,6 @@ class EmployeeModel extends MY_Model
         $this->db->join('spr_mutaxasislik', 'spr_mutaxasislik.mutax_kodi_id=d_kadr.mutax_kodi_id', 'left');
         $this->db->join('d_uqit_fan', 'd_uqit_fan.kadr_id=d_kadr.kadrid', 'left');
         $this->db->join('spr_fanlar', 'spr_fanlar.fanlar_id=d_uqit_fan.fanlar_id', 'left');
-
-
-
         $this->db->where('d_kadr.isdelete', $isDelete);
 
         if (isset($this->kollej_id) && $this->kollej_id > 0) {
@@ -1147,6 +1144,31 @@ class EmployeeModel extends MY_Model
         $this->db->from('view_kadr');
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+
+    public function getAllEnterData(){
+        $sql=" select spk.kollej_name,
+			(select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+		    where kib.kollej_id=spk.kollej_id) as total_emp,
+		  (select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+                                   left join spr_lavozim spl on spl.lavozim_id=dr.lavozim_id
+		   where kib.kollej_id=spk.kollej_id and spl.type=1) as owner_emp,
+		  (select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+                                   left join spr_lavozim spl on spl.lavozim_id=dr.lavozim_id
+		   where kib.kollej_id=spk.kollej_id and spl.type=2) as pedagog_emp,
+				(select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+                                   left join spr_lavozim spl on spl.lavozim_id=dr.lavozim_id
+		   where kib.kollej_id=spk.kollej_id and spl.type=3) as technik_emp,
+
+			(select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+		   where kib.kollej_id=spk.kollej_id and dr.sex=1) as sex_a,
+	      (select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
+		   where kib.kollej_id=spk.kollej_id and dr.sex=2) as sex_e
+		from spr_kollej spk
+				 ";
+        $result=$this->db->query($sql);
+        return $result->result_array();
     }
 
 }

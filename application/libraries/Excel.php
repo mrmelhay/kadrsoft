@@ -25,6 +25,7 @@
         public function exportxsl($data=null)
         {
             $this->excel = $this->Reader->load(APPPATH . '/libraries/Example/template.xlsx');
+//            $this->excel->getActiveSheet()->setCellValue('A3' , );
             $numrow = 8;
             if ($data != null) {
                foreach ($data['employee'] as $datae) {

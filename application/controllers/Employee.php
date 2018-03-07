@@ -22,12 +22,12 @@ class Employee extends MY_Controller
             $this->data['title'] = 'Ходимлар рўйхати';
             if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
 
-            if ($this->input->post('kollej_id',true)!=null){
-                $kollej_id = $this->input->post('kollej_id', true);
+            if ($this->input->get('kollej_id',true)!=null){
+                $kollej_id = $this->input->get('kollej_id', true);
                 $this->EmployeeModel->kollej_id=$kollej_id;
             }
-            if ($this->input->post('query',true)!=null) {
-                $query = $this->input->post('query',false);
+            if ($this->input->get('query',true)!=null) {
+                $query = $this->input->get('query',false);
                 $this->data['query']=$query;
                 $this->EmployeeModel->query=$query;
             }else {
@@ -965,7 +965,7 @@ class Employee extends MY_Controller
             $this->word->download2( $this->data);
         }
 
-    public function exportxls($kadrid=null){
+    public function exportxls(){
         if ($this->session->userdata('logged_in') == FALSE) {
             redirect(base_url('users/login'));
         }
@@ -975,12 +975,12 @@ class Employee extends MY_Controller
         $this->data['title'] = 'Ходимлар рўйхати';
         if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
 
-        if ($this->input->post('kollej_id',true)!=null){
-            $kollej_id = $this->input->post('kollej_id', true);
+        if ($this->input->get('kollej_id',true)!=null){
+            $kollej_id = $this->input->get('kollej_id', true);
             $this->EmployeeModel->kollej_id=$kollej_id;
         }
 
-        $kadr = $this->input->post('kadr', true);
+        $kadr = $this->input->get('kadr', true);
         if (is_array($kadr)) {
             if (sizeof($kadr) > 0) {
                 foreach ($kadr as $key => $val) {

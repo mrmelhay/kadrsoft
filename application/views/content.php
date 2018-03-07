@@ -53,9 +53,11 @@ $action5=array('organ_list');
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
                                 <ul <?php  if (in_array($this->uri->segment(2),$action4)) { ?> class="opened" style="display:block;" <?php }?>>
+                                    <?php if ($username['is_admin']) {?>
                                     <li><a href="<?php echo base_url("/reports/employee_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар
                                                 рўйхати</b>
                                         </a></li>
+                                    <?php }?>
                                     <li><a href="<?php echo base_url("/reports/stir_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
                                                 рўйхати</b>
                                         </a></li>

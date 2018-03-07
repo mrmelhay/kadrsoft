@@ -48,6 +48,7 @@ class Dashboard extends MY_Controller{
         $this->data['emp_count']['malaka_soni'] = count($this->EmployeeModel->malaka_soni($kollej_id));
 //        print_r($this->EmployeeModel->count_att_soni($kollej_id));
         $this->data['lastvisits']=$this->UserModel->getLastVisit();
+
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
         $this->view_lib->admin_layout($this->data);
     }
