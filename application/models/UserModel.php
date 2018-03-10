@@ -163,6 +163,11 @@ class UserModel extends MY_Model {
         }
     }
 
+    public function getLastVisit(){
+        $query = "SELECT * FROM users where last_visit=NOW()";
+        $run =$this->db->query($query);
+        return $run->result_array();
+    }
 
 
 

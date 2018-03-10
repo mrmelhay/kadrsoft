@@ -25,12 +25,4 @@ class MY_Controller extends CI_Controller{
         $this->load->library('Word');
         $this->load->library('Excel');
     }
-
-    
-    public function search(){
-
-    }
-    public function pagination(){
-
-    }
 }

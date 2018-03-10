@@ -9,6 +9,7 @@ class Reports extends MY_Controller{
 
     public function employee_list(){
         $this->data['title'] = 'Муассасалар рўйхати';
+        $this->data['alldata']=$this->EmployeeModel->getAllEnterData();
         $this->data['content'] = $this->load->view('/reports/employee_list', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }

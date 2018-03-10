@@ -97,14 +97,8 @@ if(count($user)==0) {
             </div>
 
         </div>
-
-
     </div>
-
-
     <?php
-
-
 } else
 {
     foreach($user as $usr) {?>

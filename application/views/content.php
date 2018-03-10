@@ -18,7 +18,7 @@ $action5=array('organ_list');
                    <div class="left_nav_slidebar" style="overflow: hidden; width: auto; height: auto">
                         <ul>
                             <li class="left_nav_active theme_border ">
-                                <a href="/dashboard"><i
+                                <a href="<?php echo base_url('/dashboard') ?>"><i
                                             class="fa fa-home"></i> Асосий ойна <span class="left_nav_pointer"></span>
 
                                 </a>
@@ -53,9 +53,11 @@ $action5=array('organ_list');
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
                                 <ul <?php  if (in_array($this->uri->segment(2),$action4)) { ?> class="opened" style="display:block;" <?php }?>>
+                                    <?php if ($username['is_admin']) {?>
                                     <li><a href="<?php echo base_url("/reports/employee_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар
                                                 рўйхати</b>
                                         </a></li>
+                                    <?php }?>
                                     <li><a href="<?php echo base_url("/reports/stir_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
                                                 рўйхати</b>
                                         </a></li>
@@ -88,7 +90,8 @@ $action5=array('organ_list');
                                     <li><a href="<?php echo base_url('/preferences/mutaxassislik') ?>">
                                             <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Мутахассисликлар</b> </a>
                                     </li>
-                                    <li>  </li>
+                                    <li> <a href="<?php echo base_url('/preferences/lavozim') ?>">
+                                            <span>&nbsp;</span> <i class="fa fa-circle"></i><b>Лавозимлар</b> </a> </li>
                                     <li><a href="<?php echo base_url('/preferences/millat') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i><b>Миллатлар</b> </a></li>
                                     <li><a href="<?php echo base_url('/preferences/shartnoma') ?>"> <span>&nbsp;</span>

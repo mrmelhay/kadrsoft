@@ -25,7 +25,7 @@
                 </div>
             <?php } ?>
 
-            <form class="form-horizontal" method="post" name="selform" action="<?php echo base_url('employee/employees')?>">
+            <form class="form-horizontal" method="get" name="selform" action="<?php echo base_url('employee/employees')?>">
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
@@ -100,7 +100,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="query" id="query" value="<?php echo $query;?>"/>
                                     <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> <?php echo empty($this->input->post('query',true))?'Излаш':'Тозалаш'?></button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> <?php echo empty($this->input->get('query',true))?'Излаш':'Тозалаш'?></button>
                   </span></div>
 
                             </div>

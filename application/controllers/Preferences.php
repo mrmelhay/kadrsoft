@@ -16,8 +16,17 @@ class Preferences extends MY_Controller
 
     }
 
+    public function index(){
+                if($this->session->userdata('logged_in')!=TRUE){
+            redirect(base_url('users'));
+        }
+    }
+
     public function organ()
     {
+       if($this->session->userdata('logged_in')!=TRUE){
+            redirect(base_url('users'));
+        }
         $this->data['title'] = 'Муассасалар рўйхати';
         $this->data['kollejs'] = $this->PreferencesModel->getKollej();
         $this->data['content'] = $this->load->view('/preferences/organ_list', $this->data, true);
@@ -134,6 +143,19 @@ class Preferences extends MY_Controller
         } else{
             $this->data['kollej'] = array();
             $this->load->view('/preferences/ajax_organ_form_edit',$this->data);
+        }
+
+    }
+
+    public function ajax_data_lavozim(){
+        if ($this->input->get('lavozim_id') != "") {
+            $did = $_GET['lavozim_id'];
+            $this->PreferencesModel->lavozim_id=$did;
+            $this->data['lavozim'] = $this->PreferencesModel->getReadByLavozim();
+            $this->load->view('/preferences/ajax_lazovim_form_edit',$this->data);
+        } else{
+            $this->data['lavozim'] = array();
+            $this->load->view('/preferences/ajax_lazovim_form_edit',$this->data);
         }
 
     }
@@ -856,6 +878,92 @@ class Preferences extends MY_Controller
     /*****************end tillar_turi *****/
 
 
+    public function lavozim(){
+
+        if($this->session->userdata('logged_in')!=TRUE){
+            redirect(base_url('users'));
+        }
+        $this->data['title'] = 'Лавозимлар рўйхати';
+        $this->data['lavozims'] = $this->PreferencesModel->getLavozim();
+        $this->data['content'] = $this->load->view('/preferences/lavozim_list', $this->data, true);
+        $this->view_lib->admin_layout($this->data);
+    }
+
+
+    public function del_lavozim($lavozim_id)
+    {
+        $data = array('lavozim_id' => $lavozim_id);
+        if ($this->PreferencesModel->delete_lavozim($data)){
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилди!!!");
+            redirect(base_url('preferences/lavozim'));
+        }else{
+            $this->session->set_flashdata('message', "Маълумот баъзадан ўчирилмади!!!");
+            redirect(base_url('preferences/lavozim'));
+        }
+    }
+
+
+
+    public function create_lovzim(){
+        if ($this->input->post('lavozim',false)!=0){
+            $kollej=$_POST['lavozim'];
+
+            $this->form_validation->set_rules(array(
+                'lavozim_name' => array('field' => 'lavozim_name', 'label' => 'Лавозим номи', 'rules' => 'required|max_length[150]'),
+                'type' => array('field' => 'type', 'label' => 'Лавозим тури', 'rules' => 'required|max_length[32]'),
+            ));
+
+            if ($this->form_validation->run() == TRUE) {
+                $data = array(
+                    'lavozim_name' => $this->input->post('lavozim_name', false),
+                    'type' => $this->input->post('type', false),
+                    'lavozim_id'=>$kollej,
+                );
+
+                if ($this->PreferencesModel->update_lavozim($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилди!!!");
+                    redirect(base_url('preferences/lavozim'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзаси ўзгартирилмади!!!");
+                    redirect(base_url('preferences/lavozim'));
+                }
+            } else {
+                $this->data['title'] = 'Лавозимлар рўйхати';
+                $this->data['lavozims'] = $this->PreferencesModel->getLavozim();
+                $this->data['content'] = $this->load->view('/preferences/lavozim_list', $this->data, true);
+                $this->view_lib->admin_layout($this->data);
+            }
+
+        } else {
+            $this->form_validation->set_rules(array(
+                'lavozim_name' => array('field' => 'lavozim_name', 'label' => 'Лавозим номи', 'rules' => 'required|max_length[150]'),
+                'type' => array('field' => 'type', 'label' => 'Лавозим тури', 'rules' => 'required|max_length[32]'),
+            ));
+            if ($this->form_validation->run() == TRUE) {
+                $data = array(
+//                   $data = array(
+                    'lavozim_name' => $this->input->post('lavozim_name', false),
+                    'type' => $this->input->post('type', false),
+                );
+
+                if ($this->PreferencesModel->save_lavozim($data)) {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилди!!!");
+                    redirect(base_url('preferences/lavozim'));
+                } else {
+                    $this->session->set_flashdata('message', "Маълумот баъзага қўшилмади!!!");
+                    redirect(base_url('preferences/lavozim'));
+                }
+            } else {
+                $this->data['title'] = 'Лавозимлар рўйхати';
+                $this->data['lavozims'] = $this->PreferencesModel->getLavozim();
+                $this->data['content'] = $this->load->view('/preferences/lavozim_list', $this->data, true);
+                $this->view_lib->admin_layout($this->data);
+            }
+
+
+        }
+
+    }
 
 
 }

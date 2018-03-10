@@ -283,20 +283,10 @@
                         <div class="col-md-6">
                             <input type="file" name="photo" id="photo" class="form-control" />
                             <input type="hidden" name="old_picture" value="<?php echo $employee->photo ?>">
-
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="col-md-3"></label>
-                        <div class="col-md-6">
-                            <div class="col-md-6">
-                                <?php if (file_exists($employee->photo)) { ?>
-                                    <img src="<?php echo base_url($employee->photo); ?>"
-                                <?php } ?>
-                            </div>
-                        </div>
 
-                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary"

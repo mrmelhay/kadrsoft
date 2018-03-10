@@ -22,12 +22,12 @@ class Employee extends MY_Controller
             $this->data['title'] = 'Ходимлар рўйхати';
             if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
 
-            if ($this->input->post('kollej_id',true)!=null){
-                $kollej_id = $this->input->post('kollej_id', true);
+            if ($this->input->get('kollej_id',true)!=null){
+                $kollej_id = $this->input->get('kollej_id', true);
                 $this->EmployeeModel->kollej_id=$kollej_id;
             }
-            if ($this->input->post('query',true)!=null) {
-                $query = $this->input->post('query',false);
+            if ($this->input->get('query',true)!=null) {
+                $query = $this->input->get('query',false);
                 $this->data['query']=$query;
                 $this->EmployeeModel->query=$query;
             }else {
@@ -181,9 +181,9 @@ class Employee extends MY_Controller
 //          $this->form_validation->set_rules('bdate','Туғилган вақти','required');
             $this->form_validation->set_rules('sex', 'Жинси', 'required|max_length[10]');
             $this->form_validation->set_rules('lavozim_id', 'Лавозими', 'required|max_length[10]');
-            $this->form_validation->set_rules('malumot_id', 'Маълумоти', 'required|max_length[10]');
+            $this->form_validation->set_rules('malumot_id', 'Маълумоти', 'max_length[10]');
 //          $this->form_validation->set_rules('malaka_lavozim_id','Address','required|max_length[255]');
-            $this->form_validation->set_rules('mutax_kodi_id', 'Мутахасислиги', 'required');
+            $this->form_validation->set_rules('mutax_kodi_id', 'Мутахасислиги');
             $kollej_id = $this->data['username'];
             $picture = $this->fileupload->do_upload('images/photos/', 'photo');
             if ($picture !== false && $picture != null) {
@@ -374,10 +374,7 @@ class Employee extends MY_Controller
 
         public function data_employee($kadrid=null)
         {
-
-
-
-            if ($this->session->userdata('logged_in') == FALSE) {
+          if ($this->session->userdata('logged_in') == FALSE) {
                 redirect(base_url('users/login'));
             }
             $editdata = $this->EmployeeModel->read_by_data($kadrid);
@@ -499,8 +496,6 @@ class Employee extends MY_Controller
                         $this->load->view('/employee/data/ajax_emp_saylov', $this->data);
                         break;
                 }
-
-
             } else {
                 $this->data['title'] = array();
                 $this->load->view('/employee/data/ajax_emp_passport', $this->data);
@@ -509,7 +504,6 @@ class Employee extends MY_Controller
 
         public function create_date_info()
         {
-
             if (isset($_POST['emptype'])) {
                 $emptype = $_POST['emptype'];
                 switch ($emptype) {
@@ -971,7 +965,7 @@ class Employee extends MY_Controller
             $this->word->download2( $this->data);
         }
 
-    public function exportxls($kadrid=null){
+    public function exportxls(){
         if ($this->session->userdata('logged_in') == FALSE) {
             redirect(base_url('users/login'));
         }
@@ -981,12 +975,12 @@ class Employee extends MY_Controller
         $this->data['title'] = 'Ходимлар рўйхати';
         if ($kollej_parent_id) {$this->EmployeeModel->kollej_id=$kollej_id;}
 
-        if ($this->input->post('kollej_id',true)!=null){
-            $kollej_id = $this->input->post('kollej_id', true);
+        if ($this->input->get('kollej_id',true)!=null){
+            $kollej_id = $this->input->get('kollej_id', true);
             $this->EmployeeModel->kollej_id=$kollej_id;
         }
 
-        $kadr = $this->input->post('kadr', true);
+        $kadr = $this->input->get('kadr', true);
         if (is_array($kadr)) {
             if (sizeof($kadr) > 0) {
                 foreach ($kadr as $key => $val) {
@@ -1043,6 +1037,8 @@ class Employee extends MY_Controller
 
     public function proftex20()
     {
+        $this->data['employees'] = $this->EmployeeModel->getEmployeeProfTex2();
+        $this->excel->exportProfTex20($this->data);
 
     }
 
