@@ -1,6 +1,3 @@
-
-
-
 <div class="pull-left breadcrumb_admin clear_both">
 </div>
 <form action="<?php echo base_url("/employee/create_employee") ?>" method="post" class="form-horizontal row-border"

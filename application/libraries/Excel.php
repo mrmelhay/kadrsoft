@@ -25,7 +25,8 @@
         public function exportxsl($data=null)
         {
             $this->excel = $this->Reader->load(APPPATH . '/libraries/Example/template.xlsx');
-//            $this->excel->getActiveSheet()->setCellValue('A3' , );
+            $this->excel->getActiveSheet()->setCellValue('A3', $data['kollej_name']['kollej_name'] . "нинг раҳбарлар ҳамда маъмурий ходимлари тўғрисида умумий");
+            $this->excel->getActiveSheet()->setCellValue('Z5', date('d.m.Y') . " ҳолатига");
             $numrow = 8;
             if ($data != null) {
                foreach ($data['employee'] as $datae) {

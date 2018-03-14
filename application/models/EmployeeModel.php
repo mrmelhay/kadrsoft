@@ -58,7 +58,7 @@ class EmployeeModel extends MY_Model
                   break;
         }}
 
-        $this->db->order_by('d_kadr.kadrid', 'ASC');
+        $this->db->order_by('d_kadr.kadrid', 'DESC');
         $query = $this->db->get();
 
 
@@ -1120,6 +1120,13 @@ class EmployeeModel extends MY_Model
 //            ->get()
 //            ->row_array();
    }
+
+
+    public function read_by_kollej_name($kollej_id)
+    {
+        return $this->db->select("*")->from("spr_kollej")->where('spr_kollej.kollej_id', $kollej_id)->get()->row_array();
+
+    }
 
     public function malaka_soni($kollej_id){
 

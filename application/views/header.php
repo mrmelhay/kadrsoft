@@ -27,7 +27,7 @@
     <!--    <script src="--><?php //echo base_url('assets/js/bootstrap.min.js') ?><!--"></script>-->
     <script src="<?php echo base_url('assets/js/jquery-2.1.0.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/select2/select2.js') ?>"></script>
+    <script src="<?php echo base_url('assets/select2/select2.full.js') ?>"></script>
 
 
     <style>
@@ -35,7 +35,7 @@
             z-index:100000;
         }
 
-        select22{
+        .select22 {
             z-index: 100500;
         }
 

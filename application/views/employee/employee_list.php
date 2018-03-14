@@ -73,7 +73,17 @@
 
                     <div class="btn-group">
                         <a type="button" class="btn btn-success"
-                           onclick='document.location.href="<?php echo base_url("/employee/exportxls") ?>"'
+                            <?php
+                            $url = "";
+                            if (isset($_GET['kollej_id'])) {
+                                $url .= "/employee/exportxls/";
+                                $url .= $_GET['kollej_id'];
+                            } else {
+                                $url .= "/employee/exportxls/";
+                                $url .= 0;
+                            }
+                            ?>
+                           onclick='document.location.href="<?php echo base_url($url) ?>"'
                            href="#"> <i class="fa fa-table"></i> Excel
                         </a>
                     </div>
@@ -91,7 +101,8 @@
                     <div class="invoice_header">
                         <div class="row">
                             <div class="col-sm-5">
-                                <select name="kollej_id" id="kollej_id" class="form-control" <?php echo $username['is_admin']==0?'readonly disabled':'';?>>
+                                <select name="kollej_id" id="kollej_id"
+                                        class="form-control select22" <?php echo $username['is_admin'] == 0 ? 'readonly disabled' : ''; ?>>
                                     <option value="">Танланг...</option>
                                     <?php $this->PreferencesModel->getKollejDropList(0,0, "&#166;&nbsp;&nbsp;&nbsp;&nbsp;", $username['kollej_id']); ?>
                                 </select>

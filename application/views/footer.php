@@ -15,6 +15,10 @@ switch ($this->uri->segment(2)) {
         <script src="<?php echo base_url('/assets/plugins/data-tables/DT_bootstrap.js'); ?>"></script>
         <script src="<?php echo base_url('/assets/plugins/data-tables/dynamic_table_init.js') ?>"></script>
         <script src="<?php echo base_url('/assets/plugins/edit-table/edit-table.js'); ?>"></script>
+        <script src="<?php echo base_url('/assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/plugins/toggle-switch/toggles.min.js'); ?>"
+                type="text/javascript"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/plugins/input-mask/demo-mask.js'); ?>"></script>
         <script>
             jQuery(document).ready(function () {
                 EditableTable.init();
