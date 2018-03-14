@@ -332,7 +332,7 @@ class MY_Model extends CI_Model{
         $this->db->select('*');
         $this->db->from('spr_lavozim');
 //        $this->db->where('viloyat_id',$this->viloyat_id);
-        $this->db->order_by('spr_lavozim.lavozim_id','ASC');
+        $this->db->order_by('spr_lavozim.ordering', 'ASC');
         $query=$this->db->get();
         foreach($query->result_array() as $rows){
             $this->lavozimList[$rows['lavozim_id']]=$rows;
