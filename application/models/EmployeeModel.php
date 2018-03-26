@@ -1172,7 +1172,7 @@ class EmployeeModel extends MY_Model
 		   where kib.kollej_id=spk.kollej_id and dr.sex=1) as sex_a,
 	      (select count(dr.kadrid) from d_kadr dr left JOIN d_kadr_items_bind kib on kib.kadrid=dr.kadrid
 		   where kib.kollej_id=spk.kollej_id and dr.sex=2) as sex_e
-		from spr_kollej spk
+		from spr_kollej spk ORDER BY total_emp DESC 
 				 ";
         $result=$this->db->query($sql);
         return $result->result_array();

@@ -65,7 +65,7 @@ if ($this->session->userdata('logged_in')!=false){
                             <ul class="drop_down_task dropdown-menu">
                                 <div class="top_pointer"></div>
                                 <li>
-                                    <p class="number">7 pending tasks</p>
+                                    <p class="number">7 та топшириқ</p>
                                 </li>
                                 <li> <a href="task.html" class="task">
                                         <div class="green_status task_height" style="width:80%;"></div>
@@ -87,7 +87,7 @@ if ($this->session->userdata('logged_in')!=false){
                                         <div class="task_head"> <span class="pull-left"></span>Малака оширишга  <span class="pull-right red_label">85%</span> </div>
                                         <div class="task_detail">Малака ошириш муддати тугаётганлар</div>
                                     </a> </li>
-                                <li> <span class="new"> <a href="task.html" class="pull_left">Create New</a> <a href="task.html" class="pull-right">View All</a> </span> </li>
+                                <li> <span class="new"> <a href="task.html" class="pull_left">Кўриб чиқиш</a> <a href="task.html" class="pull-right">Барчаси</a> </span> </li>
                             </ul>
                         </li>
 <!--                        <li class="dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"> Янги ҳабар<span class="badge badge color_1">4</span> </a>-->

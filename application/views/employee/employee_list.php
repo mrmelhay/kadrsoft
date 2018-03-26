@@ -13,7 +13,7 @@
             <?php if ($this->session->flashdata('message') != null) { ?>
                 <div class="alert alert-info alert-styled-left alert-bordered">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span><span
-                                class="sr-only">Закрыть</span></button>
+                                class="sr-only">Ёпиш</span></button>
                     <span class="text-semibold"><?php echo $this->session->flashdata('message'); ?></span>
                 </div>
             <?php } ?>
@@ -58,7 +58,7 @@
                         <button type="button" class="btn btn-success"
                                 onclick="checkSel('<?php echo base_url("/employee/download") ?>')"
                                 href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-file"></i>
-                            Обективка
+                            Объективка
 
                         </button>
                     </div>
