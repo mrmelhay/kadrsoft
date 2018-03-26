@@ -16,7 +16,7 @@ class Reports extends MY_Controller{
 
     public function stir_list(){
         $this->data['title'] = 'Муассасалар рўйхати';
-        $this->data['content'] = $this->load->view('/reports/employee_list', $this->data, true);
+        $this->data['content'] = $this->load->view('/reports/employee_stir', $this->data, true);
         $this->view_lib->admin_layout($this->data);
     }
 
