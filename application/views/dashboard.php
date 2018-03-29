@@ -45,10 +45,10 @@
 
         <div class="col-sm-3 col-sm-6">
             <div class="information red_info">
-                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=talimyordam') ?>">
                     <div class="info red_symbols"><i class="fa fa-briefcase icon"></i></div>
-                    <span>Техник  ходимлар</span>
-                    <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
+                    <span>Таълимга ёрдамчи ходимлар</span>
+                    <h1 class="bolded"><?php echo $emp_count['talimyordam']; ?> та</h1>
                 </div>
             </div>
         </div>
@@ -90,9 +90,9 @@
         <div class="col-sm-3 col-sm-6">
             <div class="information red_info">
                 <div class="information_inner">
-                    <div class="info red_symbols"><i class="fa fa-sign-out icon"></i></div>
-                    <span>Ишдан бўшаганлар</span>
-                    <h1 class="bolded">0 та</h1>
+                    <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
+                    <span>Техник ходимлар</span>
+                        <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
 <!--                    <div class="infoprogress_red">-->
 <!--                        <div class="redprogress"></div>-->
 <!--                    </div>-->

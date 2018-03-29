@@ -48,6 +48,9 @@ class EmployeeModel extends MY_Model
                     $this->db->where("(spr_lavozim.type='1')");
                     break;
                 case 'tehnik':
+                    $this->db->where("(spr_lavozim.type='4')");
+                    break;
+                case 'talimyordam':
                     $this->db->where("(spr_lavozim.type='3')");
                     break;
                 case 'malaka':
@@ -1105,7 +1108,7 @@ class EmployeeModel extends MY_Model
             LEFT JOIN d_kadr_items_bind ON d_kadr.kadrid=d_kadr_items_bind.kadrid
             LEFT JOIN d_attestatsiya ON d_kadr.kadrid=d_attestatsiya.kadr_id
             WHERE d_kadr_items_bind.kollej_id = '{$kollej_id}' AND
-            DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')
+            DATE_FORMAT(oxirgi_att_yili, '%m.%Y') = DATE_FORMAT(NOW(),'%m.%Y')
           "
            )
            ->result_array()    ;
