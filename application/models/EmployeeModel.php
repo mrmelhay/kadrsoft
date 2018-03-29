@@ -51,10 +51,10 @@ class EmployeeModel extends MY_Model
                     $this->db->where("(spr_lavozim.type='3')");
                     break;
                 case 'malaka':
-                    $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m') = DATE_FORMAT(NOW(),'%m')");
+                    $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m.%Y') = DATE_FORMAT(NOW(),'%m.%Y')");
                     break;
                 case 'attestatsiya':
-                  $this->db->where("DATE_FORMAT(oxirgi_att_yili, '%m') = DATE_FORMAT(NOW(),'%m')");
+                  $this->db->where("DATE_FORMAT(nav_att_yili, '%m.%Y') = DATE_FORMAT(NOW(),'%m.%Y')");
                   break;
         }}
 
@@ -1109,16 +1109,7 @@ class EmployeeModel extends MY_Model
           "
            )
            ->result_array()    ;
-//
-//
-//            return $this->db->select ("*")
-//            ->from ("d_kadr")
-//            ->join ('d_kadr_items_bind', 'd_kadr_items_bind.kadrid=d_kadr.kadrid', 'left')
-//            ->join ('d_attestatsiya', 'd_attestatsiya.kadr_id=d_kadr.kadrid','left')
-//            ->where ('d_kadr_items_bind.kollej_id', $kollej_id)
-//            ->where ("(date_format('oxirgi_att_yili', '%m') =  date_format('$sana', '%m'))")
-//            ->get()
-//            ->row_array();
+
    }
 
 
