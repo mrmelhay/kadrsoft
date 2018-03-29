@@ -47,11 +47,11 @@ class EmployeeModel extends MY_Model
                 case 'rahbar':
                     $this->db->where("(spr_lavozim.type='1')");
                     break;
+               case 'talimyordam':
+                    $this->db->where("(spr_lavozim.type='3')");
+                    break;
                 case 'tehnik':
                     $this->db->where("(spr_lavozim.type='4')");
-                    break;
-                case 'talimyordam':
-                    $this->db->where("(spr_lavozim.type='3')");
                     break;
                 case 'malaka':
                     $this->db->where("DATE_FORMAT(malaka_keyingi_sana, '%m.%Y') = DATE_FORMAT(NOW(),'%m.%Y')");

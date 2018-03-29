@@ -47,7 +47,7 @@
             <div class="information red_info">
                 <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=talimyordam') ?>">
                     <div class="info red_symbols"><i class="fa fa-briefcase icon"></i></div>
-                    <span>Таълимга ёрдамчи ходимлар</span>
+                    <span>Техник ходимлар</span>
                     <h1 class="bolded"><?php echo $emp_count['talimyordam']; ?> та</h1>
                 </div>
             </div>
@@ -89,21 +89,11 @@
 
         <div class="col-sm-3 col-sm-6">
             <div class="information red_info">
-                <div class="information_inner">
-                    <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
-                        <div class="info blue_symbols"><i class="fa fa-tumblr-square icon"></i></div>
-                    <span>Техник ходимлар</span>
-                        <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
-<!--                    <div class="infoprogress_red">-->
-<!--                        <div class="redprogress"></div>-->
-<!--                    </div>-->
-<!--                    <b class="">-->
-<!--                        <small>Умумий фоиз ( 7,5% )</small>-->
-<!--                    </b>-->
-<!--                    <div class="pull-right" id="work-progress3">-->
-<!--                        <canvas style="display: inline-block; width: 47px; height: 25px; vertical-align: top;"-->
-<!--                                width="47" height="25"></canvas>-->
-<!--                    </div>-->
+                <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
+                    <div class="info red_symbols"><i class="fa fa-hospital-o icon"></i></div>
+                    <span>Хўжалик ходимлари</span>
+                    <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
+
                 </div>
             </div>
         </div>

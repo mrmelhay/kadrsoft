@@ -75,6 +75,7 @@ class Dashboard extends MY_Controller{
         $rahbar=0;
         $pedagog=0;
         $tehnik=0;
+        $talimyordam=0;
         foreach($edata as $edatum) {
 
             if ($edatum['type']==1){
@@ -82,12 +83,15 @@ class Dashboard extends MY_Controller{
             } else if ($edatum['type']==2){
                 $pedagog+=1;
             } else if ($edatum['type'] == 3){
+                $talimyordam+=1;
+            } else if ($edatum['type'] == 4){
                 $tehnik+=1;
             }
         }
         $this->data['emp_count']['rahbar'] =$rahbar;
         $this->data['emp_count']['pedagog'] = $pedagog;
         $this->data['emp_count']['tehnik'] = $tehnik;
+        $this->data['emp_count']['talimyordam'] = $talimyordam;
         $this->data['emp_count']['att_soni'] = $this->EmployeeModel->count_att_soni($kollej_id);
         $this->data['content'] = $this->load->view('dashboard',$this->data,true);
 
