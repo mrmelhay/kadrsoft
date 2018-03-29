@@ -91,6 +91,7 @@
             <div class="information red_info">
                 <div class="information_inner">
                     <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=tehnik') ?>">
+                        <div class="info blue_symbols"><i class="fa fa-tumblr-square icon"></i></div>
                     <span>Техник ходимлар</span>
                         <h1 class="bolded"><?php echo $emp_count['tehnik']; ?> та</h1>
 <!--                    <div class="infoprogress_red">-->
