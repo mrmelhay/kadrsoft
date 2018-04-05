@@ -113,12 +113,12 @@ $action5=array('organ_list');
                                 <ul>
                                     <li><a href="<?php echo base_url('/users/users') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i> <b>Фойдаланувчилар</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_group') ?>"> <span>&nbsp;</span> <i
-                                                    class="fa fa-circle"></i> <b>Гурухлар</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_rolls') ?>"> <span>&nbsp;</span> <i
-                                                    class="fa fa-circle"></i> <b>Роллар</b></a></li>
-                                    <li><a href="<?php echo base_url('/users/user_access') ?>"> <span>&nbsp;</span> <i
-                                                    class="fa fa-circle"></i> <b>Рухсат бериш</b></a></li>
+<!--                                    <li><a href="--><?php //echo base_url('/users/user_group') ?><!--"> <span>&nbsp;</span> <i-->
+<!--                                                    class="fa fa-circle"></i> <b>Гуруҳлар</b></a></li>-->
+<!--                                    <li><a href="--><?php //echo base_url('/users/user_rolls') ?><!--"> <span>&nbsp;</span> <i-->
+<!--                                                    class="fa fa-circle"></i> <b>Роллар</b></a></li>-->
+<!--                                    <li><a href="--><?php //echo base_url('/users/user_access') ?><!--"> <span>&nbsp;</span> <i-->
+<!--                                                    class="fa fa-circle"></i> <b>Рухсат бериш</b></a></li>-->
 
                                 </ul>
 
