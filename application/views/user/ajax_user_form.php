@@ -28,7 +28,7 @@ if(count($user)==0) {
             </div>
         </div>
         <div class="form-group lable-padd">
-            <label class="col-sm-3">Пароль</label>
+            <label class="col-sm-3">Парол</label>
             <div class="col-sm-6">
                 <input type="password" class="form-control" name="password" id="password" />
             </div>
@@ -129,7 +129,7 @@ if(count($user)==0) {
                 </div>
             </div>
             <div class="form-group lable-padd">
-                <label class="col-sm-3">Пароль</label>
+                <label class="col-sm-3">Парол</label>
                 <div class="col-sm-6">
                     <input type="password" class="form-control" name="password" id="password" />
                     <input type="hidden" class="form-control" name="password2" id="password2" value="<?php echo $usr['password'];?>"/>
