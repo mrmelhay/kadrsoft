@@ -8,7 +8,7 @@
                                                                                                         href="#"><i
                         class="fa fa-repeat"></i></a> <a class="close-down" href="#"><i class="fa fa-times"></i></a>
             </div>
-            <h3 class="content-header">Муассасалар рўйхати</h3>
+            <h3 class="content-header">Лавозимлар рўйхати</h3>
         </div>
         <div class="porlets-content">
             <?php if ($this->session->flashdata('message') != null) { ?>
@@ -51,7 +51,7 @@
                     <tr>
                         <th>ТР</th>
                         <th >Лавозим номи</th>
-                        <th>Лавозим типпи</th>
+                        <th>Лавозим тури</th>
                         <th>Амаллар</th>
                     </tr>
                     </thead>

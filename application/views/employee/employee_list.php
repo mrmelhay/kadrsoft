@@ -49,7 +49,7 @@
                         <button type="button" class="btn btn-warning"
                                 onclick="checkSel('<?php echo base_url("employee/employees/edit") ?>')"
                                 href="<?php echo base_url('/employee/employee_info') ?>"><i class="fa fa-edit"></i>
-                            Тахрирлаш
+                            Таҳрирлаш
 
                         </button>
                     </div>
@@ -131,7 +131,7 @@
                         <?php if ($is_admin != 0) { ?>
                             <th>Муассаса</th><?php } ?>
                         <th>Лавозими</th>
-                        <th>Тугилган йили</th>
+                        <th>Туғилган йили</th>
                         <th>Жинси</th>
                         <th>Маълумоти</th>
                         <!--                        <th>Тел. рақами</th>-->

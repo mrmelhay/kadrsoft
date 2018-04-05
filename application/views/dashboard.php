@@ -59,7 +59,7 @@
             <div class="information green_info">
                 <div class="information_inner" data-type="<?php echo base_url('employee/employees/?type=malaka') ?>">
                     <div class="info green_symbols"><i class="fa fa-maxcdn icon"></i></div>
-                    <span>МОга эхтиёж</span>
+                    <span>МОга эҳтиёж</span>
                     <h1 class="bolded"><?php echo $emp_count['malaka_soni']; ?> та</h1>
 
                 </div>

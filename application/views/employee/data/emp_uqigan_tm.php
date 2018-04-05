@@ -59,7 +59,7 @@ foreach($uqigantms as $uqiganm){?>
                 <?php echo $uqiganm['kirgan_yili']; ?></td>
             <td class="center"><?php echo $uqiganm['tugatgan_yili']; ?></td>
             <td class="center"><?php echo $uqiganm['diplom_num']; ?></td>
-            <td class="center"><?php ''; ?></td>
+            <td class="center"><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$uqiganm['scan_photo']; ?>" target="_blank">Кўриш</a> </td>
             <td class="center"><?php echo  $uqiganm['is_active']?"<span class='fa fa-check'></span>":"<span class='fa fa-times'></span>"; ?></td>
             <td>
                 <div class="btn-group">

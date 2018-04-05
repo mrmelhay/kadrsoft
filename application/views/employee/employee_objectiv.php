@@ -14,9 +14,9 @@
         <div class="porlets-content">
             <button type="button" class="btn btn-info"
                     onclick="document.location.href='<?php echo base_url('employee/download/' . $employee->kadrid) ?>'">
-                Скачать
+                Юклаб олиш
             </button>
-            <a type="button" class="btn btn-info btn-danger" href="<? echo base_url('employee/employees'); ?>"> Ортга
+            <a type="button" class="btn btn-info btn-danger" onclick="window.history.back()"> Ортга
                 қайтиш <i class="fa fa-mail-reply-all"></i> </a>
 
             <?php if ($this->session->flashdata('message') != null) { ?>

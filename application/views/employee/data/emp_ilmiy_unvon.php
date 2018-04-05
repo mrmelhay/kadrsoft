@@ -55,7 +55,7 @@ foreach($ilmiyunvons as $uqigntms){?>
                 <?php echo $uqigntms['diplom_date']; ?></td>
             <td>
                 <?php echo $uqigntms['diplom_ser']; ?></td>
-            <td class="center"><?php ''; ?></td>
+            <td class="center"><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$ilmiyunvon['scan_photo']; ?>" target="_blank">Кўриш</a> </td>
             <td class="center"><?php ''; ?></td>
             <td>
 

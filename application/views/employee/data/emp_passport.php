@@ -57,7 +57,7 @@ foreach($passports as $passport){?>
         <td>
             <?php echo $passport['date_of_expr']; ?></td>
         <td class="center"><?php echo $passport['viloyat'].' '.$passport['tuman']; ?> ИИБ</td>
-        <td class="center"><?php echo $passport['scan_photo']; ?></td>
+        <td class="center"><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$passport['scan_photo']; ?>" target="_blank">Кўриш</a> </td>
         <td class="center"><?php echo  $passport['is_active']?"<span class='fa fa-check'></span>":"<span class='fa fa-times'></span>"; ?></td>
         <td>
             <div class="btn-group">

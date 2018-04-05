@@ -40,7 +40,7 @@
                     <div class="col-sm-5">
 
                         <input type="file" name="photo" id="photo" class="form-control"/>
-                        <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo ''; ?>">
+                        <input type="hidden" name="scan_photo" id="scan_photo" value="<?php echo $ilmiyunvon['scan_photo'];?>">
 
                     </div>
                 </div>

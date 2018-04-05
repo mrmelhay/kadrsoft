@@ -61,7 +61,7 @@
                     <?php echo $qaytamalaka['qayta_bdate']; ?></td>
                 <td class="center"><?php echo $qaytamalaka['qayta_tdate']; ?></td>
                 <td class="center"><?php echo $qaytamalaka['otm_name']; ?></td>
-                <td class="center"><?php echo $qaytamalaka['scan_photo']; ?></td>
+                <td class="center"><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$qaytamalaka['scan_photo']; ?>" target="_blank">Кўриш</a> </td>
                 <td class="center"><?php echo $qaytamalaka['is_active']; ?></td>
                 <td>
                     <div class="btn-group">

@@ -61,7 +61,7 @@
             <td>
                 <?php echo $ilmdarajas['berilgan_vaqt']; ?></td>
             <td class="center"><?php echo $ilmdarajas['diplom_ser']; ?></td>
-            <td class="center"><?php ''; ?></td>
+            <td class="center"><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$ilmiydaraja['scan_photo']; ?>" target="_blank">Кўриш</a> </td>
             <td class="center"><?php ''; ?></td>
             <td>
                 <div class="btn-group">

@@ -19,7 +19,7 @@
 <div class="pull-left breadcrumb_admin clear_both"> </div>
 <div class="col-lg-12">
     <section class="panel default blue_title h2">
-        <div class="panel-heading">Ҳодим хақида қўшимча маълумотлар</div>
+        <div class="panel-heading">Ходим ҳақида қўшимча маълумотлар</div>
 
         <div class="row">
             <div class="col-sm-6">

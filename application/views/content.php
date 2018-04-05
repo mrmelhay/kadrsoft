@@ -1,8 +1,8 @@
 <?php
 $action=array('organ','davlat','region','otm','banks','partiya','mutaxassislik','millat','shartnoma','tillar','uq_soha');
 $action2=array('dashboard','organ_info');
-$action3=array('employees','archives','stir');
-$action4=array('employee_list','stir_list','malaka_osh');
+$action3=array('employees','archives');
+$action4=array('employee_list','stir_list','malaka_osh','stir');
 $action5=array('organ_list');
 ?>
 <div class="wrapper">
@@ -33,7 +33,7 @@ $action5=array('organ_list');
                                 <ul <?php  if (in_array($this->uri->segment(2),$action5)) { ?> class="opened" style="display:block;" <?php }?>>
                                     <li><a href="<?php echo base_url("/organ/organ_list")?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle theme_color"></i> <b
-                                                    class="theme_color">Муассаса хақида</b> </a></li>
+                                                    class="theme_color">Муассаса ҳақида</b> </a></li>
 
                                 </ul>
                             </li>
@@ -42,14 +42,18 @@ $action5=array('organ_list');
                                 <ul <?php  if (in_array($this->uri->segment(2),$action3)) { ?> class="opened" style="display:block;" <?php }?>>
                                     <li><a href="<?php echo base_url('/employee/employees')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Ходимлар</b>
                                         </a></li>
-                                    <li><a href="<?php echo base_url('/employee/archives')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b>
-                                        </a></li>
-                                    <li><a href="<?php echo base_url('/employee/stir')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
-                                            <b>ШИР ва СТИР</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=rahbar') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Раҳбар ходимлар</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=pedagog') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Педагог ходимлар</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=talimyordam') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Техник ходимлар</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=tehnik') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Хўжалик ходимлари</b> </a></li>
+
+
+                                    <li><a href="<?php echo base_url('/employee/archives')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Архив</b> </a></li>
+
 
                                 </ul>
                             </li>
-                            <li <?php if (in_array($this->uri->segment(2),$action4)) { ?>class="left_nav_active theme_border <?php }?>"><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Хисоботлар <span
+                            <li <?php if (in_array($this->uri->segment(2),$action4)) { ?>class="left_nav_active theme_border <?php }?>"><a href="javascript:void(0);"> <i class="fa fa-tasks"></i> Ҳисоботлар <span
                                             class="plus"><i
                                                 class="fa fa-plus"></i></span></a>
                                 <ul <?php  if (in_array($this->uri->segment(2),$action4)) { ?> class="opened" style="display:block;" <?php }?>>
@@ -58,11 +62,10 @@ $action5=array('organ_list');
                                                 рўйхати</b>
                                         </a></li>
                                     <?php }?>
-                                    <li><a href="<?php echo base_url("/reports/stir_list")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР
-                                                рўйхати</b>
-                                        </a></li>
-                                    <li><a href="<?php echo base_url("/reports/malaka_osh")?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i>
-                                            <b>Малака ошириш</b> </a></li>
+
+                                    <li><a href="<?php echo base_url('/employee/stir')?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>СТИР рўйхати</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=malaka') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>МОга эҳтиёж</b> </a></li>
+                                    <li><a href="<?php echo base_url('employee/employees/?type=attestatsiya') ?>"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>АТТга киради</b> </a></li>
                                     <!--                                    <li><a href="--><?php //echo base_url("/reports/employees")?><!--"> <span>&nbsp;</span> <i class="fa fa-circle"></i> <b>Others</b>-->
                                     <!--                                        </a></li>-->
                                 </ul>
@@ -80,7 +83,7 @@ $action5=array('organ_list');
                                     <li><a href="<?php echo base_url('/preferences/davlat') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i> <b>Давлатлар</b></a></li>
                                     <li><a href="<?php echo base_url('/preferences/region') ?>"> <span>&nbsp;</span> <i
-                                                    class="fa fa-circle"></i> <b>Худудлар</b></a></li>
+                                                    class="fa fa-circle"></i> <b>Ҳудудлар</b></a></li>
                                     <li><a href="<?php echo base_url('/preferences/otm') ?>"> <span>&nbsp;</span> <i
                                                     class="fa fa-circle"></i><b>ОТМ лар</b> </a></li>
                                     <li><a href="<?php echo base_url('/preferences/banks') ?>"> <span>&nbsp;</span> <i

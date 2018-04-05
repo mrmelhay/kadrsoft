@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="form-group has-success lable-padd">
-                        <label for="" class="col-md-3">Оилавий ахволи</label>
+                        <label for="" class="col-md-3">Оилавий аҳволи</label>
                         <div class="col-md-6">
                             <select name="oila_id" id="oila_id" class="form-control">
                                 <option value="">Танланг...</option>
